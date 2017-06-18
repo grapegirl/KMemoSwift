@@ -511,6 +511,7 @@
 				00004A901EF41D8D0074DCFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00004A911EF41D8D0074DCFB /* Build configuration list for PBXNativeTarget "kbucketTests" */ = {
 			isa = XCConfigurationList;
@@ -519,6 +520,7 @@
 				00004A931EF41D8D0074DCFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		00004A941EF41D8D0074DCFB /* Build configuration list for PBXNativeTarget "kbucketUITests" */ = {
 			isa = XCConfigurationList;
@@ -527,6 +529,7 @@
 				00004A961EF41D8D0074DCFB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
