@@ -138,6 +138,24 @@
             </objects>
             <point key="canvasLocation" x="-871.5" y="138.5"/>
         </scene>
+        <!--Write View Ctrl-->
+        <scene sceneID="93d-Ep-dPk">
+            <objects>
+                <viewController storyboardIdentifier="WriteViewCtrl" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ait-vZ-ruu" customClass="WriteViewCtrl" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="BWL-2u-fuA"/>
+                        <viewControllerLayoutGuide type="bottom" id="1d2-uk-wKK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hPE-ts-Cfc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="15g-PU-evs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-384" y="139"/>
+        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

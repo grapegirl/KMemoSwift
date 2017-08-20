@@ -15,7 +15,8 @@
 		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
 		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
-		0074C4361F3F425700BB7CB0 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C4351F3F425700BB7CB0 /* File.swift */; };
+		0074C4381F499D5B00BB7CB0 /* KLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C4371F499D5B00BB7CB0 /* KLog.swift */; };
+		0074C43A1F499EC400BB7CB0 /* WriteViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C4391F499EC400BB7CB0 /* WriteViewCtlr.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,7 +51,8 @@
 		00004A891EF41D8D0074DCFB /* kbucketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketUITests.swift; sourceTree = "<group>"; };
 		00004A8B1EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
-		0074C4351F3F425700BB7CB0 /* File.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = File.swift; path = Utils/File.swift; sourceTree = "<group>"; };
+		0074C4371F499D5B00BB7CB0 /* KLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KLog.swift; path = Utils/KLog.swift; sourceTree = "<group>"; };
+		0074C4391F499EC400BB7CB0 /* WriteViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteViewCtlr.swift; path = View/ViewController/WriteViewCtlr.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,9 +108,10 @@
 				00004A6D1EF41D8D0074DCFB /* Main.storyboard */,
 				00004A701EF41D8D0074DCFB /* Assets.xcassets */,
 				002478351EFD4D210039B8E4 /* anim2.png */,
+				0074C4371F499D5B00BB7CB0 /* KLog.swift */,
 				00004A721EF41D8D0074DCFB /* LaunchScreen.storyboard */,
 				00004A751EF41D8D0074DCFB /* Info.plist */,
-				0074C4351F3F425700BB7CB0 /* File.swift */,
+				0074C4391F499EC400BB7CB0 /* WriteViewCtlr.swift */,
 			);
 			path = kbucket;
 			sourceTree = "<group>";
@@ -267,7 +270,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				00004A6C1EF41D8D0074DCFB /* ViewController.swift in Sources */,
-				0074C4361F3F425700BB7CB0 /* File.swift in Sources */,
+				0074C43A1F499EC400BB7CB0 /* WriteViewCtlr.swift in Sources */,
+				0074C4381F499D5B00BB7CB0 /* KLog.swift in Sources */,
 				00004A6A1EF41D8D0074DCFB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

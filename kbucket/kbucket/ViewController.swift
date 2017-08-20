@@ -25,6 +25,22 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: "ViewController", msg: "viewDidLoad");
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         KLog.d(tag: "ViewController", msg: "viewWillAppear");
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+      KLog.d(tag: "ViewController", msg: "viewDidAppear");
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        KLog.d(tag: "ViewController", msg: "viewWillDisappear");
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+         KLog.d(tag: "ViewController", msg: "viewDidDisappear");
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -35,6 +51,9 @@ class ViewController: UIViewController {
     
     @IBAction func onClickWrite(_ sender: Any) {
         KLog.d(tag: "ViewController", msg: "onClickWrite");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteViewCtrl")
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
     }
     
     @IBAction func onClickComplete(_ sender: Any) {
