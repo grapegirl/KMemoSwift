@@ -35,6 +35,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         let cell = mTableView.dequeueReusableCell(withIdentifier: "FirstCustomCell", for: indexPath) as! FirstCustomCell
         
         cell.btEdt.text = titles[indexPath.row]
+        cell.selectionStyle = .none
         
         return cell
     }
