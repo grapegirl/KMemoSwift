@@ -11,6 +11,9 @@ import UIKit
 
 class FirstCustomCell : UITableViewCell {
     
+    @IBOutlet weak var btDel: UIButton!
+    @IBOutlet weak var btMod: UIButton!
+    @IBOutlet weak var btEdt: UITextField!
     
 }
 
