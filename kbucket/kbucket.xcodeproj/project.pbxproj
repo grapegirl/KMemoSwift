@@ -17,6 +17,7 @@
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
 		0074C4381F499D5B00BB7CB0 /* KLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C4371F499D5B00BB7CB0 /* KLog.swift */; };
 		0074C43A1F499EC400BB7CB0 /* WriteViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C4391F499EC400BB7CB0 /* WriteViewCtlr.swift */; };
+		0074C43C1F510A1700BB7CB0 /* FirstCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
 		0074C4371F499D5B00BB7CB0 /* KLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KLog.swift; path = Utils/KLog.swift; sourceTree = "<group>"; };
 		0074C4391F499EC400BB7CB0 /* WriteViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteViewCtlr.swift; path = View/ViewController/WriteViewCtlr.swift; sourceTree = "<group>"; };
+		0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstCustomCell.swift; path = View/Bean/FirstCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				00004A691EF41D8D0074DCFB /* AppDelegate.swift */,
 				00004A6B1EF41D8D0074DCFB /* ViewController.swift */,
+				0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */,
 				00004A6D1EF41D8D0074DCFB /* Main.storyboard */,
 				00004A701EF41D8D0074DCFB /* Assets.xcassets */,
 				002478351EFD4D210039B8E4 /* anim2.png */,
@@ -271,6 +274,7 @@
 			files = (
 				00004A6C1EF41D8D0074DCFB /* ViewController.swift in Sources */,
 				0074C43A1F499EC400BB7CB0 /* WriteViewCtlr.swift in Sources */,
+				0074C43C1F510A1700BB7CB0 /* FirstCustomCell.swift in Sources */,
 				0074C4381F499D5B00BB7CB0 /* KLog.swift in Sources */,
 				00004A6A1EF41D8D0074DCFB /* AppDelegate.swift in Sources */,
 			);

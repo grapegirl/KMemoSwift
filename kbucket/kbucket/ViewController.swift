@@ -49,15 +49,19 @@ class ViewController: UIViewController {
         
     }
     
-    @IBAction func onClickWrite(_ sender: Any) {
-        KLog.d(tag: "ViewController", msg: "onClickWrite");
+    
+    @IBAction func onClickWriteBucket(_ sender: Any) {
+        KLog.d(tag: "ViewController", msg: "onClickWriteBucket");
         let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteViewCtrl")
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
         present(uvc!, animated: true, completion: nil)
+        
     }
+
     
     @IBAction func onClickComplete(_ sender: Any) {
         KLog.d(tag: "ViewController", msg: "onClickComplete");
+       
     }
     
     @IBAction func onClickShare(_ sender: Any) {
@@ -80,7 +84,6 @@ class ViewController: UIViewController {
         KLog.d(tag: "ViewController", msg: "onClickNotice");
 
     }
-    
     
     
     func showToast(message : String) {
