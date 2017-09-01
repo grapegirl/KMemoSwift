@@ -121,6 +121,11 @@ class MobileUser : UITableViewCell {
             mGcmToken = token
         }
     }
+    
+    var description : String {
+        return "Os=\(Os),UserNickName=\(mUserNickName),VersionName=\(mVersionName),Market=\(mMarket),Language=\(mLanguage),Country=\(mCountry)" +
+        "LastDt=\(mLastDt),CreateDt=\(mCreateDt),GcmToken=\(mGcmToken)";
+    }
 
     /**
      * 생성자
@@ -137,42 +142,6 @@ class MobileUser : UITableViewCell {
     deinit {
 
     }  
-    
-
-   
-
-    // @Override
-    // public String toString() {
-    //     StringBuilder sb = new StringBuilder();
-    //     sb.append("Os=");
-    //     sb.append(mOs);
-    //     sb.append(",");
-    //     sb.append("UserNickName=");
-    //     sb.append(mUserNickName);
-    //     sb.append(",");
-    //     sb.append("VersionName=");
-    //     sb.append(mVersionName);
-    //     sb.append(",");
-    //     sb.append("Market=");
-    //     sb.append(mMarket);
-    //     sb.append(",");
-    //     sb.append("Language=");
-    //     sb.append(mLanguage);
-    //     sb.append(",");
-    //     sb.append("Country=");
-    //     sb.append(mCountry);
-    //     sb.append(",");
-    //     sb.append("LastDt=");
-    //     sb.append(mLastDt);
-    //     sb.append(",");
-    //     sb.append("CreateDt=");
-    //     sb.append(mCreateDt);
-    //     sb.append(",");
-    //     sb.append("GcmToken=");
-    //     sb.append(mGcmToken);
-    //     return sb.toString();
-    // }
-
     
 }
 

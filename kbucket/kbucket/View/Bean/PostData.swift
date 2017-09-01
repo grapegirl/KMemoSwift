@@ -136,12 +136,8 @@ class PostData  {
 
     }
 
-
-//     @Override
-//     public String toString() {
-    // [NSString stringWithFormat:객체]
-//         String data = "contents =" + m_contents + ",date =  " + m_date + ", complete_yn = " + mCompleteYN + ",image_path = " + mImageName;
-//         return data;
-//     }
+    var description : String {
+        return "contents=\(m_contents),date=\(m_date),complete_yn=\(mCompleteYN),image_path=\(mImageName)"
+    }
 }
 
