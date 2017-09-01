@@ -8,14 +8,14 @@
 
 import UIKit
 
-
-
 class MainViewCtlr: UIViewController {
+
+    private let TAG : String = "MainViewCtlr"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "MainViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // private final String TAG = this.getClass().getSimpleName();

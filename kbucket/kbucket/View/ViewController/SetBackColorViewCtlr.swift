@@ -10,10 +10,12 @@ import UIKit
 
 class SetBackColorViewCtlr: UIViewController {
 
+    private let TAG : String = "SetBackColorViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "SetBackColorViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // private final String TAG = this.getClass().getSimpleName();

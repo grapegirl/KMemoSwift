@@ -11,10 +11,12 @@ import UIKit
 
 class ShareListViewCtlr: UIViewController {
 
+    private let TAG : String = "ShareListViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "ShareListViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // private final String TAG = this.getClass().getSimpleName();

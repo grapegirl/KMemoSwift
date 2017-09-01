@@ -11,6 +11,8 @@ import Foundation
 
 class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSource {
     
+    private let TAG : String = "WriteViewCtrl"
+
     let titles = ["Test1","Test2","Test3", "Test4", "Test5"]
         
     @IBOutlet weak var mTableView: UITableView!
@@ -18,7 +20,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "WriteViewCtrl", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     
         mTableView.delegate = self
         mTableView.dataSource = self

@@ -11,8 +11,7 @@ import UIKit
 
 class WriteDetailViewCtlr: UIViewController {
 
-    // private final String TAG = this.getClass().getSimpleName();
-
+    private let TAG : String = "WriteDetailViewCtlr"
     // private SQLQuery mSqlQuery = null;
 
     // private String mContents = null;
@@ -48,7 +47,7 @@ class WriteDetailViewCtlr: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "WriteDetailViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // @Override

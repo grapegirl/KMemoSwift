@@ -11,10 +11,12 @@ import UIKit
 
 class PDFViewerViewCtlr: UIViewController {
 
+     private let TAG : String = "PDFViewerViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "PDFViewerViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
 

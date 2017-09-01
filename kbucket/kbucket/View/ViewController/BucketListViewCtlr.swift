@@ -11,10 +11,12 @@ import UIKit
 
 class BucketListViewCtlr: UIViewController {
 
+    private let TAG : String = "BucketListViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "BucketListViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
     
 

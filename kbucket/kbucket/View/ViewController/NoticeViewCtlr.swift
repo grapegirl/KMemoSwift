@@ -11,10 +11,12 @@ import UIKit
 
 class NoticeViewCtlr: UIViewController {
 
+   private let TAG : String = "NoticeViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "NoticeViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // private final String TAG = this.getClass().getSimpleName();

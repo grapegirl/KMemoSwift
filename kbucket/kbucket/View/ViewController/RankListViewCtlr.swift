@@ -10,10 +10,12 @@ import UIKit
 
 class RankListViewCtlr: UIViewController {
 
+    private let TAG : String = "RankListViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "RankListViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // private final String TAG = this.getClass().getSimpleName();

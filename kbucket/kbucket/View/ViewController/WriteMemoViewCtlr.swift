@@ -10,6 +10,8 @@ import UIKit
 
 class WriteMemoViewCtlr : UIViewController {
 
+    private let TAG : String = "WriteMemoViewCtlr"
+
    @IBOutlet weak var btModify: UIButton!
    @IBOutlet weak var etContent: UIButton!
 
@@ -19,7 +21,7 @@ class WriteMemoViewCtlr : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "WriteMemoViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
 
         // Intent intent = getIntent();
         // Bundle extras = intent.getExtras();

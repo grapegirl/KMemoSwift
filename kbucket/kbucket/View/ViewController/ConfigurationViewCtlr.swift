@@ -11,10 +11,12 @@ import UIKit
 
 class ConfigurationViewCtlr: UIViewController {
 
+    private let TAG : String = "ConfigurationViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "ConfigurationViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
     
 

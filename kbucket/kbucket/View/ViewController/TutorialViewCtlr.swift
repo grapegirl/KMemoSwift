@@ -11,11 +11,12 @@ import UIKit
 
 class TutorialViewCtlr: UIViewController {
 
+    private let TAG : String = "TutorialViewCtlr"
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "TutorialViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
     
 //     /**

@@ -10,10 +10,12 @@ import UIKit
 
 class IntroViewCtlr: UIViewController {
 
+    private let TAG : String = "IntroViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "IntroViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // private final String TAG = this.getClass().getSimpleName();

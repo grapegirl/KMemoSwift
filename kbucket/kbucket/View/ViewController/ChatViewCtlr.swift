@@ -11,10 +11,12 @@ import UIKit
 
 class ChatViewCtlr: UIViewController {
 
+    private let TAG : String = "ChatViewCtlr"
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "ChatViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // private final String TAG = this.getClass().getSimpleName();

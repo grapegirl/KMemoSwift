@@ -10,11 +10,12 @@ import UIKit
 
 class PushPopupViewCtlr: UIViewController {
 
+    private let TAG : String = "PushPopupViewCtlr"
  
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: "PushPopupViewCtlr", msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
     // @Override
