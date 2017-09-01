@@ -9,41 +9,52 @@
 import Foundation
 import UIKit
 
-class Category : UITableViewCell {
+class Category  {
     
-//    /** 카테고리 코드 */
-// 	private int mCategoryCode;
-// 	/** 카테고리명 */
-// 	private String mCategoryName;
+   /** 카테고리 코드 */
+	private var mCategoryCode : Int {
+        get {
+            return mCategoryCode
+        }
+        set(categoryCode) {
+            mCategoryCode = categoryCode
+        }
+    }
+	/** 카테고리명 */
+	private var mCategoryName : String {
+        get {
+            return mCategoryName
+        }
+        set(categoryName) {
+            mCategoryName = categoryName
+        }
+    }
 
-// 	/** 생성자 */
-// 	public Category() {
-// 	}
+	public Category(String name, int code) {
+		mCategoryName= name;
+		mCategoryCode = code;
+	}
 
-// 	public Category(String name, int code) {
-// 		mCategoryName= name;
-// 		mCategoryCode = code;
-// 	}
 
-// 	/** 카테고리 설정 메소드 */
-// 	public void setCategoryCode(int categoryCode) {
-// 		mCategoryCode = categoryCode;
-// 	}
+    /**
+     * 생성자
+     */
+    init() {
 
-// 	/** 카테고리명 설정 메소드 */
-// 	public void setCategoryName(String categoryName) {
-// 		mCategoryName = categoryName;
-// 	}
+    }
 
-// 	/** 카테고리 반환 메소드 */
-// 	public int getCategoryCode() {
-// 		return mCategoryCode;
-// 	}
+    init(name : String, code : Int){
+        self.mCategoryName = name
+		self.mCategoryCode = code
+    }
 
-// 	/** 카테고리명 반환 메소드 */
-// 	public String getCategoryName() {
-// 		return mCategoryName;
-// 	}
+    /**
+     * 소멸자
+     */
+    deinit {
+
+    }  
+    
     
 }
 

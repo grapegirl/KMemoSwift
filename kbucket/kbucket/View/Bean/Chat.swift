@@ -9,113 +9,94 @@
 import Foundation
 import UIKit
 
-class Chat : UITableViewCell {
+class Chat  {
     
-//    /** 내용 */
-// 	private String mContent;
-// 	/** 날짜 */
-// 	private String mDate;
-// 	/** 방번호 */
-// 	private String mIdx;
-// 	/** 닉네임 */
-// 	private String mNickName = "";
-// 	/** 사용자 전화번호 */
-// 	private String mPhone = "";
-// 	/** 이미지 저장경로 */
-// 	private String mImageURl;
-// 	/** 숨긴 여부 */
-// 	private String mIsHidden;
-// 	/** seq */
-// 	private int mSeq;
+   /** 내용 */
+	private var mContent :  String {
+        get {
+            return mContent
+        }
+        set(content) {
+            mContent = content
+        }
+    }
+	/** 날짜 */
+	private var mDate :  String {
+        get {
+            return mDate
+        }
+        set(date) {
+            mDate = date
+        }
+    }
+	/** 방번호 */
+	private var mIdx :  String {
+        get {
+            return mIdx
+        }
+        set( idx) {
+            mIdx =  idx
+        }
+    }
+	/** 닉네임 */
+	private var mNickName :  String {
+        get {
+            return mNickName
+        }
+        set( NickName) {
+            mNickName =  NickName
+        }
+    }
+	/** 사용자 전화번호 */
+	private var mPhone :  String {
+        get {
+            return mPhone
+        }
+        set(Phone) {
+            mPhone = Phone
+        }
+    }
+	/** 이미지 저장경로 */
+	private var mImageURl :  String {
+        get {
+            return mImageURl
+        }
+        set(imageUrl) {
+            mImageURl = imageUrl
+        }
+    }
+	/** 숨긴 여부 */
+	private var mIsHidden :  String {
+        get {
+            return mIsHidden
+        }
+        set(hidden) {
+            mIsHidden = hidden
+        }
+    }
+	/** seq */
+	private var mSeq : Int {
+        get {
+            return mSeq
+        }
+        set(seq) {
+            mSeq = seq
+        }
+    }
 
-	
-// 	/** 생성자 */
-// 	public Chat() {
+	/**
+     * 생성자
+     */
+    init() {
 
-// 	}
+    }
 
-// 	/** 내용 설정 메소드 */
-// 	public void setContent(String content) {
-// 		mContent = content;
-// 	}
+    /**
+     * 소멸자
+     */
+    deinit {
 
-// 	/** 날짜 설정 메소드 */
-// 	public void setDate(String date) {
-// 		mDate = date;
-// 	}
-
-// 	/** 번호 설정 메소드 */
-// 	public void setIdx(String idx) {
-// 		mIdx = idx;
-// 	}
-
-// 	/** 닉네임 설정 메소드 */
-// 	public void setNickName(String NickName) {
-// 		mNickName = NickName;
-// 	}
-
-// 	/** 전화번호 설정 메소드 */
-// 	public void setPhone(String Phone) {
-// 		mPhone = Phone;
-// 	}
-
-// 	/** 이미지 경로 설정 메소드 */
-// 	public void setImageUrl(String imageUrl) {
-// 		mImageURl = imageUrl;
-// 	}
-
-// 	/** 숨긴여부 설정 메소드 */
-// 	public void setHidden(String hidden) {
-// 		mIsHidden = hidden;
-// 	}
-
-// 	/** seq 설정 메소드 */
-// 	public void setSeq(int seq) {
-// 		mSeq = seq;
-// 	}
-	
-// 	/** 내용 반환 메소드 */
-// 	public String getContent() {
-// 		return mContent;
-// 	}
-
-// 	/** 날짜 반환 메소드 */
-// 	public String getDate() {
-// 		return mDate;
-// 	}
-
-// 	/** 번호 반환 메소드 */
-// 	public String getIdx() {
-// 		return mIdx;
-// 	}
-
-// 	/** 닉네임 반환 메소드 */
-// 	public String getNickName() {
-// 		return mNickName;
-// 	}
-
-// 	/** 전화번호 반환 메소드 */
-// 	public String getPhone() {
-// 		return mPhone;
-// 	}
-
-// 	/** 이미지 경로 반환 메소드 */
-// 	public String getImageUrl() {
-// 		return mImageURl;
-// 	}
-
-// 	/** 숨긴여부 반환 메소드 */
-// 	public String getIsHidden() {
-// 		if (mIsHidden == null)
-// 			return "-";
-// 		else
-// 			return mIsHidden;
-// 	}
-	
-// 	/** seq 반환 메소드 */
-// 	public int getSeq() {
-// 		return mSeq;
-// 	}
+    }
     
 }
 

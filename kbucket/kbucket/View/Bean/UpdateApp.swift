@@ -9,37 +9,40 @@
 import Foundation
 import UIKit
 
-class UpdateApp : UITableViewCell {
+class UpdateApp {
     
-	// /** 타이틀 */
-	// private int mVersionCode;
-	// /** 내용 */
-	// private String mContent;
+	/** 타이틀 */
+	private var mVersionCode : Int {
+		get {
+            return mVersionCode
+        }
+        set(versionCode) {
+            mVersionCode = versionCode
+        }
+	}
+	/** 내용 */
+	private var mContent : String {
+		get {
+            return mContent
+        }
+        set(content) {
+            mContent = content
+        }
+	}
 
-	// /** 생성자 */
-	// public UpdateApp() {
+	/**
+     * 생성자
+     */
+    init() {
 
-	// }
+    }
 
-	// /** 버전 설정 메소드 */
-	// public void setVersionCode(int versionCode) {
-	// 	mVersionCode = versionCode;
-	// }
+    /**
+     * 소멸자
+     */
+    deinit {
 
-	// /** 내용 설정 메소드 */
-	// public void setContent(String content) {
-	// 	mContent = content;
-	// }
-
-	// /** 버전 반환 메소드 */
-	// public int getVersionCode() {
-	// 	return mVersionCode;
-	// }
-
-	// /** 내용 반환 메소드 */
-	// public String getContent() {
-	// 	return mContent;
-	// }
-    
+    }  
+	
 }
 
