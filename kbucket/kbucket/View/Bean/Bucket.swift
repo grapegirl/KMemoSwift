@@ -30,8 +30,8 @@ class Bucket  {
         get {
             return mContent
         }
-        set(content) ) {
-            mContent = content) 
+        set(content ) {
+            mContent = content
         }
     }
 

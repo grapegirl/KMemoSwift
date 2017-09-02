@@ -105,15 +105,15 @@ class PostData  {
     /**
      * 생성자
      */
-    init(String contents) {
-        self.m_title = nil
-        self.m_date = nil
+    init(contents : String) {
+        self.m_title = ""
+        self.m_date = ""
         self.m_contents = contents
         self.mNo = 0
     }
 
-    init(String contents, String date) {
-        self.m_title = nil
+    init(contents : String, date : String) {
+        self.m_title = ""
         self.m_date = date
         self.m_contents = contents
         self.mNo = 0
@@ -122,11 +122,11 @@ class PostData  {
     /**
      * 생성자
      */
-    init(String title, String contents, String date, int no) {
+    init(title : String, contents : String,  date : String, no : Int) {
         self.m_title = title
         self.m_date = date
         self.m_contents = contents
-        self.mNo = = no
+        self.mNo =  no
     }
 
     /**

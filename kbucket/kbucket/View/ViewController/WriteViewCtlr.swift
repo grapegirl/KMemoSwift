@@ -9,13 +9,17 @@
 import UIKit
 import Foundation
 
+
 class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSource {
     
     private let TAG : String = "WriteViewCtrl"
 
-    let titles = ["Test1","Test2","Test3", "Test4", "Test5"]
-        
+    private var mBucketDataList = Array<PostData>()
+    private var mDataList = Array<String>()
+    
     @IBOutlet weak var mTableView: UITableView!
+    @IBOutlet weak var btBack: UIButton!
+    @IBOutlet weak var etEdit: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +28,22 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     
         mTableView.delegate = self
         mTableView.dataSource = self
+        
+        initialize()
     }
 
+    func initialize()
+    {
+        mDataList.append("Test1")
+        mDataList.append("Test2")
+        mDataList.append("Test3")
+        mDataList.append("Test4")
+        mDataList.append("Test5")
+        
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return titles.count
+        return mDataList.count
     }
     
     
@@ -36,7 +51,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         
         let cell = mTableView.dequeueReusableCell(withIdentifier: "FirstCustomCell", for: indexPath) as! FirstCustomCell
         
-        cell.btEdt.text = titles[indexPath.row]
+        cell.btEdt.text = mDataList[indexPath.row]
         cell.selectionStyle = .none
         
         return cell
@@ -45,12 +60,66 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     func tableView(tableview: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableview.deselectRow(at: indexPath as IndexPath, animated: true)
         let row = indexPath.row
-        print(titles[row])
+        print(mDataList[row])
     }
     
 
+    @IBAction func onBackPressed(_ sender: Any) {
+        KLog.d(tag: TAG, msg: "onBackPressed");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewCtrl")
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
 
-    // private final String TAG = this.getClass().getSimpleName();
+    @IBAction func onClick(_ sender: Any) {
+          KLog.d(tag: TAG, msg: "onClick");
+        
+        let strText : String = etEdit.text!
+        
+        //중복 체크하기
+        if(checkduplicateData(checkString : strText)){
+            //Toast.showPositiveMessage(message: "중복된 내용이 있습니다")
+            showToast(message : "중복된 내용이 있습니다")
+        }else{
+            mDataList.append(strText)
+        }
+        let strCont = String(mDataList.count)
+        KLog.d(tag: TAG, msg: "onClick mDataList : " + strCont);
+        
+        self.mTableView.reloadData()
+        
+        etEdit.text = ""
+        
+        
+       
+    }
+    
+    func showToast(message : String) {
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2-100, y: self.view.frame.size.height-100, width: 200, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.textAlignment = .center;
+        toastLabel.font = UIFont(name: "Montserrat-Light", size: 12.0)
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    }
+    
+    
+    func checkduplicateData(checkString : String) -> Bool
+    {
+        if mDataList.contains(checkString){
+            return true;
+        }
+        return false;
+    }
     // private Button mButton;
     // private Button mMemoSortButton;
     // private Button mDateSortButton;
@@ -60,8 +129,6 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     //  */
     // private ArrayList<PostData> mBucketDataList = null;
     // private ArrayList<String> mDataList = null;
-    // private ListAdpater mListAdapter = null;
-    // private ListView mListView = null;
 
     // private SQLQuery mSqlQuery = null;
 
@@ -101,25 +168,10 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     //     }
     // }
 
-    // @Override
-    // public void finish() {
-    //     super.finish();
-    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    // }
 
     // @Override
     // public void onClick(View v) {
     //     switch (v.getId()) {
-    //         case R.id.write_layout_addBtn:
-    //             String editText = ((EditText) findViewById(R.id.write_layout_titleView)).getText().toString();
-    //             if (checkduplicateData(editText)) {
-    //                 String message = getString(R.string.check_input_bucket_string);
-    //                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-    //             } else {
-    //                 addDBData(editText);
-    //             }
-    //             ((EditText) findViewById(R.id.write_layout_titleView)).setText("");
-    //             break;
     //         // 삭제 버튼
     //         case R.id.bucket_list_deleteBtn:
     //             int index = Integer.valueOf((String) v.getTag());

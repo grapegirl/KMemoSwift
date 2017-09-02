@@ -30,11 +30,6 @@ class Category  {
         }
     }
 
-	public Category(String name, int code) {
-		mCategoryName= name;
-		mCategoryCode = code;
-	}
-
 
     /**
      * 생성자

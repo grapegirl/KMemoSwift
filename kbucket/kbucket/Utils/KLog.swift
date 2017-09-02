@@ -26,6 +26,5 @@ class KLog : NSObject{
             print(tag, " @@ "  + msg);
         }
     }
-    
 
 }

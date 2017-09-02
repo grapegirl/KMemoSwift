@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MobileUser : UITableViewCell {
+class MobileUser {
     
    /**
      * 모바일 OS
@@ -123,19 +123,19 @@ class MobileUser : UITableViewCell {
     }
     
     var description : String {
-        return "Os=\(Os),UserNickName=\(mUserNickName),VersionName=\(mVersionName),Market=\(mMarket),Language=\(mLanguage),Country=\(mCountry)" +
-        "LastDt=\(mLastDt),CreateDt=\(mCreateDt),GcmToken=\(mGcmToken)";
+        return "Os=\(mOs),UserNickName=\(mUserNickName),VersionName=\(mVersionName),Market=\(mMarket),Language=\(mLanguage),Country=\(mCountry)LastDt=\(mLastDt),CreateDt=\(mCreateDt),GcmToken=\(mGcmToken)";
     }
 
     /**
      * 생성자
      */
     init() {
-        self.mOs = "ANDROID";
-        self.mMarket="GOOGLE";
-        self.mGcmToken="N";
+        self.mOs = "ANDROID"
+        self.mMarket = "GOOGLE"
+        self.mGcmToken = "N"
     }
-
+    
+    
     /**
      * 소멸자
      */
