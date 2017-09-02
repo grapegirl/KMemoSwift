@@ -15,6 +15,7 @@
 		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
 		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
+		0044A95F1F5A642D00F8F69C /* ContextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044A95E1F5A642D00F8F69C /* ContextUtils.swift */; };
 		0059940E1F5A3F21007777A1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059940D1F5A3F21007777A1 /* PostData.swift */; };
 		005994191F5A4532007777A1 /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994111F5A4532007777A1 /* Bucket.swift */; };
 		0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994121F5A4532007777A1 /* BucketRank.swift */; };
@@ -81,6 +82,7 @@
 		00004A891EF41D8D0074DCFB /* kbucketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketUITests.swift; sourceTree = "<group>"; };
 		00004A8B1EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
+		0044A95E1F5A642D00F8F69C /* ContextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextUtils.swift; sourceTree = "<group>"; };
 		0059940D1F5A3F21007777A1 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = View/Bean/PostData.swift; sourceTree = "<group>"; };
 		005994111F5A4532007777A1 /* Bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bucket.swift; path = View/Bean/Bucket.swift; sourceTree = "<group>"; };
 		005994121F5A4532007777A1 /* BucketRank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BucketRank.swift; path = View/Bean/BucketRank.swift; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 			children = (
 				0074C4371F499D5B00BB7CB0 /* KLog.swift */,
 				0059944B1F5A4ADC007777A1 /* Toast.swift */,
+				0044A95E1F5A642D00F8F69C /* ContextUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				0059944C1F5A4ADC007777A1 /* Toast.swift in Sources */,
 				0059941F1F5A4532007777A1 /* UpdateApp.swift in Sources */,
 				0059941B1F5A4532007777A1 /* Category.swift in Sources */,
+				0044A95F1F5A642D00F8F69C /* ContextUtils.swift in Sources */,
 				0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */,
 				005994401F5A4579007777A1 /* QuestionViewCtlr.swift in Sources */,
 				005994191F5A4532007777A1 /* Bucket.swift in Sources */,
