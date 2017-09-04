@@ -2,7 +2,7 @@
 /***
  * @author grapegirl
  * @version 1.1
- * @Class Name : KLog.java
+ * @Class Name : KLog.swift
  * @Description : Log 클래스
  * @since 2017.08.20
  */
