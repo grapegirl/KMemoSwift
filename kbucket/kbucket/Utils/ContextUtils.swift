@@ -6,11 +6,10 @@
  * @Description : ContextUtils 클래스
  * @since 2017.09.04
  */
-import Foundation
 
-class ContextUtils : NSObject{
+class ContextUtils{
     
-    override init() {
+    init() {
        
     }
     
