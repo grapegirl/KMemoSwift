@@ -7,7 +7,7 @@
  * @since 2017.09.04
  */
 
-import ContextUtils
+
 import Foundation
 
 class DataUtils {
@@ -23,7 +23,7 @@ class DataUtils {
      */
     public static func createFile() -> Bool {
         let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
-        let documentsDirectory: AnyObject = paths[0]
+        let documentsDirectory: AnyObject = paths[0] as AnyObject
         let dataPath = documentsDirectory.appendingPathComponent(ContextUtils.KEY_FILE_FOLDER)!
 
         do {
@@ -42,9 +42,9 @@ class DataUtils {
      * @return 파일 삭제 여부
      */
      public static func deleteFile(fileName : String) -> Bool {
-        let fileManager = NSFileManager.defaultManager()
+        let fileManager = FileManager.default
         do {
-            try fileManager.removeItemAtPath(fileName)
+            try fileManager.removeItem(atPath: fileName)
         }
         catch let error as NSError {
             print("Ooops! Something went wrong: \(error)")

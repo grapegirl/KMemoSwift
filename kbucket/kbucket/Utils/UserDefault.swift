@@ -15,14 +15,14 @@ class UserDefault : NSObject{
     }
     
    public static func write(key:String, value:String){
-        var userDefaults = NSUserDefaults.standardUserDefaults()
+        let userDefaults = UserDefaults.standard
         userDefaults.setValue(value, forKey: key)
         userDefaults.synchronize()
     }
 
     public static func read(key:String) -> String {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        if let value = userDefaults.valueForKey(key) as? String {
+        let userDefaults = UserDefaults.standard
+        if let value = userDefaults.value(forKey: key) as? String {
             return value
         } else {
             return ""
@@ -30,7 +30,7 @@ class UserDefault : NSObject{
     }
 
     public static func delete(key:String) {
-        let userDefaults = NSUserDefaults.standardUserDefaults()
-        userDefaults.removeObjectForKey(key)
+        let userDefaults = UserDefaults.standard
+        userDefaults.removeObject(forKey: key)
     }
 }

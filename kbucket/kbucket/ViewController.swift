@@ -24,6 +24,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: "ViewController", msg: "viewDidLoad");
+       
+        var temp = DateUtils.getStringDateFormat(pattern : "yyyy-MM-dd")
+        KLog.d(tag: "ViewController", msg: temp)
+        temp = DateUtils.getCurrentTimeHHMMSSMS()
+        KLog.d(tag: "ViewController", msg: temp)
+        temp = DateUtils.convertTime()
+        KLog.d(tag: "ViewController", msg: temp)
     }
     
     override func viewWillAppear(_ animated: Bool) {

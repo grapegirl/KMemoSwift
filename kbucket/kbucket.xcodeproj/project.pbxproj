@@ -15,7 +15,6 @@
 		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
 		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
-		0044A95F1F5A642D00F8F69C /* ContextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0044A95E1F5A642D00F8F69C /* ContextUtils.swift */; };
 		0059940E1F5A3F21007777A1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059940D1F5A3F21007777A1 /* PostData.swift */; };
 		005994191F5A4532007777A1 /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994111F5A4532007777A1 /* Bucket.swift */; };
 		0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994121F5A4532007777A1 /* BucketRank.swift */; };
@@ -46,8 +45,20 @@
 		005994481F5A4579007777A1 /* WriteMemoViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994341F5A4579007777A1 /* WriteMemoViewCtlr.swift */; };
 		005994491F5A4579007777A1 /* WriteViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994351F5A4579007777A1 /* WriteViewCtlr.swift */; };
 		0059944C1F5A4ADC007777A1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059944B1F5A4ADC007777A1 /* Toast.swift */; };
-		0074C4381F499D5B00BB7CB0 /* KLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C4371F499D5B00BB7CB0 /* KLog.swift */; };
 		0074C43C1F510A1700BB7CB0 /* FirstCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */; };
+		00A6A9521F60179900F65A1E /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9451F60179900F65A1E /* AppUtils.swift */; };
+		00A6A9531F60179900F65A1E /* ByteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9461F60179900F65A1E /* ByteUtils.swift */; };
+		00A6A9541F60179900F65A1E /* ContextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9471F60179900F65A1E /* ContextUtils.swift */; };
+		00A6A9551F60179900F65A1E /* DataUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9481F60179900F65A1E /* DataUtils.swift */; };
+		00A6A9561F60179900F65A1E /* DateUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9491F60179900F65A1E /* DateUtils.swift */; };
+		00A6A9571F60179900F65A1E /* ErrorLogUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A94A1F60179900F65A1E /* ErrorLogUtils.swift */; };
+		00A6A9581F60179900F65A1E /* KLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A94B1F60179900F65A1E /* KLog.swift */; };
+		00A6A9591F60179900F65A1E /* MediaUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A94C1F60179900F65A1E /* MediaUtils.swift */; };
+		00A6A95A1F60179900F65A1E /* MemoryUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A94D1F60179900F65A1E /* MemoryUtils.swift */; };
+		00A6A95B1F60179900F65A1E /* NetworkUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A94E1F60179900F65A1E /* NetworkUtils.swift */; };
+		00A6A95C1F60179900F65A1E /* ScreenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A94F1F60179900F65A1E /* ScreenUtils.swift */; };
+		00A6A95D1F60179900F65A1E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9501F60179900F65A1E /* StringUtils.swift */; };
+		00A6A95E1F60179900F65A1E /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9511F60179900F65A1E /* UserDefault.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,7 +93,6 @@
 		00004A891EF41D8D0074DCFB /* kbucketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketUITests.swift; sourceTree = "<group>"; };
 		00004A8B1EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
-		0044A95E1F5A642D00F8F69C /* ContextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContextUtils.swift; sourceTree = "<group>"; };
 		0059940D1F5A3F21007777A1 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = View/Bean/PostData.swift; sourceTree = "<group>"; };
 		005994111F5A4532007777A1 /* Bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bucket.swift; path = View/Bean/Bucket.swift; sourceTree = "<group>"; };
 		005994121F5A4532007777A1 /* BucketRank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BucketRank.swift; path = View/Bean/BucketRank.swift; sourceTree = "<group>"; };
@@ -113,8 +123,20 @@
 		005994341F5A4579007777A1 /* WriteMemoViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteMemoViewCtlr.swift; path = View/ViewController/WriteMemoViewCtlr.swift; sourceTree = "<group>"; };
 		005994351F5A4579007777A1 /* WriteViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteViewCtlr.swift; path = View/ViewController/WriteViewCtlr.swift; sourceTree = "<group>"; };
 		0059944B1F5A4ADC007777A1 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
-		0074C4371F499D5B00BB7CB0 /* KLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KLog.swift; path = Utils/KLog.swift; sourceTree = "<group>"; };
 		0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstCustomCell.swift; path = View/Bean/FirstCustomCell.swift; sourceTree = "<group>"; };
+		00A6A9451F60179900F65A1E /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppUtils.swift; path = Utils/AppUtils.swift; sourceTree = "<group>"; };
+		00A6A9461F60179900F65A1E /* ByteUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ByteUtils.swift; path = Utils/ByteUtils.swift; sourceTree = "<group>"; };
+		00A6A9471F60179900F65A1E /* ContextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContextUtils.swift; path = Utils/ContextUtils.swift; sourceTree = "<group>"; };
+		00A6A9481F60179900F65A1E /* DataUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DataUtils.swift; path = Utils/DataUtils.swift; sourceTree = "<group>"; };
+		00A6A9491F60179900F65A1E /* DateUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DateUtils.swift; path = Utils/DateUtils.swift; sourceTree = "<group>"; };
+		00A6A94A1F60179900F65A1E /* ErrorLogUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ErrorLogUtils.swift; path = Utils/ErrorLogUtils.swift; sourceTree = "<group>"; };
+		00A6A94B1F60179900F65A1E /* KLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = KLog.swift; path = Utils/KLog.swift; sourceTree = "<group>"; };
+		00A6A94C1F60179900F65A1E /* MediaUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MediaUtils.swift; path = Utils/MediaUtils.swift; sourceTree = "<group>"; };
+		00A6A94D1F60179900F65A1E /* MemoryUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MemoryUtils.swift; path = Utils/MemoryUtils.swift; sourceTree = "<group>"; };
+		00A6A94E1F60179900F65A1E /* NetworkUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NetworkUtils.swift; path = Utils/NetworkUtils.swift; sourceTree = "<group>"; };
+		00A6A94F1F60179900F65A1E /* ScreenUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenUtils.swift; path = Utils/ScreenUtils.swift; sourceTree = "<group>"; };
+		00A6A9501F60179900F65A1E /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = Utils/StringUtils.swift; sourceTree = "<group>"; };
+		00A6A9511F60179900F65A1E /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefault.swift; path = Utils/UserDefault.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -252,9 +274,20 @@
 		0059944A1F5A494F007777A1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				0074C4371F499D5B00BB7CB0 /* KLog.swift */,
+				00A6A9451F60179900F65A1E /* AppUtils.swift */,
+				00A6A9461F60179900F65A1E /* ByteUtils.swift */,
+				00A6A9471F60179900F65A1E /* ContextUtils.swift */,
+				00A6A9481F60179900F65A1E /* DataUtils.swift */,
+				00A6A9491F60179900F65A1E /* DateUtils.swift */,
+				00A6A94A1F60179900F65A1E /* ErrorLogUtils.swift */,
+				00A6A94B1F60179900F65A1E /* KLog.swift */,
+				00A6A94C1F60179900F65A1E /* MediaUtils.swift */,
+				00A6A94D1F60179900F65A1E /* MemoryUtils.swift */,
+				00A6A94E1F60179900F65A1E /* NetworkUtils.swift */,
+				00A6A94F1F60179900F65A1E /* ScreenUtils.swift */,
+				00A6A9501F60179900F65A1E /* StringUtils.swift */,
+				00A6A9511F60179900F65A1E /* UserDefault.swift */,
 				0059944B1F5A4ADC007777A1 /* Toast.swift */,
-				0044A95E1F5A642D00F8F69C /* ContextUtils.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -396,10 +429,12 @@
 			files = (
 				0059943D1F5A4579007777A1 /* PassWordViewCtlr.swift in Sources */,
 				005994361F5A4579007777A1 /* AddBucketViewCtlr.swift in Sources */,
+				00A6A95A1F60179900F65A1E /* MemoryUtils.swift in Sources */,
 				005994481F5A4579007777A1 /* WriteMemoViewCtlr.swift in Sources */,
 				005994471F5A4579007777A1 /* WriteDetailViewCtlr.swift in Sources */,
 				00004A6C1EF41D8D0074DCFB /* ViewController.swift in Sources */,
 				0059943B1F5A4579007777A1 /* MainViewCtlr.swift in Sources */,
+				00A6A9571F60179900F65A1E /* ErrorLogUtils.swift in Sources */,
 				005994441F5A4579007777A1 /* ShareDetailViewCtlr.swift in Sources */,
 				005994491F5A4579007777A1 /* WriteViewCtlr.swift in Sources */,
 				005994391F5A4579007777A1 /* ConfigurationViewCtlr.swift in Sources */,
@@ -409,26 +444,35 @@
 				005994201F5A4532007777A1 /* Version.swift in Sources */,
 				005994381F5A4579007777A1 /* ChatViewCtlr.swift in Sources */,
 				0059941C1F5A4532007777A1 /* Chat.swift in Sources */,
+				00A6A95C1F60179900F65A1E /* ScreenUtils.swift in Sources */,
+				00A6A9541F60179900F65A1E /* ContextUtils.swift in Sources */,
+				00A6A9591F60179900F65A1E /* MediaUtils.swift in Sources */,
 				0059943A1F5A4579007777A1 /* IntroViewCtlr.swift in Sources */,
+				00A6A9561F60179900F65A1E /* DateUtils.swift in Sources */,
 				0074C43C1F510A1700BB7CB0 /* FirstCustomCell.swift in Sources */,
+				00A6A95B1F60179900F65A1E /* NetworkUtils.swift in Sources */,
+				00A6A9581F60179900F65A1E /* KLog.swift in Sources */,
 				0059943F1F5A4579007777A1 /* PushPopupViewCtlr.swift in Sources */,
-				0074C4381F499D5B00BB7CB0 /* KLog.swift in Sources */,
+				00A6A9551F60179900F65A1E /* DataUtils.swift in Sources */,
 				0059944C1F5A4ADC007777A1 /* Toast.swift in Sources */,
 				0059941F1F5A4532007777A1 /* UpdateApp.swift in Sources */,
 				0059941B1F5A4532007777A1 /* Category.swift in Sources */,
-				0044A95F1F5A642D00F8F69C /* ContextUtils.swift in Sources */,
+				00A6A95E1F60179900F65A1E /* UserDefault.swift in Sources */,
 				0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */,
 				005994401F5A4579007777A1 /* QuestionViewCtlr.swift in Sources */,
 				005994191F5A4532007777A1 /* Bucket.swift in Sources */,
 				005994411F5A4579007777A1 /* RankListViewCtlr.swift in Sources */,
+				00A6A9521F60179900F65A1E /* AppUtils.swift in Sources */,
 				005994371F5A4579007777A1 /* BucketListViewCtlr.swift in Sources */,
 				0059941D1F5A4532007777A1 /* Comment.swift in Sources */,
 				005994451F5A4579007777A1 /* ShareListViewCtlr.swift in Sources */,
+				00A6A9531F60179900F65A1E /* ByteUtils.swift in Sources */,
 				00004A6A1EF41D8D0074DCFB /* AppDelegate.swift in Sources */,
 				0059943C1F5A4579007777A1 /* NoticeViewCtlr.swift in Sources */,
 				005994431F5A4579007777A1 /* SetNickNameViewCtlr.swift in Sources */,
 				005994421F5A4579007777A1 /* SetBackColorViewCtlr.swift in Sources */,
 				005994461F5A4579007777A1 /* TutorialViewCtlr.swift in Sources */,
+				00A6A95D1F60179900F65A1E /* StringUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
