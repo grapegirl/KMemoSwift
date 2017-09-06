@@ -15,35 +15,35 @@ class ScreenUtils{
     
     public static func ptToPx(points  : CGFloat) -> CGFloat {
         // see: http://en.wikipedia.org/wiki/Point%5Fsize#Current%5FDTP%5Fpoint%5Fsystem
-        CGFloat pointsPerInch = 72.0; 
-        CGFloat scale = 1;
+        CGFloat pointsPerInch = 72.0
+        CGFloat scale = 1
 
-        float pixelPerInch; // DPI
+        float pixelPerInch // DPI
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            pixelPerInch = 132 * scale;
+            pixelPerInch = 132 * scale
         } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            pixelPerInch = 163 * scale;
+            pixelPerInch = 163 * scale
         } else {
-            pixelPerInch = 160 * scale;
+            pixelPerInch = 160 * scale
         }
-        CGFloat px = points / (pointsPerInch * pixelPerInch);
-        return px;
+        CGFloat px = points / (pointsPerInch * pixelPerInch)
+        return px
     }
      
     public static func pxTopt(px : CGFloat) ->CGFloatInt {
         // see: http://en.wikipedia.org/wiki/Point%5Fsize#Current%5FDTP%5Fpoint%5Fsystem
-        CGFloat pointsPerInch = 72.0; 
-        CGFloat scale = 1;
-        float pixelPerInch; // DPI
+        CGFloat pointsPerInch = 72.0
+        CGFloat scale = 1
+        float pixelPerInch // DPI
         if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            pixelPerInch = 132 * scale;
+            pixelPerInch = 132 * scale
         } else if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-            pixelPerInch = 163 * scale;
+            pixelPerInch = 163 * scale
         } else {
-            pixelPerInch = 160 * scale;
+            pixelPerInch = 160 * scale
         }
-        CGFloat points = px * pointsPerInch / pixelPerInch;
-        return points;
+        CGFloat points = px * pointsPerInch / pixelPerInch
+        return points
     }
 
 
@@ -58,7 +58,7 @@ class ScreenUtils{
         var width = bounds.size.width //화면 너비
         var height = bounds.size.height //화면 높이
 
-        String displayInfo =  width  + "," + height;
-        return displayInfo;
+        String displayInfo =  width  + "," + height
+        return displayInfo
     }
 }
