@@ -6,13 +6,15 @@
  * @Description : ErrorLogUtils 클래스
  * @since 2017.09.04
  */
-import Foundation
 
-class ErrorLogUtils : NSObject{
+class ErrorLogUtils {
     
-    override init() {
+    init() {
        
     }
+
+    public static let ERROR_FILE : String = "/KMemo/ErrorLog"
+
     
     // private static final String ERROR_FILE = Environment.getExternalStorageDirectory().getAbsolutePath() + "/KMemo/"
     //         + "ErrorLog";

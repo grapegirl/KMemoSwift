@@ -6,20 +6,18 @@
  * @Description : 네트워크 연결 관련 유틸
  * @since 2017.09.04
  */
-import Foundation
 
-class NetworkUtils : NSObject{
+class NetworkUtils{
     
-    override init() {
+    init() {
        
     }
+
+    public static let TYPE_WIFI : Int = 1
+    public static let TYPE_MOBILE : Int = 2
+    public static let TYPE_NOT_CONNECTED : Int = 0
     
-    // public static int TYPE_WIFI = 1;
-    // public static int TYPE_MOBILE = 2;
-    // public static int TYPE_NOT_CONNECTED = 0;
-
-
-    // public static int getConnectivityStatus(Context context) {
+    public static func getConnectivityStatus() -> Void {
     //     ConnectivityManager cm = (ConnectivityManager) context
     //             .getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -31,9 +29,9 @@ class NetworkUtils : NSObject{
     //             return TYPE_MOBILE;
     //     }
     //     return TYPE_NOT_CONNECTED;
-    // }
+    }
 
-    // public static boolean isConnectivityStatus(Context context) {
+    public static func isConnectivityStatus() -> Bool {
     //     ConnectivityManager cm = (ConnectivityManager) context
     //             .getSystemService(Context.CONNECTIVITY_SERVICE);
 
@@ -44,7 +42,7 @@ class NetworkUtils : NSObject{
     //         if (activeNetwork.getType() == ConnectivityManager.TYPE_MOBILE)
     //             return true;
     //     }
-    //     return false;
-    // }
+        return false;
+    }
 
 }

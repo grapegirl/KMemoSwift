@@ -6,36 +6,54 @@
  * @Description : DataUtils 클래스
  * @since 2017.09.04
  */
+
+import ContextUtils
 import Foundation
 
-class DataUtils : NSObject{
+class DataUtils {
     
-    override init() {
+    init() {
        
     }
     
-    // /**
-    //  * 프로젝트 관련 파일 생성
-    //  *
-    //  * @return 파일 생성 완료 여부
-    //  */
-    // public static final boolean createFile() {
-    //     File path = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + ContextUtils.KEY_FILE_FOLDER);
-    //     File noMediaFile = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + ContextUtils.KEY_FILE_FOLDER + "/.nomedia");
-    //     if (!noMediaFile.exists()) {
-    //         noMediaFile.mkdir();
-    //     }
+    /**
+     * 프로젝트 관련 파일 생성
+     *
+     * @return 파일 생성 완료 여부
+     */
+    public static func createFile() -> Bool {
+        let paths = NSSearchPathForDirectoriesInDomains(FileManager.SearchPathDirectory.documentDirectory, FileManager.SearchPathDomainMask.userDomainMask, true)
+        let documentsDirectory: AnyObject = paths[0]
+        let dataPath = documentsDirectory.appendingPathComponent(ContextUtils.KEY_FILE_FOLDER)!
 
-    //     if(path.exists()){
-    //         return true;
-    //     }
-    //     if (!path.exists()) {
-    //         path.mkdirs();
-    //         return true;
-    //     }
-    //     return false;
-    // }
+        do {
+            try FileManager.default.createDirectory(atPath: dataPath.absoluteString, withIntermediateDirectories: false, attributes: nil)
+        } catch let error as NSError {
+            print(error.localizedDescription);
+            return false
+        }
+        return true
+    }
 
+    /**
+     * 파일명으로 파일 삭제하기
+     *
+     * @param fileName
+     * @return 파일 삭제 여부
+     */
+     public static func deleteFile(fileName : String) -> Bool {
+        let fileManager = NSFileManager.defaultManager()
+        do {
+            try fileManager.removeItemAtPath(fileName)
+        }
+        catch let error as NSError {
+            print("Ooops! Something went wrong: \(error)")
+            return false
+        }
+        return true
+    }
+
+  
     // /**
     //  * 현재시간으로 파일 이름 생성 후 반환 메소드
     //  *
@@ -87,20 +105,7 @@ class DataUtils : NSObject{
     //     return cursor.getString(column_index);
     // }
 
-    // /**
-    //  * 파일명으로 파일 삭제하기
-    //  *
-    //  * @param fileName
-    //  * @return 파일 삭제 여부
-    //  */
-    // public static final boolean deleteFile(String fileName) {
-    //     File file = new File(fileName);
-    //     boolean isResult = false;
-    //     if (file.exists()) {
-    //         isResult = file.delete();
-    //     }
-    //     return isResult;
-    // }
+  
 
     // /**
     //  * SQlite DB 파일 복원  기능

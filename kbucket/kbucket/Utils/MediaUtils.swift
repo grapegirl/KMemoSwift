@@ -6,31 +6,31 @@
  * @Description : 사운드 및 진동 관련 유틸
  * @since 2017.09.04
  */
-import Foundation
 
-class MediaUtils : NSObject{
+class MediaUtils{
     
-    override init() {
+    init() {
        
     }
     
-    // /****
-    //  * @param context 컨텍스트
-    //  * @param time    초
-    //  * @Description : 진동 울리기
-    //  */
+    /****
+     * @param context 컨텍스트
+     * @param time    초
+     * @Description : 진동 울리기
+     */
+     public static func vibrate(time : CUnsignedLongLong) -> Void {
     // public static void vibrate(Context context, long time) {
     //     Vibrator vibrator = (Vibrator) context.getSystemService(Context.VIBRATOR_SERVICE);
     //     vibrator.vibrate(time);
-    // }
+    }
 
-    // /**
-    //  * PDF 파일 열기
-    //  *
-    //  * @param context    컨텍스트
-    //  * @param strPdfFile pdf 파일 경로
-    //  */
-    // public static void showPdfFile(Context context, String strPdfFile) {
+    /**
+     * PDF 파일 열기
+     *
+     * @param context    컨텍스트
+     * @param strPdfFile pdf 파일 경로
+     */
+    public static func showPdfFile(strPdfFile : String) -> Void {
     //     try {
     //         Uri apkUri = Uri.fromFile(new File(strPdfFile));
     //         Intent intent = new Intent(Intent.ACTION_VIEW);
@@ -41,15 +41,15 @@ class MediaUtils : NSObject{
     //     } catch (Exception e) {
     //         e.printStackTrace();
     //     }
-    // }
+    }
 
-    // /**
-    //  * 오디오 자동 재생 메소드
-    //  *
-    //  * @param context 컨텍스트
-    //  * @param nAudio  오티오
-    //  */
-    // public static void onAudioPlay(Context context, int nAudio) {
+    /**
+     * 오디오 자동 재생 메소드
+     *
+     * @param context 컨텍스트
+     * @param nAudio  오티오
+     */
+      public static func onAudioPlay(nAudio : Int) -> Void {
     //     try {
     //         RingtoneManager rm = new RingtoneManager(context);
     //         rm.setType(RingtoneManager.TYPE_NOTIFICATION);
@@ -69,5 +69,5 @@ class MediaUtils : NSObject{
     //     } catch (Exception e) {
     //         e.printStackTrace();
     //     }
-    // }
+    }
 }

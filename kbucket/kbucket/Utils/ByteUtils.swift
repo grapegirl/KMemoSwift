@@ -6,20 +6,19 @@
  * @Description : ByteUtils 클래스
  * @since 2017.09.04
  */
-import Foundation
 
-class ByteUtils : NSObject{
+class ByteUtils {
     
-    override init() {
+    init() {
        
     }
     
-    // /**
-    //     * 비트맵을 바이트 배열로 변환하는 메소드
-    //     *
-    //     * @param map 비트맵
-    //     * @return 바이트 배열
-    //     */
+    /**
+        * 비트맵을 바이트 배열로 변환하는 메소드
+        *
+        * @param map 비트맵
+        * @return 바이트 배열
+        */
     // public static byte[] getByteArrayFromBitmap(Bitmap map) {
     //         ByteArrayOutputStream baos = new ByteArrayOutputStream();
     //         map.compress(Bitmap.CompressFormat.JPEG, 100, baos);
