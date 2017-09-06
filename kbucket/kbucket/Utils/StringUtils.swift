@@ -18,31 +18,38 @@ class StringUtils  {
     public static let STRING_TIME_YYMMDD : String = "yy.MM.dd"
     public static let STRING_TIME_YYYYMMDDHHMMSS : String = "yyyy-MM-dd HH:mm:ss"
 
+    public static func contains(strOrigin : String, find : String )-> Bool {
+        if strOrigin.range(of:find) != nil { 
+            return true
+        }
+        return false
+    }
+
     /****
      * @Description : HTML 태그 변환된거 다시 변환하는 메소드
      * @Return 변환된 스트링 값
      */
     public static func convertString(str : String)-> Void{
-        // let temp = str
-        // if (temp.contains("&amp;")) {
-        //     temp = temp.replace("&amp;",withString : "&");
-        // }
-        // if (temp.contains("&apos;")) {
-        //     temp = temp.replace("&apos;",withString : "'");
-        // }
-        // if (temp.contains("&quot;")) {
-        //     temp = temp.replace("&quot;",withString : "\"");
-        // }
-        // if (temp.contains("\\")) {
-        //     temp = temp.replace("\\",withString : "\\");
-        // }
-        // if (temp.contains("&lt;")) {
-        //     temp = temp.replace("&lt;",withString : "<");
-        // }
-        // if (temp.contains("&gt;")) {
-        //     temp = temp.replace("&gt;",withString : ">");
-        // }
-        // return temp;
+        let temp = str
+        if (contains(strOrigin: contains, find : "&amp;")) {
+            temp = temp.replace("&amp;",withString : "&");
+        }
+        if (contains(strOrigin: contains, find : "&apos;")) {
+            temp = temp.replace("&apos;",withString : "'");
+        }
+        if (contains(strOrigin: contains, find : "&quot;")) {
+            temp = temp.replace("&quot;",withString : "\"");
+        }
+        if (contains(strOrigin: contains, find : "\\")) {
+            temp = temp.replace("\\",withString : "\\");
+        }
+        if (contains(strOrigin: contains, find : "&lt;")) {
+            temp = temp.replace("&lt;",withString : "<");
+        }
+        if (contains(strOrigin: contains, find : "&gt;")) {
+            temp = temp.replace("&gt;",withString : ">");
+        }
+        return temp;
     }
      
     
@@ -90,40 +97,7 @@ class StringUtils  {
     }
 
 
-    /**
-     * 현재시간 패턴으로 가져오기
-     *
-     * @param pettern 패턴
-     * @param time    현지시간 long
-     * @return 현재시간
-     */
-      public static func getTime(pettern  : String , time : String ) -> String {
-    //     long ltime = Long.parseLong(time);
-    //     SimpleDateFormat format = new SimpleDateFormat(pettern);
-    //     return format.format(new Date(ltime));
-        return ""
-    }
-
-    /**
-     * 원하는 패턴으로 시간 변경하기
-     *
-     * @param time 시간 String(YYYY-MM-DD HH:mm:ss)형식
-     * @return 현재시간
-     */
-     public static func convertTime(time  : String) -> String {
-    // public static String convertTime(String time) throws Exception {
-    //     SimpleDateFormat sdt = new SimpleDateFormat(STRING_TIME_YYYYMMDDHHMMSS);
-    //     try {
-    //         Date date = (Date) sdt.parse(time);
-    //         SimpleDateFormat format = new SimpleDateFormat(STRING_TIME_YYMMDD);
-    //         return format.format(date);
-    //     } catch (ParseException e) {
-    //         return time;
-    //     }
-        return ""
-    }
-
-    /**
+     /**
      * 포스트 방식으로 데이타 전송시 인자 설정 메소드
      *
      * @param sendData
@@ -146,16 +120,6 @@ class StringUtils  {
     //     }
     //     //System.out.println("@@ getHTTPPostSendData :  " + sb.toString());
     //     return sb.toString();
-    }
-
-    
-    /**
-     * 스트링 트림 처리.
-     */
-     public static func checkString(str  : String, temp : String) -> Void {
-        // if (!(str == null || str.trim().equals("") || str.trim().equals("null")))
-        //     return (String) str.trim().toString();
-        // else return tmp;
     }
 
 }

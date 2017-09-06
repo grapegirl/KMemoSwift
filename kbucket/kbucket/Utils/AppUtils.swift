@@ -38,8 +38,10 @@ class AppUtils {
      * @return 언어 정보
      */
      public static func getUserPhoneLanuage() -> Void {
-        //  Locale locale = context.getResources().getConfiguration().locale;
-        // return locale.getLanguage();
+        // NSLocale *currentLocale = [NSLocale currentLocale];
+        // NSString *languageCode = [currentLocale objectForKey:NSLocaleLanguageCode];
+
+        // return languageCode
      }
 
     /**
