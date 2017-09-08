@@ -8,6 +8,13 @@
  */
 import Foundation
 
+extension String {
+
+    func replace(target: String, withString: String) -> String {
+        return self.replacingOccurrences(of: target, with: withString)
+    }
+}
+
 class StringUtils   {
     
     init() {
@@ -26,39 +33,33 @@ class StringUtils   {
         return false
     }
     
-    
-
-
     /****
      * @Description : HTML 태그 변환된거 다시 변환하는 메소드
      * @Return 변환된 스트링 값
      */
     public static func convertString(str : String)-> String{
         var temp = str
-//        if (contains(strOrigin: temp, find : "&amp;")) {
-//            temp = temp.replace("&amp;",withString : "&");
-//        }
-//        if (contains(strOrigin: temp, find : "&apos;")) {
-//            temp = temp.replace("&apos;",withString : "'");
-//        }
-//        if (contains(strOrigin: temp, find : "&quot;")) {
-//            temp = temp.replace("&quot;",withString : "\"");
-//        }
-//        if (contains(strOrigin: temp, find : "\\")) {
-//            temp = temp.replace("\\",withString : "\\");
-//        }
-//        if (contains(strOrigin: temp, find : "&lt;")) {
-//            temp = temp.replace("&lt;",withString : "<");
-//        }
-//        if (contains(strOrigin: temp, find : "&gt;")) {
-//            temp = temp.replace("&gt;",withString : ">");
-//        }
+       if (contains(strOrigin: temp, find : "&amp;")) {
+           temp = str.replace(target:"&amp;",withString : "&");
+       }
+       if (contains(strOrigin: temp, find : "&apos;")) {
+           temp = str.replace(target:"&apos;",withString : "'");
+       }
+       if (contains(strOrigin: temp, find : "&quot;")) {
+           temp = str.replace(target:"&quot;",withString : "\"");
+       }
+       if (contains(strOrigin: temp, find : "\\")) {
+           temp = str.replace(target:"\\",withString : "\\");
+       }
+       if (contains(strOrigin: temp, find : "&lt;")) {
+           temp = str.replace(target:"&lt;",withString : "<");
+       }
+       if (contains(strOrigin: temp, find : "&gt;")) {
+           temp = str.replace(target:"&gt;",withString : ">");
+       }
         return temp;
     }
      
-    
-    
-
     /***
      * 버전정보 비교 메소드
      *
