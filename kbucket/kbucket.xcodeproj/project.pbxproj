@@ -45,6 +45,13 @@
 		005994481F5A4579007777A1 /* WriteMemoViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994341F5A4579007777A1 /* WriteMemoViewCtlr.swift */; };
 		005994491F5A4579007777A1 /* WriteViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994351F5A4579007777A1 /* WriteViewCtlr.swift */; };
 		0059944C1F5A4ADC007777A1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059944B1F5A4ADC007777A1 /* Toast.swift */; };
+		007038ED1F63685700372A7C /* SQLiteAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EB1F63685700372A7C /* SQLiteAdapter.swift */; };
+		007038EE1F63685700372A7C /* SQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EC1F63685700372A7C /* SQLQuery.swift */; };
+		007038F01F63686E00372A7C /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EF1F63686E00372A7C /* LinkedList.swift */; };
+		007038FB1F637A9A00372A7C /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007038F91F637A9A00372A7C /* Realm.framework */; };
+		007038FC1F637A9A00372A7C /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 007038F91F637A9A00372A7C /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		007038FD1F637A9A00372A7C /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 007038FA1F637A9A00372A7C /* RealmSwift.framework */; };
+		007038FE1F637A9A00372A7C /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 007038FA1F637A9A00372A7C /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0074C43C1F510A1700BB7CB0 /* FirstCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */; };
 		00A6A9521F60179900F65A1E /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9451F60179900F65A1E /* AppUtils.swift */; };
 		00A6A9531F60179900F65A1E /* ByteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9461F60179900F65A1E /* ByteUtils.swift */; };
@@ -77,6 +84,21 @@
 			remoteInfo = kbucket;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		007038F51F63784100372A7C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				007038FE1F637A9A00372A7C /* RealmSwift.framework in Embed Frameworks */,
+				007038FC1F637A9A00372A7C /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		00004A661EF41D8D0074DCFB /* kbucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kbucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -123,6 +145,11 @@
 		005994341F5A4579007777A1 /* WriteMemoViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteMemoViewCtlr.swift; path = View/ViewController/WriteMemoViewCtlr.swift; sourceTree = "<group>"; };
 		005994351F5A4579007777A1 /* WriteViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteViewCtlr.swift; path = View/ViewController/WriteViewCtlr.swift; sourceTree = "<group>"; };
 		0059944B1F5A4ADC007777A1 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		007038EB1F63685700372A7C /* SQLiteAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteAdapter.swift; path = Utils/sqlite/SQLiteAdapter.swift; sourceTree = "<group>"; };
+		007038EC1F63685700372A7C /* SQLQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLQuery.swift; path = Utils/sqlite/SQLQuery.swift; sourceTree = "<group>"; };
+		007038EF1F63686E00372A7C /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkedList.swift; path = Utils/LinkedList.swift; sourceTree = "<group>"; };
+		007038F91F637A9A00372A7C /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		007038FA1F637A9A00372A7C /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstCustomCell.swift; path = View/Bean/FirstCustomCell.swift; sourceTree = "<group>"; };
 		00A6A9451F60179900F65A1E /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppUtils.swift; path = Utils/AppUtils.swift; sourceTree = "<group>"; };
 		00A6A9461F60179900F65A1E /* ByteUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ByteUtils.swift; path = Utils/ByteUtils.swift; sourceTree = "<group>"; };
@@ -144,6 +171,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				007038FD1F637A9A00372A7C /* RealmSwift.framework in Frameworks */,
+				007038FB1F637A9A00372A7C /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,6 +196,8 @@
 		00004A5D1EF41D8C0074DCFB = {
 			isa = PBXGroup;
 			children = (
+				007038F91F637A9A00372A7C /* Realm.framework */,
+				007038FA1F637A9A00372A7C /* RealmSwift.framework */,
 				00004A681EF41D8D0074DCFB /* kbucket */,
 				00004A7D1EF41D8D0074DCFB /* kbucketTests */,
 				00004A881EF41D8D0074DCFB /* kbucketUITests */,
@@ -274,9 +305,11 @@
 		0059944A1F5A494F007777A1 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				007038EA1F63671600372A7C /* sqlite */,
 				00A6A9451F60179900F65A1E /* AppUtils.swift */,
 				00A6A9461F60179900F65A1E /* ByteUtils.swift */,
 				00A6A9471F60179900F65A1E /* ContextUtils.swift */,
+				007038EF1F63686E00372A7C /* LinkedList.swift */,
 				00A6A9481F60179900F65A1E /* DataUtils.swift */,
 				00A6A9491F60179900F65A1E /* DateUtils.swift */,
 				00A6A94A1F60179900F65A1E /* ErrorLogUtils.swift */,
@@ -292,6 +325,15 @@
 			name = Utils;
 			sourceTree = "<group>";
 		};
+		007038EA1F63671600372A7C /* sqlite */ = {
+			isa = PBXGroup;
+			children = (
+				007038EB1F63685700372A7C /* SQLiteAdapter.swift */,
+				007038EC1F63685700372A7C /* SQLQuery.swift */,
+			);
+			name = sqlite;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -302,6 +344,7 @@
 				00004A621EF41D8C0074DCFB /* Sources */,
 				00004A631EF41D8C0074DCFB /* Frameworks */,
 				00004A641EF41D8C0074DCFB /* Resources */,
+				007038F51F63784100372A7C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -442,7 +485,9 @@
 				0059941E1F5A4532007777A1 /* MobileUser.swift in Sources */,
 				0059943E1F5A4579007777A1 /* PDFViewerViewCtlr.swift in Sources */,
 				005994201F5A4532007777A1 /* Version.swift in Sources */,
+				007038EE1F63685700372A7C /* SQLQuery.swift in Sources */,
 				005994381F5A4579007777A1 /* ChatViewCtlr.swift in Sources */,
+				007038ED1F63685700372A7C /* SQLiteAdapter.swift in Sources */,
 				0059941C1F5A4532007777A1 /* Chat.swift in Sources */,
 				00A6A95C1F60179900F65A1E /* ScreenUtils.swift in Sources */,
 				00A6A9541F60179900F65A1E /* ContextUtils.swift in Sources */,
@@ -466,6 +511,7 @@
 				005994371F5A4579007777A1 /* BucketListViewCtlr.swift in Sources */,
 				0059941D1F5A4532007777A1 /* Comment.swift in Sources */,
 				005994451F5A4579007777A1 /* ShareListViewCtlr.swift in Sources */,
+				007038F01F63686E00372A7C /* LinkedList.swift in Sources */,
 				00A6A9531F60179900F65A1E /* ByteUtils.swift in Sources */,
 				00004A6A1EF41D8D0074DCFB /* AppDelegate.swift in Sources */,
 				0059943C1F5A4579007777A1 /* NoticeViewCtlr.swift in Sources */,
@@ -627,6 +673,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = kbucket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
@@ -641,6 +691,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = kbucket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;

@@ -6,42 +6,40 @@
  * @Description : SQLQuery 클래스
  * @since 2017.09.08
  */
+import RealmSwift
+import Realm
 
 class SQLQuery{
     
     private static let TAG : String = "SQLQuery"
-
-    SQLiteAdapter mDBAdapter = null;
-
     private var sql : String = ""
-
     private let TABLE_MEMO : String = "KMEMO";
     private let TABLE_USER : String = "KUSER";
     private let TABLE_CHAT : String = "KCHAT";
 
     init() {
-        KLog.d(TAG, "create Table 생성자");
+        KLog.d(tag: SQLQuery.TAG, msg: "create Table 생성자");
     }
     
-    
+   
      /**
      * 테이블생성
      */
-    public func createTable() -> void {
+    public func createTable() -> Void {
       
     }
 
-    public func selectKbucket() -> LinkedList<LinkedHashMap<String, String>> {
-        
-    }
-
-    public func selectKbucket(memoContents : String ) -> LinkedHashMap<String, String> {
-        
-    }
-
-    public func containsKbucket(memoContents : String ) -> Bool {
-      
-    }
+//    public func selectKbucket() -> LinkedList<String> {
+//        
+//    }
+//
+//    public func selectKbucket(memoContents : String ) -> LinkedList<String> {
+//        
+//    }
+//
+//    public func containsKbucket(memoContents : String ) -> Bool {
+//      
+//    }
 
     /**
      * 사용자 정보 insert 메소드
@@ -53,7 +51,24 @@ class SQLQuery{
      * @param completedDate 완료된 날짜
      */
     public func insertUserSetting( contents : String , date : String , completeYN : String , completedDate : String ) -> Bool {
+        print("insertUserSetting mContent : " + contents )
+
+        let bucketObj = Bucket()
+        bucketObj.mContent = contents
+        bucketObj.mCompleteDate = completedDate
+        print("insertUserSetting bucketObj : " + bucketObj.toString() )
+
+            
+        let realm = try! Realm()
+        try! realm.write {
+            realm.add(bucketObj)
+        }
         
+        print("success insertUserSetting mContent : " + contents )
+        
+        return true
+
+     
     }
 
     /**
@@ -103,9 +118,9 @@ class SQLQuery{
      * @param context 컨텍스트
      * @return 사용자 정보 반환
      */
-    public func selectUserTable() -> LinkedHashMap<String, String> {
-       
-    }
+//    public func selectUserTable() -> LinkedList<String> {
+//       
+//    }
 
     /**
      * 사용자 정보 설정 삭제
@@ -139,8 +154,9 @@ class SQLQuery{
      * @param chatIdx 채팅방 번호
      * @return 채팅 내용
      */
-    public func selectChatTable(chatIdx : String)-> LinkedList<LinkedHashMap<String, String>> {
-       
-    }
-
+//    public func selectChatTable(chatIdx : String)-> LinkedList<String> {
+//       
+//    }
+    
+//
 }

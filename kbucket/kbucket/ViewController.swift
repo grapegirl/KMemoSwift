@@ -62,8 +62,11 @@ class ViewController: UIViewController {
     @IBAction func onClickWriteBucket(_ sender: Any) {
         KLog.d(tag: "ViewController", msg: "onClickWriteBucket");
         let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteViewCtrl")
+  
+        //uvc.temp = "hello world"
+
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-        present(uvc!, animated: true, completion: nil)
+                present(uvc!, animated: true, completion: nil)
         
     }
 

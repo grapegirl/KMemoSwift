@@ -8,101 +8,65 @@
 
 import Foundation
 import UIKit
+import Realm
+import RealmSwift
 
-class Bucket  {
+class Bucket : Object {
     
     /**
      * 카테고리코드
      */
-    private var mCategoryCode : Int {
-        get {
-            return mCategoryCode
-        }
-        set(CategoryCode) {
-            mCategoryCode = CategoryCode
-        }
-    }
-
+    dynamic var mCategoryCode : Int = 0
     /**
      * 메모내용
      */
-    private var mContent : String {
-        get {
-            return mContent
-        }
-        set(content ) {
-            mContent = content
-        }
-    }
+    dynamic var mContent : String = ""
 
     /**
      * 날짜
      */
-    private var mCompleteDate : String {
-        get {
-            return mCompleteDate
-        }
-        set(date) {
-            mCompleteDate = date
-        }
-    }
+    dynamic var mCompleteDate : String = ""
     /**
      * 번호
      */
-    private var mIdx : Int {
-        get {
-            return mIdx
-        }
-        set( idx) {
-            mIdx = idx
-        }
-    }
+    dynamic var mIdx : Int = 0
     /**
      * 닉네임
      */
-    private var mNickName : String {
-        get {
-            return mNickName
-        }
-        set( NickName) {
-            mNickName =  NickName
-        }
-    }
+    dynamic var mNickName : String = ""
     /**
      * 사용자 전화번호
      */
-    private var mPhone : String {
-        get {
-            return mPhone
-        }
-        set(Phone) {
-            mPhone = Phone
-        }
-    }
+    dynamic var mPhone : String = ""
     /**
      * 이미지 저장경로
      */
-    private var mImageURl : String {
-        get {
-            return mImageURl
-        }
-        set( imageUrl) {
-            mImageURl =  imageUrl
-        }
-    }
+    dynamic var mImageURl : String = ""
 
     /**
      * 생성자
      */
-    init() {
-
+    required init() {
+        super.init()
     }
-
-    /**
-     * 소멸자
-     */
-    deinit {
-
+    
+    
+    required init(realm: RLMRealm, schema: RLMObjectSchema) {
+        fatalError("init(realm:schema:) has not been implemented")
+    }
+    
+    required init(value: Any, schema: RLMSchema) {
+        fatalError("init(value:schema:) has not been implemented")
+    }
+    
+    override static func primaryKey() -> String? {
+        return "mContent"
+    }
+    
+    public func toString() -> String{
+        var strTemp = ""
+        strTemp = "mContents : " + mContent + ",mCompleteDate: " + mCompleteDate
+        return strTemp
     }
 
  

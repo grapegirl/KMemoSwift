@@ -9,7 +9,6 @@
 import UIKit
 import Foundation
 
-
 class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSource {
     
     private let TAG : String = "WriteViewCtrl"
@@ -25,6 +24,9 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var btSortName: UIButton!
     @IBOutlet weak var btSortLastest: UIButton!
     @IBOutlet weak var btSortDeadLine: UIButton!
+    
+    public var temp :  String = ""
+    private var mSqlQuery  : SQLQuery? = nil;
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +47,9 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         mDataList.append("Test4")
         mDataList.append("Test5")
         
+        mSqlQuery = SQLQuery()
+        print("@@ 디렉토리 : " + NSHomeDirectory())
+        
         //     setBackgroundColor();
         //     setTextPont();
         
@@ -57,7 +62,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         
         //     ((EditText) findViewById(R.id.write_layout_titleView)).setOnKeyListener(this);
         
-        //     mSqlQuery = new SQLQuery();
+        
         //     mListAdapter = new ListAdpater(this, R.layout.bucket_list_line, mDataList, this);
         //     mListView.setAdapter(mListAdapter);
         //     setListData();
@@ -117,6 +122,10 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
                 Toast.showToast(message : "중복된 내용이 있습니다")
             }else{
                 mDataList.append(strText)
+                if(mSqlQuery != nil){
+                    mSqlQuery?.insertUserSetting(contents: strText, date: "", completeYN: "N", completedDate: "")
+                }
+                
             }
             self.mTableView.reloadData()
             etEdit.text = ""
@@ -216,7 +225,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     
     
     
-    // private SQLQuery mSqlQuery = null;
+  
     
     // @Override
     // public boolean onKey(View v, int keyCode, KeyEvent event) {
