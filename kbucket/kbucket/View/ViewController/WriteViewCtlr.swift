@@ -125,7 +125,23 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
                 if(mSqlQuery != nil){
                     mSqlQuery?.insertUserSetting(contents: strText, date: "", completeYN: "N", completedDate: "")
                 }
-                
+
+                // Get the default Realm
+                let realm = try! Realm()
+
+                // Query Realm for all dogs less than 2 years old
+                let bucketList = realm.objects(Bucket.self)
+                KLog.d(tag: TAG, msg: "bucketList select : " + bucketList);
+
+                // Delete all objects from the realm
+                // try! realm.write {
+                //     realm.deleteAll()
+                // }
+
+                // Delete an object with a transaction
+                // try! realm.write {
+                //     realm.delete(cheeseBook)
+                // }
             }
             self.mTableView.reloadData()
             etEdit.text = ""
