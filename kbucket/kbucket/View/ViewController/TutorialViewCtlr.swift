@@ -12,6 +12,9 @@ import UIKit
 class TutorialViewCtlr: UIViewController {
 
     private let TAG : String = "TutorialViewCtlr"
+    private var mPreTouchPosX : Int = 0
+    private var mCurrentPage : Int = 0
+    private var mMacPage : Int = 0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,21 +26,9 @@ class TutorialViewCtlr: UIViewController {
 //      * 화면 전환 객체
 //      */
 //     private ViewFlipper mViewFlipper;
+       
+   
 
-//     /**
-//      * 화면 전환을 위한 터치 X값
-//      */
-//     private int mPreTouchPosX = 0;
-
-//     /**
-//      * 현재 페이지
-//      */
-//     private int mCurrentPage = 0;
-
-//     /**
-//      * 최대 페이지
-//      */
-//     private int mMacPage = 0;
 //     /**
 //      * 라디오 아이템
 //      */

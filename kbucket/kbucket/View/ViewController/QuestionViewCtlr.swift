@@ -11,15 +11,14 @@ import UIKit
 class QuestionViewCtlr: UIViewController {
 
    private let TAG : String = "QuestionViewCtlr"
+   private var mTitleIndex : Int = 1
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad");
     }
-
-    // private final String TAG = this.getClass().getSimpleName();
-    // private int mTitleIndex = 1;
+    
 
     // @Override
     // protected void onCreate(Bundle savedInstanceState) {

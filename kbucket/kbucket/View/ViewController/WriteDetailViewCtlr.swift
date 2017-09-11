@@ -14,10 +14,19 @@ class WriteDetailViewCtlr: UIViewController {
     private let TAG : String = "WriteDetailViewCtlr"
     // private SQLQuery mSqlQuery = null;
 
-    // private String mContents = null;
+    private var mContents : String
+    private var mDate : String
+    private var mDeadLineDate : String
+    private var BACK : String
+    private var mPhotoPath : String
+    
+    private var mImageIdx : Int = -1
+    private var mCategory : Int = 1
 
-    // private String mDate = null;
-    // private String mDeadLineDate = null;
+    private let TOAST_MASSEGE : Int = 10
+    private let UPLOAD_IMAGE : Int = 20
+    private let UPLOAD_BUCKET : Int = 30
+    private let SELECT_BUCKET_CATEGORY : Int = 40
 
     // private CheckBox mCheckbox = null;
     // /*카메라 호출 리턴값*/
@@ -25,24 +34,11 @@ class WriteDetailViewCtlr: UIViewController {
     // /*갤러리 호출 리턴값*/
     // private int REQ_CODE_GALLERY = 1001;
 
-    // private String BACK = null;
-
     // private ImageView mImageView = null;
-
-    // private String mPhotoPath = null;
-
     // private ConfirmPopup mConfirmPopup = null;
     // private SpinnerListPopup mCategoryPopup = null;
-
-    // private int mImageIdx = -1;
-
-    // private int mCategory = 1;
-
     // private android.os.Handler mHandler = null;
-    // private final int TOAST_MASSEGE = 10;
-    // private final int UPLOAD_IMAGE = 20;
-    // private final int UPLOAD_BUCKET = 30;
-    // private final int SELECT_BUCKET_CATEGORY = 40;
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()

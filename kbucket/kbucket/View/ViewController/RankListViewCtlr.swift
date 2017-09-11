@@ -12,27 +12,29 @@ class RankListViewCtlr: UIViewController {
 
     private let TAG : String = "RankListViewCtlr"
 
+    private let TOAST_MASSEGE : Int = 10
+    private let SERVER_LOADING_FAIL : Int = 20
+    private let LOAD_BUCKET_RANK : Int = 30
+    private let SET_LIST : Int = 40
+    private let SEND_BUCKET_RANK : Int = 50
+    private let CHECK_NETWORK : Int = 70
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
-    // private final String TAG = this.getClass().getSimpleName();
+    
     // private Handler mHandler = null;
-
     // private ArrayList<BucketRank> mBucketDataList = null;
     // private RankListAdpater mListAdapter = null;
     // private ListView mListView = null;
     // private int mBucketRankComment;
     // private int mBucketRankIdx = -1;
 
-    // private final int TOAST_MASSEGE = 10;
-    // private final int SERVER_LOADING_FAIL = 20;
-    // private final int LOAD_BUCKET_RANK = 30;
-    // private final int SET_LIST = 40;
-    // private final int SEND_BUCKET_RANK = 50;
-    // private final int CHECK_NETWORK = 70;
+ 
+
 
     // @Override
     // protected void onCreate(Bundle savedInstanceState) {

@@ -10,13 +10,13 @@ import UIKit
 
 class WriteMemoViewCtlr : UIViewController {
 
-    private let TAG : String = "WriteMemoViewCtlr"
+   private let TAG : String = "WriteMemoViewCtlr"
 
    @IBOutlet weak var btModify: UIButton!
    @IBOutlet weak var etContent: UIButton!
 
-//    private int mWidgetId = -1;
-//    public final static String Intent_WID = "WID";        // appWidgetIds
+   private let Intent_WID : String = "WID"    // appWidgetIds
+   private VAR mWidgetId : Int = -1;
 
     override func viewDidLoad() {
         super.viewDidLoad()

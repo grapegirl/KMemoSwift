@@ -108,9 +108,9 @@ class StringUtils   {
      * @param sendData
      * @return 포스트 방식 전송 데이타
      */
-     public static func getHTTPPostSendData(str : String, temp : String) -> Void {
+     public static func getHTTPPostSendData(sendData : String) -> String {
     // public static String getHTTPPostSendData(HashMap<String, Object> sendData) {
-    //     StringBuilder sb = new StringBuilder();
+        var sb = sendData
 
     //     //키값과 값을 추가함.
     //     Set<String> key = sendData.keySet();
@@ -124,7 +124,7 @@ class StringUtils   {
     //             sb.append(keyName).append("=").append(value);
     //     }
     //     //System.out.println("@@ getHTTPPostSendData :  " + sb.toString());
-    //     return sb.toString();
+        return sb
     }
 
 }

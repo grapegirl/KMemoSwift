@@ -13,28 +13,29 @@ class ShareListViewCtlr: UIViewController {
 
     private let TAG : String = "ShareListViewCtlr"
 
+    private let TOAST_MASSEGE : Int = 10
+    private let CATEGORY_LIST : Int = 20
+    private let SET_CATEGORY : Int = 30
+    private let SERVER_LOADING_FAIL : Int = 40
+    private let SHARE_BUCKET_LIST : Int = 50
+    private let SET_BUCKETLIST : Int = 60
+    private let CHECK_NETWORK : Int = 70
+
+
+    // private ArrayList<Category> mCategoryList = null;
+    // private android.os.Handler mHandler = null;
+    // private Button[] mButton = new Button[9];
+    // private ArrayList<Bucket> mBucketDataList = null;
+    // private ShareListAdpater mListAdapter = null;
+    // private ListView mListView = null;
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
-    // private final String TAG = this.getClass().getSimpleName();
-    // private ArrayList<Category> mCategoryList = null;
-    // private android.os.Handler mHandler = null;
-    // private Button[] mButton = new Button[9];
 
-    // private ArrayList<Bucket> mBucketDataList = null;
-    // private ShareListAdpater mListAdapter = null;
-    // private ListView mListView = null;
-
-    // private final int TOAST_MASSEGE = 10;
-    // private final int CATEGORY_LIST = 20;
-    // private final int SET_CATEGORY = 30;
-    // private final int SERVER_LOADING_FAIL = 40;
-    // private final int SHARE_BUCKET_LIST = 50;
-    // private final int SET_BUCKETLIST = 60;
-    // private final int CHECK_NETWORK = 70;
 
     // @Override
     // protected void onCreate(Bundle savedInstanceState) {

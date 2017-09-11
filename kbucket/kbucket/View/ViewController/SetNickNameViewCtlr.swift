@@ -18,7 +18,6 @@ class SetNickNameViewCtlr: UIViewController {
         KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
-    // private final String TAG = this.getClass().getSimpleName();
     // private Button mButton;
     // private SQLQuery mSqlQuery = null;
 

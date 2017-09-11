@@ -20,7 +20,6 @@ class PDFViewerViewCtlr: UIViewController {
     }
 
 
-//     private final String TAG = this.getClass().getSimpleName();
 //     private PDFView pdfView;
 //     private static int mPage = 0;
 
