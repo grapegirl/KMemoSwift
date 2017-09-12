@@ -51,24 +51,18 @@ class SQLQuery{
      * @param completedDate 완료된 날짜
      */
     public func insertUserSetting( contents : String , date : String , completeYN : String , completedDate : String ) -> Bool {
-        print("insertUserSetting mContent : " + contents )
-
+        KLog.d(TAG, "insertUserInfo mContent : " + mContent);
         let bucketObj = Bucket()
         bucketObj.mContent = contents
         bucketObj.mCompleteDate = completedDate
-        print("insertUserSetting bucketObj : " + bucketObj.toString() )
-
-            
+        
         let realm = try! Realm()
         try! realm.write {
             realm.add(bucketObj)
         }
-        
-        print("success insertUserSetting mContent : " + contents )
-        
-        return true
 
-     
+        KLog.d(TAG, "success insertUserInfo mContent : " + mContent);
+        return true
     }
 
     /**
@@ -79,7 +73,19 @@ class SQLQuery{
      * @param newContents 새로운 내용
      */
     public func updateMemoContent(contents : String , newContents :  String ) -> Void {
-        
+        KLog.d(TAG, "updateMemoContent contents : " + contents);
+        KLog.d(TAG, "updateMemoContent newContents : " + newContents);
+
+        let realm = try! Realm()
+
+        let bucketObj = realm.objects(Bucket.self).filter("contents == " + contents)
+        bucketObj.mContent = newContents
+
+        try! realm.write {
+            realm.add(bucketObj, update: true)
+        }
+        KLog.d(TAG, "success updateMemoContent mContent : " + mContent);
+        return true
     }
 
     /**
@@ -128,7 +134,16 @@ class SQLQuery{
      * @param context 컨텍스트
      */
     public func deleteUserBucket(contents: String ) -> Void {
-       
+        KLog.d(TAG, "deleteUserBucket contents : " + contents);
+        let realm = try! Realm()
+
+        let bucketObj = realm.objects(Bucket.self).filter("contents == " + contents)
+        // Delete an object with a transaction
+        try! realm.write {
+         realm.delete(bucketObj)
+        }
+        KLog.d(TAG, "success deleteUserBucket contents : " + contents);
+        return true
     }
 
     public func createChatTable() -> Void {
