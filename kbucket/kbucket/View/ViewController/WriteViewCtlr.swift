@@ -42,13 +42,24 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     
     func initialize()
     {
-        mDataList.append("Test1")
-        mDataList.append("Test2")
-        mDataList.append("Test3")
-        mDataList.append("Test4")
-        mDataList.append("Test5")
-        
         mSqlQuery = SQLQuery()
+        if(mSqlQuery != nil){
+            var bucketList : Results<Bucket>? = nil
+            
+            //mSqlQuery?.insertUserSetting(contents: strText, date: "", completeYN: "N", completedDate: "")
+            
+            bucketList = mSqlQuery?.selectKbucket()
+            
+            var strCount = String(describing: bucketList?.count)
+            KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
+            for kbucket in bucketList!
+            {
+                KLog.d(tag: TAG, msg: "realm DB data : " + kbucket.mContent)
+                mDataList.append(kbucket.mContent)
+            }
+            
+        }
+
         print("@@ 디렉토리 : " + NSHomeDirectory())
         
         //     setBackgroundColor();
@@ -124,21 +135,9 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
             }else{
                 mDataList.append(strText)
                 if(mSqlQuery != nil){
-                    var bucketList : Results<Bucket>? = nil
-                    
                     mSqlQuery?.insertUserSetting(contents: strText, date: "", completeYN: "N", completedDate: "")
-                    
-                    bucketList = mSqlQuery?.selectKbucket()
-                    
-                    var strCount = String(describing: bucketList?.count)
-                    KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
-                    for kbucket in bucketList!
-                    {
-                        KLog.d(tag: TAG, msg: "realm DB data : " + kbucket.mContent)
-                    }
-                    
                 }
-    
+                
             }
             self.mTableView.reloadData()
             etEdit.text = ""

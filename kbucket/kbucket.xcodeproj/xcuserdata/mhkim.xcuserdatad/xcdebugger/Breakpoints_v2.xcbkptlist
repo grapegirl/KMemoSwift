@@ -154,7 +154,7 @@
                   moduleName = "kbucket"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mhkim/Documents/GitHub/KMemoSwift/kbucket/kbucket/Utils/LinkedList.swift"
-                  timestampString = "527817679.962141"
+                  timestampString = "527817923.376831"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -169,7 +169,7 @@
                   moduleName = "kbucket"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mhkim/Documents/GitHub/KMemoSwift/kbucket/kbucket/Utils/LinkedList.swift"
-                  timestampString = "527817679.965424"
+                  timestampString = "527817923.378684"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -305,22 +305,6 @@
             endingLineNumber = "19"
             landmarkName = "WriteMemoViewCtlr"
             landmarkType = "3">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "kbucket/View/ViewController/WriteViewCtlr.swift"
-            timestampString = "527789860.696501"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
-            landmarkName = "onClick(_:)"
-            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
