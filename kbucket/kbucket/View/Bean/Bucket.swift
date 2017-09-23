@@ -43,21 +43,6 @@ class Bucket : Object {
      */
     dynamic var mImageURl : String = ""
 
-    /**
-     * 생성자
-     */
-    required init() {
-        super.init()
-    }
-    
-    
-    required init(realm: RLMRealm, schema: RLMObjectSchema) {
-        fatalError("init(realm:schema:) has not been implemented")
-    }
-    
-    required init(value: Any, schema: RLMSchema) {
-        fatalError("init(value:schema:) has not been implemented")
-    }
     
     override static func primaryKey() -> String? {
         return "mContent"

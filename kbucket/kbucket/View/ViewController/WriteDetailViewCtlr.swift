@@ -14,11 +14,11 @@ class WriteDetailViewCtlr: UIViewController {
     private let TAG : String = "WriteDetailViewCtlr"
     // private SQLQuery mSqlQuery = null;
 
-    private var mContents : String
-    private var mDate : String
-    private var mDeadLineDate : String
-    private var BACK : String
-    private var mPhotoPath : String
+    private var mContents : String = ""
+    private var mDate : String = ""
+    private var mDeadLineDate : String = ""
+    private var BACK : String = ""
+    private var mPhotoPath : String = ""
     
     private var mImageIdx : Int = -1
     private var mCategory : Int = 1

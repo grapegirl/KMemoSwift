@@ -11,14 +11,14 @@ import Realm
 
 class SQLQuery{
     
-    private static let TAG : String = "SQLQuery"
+    private let TAG : String = "SQLQuery"
     private var sql : String = ""
     private let TABLE_MEMO : String = "KMEMO";
     private let TABLE_USER : String = "KUSER";
     private let TABLE_CHAT : String = "KCHAT";
 
     init() {
-        KLog.d(tag: SQLQuery.TAG, msg: "create Table 생성자");
+        KLog.d(tag: TAG, msg: "create Table 생성자");
     }
     
    
@@ -29,9 +29,22 @@ class SQLQuery{
       
     }
 
-//    public func selectKbucket() -> LinkedList<String> {
-//        
-//    }
+    public func selectKbucket() -> Results<Bucket>? {
+        // Get the default Realm
+        do{
+            let realm = try! Realm()
+            
+            // Query Realm for all dogs less than 2 years old
+            let bucketList = realm.objects(Bucket.self)
+            
+            return bucketList
+
+        }catch let error as NSError{
+            KLog.d(tag: TAG, msg: "selectKbucet db error")
+            return nil
+        }
+        
+    }
 //
 //    public func selectKbucket(memoContents : String ) -> LinkedList<String> {
 //        
@@ -51,7 +64,7 @@ class SQLQuery{
      * @param completedDate 완료된 날짜
      */
     public func insertUserSetting( contents : String , date : String , completeYN : String , completedDate : String ) -> Bool {
-        KLog.d(TAG, "insertUserInfo mContent : " + mContent);
+        KLog.d(tag: TAG, msg: "insertUserInfo mContent : " + contents);
         let bucketObj = Bucket()
         bucketObj.mContent = contents
         bucketObj.mCompleteDate = completedDate
@@ -61,7 +74,7 @@ class SQLQuery{
             realm.add(bucketObj)
         }
 
-        KLog.d(TAG, "success insertUserInfo mContent : " + mContent);
+        KLog.d(tag: TAG, msg: "success insertUserInfo mContent : " + contents);
         return true
     }
 
@@ -73,19 +86,19 @@ class SQLQuery{
      * @param newContents 새로운 내용
      */
     public func updateMemoContent(contents : String , newContents :  String ) -> Void {
-        KLog.d(TAG, "updateMemoContent contents : " + contents);
-        KLog.d(TAG, "updateMemoContent newContents : " + newContents);
+        KLog.d(tag: TAG, msg: "updateMemoContent contents : " + contents);
+        KLog.d(tag: TAG, msg: "updateMemoContent newContents : " + newContents);
 
         let realm = try! Realm()
 
         let bucketObj = realm.objects(Bucket.self).filter("contents == " + contents)
-        bucketObj.mContent = newContents
+        
+        //bucketObj.mContent = newContents
 
         try! realm.write {
             realm.add(bucketObj, update: true)
         }
-        KLog.d(TAG, "success updateMemoContent mContent : " + mContent);
-        return true
+        KLog.d(tag: TAG, msg: "success updateMemoContent mContent : " + newContents);
     }
 
     /**
@@ -133,8 +146,8 @@ class SQLQuery{
      *
      * @param context 컨텍스트
      */
-    public func deleteUserBucket(contents: String ) -> Void {
-        KLog.d(TAG, "deleteUserBucket contents : " + contents);
+    public func deleteUserBucket(contents: String ) -> Bool {
+        KLog.d(tag: TAG, msg: "deleteUserBucket contents : " + contents);
         let realm = try! Realm()
 
         let bucketObj = realm.objects(Bucket.self).filter("contents == " + contents)
@@ -142,7 +155,7 @@ class SQLQuery{
         try! realm.write {
          realm.delete(bucketObj)
         }
-        KLog.d(TAG, "success deleteUserBucket contents : " + contents);
+        KLog.d(tag: TAG, msg: "success deleteUserBucket contents : " + contents);
         return true
     }
 

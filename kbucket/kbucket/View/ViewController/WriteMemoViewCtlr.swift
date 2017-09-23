@@ -16,7 +16,7 @@ class WriteMemoViewCtlr : UIViewController {
    @IBOutlet weak var etContent: UIButton!
 
    private let Intent_WID : String = "WID"    // appWidgetIds
-   private VAR mWidgetId : Int = -1;
+   private var mWidgetId : Int = -1
 
     override func viewDidLoad() {
         super.viewDidLoad()
