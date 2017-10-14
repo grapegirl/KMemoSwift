@@ -91,7 +91,7 @@ class SQLQuery{
 
         let realm = try! Realm()
 
-        let bucketObj = realm.objects(Bucket.self).filter("contents == " + contents)
+        let bucketObj = realm.objects(Bucket.self).filter("contents = '" + contents + "'")
         
         //bucketObj.mContent = newContents
 
@@ -150,7 +150,8 @@ class SQLQuery{
         KLog.d(tag: TAG, msg: "deleteUserBucket contents : " + contents);
         let realm = try! Realm()
 
-        let bucketObj = realm.objects(Bucket.self).filter("contents == " + contents)
+        let bucketObj = realm.objects(Bucket.self).filter("mContent = '" + contents + "'")
+        print(bucketObj)
         // Delete an object with a transaction
         try! realm.write {
          realm.delete(bucketObj)

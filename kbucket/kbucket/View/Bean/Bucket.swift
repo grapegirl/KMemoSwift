@@ -21,6 +21,11 @@ class Bucket : Object {
      * 메모내용
      */
     dynamic var mContent : String = ""
+    /**
+     * 날짜
+     */
+    dynamic var mCompleteYN : String = ""
+    
 
     /**
      * 날짜
@@ -42,6 +47,7 @@ class Bucket : Object {
      * 이미지 저장경로
      */
     dynamic var mImageURl : String = ""
+    
 
     
     override static func primaryKey() -> String? {

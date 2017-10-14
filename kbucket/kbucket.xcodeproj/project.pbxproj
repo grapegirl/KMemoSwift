@@ -14,6 +14,7 @@
 		00004A741EF41D8D0074DCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00004A721EF41D8D0074DCFB /* LaunchScreen.storyboard */; };
 		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
 		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
+		0008E3231F91973600F498E6 /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008E3221F91973600F498E6 /* EventProtocol.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
 		0059940E1F5A3F21007777A1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059940D1F5A3F21007777A1 /* PostData.swift */; };
 		005994191F5A4532007777A1 /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994111F5A4532007777A1 /* Bucket.swift */; };
@@ -114,6 +115,7 @@
 		00004A851EF41D8D0074DCFB /* kbucketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00004A891EF41D8D0074DCFB /* kbucketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketUITests.swift; sourceTree = "<group>"; };
 		00004A8B1EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0008E3221F91973600F498E6 /* EventProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
 		0059940D1F5A3F21007777A1 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = View/Bean/PostData.swift; sourceTree = "<group>"; };
 		005994111F5A4532007777A1 /* Bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bucket.swift; path = View/Bean/Bucket.swift; sourceTree = "<group>"; };
@@ -249,9 +251,18 @@
 			path = kbucketUITests;
 			sourceTree = "<group>";
 		};
+		0008E3211F9196F300F498E6 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				0008E3221F91973600F498E6 /* EventProtocol.swift */,
+			);
+			name = Protocol;
+			sourceTree = "<group>";
+		};
 		0059940F1F5A43FE007777A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				0008E3211F9196F300F498E6 /* Protocol */,
 				005994211F5A4550007777A1 /* ViewController */,
 				005994101F5A4510007777A1 /* Bean */,
 			);
@@ -480,6 +491,7 @@
 				00A6A9571F60179900F65A1E /* ErrorLogUtils.swift in Sources */,
 				005994441F5A4579007777A1 /* ShareDetailViewCtlr.swift in Sources */,
 				005994491F5A4579007777A1 /* WriteViewCtlr.swift in Sources */,
+				0008E3231F91973600F498E6 /* EventProtocol.swift in Sources */,
 				005994391F5A4579007777A1 /* ConfigurationViewCtlr.swift in Sources */,
 				0059940E1F5A3F21007777A1 /* PostData.swift in Sources */,
 				0059941E1F5A4532007777A1 /* MobileUser.swift in Sources */,

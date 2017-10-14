@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -29,10 +29,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="onClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bz7-X7-9FH"/>
-                                    <action selector="onClickSetting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gVL-hD-wHN"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vWT-DQ-OiC">
                                 <rect key="frame" x="294" y="40" width="46" height="30"/>
@@ -42,9 +38,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="onClickNotice:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7sC-Si-hQK"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0EH-5x-yRi">
                                 <rect key="frame" x="193" y="179" width="154" height="158"/>
@@ -102,10 +95,6 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <action selector="onClick:" destination="BYZ-38-t0r" eventType="touchUpInside" id="0NQ-rU-rdY"/>
-                                    <action selector="onClickAI:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6Vk-H8-5RQ"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BPr-fP-Vf2" colorLabel="IBBuiltInLabel-Orange">
                                 <rect key="frame" x="24" y="179" width="154" height="157"/>
@@ -126,10 +115,7 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
                     <connections>
-                        <outlet property="btAI" destination="LMG-4I-Bsj" id="Ydk-D4-zHE"/>
                         <outlet property="btComplete" destination="0EH-5x-yRi" id="smn-J5-FUH"/>
-                        <outlet property="btNotice" destination="vWT-DQ-OiC" id="Z8U-oa-kxq"/>
-                        <outlet property="btSetting" destination="dNx-of-dsH" id="geG-3U-0G4"/>
                         <outlet property="btShare" destination="tAJ-ad-w4C" id="fGw-W2-qMd"/>
                     </connections>
                 </viewController>
@@ -195,6 +181,10 @@
                                                     <state key="normal" title="수정">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onClick:" destination="Ait-vZ-ruu" eventType="touchUpInside" id="c7Q-0v-8dN"/>
+                                                        <action selector="onClick:" destination="gMB-wU-EI3" eventType="touchUpInside" id="gOG-VQ-2BO"/>
+                                                    </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iEM-hy-r0Y">
                                                     <rect key="frame" x="310" y="23" width="46" height="30"/>
@@ -203,12 +193,16 @@
                                                     <state key="normal" title="삭제">
                                                         <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
+                                                    <connections>
+                                                        <action selector="onClick:" destination="Ait-vZ-ruu" eventType="touchUpInside" id="bQx-DT-nRH"/>
+                                                        <action selector="onClick:" destination="gMB-wU-EI3" eventType="touchUpInside" id="tzc-Ft-51b"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="1" green="0.89260018129999996" blue="0.3228536232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="btDel" destination="iEM-hy-r0Y" id="h46-s0-dND"/>
+                                            <outlet property="btDel" destination="iEM-hy-r0Y" id="gUo-eL-pEl"/>
                                             <outlet property="btEdt" destination="aC0-az-mAL" id="DNW-bj-EFe"/>
                                             <outlet property="btMod" destination="Ggj-Yd-Yyb" id="4Ju-SE-hlP"/>
                                         </connections>

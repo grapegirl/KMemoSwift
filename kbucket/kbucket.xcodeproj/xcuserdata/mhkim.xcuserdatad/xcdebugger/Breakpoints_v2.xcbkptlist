@@ -70,7 +70,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/Utils/UserDefault.swift"
@@ -154,7 +154,7 @@
                   moduleName = "kbucket"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mhkim/Documents/GitHub/KMemoSwift/kbucket/kbucket/Utils/LinkedList.swift"
-                  timestampString = "527817923.376831"
+                  timestampString = "529640538.74093"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -169,7 +169,7 @@
                   moduleName = "kbucket"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mhkim/Documents/GitHub/KMemoSwift/kbucket/kbucket/Utils/LinkedList.swift"
-                  timestampString = "527817923.378684"
+                  timestampString = "529640538.743746"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -305,6 +305,54 @@
             endingLineNumber = "19"
             landmarkName = "WriteMemoViewCtlr"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "kbucket/View/Bean/FirstCustomCell.swift"
+            timestampString = "529637895.519184"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "onClick(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "kbucket/View/ViewController/WriteViewCtlr.swift"
+            timestampString = "529638265.197685"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "216"
+            endingLineNumber = "216"
+            landmarkName = "receiveEventFromViewItem(gbn:data:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "kbucket/View/ViewController/WriteViewCtlr.swift"
+            timestampString = "529639545.100012"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "227"
+            endingLineNumber = "227"
+            landmarkName = "receiveEventFromViewItem(gbn:data:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

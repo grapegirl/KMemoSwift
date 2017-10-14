@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSource {
+class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSource, EventProtocol {
     
     private let TAG : String = "WriteViewCtrl"
     
@@ -26,12 +26,12 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var btSortLastest: UIButton!
     @IBOutlet weak var btSortDeadLine: UIButton!
     
+    
     public var temp :  String = ""
-    private var mSqlQuery  : SQLQuery? = nil;
+    private var mSqlQuery  : SQLQuery? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad");
         
         mTableView.delegate = self
@@ -46,57 +46,38 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         if(mSqlQuery != nil){
             var bucketList : Results<Bucket>? = nil
             
-            //mSqlQuery?.insertUserSetting(contents: strText, date: "", completeYN: "N", completedDate: "")
-            
             bucketList = mSqlQuery?.selectKbucket()
             
-            var strCount = String(describing: bucketList?.count)
+            let strCount = String(describing: bucketList?.count)
             KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
             for kbucket in bucketList!
             {
                 KLog.d(tag: TAG, msg: "realm DB data : " + kbucket.mContent)
+                if  (kbucket.mContent != nil && kbucket.mContent == "Y") {
+                    continue
+                }
                 mDataList.append(kbucket.mContent)
             }
             
         }
-
+        sort()
         print("@@ 디렉토리 : " + NSHomeDirectory())
-        
-        //     setBackgroundColor();
-        //     setTextPont();
-        
-        
-        //     mMemoSortButton = (Button) findViewById(R.id.sort_memo);
-        //     mMemoSortButton.setOnClickListener(this);
-        //     mDateSortButton = (Button) findViewById(R.id.sort_date);
-        //     mDateSortButton.setOnClickListener(this);
-        //     ((Button) findViewById(R.id.sort_deadline)).setOnClickListener(this);
-        
-        //     ((EditText) findViewById(R.id.write_layout_titleView)).setOnKeyListener(this);
-        
-        
-        //     mListAdapter = new ListAdpater(this, R.layout.bucket_list_line, mDataList, this);
-        //     mListView.setAdapter(mListAdapter);
-        //     setListData();
-        //     AppUtils.sendTrackerScreen(this, "가지작성화면");
-        
     }
     
     /**
      * 정렬 기능
      */
-    func sort(sort : String) {
-        //         String sort = (String) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.KBUCKET_SORT_KEY, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-        //         KLog.d(TAG, "@@ Sort : " + sort);
-        //         if (strSort == null) {
-        //             mListAdapter.setDataList(mDataList);
-        //             return;
-        //         }
+    func sort() {
+        let strSort = UserDefault.read(key: ContextUtils.KBUCKET_SORT_KEY)
+        KLog.d(tag : TAG, msg: "Sort : " + strSort);
+        if (strSort == nil) {
+            self.mTableView.reloadData()
+            return
+        }
         
-        KLog.d(tag: TAG, msg: "Sort : " + sort);
-        if (sort == (ContextUtils.SORT_DATE)) {
+        if (strSort == (ContextUtils.SORT_DATE)) {
             mDataList.sort(){$0 < $1}
-        } else if (sort == (ContextUtils.SORT_MEMO)) {
+        } else if (strSort == (ContextUtils.SORT_MEMO)) {
             mDataList.sort(){$0 < $1}
         } else {
             mDataList.sort(){$0 > $1}
@@ -104,19 +85,6 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         
         print(mDataList)
         self.mTableView.reloadData()
-        
-        //         for (int i = 0; i < mBucketDataList.size(); i++) {
-        //             PostData data = mBucketDataList.get(i);
-        //             if (data.getCompleteYN().equals("Y")) {
-        //                 continue;
-        //             }
-        //             mDataList.add(data.getContents());
-        //         }
-        //         if (sort.equals(ContextUtils.SORT_DATE)) {
-        //
-        //             Collections.reverse(mDataList);
-        //         }
-        //         mListAdapter.setDataList(mDataList);
     }
     
     
@@ -143,19 +111,16 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
             etEdit.text = ""
         }else if((sender as! UIButton) == btSortLastest){
             KLog.d(tag: TAG, msg: "onClick btSortLastest");
-            sort(sort: ContextUtils.SORT_DATE)
-            //            SharedPreferenceUtils.write(getApplicationContext(), ContextUtils.KBUCKET_SORT_KEY, ContextUtils.SORT_DATE);
+            UserDefault.write(key: ContextUtils.KBUCKET_SORT_KEY, value: ContextUtils.SORT_DATE)
+            sort()
         }else if((sender as! UIButton) == btSortName){
             KLog.d(tag: TAG, msg: "onClick btSortName");
-            
-            //            SharedPreferenceUtils.write(getApplicationContext(), ContextUtils.KBUCKET_SORT_KEY, ContextUtils.SORT_MEMO);
-            //
-            sort(sort: ContextUtils.SORT_MEMO)
+            UserDefault.write(key: ContextUtils.KBUCKET_SORT_KEY, value: ContextUtils.SORT_MEMO)
+            sort()
         }else if((sender as! UIButton) == btSortDeadLine){
             KLog.d(tag: TAG, msg: "onClick btSortDeadLine");
-            sort(sort: ContextUtils.SORT_DEADLINE)
-            //
-            //            SharedPreferenceUtils.write(getApplicationContext(), ContextUtils.KBUCKET_SORT_KEY, ContextUtils.SORT_DEADLINE);
+            UserDefault.write(key: ContextUtils.KBUCKET_SORT_KEY, value: ContextUtils.SORT_DEADLINE)
+            sort()
         }
     }
     
@@ -185,157 +150,66 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     }
     
     
-    
-    
-    
-    // @Override
-    // public void onClick(View v) {
-    //     switch (v.getId()) {
-    //         // 삭제 버튼
-    //         case R.id.bucket_list_deleteBtn:
-    //             int index = Integer.valueOf((String) v.getTag());
-    //             removeDBData(mDataList.get(index));
-    //             mDataList.remove(index);
-    //             mListAdapter.setDataList(mDataList);
-    //             break;
-    //         // 수정 버튼
-    //         case R.id.bucket_list_modifyBtn:
-    //             index = Integer.valueOf((String) v.getTag());
-    //             Intent intent = new Intent(this, WriteDetailActivity.class);
-    //             intent.putExtra("CONTENTS", mDataList.get(index));
-    //             intent.putExtra("BACK", ContextUtils.VIEW_WRITE);
-    //             startActivity(intent);
-    //             finish();
-    //             break;
-    //
-    //     }
-    // }
-    
-    
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return mDataList.count
     }
     
-    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = mTableView.dequeueReusableCell(withIdentifier: "FirstCustomCell", for: indexPath) as! FirstCustomCell
-        
         cell.btEdt.text = mDataList[indexPath.row]
+        cell.mData = String(indexPath.row)
         cell.selectionStyle = .none
         
+        cell.setOnEventListener(listenr: self)
         return cell
     }
     
-    func tableView(tableview: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableview.deselectRow(at: indexPath as IndexPath, animated: true)
-        let row = indexPath.row
-        print(mDataList[row])
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        KLog.d(tag: TAG, msg: "row: \(indexPath.row)")
     }
     
+    func receiveEventFromViewItem(gbn : Int, data : String) {
+        KLog.d(tag: TAG, msg: "receiveEventFromViewItem data : " + data)
+        switch(gbn){
+        case 0://수정
+            //index = Integer.valueOf((String) v.getTag());
+            //             Intent intent = new Intent(this, WriteDetailActivity.class);
+            //             intent.putExtra("CONTENTS", mDataList.get(index));
+            //             intent.putExtra("BACK", ContextUtils.VIEW_WRITE);
+            //             startActivity(intent);
+            //             finish();
+            
+            break;
+        case 1://삭제
+            let index:Int? = Int(data)
+            if (index! > 0 && index! < mDataList.count){
+                let deleteItem : String
+                deleteItem = mDataList[index!]
+                let result : Bool
+                result = removeDBData(Content: deleteItem)
+                if(result){
+                    mDataList.remove(at: index!)
+                    self.mTableView.reloadData()
+                    
+                }
+                
+            }
+            break;
+        default:
+            break;
+        }
+    }
     
-    
-    
-  
-    
-    // @Override
-    // public boolean onKey(View v, int keyCode, KeyEvent event) {
-    //     if (event.getAction() == KeyEvent.ACTION_DOWN) {
-    //         if (keyCode == KeyEvent.KEYCODE_ENTER) {
-    //             //엔터입력시 할일 처리
-    //             String editText = ((EditText) findViewById(R.id.write_layout_titleView)).getText().toString();
-    //             if (checkduplicateData(editText)) {
-    //                 String message = getString(R.string.check_input_bucket_string);
-    //                 Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-    //             } else {
-    //                 addDBData(editText);
-    //             }
-    //             ((EditText) findViewById(R.id.write_layout_titleView)).setText("");
-    //             ((EditText) findViewById(R.id.write_layout_titleView)).setNextFocusDownId(R.id.write_layout_titleView);
-    //         }
-    
-    //     }
-    //     return false;
-    // }
-    
-    // /**
-    //  * DB 데이타 불러와서 데이타 표시하기
-    //  */
-    // private void setListData() {
-    //     LinkedList<LinkedHashMap<String, String>> map = mSqlQuery.selectKbucket(getApplicationContext());
-    //     if (map == null) {
-    //         return;
-    //     }
-    //     realmMgr mgr = new realmMgr();
-    //     for (int i = 0; i < map.size(); i++) {
-    //         LinkedHashMap<String, String> memoMap = map.get(i);
-    //         PostData postData = new PostData("", memoMap.get("contents"), memoMap.get("date"), i);
-    //         postData.setImageName(memoMap.get("image_path"));
-    //         postData.setCompleteYN(memoMap.get("complete_yn"));
-    //         postData.setDeadLine(memoMap.get("deadline"));
-    //         mBucketDataList.add(postData);
-    
-    //         if (memoMap.get("complete_yn").equals("Y")) {
-    //             continue;
-    //         }
-    //         mDataList.add(memoMap.get("contents"));
-    //     }
-    //     if (mBucketDataList != null) {
-    //         //realm db 갱신하기
-    //         if (mBucketDataList.size() > 0) {
-    //             mgr.insertPostData(mBucketDataList);
-    //         }
-    //     }
-    //     sort();
-    // }
-    
-    // /**
-    //  * DB 데이타 동기화하기(삭제)
-    //  */
-    // private void removeDBData(String Content) {
-    //     KLog.d(this.getClass().getSimpleName(), "@@ remove Data Contents : " + Content);
-    //     mSqlQuery.deleteUserBucket(getApplicationContext(), Content);
-    //     realmMgr.deletePostData(Content);
-    // }
-    
-    // /**
-    //  * DB 데이타 동기화하기(추가)
-    //  *
-    //  * @param Content 내용
-    //  */
-    // private void addDBData(String Content) {
-    //     mDataList.add(Content);
-    //     Collections.reverse(mDataList);
-    //     mListAdapter = new ListAdpater(this, R.layout.bucket_list_line, mDataList, this);
-    //     mListView.setAdapter(mListAdapter);
-    //     Date dateTime = new Date();
-    //     String date = DateUtils.getStringDateFormat(DateUtils.DATE_YYMMDD_PATTER, dateTime);
-    //     mSqlQuery.insertUserSetting(getApplicationContext(), Content, date, "N", "");
-    
-    //     PostData postData = new PostData("", Content, date, mBucketDataList.size());
-    //     postData.setImageName("");
-    //     postData.setCompleteYN("N");
-    //     mBucketDataList.add(postData);
-    //     realmMgr.insertPostData(postData);
-    // }
-    
-    
-    
-    // private void setBackgroundColor() {
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.write_back_color).setBackgroundColor(color);
-    //     }
-    // }
-    
-    // private void setTextPont() {
-    //     Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-    //     ((Button) findViewById(R.id.write_layout_addBtn)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.sort_memo)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.sort_date)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.sort_deadline)).setTypeface(typeFace);
-//         ((Button) findViewById(R.id.write_list_text)).setTypeface(typeFace);
-//     }
-    
+    /**
+     * DB 데이타 동기화하기(삭제)
+     */
+    func removeDBData( Content : String) -> Bool{
+        KLog.d(tag: TAG, msg: "@@ remove Data Contents : " + Content);
+        if(mSqlQuery != nil){
+            return (mSqlQuery?.deleteUserBucket(contents: Content))!
+        }
+        return false
+    }
 }
