@@ -10,10 +10,8 @@ import UIKit
 
 
 class WriteDetailViewCtlr: UIViewController {
-
+    
     private let TAG : String = "WriteDetailViewCtlr"
-    // private SQLQuery mSqlQuery = null;
-
     private var mContents : String = ""
     private var mDate : String = ""
     private var mDeadLineDate : String = ""
@@ -22,107 +20,106 @@ class WriteDetailViewCtlr: UIViewController {
     
     private var mImageIdx : Int = -1
     private var mCategory : Int = 1
-
+    
     private let TOAST_MASSEGE : Int = 10
     private let UPLOAD_IMAGE : Int = 20
     private let UPLOAD_BUCKET : Int = 30
     private let SELECT_BUCKET_CATEGORY : Int = 40
-
+    
+    @IBOutlet weak var btShare: UIButton!
+    @IBOutlet weak var btSave: UIButton!
+    @IBOutlet weak var btDel: UIButton!
+    @IBOutlet weak var ckComplete: UISwitch!
+    @IBOutlet weak var btGallery: UIButton!
+    @IBOutlet weak var btCamera: UIButton!
+    
+    private var mSqlQuery  : SQLQuery? = nil
+    
     // private CheckBox mCheckbox = null;
     // /*카메라 호출 리턴값*/
     // private int REQ_CODE_PICKCUTRE = 1000;
     // /*갤러리 호출 리턴값*/
     // private int REQ_CODE_GALLERY = 1001;
-
+    
     // private ImageView mImageView = null;
     // private ConfirmPopup mConfirmPopup = null;
     // private SpinnerListPopup mCategoryPopup = null;
     // private android.os.Handler mHandler = null;
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad");
+        initialize()
     }
-
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    //     setContentView(R.layout.write_detail_activity);
-    //     setBackgroundColor();
-    //     setTextPont();
-    //     ((Button) findViewById(R.id.write_saveButton)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.write_deleteButton)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.write_shareButton)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.write_image_camera)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.write_image_gallery)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.write_image_remove)).setOnClickListener(this);
-
-    //     mHandler = new android.os.Handler(this);
-    //     mSqlQuery = new SQLQuery();
-
-    //     mCheckbox = (CheckBox) findViewById(R.id.write_layout_checkbox);
-    //     mContents = getIntent().getStringExtra("CONTENTS");
-
-    //     BACK = getIntent().getStringExtra("BACK");
-
-    //     mImageView = (ImageView) findViewById(R.id.write_layout_imageview);
-
-    //     setData();
-    //     AppUtils.sendTrackerScreen(this, "가지상세화면");
-    // }
-
-    // private void setBackgroundColor() {
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.writedetail_back_color).setBackgroundColor(color);
-    //     }
-    // }
-
-    // @Override
-    // public void finish() {
-    //     super.finish();
-    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    // }
-
-    // @Override
-    // public void onBackPressed() {
-    //     if (BACK.equals(ContextUtils.VIEW_COMPLETE_LIST)) {
-    //         Intent intent = new Intent(this, BucketListActivity.class);
-    //         startActivity(intent);
-    //         finish();
-    //     } else {
-    //         Intent intent = new Intent(this, WriteActivity.class);
-    //         startActivity(intent);
-    //         finish();
-    //     }
-
-    // }
-
+    
+    func initialize()
+    {
+        KLog.d(tag: TAG, msg: "initialize");
+        mSqlQuery = SQLQuery()
+        //     mContents = getIntent().getStringExtra("CONTENTS");
+        
+        //     BACK = getIntent().getStringExtra("BACK");
+        
+        //     mImageView = (ImageView) findViewById(R.id.write_layout_imageview);
+        
+        //     setData();
+        //     AppUtils.sendTrackerScreen(this, "가지상세화면");
+    }
+    
+    @IBAction func onBackPressed(_ sender: Any) {
+        //         if (BACK.equals(ContextUtils.VIEW_COMPLETE_LIST)) {
+        //             Intent intent = new Intent(this, BucketListActivity.class);
+        //             startActivity(intent);
+        //             finish();
+        //         } else {
+        //             Intent intent = new Intent(this, WriteActivity.class);
+        //             startActivity(intent);
+        //             finish();
+        //         }
+        //
+        KLog.d(tag: TAG, msg: "onBackPressed");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteViewCtrl")
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func onClick(_ sender: Any) {
+        switch (sender  as! UIButton)  {
+        case btSave:
+            KLog.d(tag: TAG, msg: "onClick btSave")
+            //             updateDBDate();
+            //             onBackPressed();
+            break;
+        case btDel:
+            KLog.d(tag: TAG, msg: "onClick btDel")
+            //             String title = getString(R.string.delete_popup_title);
+            //             String content = getString(R.string.delete_popup_content);
+            //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_DELETE);
+            //             mConfirmPopup.showDialog()
+            break;
+        case btShare:
+            KLog.d(tag: TAG, msg: "onClick btShare")
+            //             title = getString(R.string.share_popup_title);
+            //             content = getString(R.string.share_popup_content);
+            //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_SHARE);
+            //             mConfirmPopup.showDialog();
+            break
+        case btCamera:
+            break;
+        case btGallery:
+            break;
+            
+        default:
+            break;
+        }
+        //
+    }
+     
     // @Override
     // public void onClick(View v) {
     //     switch (v.getId()) {
-    //         // 저장 버튼
-    //         case R.id.write_saveButton:
-    //             updateDBDate();
-    //             onBackPressed();
-    //             break;
-    //         // 삭제 버튼
-    //         case R.id.write_deleteButton:
-    //             String title = getString(R.string.delete_popup_title);
-    //             String content = getString(R.string.delete_popup_content);
-    //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_DELETE);
-    //             mConfirmPopup.showDialog();
-    //             break;
-    //         // 공유 버튼
-    //         case R.id.write_shareButton:
-    //             title = getString(R.string.share_popup_title);
-    //             content = getString(R.string.share_popup_content);
-    //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_SHARE);
-    //             mConfirmPopup.showDialog();
-    //             break;
     //         //이미지 첨부(카메라로 가져오기)
     //         case R.id.write_image_camera:
     //             mPhotoPath = DataUtils.getNewFileName();
@@ -144,7 +141,7 @@ class WriteDetailViewCtlr: UIViewController {
     //             mImageView.setVisibility(View.INVISIBLE);
     //             ((Button) findViewById(R.id.write_image_remove)).setVisibility(View.INVISIBLE);
     //             break;
-
+    
     //         //날짜 선택하기
     //         case R.id.write_layout_titleView:
     //             GregorianCalendar gregorianCalendar = new GregorianCalendar();
@@ -156,7 +153,7 @@ class WriteDetailViewCtlr: UIViewController {
     //             DatePickerDialog datePickerDialog = new DatePickerDialog(WriteDetailActivity.this, dateSetListener, year, month, day);
     //             datePickerDialog.show();
     //             break;
-
+    
     //         case R.id.write_layout_deadline:
     //             gregorianCalendar = new GregorianCalendar();
     //             year = gregorianCalendar.get(Calendar.YEAR);
@@ -167,7 +164,7 @@ class WriteDetailViewCtlr: UIViewController {
     //             break;
     //     }
     // }
-
+    
     // private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
     //     @Override
     //     public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -177,7 +174,7 @@ class WriteDetailViewCtlr: UIViewController {
     //         ((TextView) findViewById(R.id.write_layout_titleView)).setText(mDate);
     //     }
     // };
-
+    
     // private DatePickerDialog.OnDateSetListener dateSetListener2 = new DatePickerDialog.OnDateSetListener() {
     //     @Override
     //     public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -187,7 +184,7 @@ class WriteDetailViewCtlr: UIViewController {
     //         ((TextView) findViewById(R.id.write_layout_deadline)).setText(mDeadLineDate);
     //     }
     // };
-
+    
     // @Override
     // protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     //     if (requestCode == REQ_CODE_PICKCUTRE) {
@@ -230,13 +227,13 @@ class WriteDetailViewCtlr: UIViewController {
     //             }
     //         }
     //     }
-
+    
     // }
-
+    
     // /**
     //  * DB 데이타 불러와서 데이타 표시하기
     //  */
-
+    
     // private void setData() {
     //     LinkedHashMap<String, String> memoMap = mSqlQuery.selectKbucket(getApplicationContext(), mContents);
     //     if (memoMap == null || memoMap.toString() == null) {
@@ -264,14 +261,14 @@ class WriteDetailViewCtlr: UIViewController {
     //         mImageView.setVisibility(View.INVISIBLE);
     //     }
     //     mDeadLineDate = memoMap.get("deadline");
-
+    
     //     ((TextView) findViewById(R.id.write_layout_titleView)).setText(mDate);
     //     ((TextView) findViewById(R.id.write_layout_titleView)).setOnClickListener(this);
     //     ((TextView) findViewById(R.id.write_layout_contentView)).setText(mContents);
     //     ((TextView) findViewById(R.id.write_layout_deadline)).setText(mDeadLineDate);
     //     ((TextView) findViewById(R.id.write_layout_deadline)).setOnClickListener(this);
     // }
-
+    
     // /**
     //  * DB 데이타 동기화하기
     //  */
@@ -281,7 +278,7 @@ class WriteDetailViewCtlr: UIViewController {
     //     String imagePath = mPhotoPath != null ? mPhotoPath : "";
     //     mSqlQuery.updateMemoContent(getApplicationContext(), mContents, NewContents, completeYN, mDate, imagePath, mDeadLineDate);
     // }
-
+    
     // /**
     //  * DB 데이타 동기화하기(삭제)
     //  */
@@ -289,7 +286,7 @@ class WriteDetailViewCtlr: UIViewController {
     //     KLog.d(this.getClass().getSimpleName(), "@@ remove Data Contents : " + Content);
     //     mSqlQuery.deleteUserBucket(getApplicationContext(), Content);
     // }
-
+    
     // /**
     //  * 이미지 첨부 버튼 보이게 하기/숨기기 메소드
     //  *
@@ -305,22 +302,7 @@ class WriteDetailViewCtlr: UIViewController {
     //     }
     // }
 
-    // private void setTextPont() {
-    //     Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-    //     ((Button) findViewById(R.id.write_saveButton)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.write_deleteButton)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.write_shareButton)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.write_image_camera)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.write_image_gallery)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.write_detail_text1)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.write_detail_text2)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.write_detail_text3)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.write_layout_titleView)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.write_layout_contentView)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.write_detail_text4)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.write_layout_deadline)).setTypeface(typeFace);
-    // }
-
+    
     // @Override
     // public void onPopupAction(int popId, int what, Object obj) {
     //     if (popId == OnPopupEventListener.POPUP_BUCKET_SHARE) {
@@ -347,7 +329,7 @@ class WriteDetailViewCtlr: UIViewController {
     //         mCategoryPopup.closeDialog();
     //     }
     // }
-
+    
     // /**
     //  * 서버로 전송할 데이타 만들기
     //  *
@@ -363,7 +345,7 @@ class WriteDetailViewCtlr: UIViewController {
     //     bucket.setCategoryCode(mCategory);
     //     return bucket.toHasnMap();
     // }
-
+    
     // @Override
     // public void onHttpReceive(int type, int actionId, Object obj) {
     //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive : " + obj);
@@ -384,7 +366,7 @@ class WriteDetailViewCtlr: UIViewController {
     //                 } catch (JSONException e) {
     //                     KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
     //                 }
-
+    
     //                 if (isValid == true) {
     //                     // 이미지가 있는 경우 전송함
     //                     if (mPhotoPath != null && !mPhotoPath.equals("")) {
@@ -417,7 +399,7 @@ class WriteDetailViewCtlr: UIViewController {
     //         }
     //     }
     // }
-
+    
     // @Override
     // public boolean handleMessage(Message msg) {
     //     switch (msg.what) {
@@ -432,7 +414,7 @@ class WriteDetailViewCtlr: UIViewController {
     //                 Calendar calendar = Calendar.getInstance();
     //                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_hhmmss");
     //                 String fileName = sdf.format(calendar.getTime());
-
+    
     //                 byte[] bytes = ByteUtils.getByteArrayFromBitmap(bitmap);
     //                 HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, this, IHttpReceive.INSERT_IMAGE, bytes);
     //                 httpUrlFileUploadManager.execute(photoPath, "idx", mImageIdx + "", fileName + ".jpg");

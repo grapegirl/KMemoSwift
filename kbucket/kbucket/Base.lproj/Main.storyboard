@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController restorationIdentifier="MainViewCtrl" storyboardIdentifier="MainViewCtrl" id="BYZ-38-t0r" customClass="ViewController" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MainViewCtrl" title="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AOD-TB-I22"/>
                         <viewControllerLayoutGuide type="bottom" id="n7G-lh-QWN"/>
@@ -132,7 +132,7 @@
                         <viewControllerLayoutGuide type="bottom" id="1d2-uk-wKK"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="hPE-ts-Cfc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="꿈 가지 목록" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWF-Ci-jaC">
@@ -164,7 +164,7 @@
                                         <rect key="frame" x="0.0" y="28" width="375" height="77"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gMB-wU-EI3" id="Bun-QG-pD5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="76.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" restorationIdentifier="tvLabel" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aC0-az-mAL">
@@ -281,16 +281,16 @@
             </objects>
             <point key="canvasLocation" x="-465" y="139"/>
         </scene>
-        <!--WriteDetailViewCtlr-->
+        <!--Write Detail View Ctlr-->
         <scene sceneID="6gR-kz-iwH">
             <objects>
-                <viewController storyboardIdentifier="WriteDetailViewCtlr" title="WriteDetailViewCtlr" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aMF-eL-1tI" customClass="WriteDetailViewCtlr" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteDetailViewCtlr" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aMF-eL-1tI" customClass="WriteDetailViewCtlr" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CLb-Qo-SHt"/>
                         <viewControllerLayoutGuide type="bottom" id="ReB-Di-d4U"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="dCU-bu-DTT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="꿈 가지 내용" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7mt-bp-CWN">
@@ -308,14 +308,9 @@
                                 <state key="normal" title="Back">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tse-0H-7zu">
-                                <rect key="frame" x="39" y="501" width="296" height="119"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.4041194052" green="0.8490730246" blue="0.1031890238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <state key="normal" title="카메라">
-                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                                <connections>
+                                    <action selector="onBackPressed:" destination="aMF-eL-1tI" eventType="touchUpInside" id="hRN-7L-nGt"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="Wc4-yV-CAq">
                                 <rect key="frame" x="76" y="146" width="259" height="30"/>
@@ -374,6 +369,9 @@
                                 <state key="normal" title="저장">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="touchUpInside" id="3Vt-Ax-595"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g93-ua-wUj">
                                 <rect key="frame" x="199" y="84" width="71" height="41"/>
@@ -383,6 +381,9 @@
                                 <state key="normal" title="삭제">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="touchUpInside" id="coP-lv-kPa"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yJY-RF-p6w">
                                 <rect key="frame" x="278" y="84" width="71" height="41"/>
@@ -392,6 +393,9 @@
                                 <state key="normal" title="공유">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="touchUpInside" id="YJT-GJ-ays"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zot-Pu-YY5">
                                 <rect key="frame" x="39" y="345" width="296" height="110"/>
@@ -401,9 +405,29 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtx-qg-MKq">
+                                <rect key="frame" x="63" y="89" width="49" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tse-0H-7zu">
+                                <rect key="frame" x="39" y="487" width="296" height="119"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.4041194052" green="0.8490730246" blue="0.1031890238" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="카메라">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.89260018129999996" blue="0.3228536232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <connections>
+                        <outlet property="btCamera" destination="Tse-0H-7zu" id="vqz-XB-R5V"/>
+                        <outlet property="btDel" destination="g93-ua-wUj" id="CnT-O3-MXM"/>
+                        <outlet property="btGallery" destination="Zot-Pu-YY5" id="p7S-R4-f1L"/>
+                        <outlet property="btSave" destination="raL-fM-XlY" id="dmX-pZ-0vc"/>
+                        <outlet property="btShare" destination="yJY-RF-p6w" id="b7c-26-ikZ"/>
+                        <outlet property="ckComplete" destination="qtx-qg-MKq" id="pN0-u2-s2V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iub-k6-mqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
