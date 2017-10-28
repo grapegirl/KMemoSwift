@@ -1,6 +1,6 @@
-﻿//
+//
 //  WriteDetailViewCtlr.swift
-//  버킷 작성 클래스
+//  버킷 상세 클래스
 //
 //  Created by grapegirl on 2017. 9. 01..
 //  Copyright © 2017년 kikiplus. All rights reserved.

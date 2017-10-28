@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/ViewController.swift"
-            timestampString = "530844764.934455"
+            timestampString = "530845103.199869"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -154,7 +154,7 @@
                   moduleName = "kbucket"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mhkim/Documents/GitHub/KMemoSwift/kbucket/kbucket/Utils/LinkedList.swift"
-                  timestampString = "530844765.32525"
+                  timestampString = "530846490.474385"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -169,7 +169,7 @@
                   moduleName = "kbucket"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mhkim/Documents/GitHub/KMemoSwift/kbucket/kbucket/Utils/LinkedList.swift"
-                  timestampString = "530844765.328776"
+                  timestampString = "530846490.48017"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -298,7 +298,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/View/ViewController/WriteMemoViewCtlr.swift"
-            timestampString = "527257404.939961"
+            timestampString = "530846490.453253"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "19"
@@ -330,11 +330,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/View/ViewController/WriteViewCtlr.swift"
-            timestampString = "530844764.934955"
+            timestampString = "530846490.453423"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216">
+            startingLineNumber = "222"
+            endingLineNumber = "222">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -344,11 +344,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/View/ViewController/WriteViewCtlr.swift"
-            timestampString = "530844764.93577"
+            timestampString = "530846490.453556"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "216"
-            endingLineNumber = "216">
+            startingLineNumber = "222"
+            endingLineNumber = "222">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -181,10 +181,16 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
             //             startActivity(intent);
             //             finish();
             
+            KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailViewCtlr")
+            
+            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+            present(uvc!, animated: true, completion: nil)
+            
             break;
         case 1://삭제
             let index:Int? = Int(data)
-            if (index! > 0 && index! < mDataList.count){
+            if (index! >= 0 && index! < mDataList.count){
                 let deleteItem : String
                 deleteItem = mDataList[index!]
                 let result : Bool
