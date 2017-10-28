@@ -45,9 +45,9 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         mSqlQuery = SQLQuery()
         if(mSqlQuery != nil){
             var bucketList : Results<Bucket>? = nil
-            
+
             bucketList = mSqlQuery?.selectKbucket()
-            
+
             let strCount = String(describing: bucketList?.count)
             KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
             for kbucket in bucketList!
@@ -58,7 +58,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
                 }
                 mDataList.append(kbucket.mContent)
             }
-            
+
         }
         sort()
         print("@@ 디렉토리 : " + NSHomeDirectory())
