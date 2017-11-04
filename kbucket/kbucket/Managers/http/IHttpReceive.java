@@ -1,17 +1,19 @@
-package momo.kikiplus.com.kbucket.Managers.http;
 
 /**
  * @author grapegirl
  * @version 1.0
  * @Class Name : IHttpReceive
  * @Description : HTTP 통신 결과
- * @since 2015-06-30.
+ * @since 2017-11-04
  */
-public interface IHttpReceive {
+
+import Foundation
+
+protocol IHttpReceive {
     /**
      * 성공
      */
-    public static final int HTTP_OK = 0;
+    public let  HTTP_OK : Int  = 0;
 
     /**
      * 실패
@@ -21,7 +23,8 @@ public interface IHttpReceive {
     /***
      * 리비스 콜백 메소드
      */
-    public void onHttpReceive(int type, int actionId,  Object obj);
+    func onHttpReceive(type : Int, actionId: Int,  data : String)
+
 
     /** 버킷 공유하기  */
     public static final int INSERT_BUCKET  = 2000;

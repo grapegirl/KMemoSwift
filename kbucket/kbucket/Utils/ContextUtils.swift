@@ -147,7 +147,7 @@ class ContextUtils{
     /**
      * 서버 IP
      */
-    public static let KBUCKET_SERVER_IP : String = "kikiplus2030.ddns.net"     
+    public static let KBUCKET_SERVER_IP : String = "kikiplus.ddns.net"     
     
     /**
      * 서버 port

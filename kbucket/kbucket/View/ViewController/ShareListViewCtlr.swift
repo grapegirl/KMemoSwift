@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ShareListViewCtlr: UIViewController {
+class ShareListViewCtlr: UIViewController , IHttpReceive{
     
     private let TAG : String = "ShareListViewCtlr"
     
@@ -35,7 +35,7 @@ class ShareListViewCtlr: UIViewController {
     @IBOutlet weak var btCategory7: UIButton!
     @IBOutlet weak var btCategory8: UIButton!
     
-  
+    
     // private ShareListAdpater mListAdapter = null;
     // private ListView mListView = null;
     
@@ -43,7 +43,7 @@ class ShareListViewCtlr: UIViewController {
         super.viewDidLoad()
         KLog.d(tag: TAG, msg: "viewDidLoad");
         
-      
+        
         //     mHandler.sendEmptyMessage(CHECK_NETWORK);
         //     AppUtils.sendTrackerScreen(this, "모두가지화면");
         initialize()
@@ -125,7 +125,7 @@ class ShareListViewCtlr: UIViewController {
         case btCategory8:
             categoryCode = "9"
             KLog.d(tag: TAG, msg: "Category8")
-            handleMessage(what: SHARE_BUCKET_LIST, obj : categoryCode)
+            
             break;
         default:
             break;
@@ -138,152 +138,155 @@ class ShareListViewCtlr: UIViewController {
             //             startActivity(intent);
             //             break;
         }
+        handleMessage(what: SHARE_BUCKET_LIST, obj : categoryCode)
         
     }
-    // @Override
-    // public void onHttpReceive(int type, int actionId, Object obj) {
-    //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive actionId: " + actionId);
-    //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive  type: " + type);
-    //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive  obj: " + obj);
-    //     String mData = (String) obj;
-    //     boolean isValid = false;
-    //     if (mData != null) {
-    //         try {
-    //             JSONObject json = new JSONObject(mData);
-    //             isValid = json.getBoolean("isValid");
-    //         } catch (JSONException e) {
-    //             KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-    //         }
-    //     }
-    //     if (actionId == IHttpReceive.CATEGORY_LIST) {
-    //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-    //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
-    //             try {
-    //                 JSONObject json = new JSONObject(mData);
-    //                 JSONArray jsonArray = json.getJSONArray("categoryVOList");
-    //                 KLog.d(this.getClass().getSimpleName(), "@@ jsonArray :   " + jsonArray);
-    //                 int size = jsonArray.length();
-    //                 for (int i = 0; i < size; i++) {
-    //                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-    //                     Category category = new Category();
-    //                     category.setCategoryCode(jsonObject.getInt("categoryCode"));
-    //                     category.setCategoryName(jsonObject.getString("categoryName"));
-    //                     mCategoryList.add(category);
-    //                 }
-    //                 mHandler.sendEmptyMessage(SET_CATEGORY);
-    //             } catch (JSONException e) {
-    //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-    //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-    //             }
-    //         } else {
-    //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-    //         }
-    //     } else if (actionId == BUCKET_LIST) {
-    //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-    //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
-    //             try {
-    //                 JSONObject json = new JSONObject(mData);
-    //                 JSONArray jsonArray = json.getJSONArray("bucketList");
-    //                 KLog.d(this.getClass().getSimpleName(), "@@ jsonArray :   " + jsonArray);
-    //                 int size = jsonArray.length();
-    //                 mBucketDataList.clear();
-    //                 for (int i = 0; i < size; i++) {
-    //                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-    //                     Bucket bucket = new Bucket();
-    //                     bucket.setContent(jsonObject.getString("content"));
-    //                     bucket.setPhone(jsonObject.getString("phone"));
-    //                     bucket.setIdx(jsonObject.getInt("idx"));
-    //                     bucket.setImageUrl(jsonObject.getString("imageUrl"));
-    //                     bucket.setNickName(jsonObject.getString("nickName"));
-    //                     bucket.setCategoryCode(jsonObject.getInt("categoryCode"));
-    //                     bucket.setDate(jsonObject.getString("createDt"));
     
-    //                     mBucketDataList.add(bucket);
-    //                 }
-    
-    //                 if (mBucketDataList != null) {
-    //                     if (mBucketDataList.size() > 0) {
-    //                         realmMgr realmMgr = new realmMgr();
-    //                         realmMgr.updateBucketShare(mBucketDataList);
-    //                     }
-    //                 }
-    //                 mHandler.sendEmptyMessage(SET_BUCKETLIST);
-    //             } catch (JSONException e) {
-    //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-    //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-    //             }
-    //         } else {
-    //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-    //         }
-    //     }
-    // }
-    
-    
+    func onHttpReceive(type: Int, actionId: Int, data: String) {
+        //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive actionId: " + actionId);
+        //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive  type: " + type);
+        //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive  obj: " + obj);
+        //     String mData = (String) obj;
+        //     boolean isValid = false;
+        //     if (mData != null) {
+        //         try {
+        //             JSONObject json = new JSONObject(mData);
+        //             isValid = json.getBoolean("isValid");
+        //         } catch (JSONException e) {
+        //             KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
+        //         }
+        //     }
+        //     if (actionId == IHttpReceive.CATEGORY_LIST) {
+        //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
+        //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
+        //             try {
+        //                 JSONObject json = new JSONObject(mData);
+        //                 JSONArray jsonArray = json.getJSONArray("categoryVOList");
+        //                 KLog.d(this.getClass().getSimpleName(), "@@ jsonArray :   " + jsonArray);
+        //                 int size = jsonArray.length();
+        //                 for (int i = 0; i < size; i++) {
+        //                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+        //                     Category category = new Category();
+        //                     category.setCategoryCode(jsonObject.getInt("categoryCode"));
+        //                     category.setCategoryName(jsonObject.getString("categoryName"));
+        //                     mCategoryList.add(category);
+        //                 }
+        //                 mHandler.sendEmptyMessage(SET_CATEGORY);
+        //             } catch (JSONException e) {
+        //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
+        //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
+        //             }
+        //         } else {
+        //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
+        //         }
+        //     } else if (actionId == BUCKET_LIST) {
+        //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
+        //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
+        //             try {
+        //                 JSONObject json = new JSONObject(mData);
+        //                 JSONArray jsonArray = json.getJSONArray("bucketList");
+        //                 KLog.d(this.getClass().getSimpleName(), "@@ jsonArray :   " + jsonArray);
+        //                 int size = jsonArray.length();
+        //                 mBucketDataList.clear();
+        //                 for (int i = 0; i < size; i++) {
+        //                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
+        //                     Bucket bucket = new Bucket();
+        //                     bucket.setContent(jsonObject.getString("content"));
+        //                     bucket.setPhone(jsonObject.getString("phone"));
+        //                     bucket.setIdx(jsonObject.getInt("idx"));
+        //                     bucket.setImageUrl(jsonObject.getString("imageUrl"));
+        //                     bucket.setNickName(jsonObject.getString("nickName"));
+        //                     bucket.setCategoryCode(jsonObject.getInt("categoryCode"));
+        //                     bucket.setDate(jsonObject.getString("createDt"));
+        
+        //                     mBucketDataList.add(bucket);
+        //                 }
+        
+        //                 if (mBucketDataList != null) {
+        //                     if (mBucketDataList.size() > 0) {
+        //                         realmMgr realmMgr = new realmMgr();
+        //                         realmMgr.updateBucketShare(mBucketDataList);
+        //                     }
+        //                 }
+        //                 mHandler.sendEmptyMessage(SET_BUCKETLIST);
+        //             } catch (JSONException e) {
+        //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
+        //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
+        //             }
+        //         } else {
+        //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
+        //         }
+        //     }
+    }
     
     func handleMessage(what : Int, obj : String) {
-         switch (what) {
-    //         case TOAST_MASSEGE:
-    //             Toast.makeText(getApplicationContext(), (String) msg.obj, Toast.LENGTH_LONG).show();
-    //             break;
-    //         case CATEGORY_LIST:
-    //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-    //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_CATEGORY_URL, false, this, IHttpReceive.CATEGORY_LIST);
-    //             httpUrlTaskManager.execute();
-    //             break;
-    //         case SET_CATEGORY:
-    //             setButton();
-    //             findViewById(R.id.share_category_view).setVisibility(View.VISIBLE);
-    //             KLog.d(TAG, "@@ SET_CATEGORY");
-    //             mHandler.sendEmptyMessage(SHARE_BUCKET_LIST);
-    //             break;
-    //         case SERVER_LOADING_FAIL:
-    //             realmMgr realmMgr = new realmMgr();
-    //             RealmResults<Bucket> infoList = realmMgr.selectBucketShareList();
-    //             if (infoList != null) {
-    //                 if (infoList.size() > 0) {
-    //                     mBucketDataList.clear();
-    //                     for (int i = 0; i < infoList.size(); i++) {
-    //                         Bucket bucket = infoList.get(i);
-    //                         mBucketDataList.add(bucket);
-    //                     }
-    //                     mHandler.sendEmptyMessage(SET_BUCKETLIST);
-    //                 }
-    //             } else {
-    //                 KLog.d(TAG, "@@ SERVER_LOADING_FAIL");
-    //                 String message = getString(R.string.server_fail_string);
-    //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-    //                 finish();
-    //             }
-    //             break;
-             case SHARE_BUCKET_LIST:
-                var data : String = String(obj)
-                if (data == nil) {
-                     data = ContextUtils.DEFULAT_SHARE_BUCKET_IDX
-                 }
-    //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-                 httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_BUCKET_LIST_URL, true, this, IHttpReceive.BUCKET_LIST);
-//                 HashMap<String, Object> map = new HashMap<String, Object>();
-//                 map.put("idx", data);
-//                 httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-                 break;
-    //         case SET_BUCKETLIST:
-    //             mListView = (ListView) findViewById(R.id.share_list_listview);
-    //             mListAdapter = new ShareListAdpater(this, R.layout.share_list_line, mBucketDataList, this);
-    //             mListView.setAdapter(mListAdapter);
-    //             break;
-    //         case CHECK_NETWORK:
-    //             boolean isConnect = NetworkUtils.isConnectivityStatus(this);
-    //             if (!isConnect) {
-    //                 String connectMsg = getString(R.string.check_network);
-    //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, connectMsg));
-    //             } else {
-    //                 mHandler.sendEmptyMessage(CATEGORY_LIST);
-    //             }
-    //             break;
-         default:
+        switch (what) {
+            //         case TOAST_MASSEGE:
+            //             Toast.makeText(getApplicationContext(), (String) msg.obj, Toast.LENGTH_LONG).show();
+            //             break;
+            //         case CATEGORY_LIST:
+            //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
+            //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_CATEGORY_URL, false, this, IHttpReceive.CATEGORY_LIST);
+            //             httpUrlTaskManager.execute();
+            //             break;
+            //         case SET_CATEGORY:
+            //             setButton();
+            //             findViewById(R.id.share_category_view).setVisibility(View.VISIBLE);
+            //             KLog.d(TAG, "@@ SET_CATEGORY");
+            //             mHandler.sendEmptyMessage(SHARE_BUCKET_LIST);
+            //             break;
+            //         case SERVER_LOADING_FAIL:
+            //             realmMgr realmMgr = new realmMgr();
+            //             RealmResults<Bucket> infoList = realmMgr.selectBucketShareList();
+            //             if (infoList != null) {
+            //                 if (infoList.size() > 0) {
+            //                     mBucketDataList.clear();
+            //                     for (int i = 0; i < infoList.size(); i++) {
+            //                         Bucket bucket = infoList.get(i);
+            //                         mBucketDataList.add(bucket);
+            //                     }
+            //                     mHandler.sendEmptyMessage(SET_BUCKETLIST);
+            //                 }
+            //             } else {
+            //                 KLog.d(TAG, "@@ SERVER_LOADING_FAIL");
+            //                 String message = getString(R.string.server_fail_string);
+            //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
+            //                 finish();
+            //             }
+        //             break;
+        case SHARE_BUCKET_LIST:
+            var data : String = String(obj)
+            if (data == nil) {
+                data = ContextUtils.DEFULAT_SHARE_BUCKET_IDX
+            }
+            //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
+            
+            var url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx=1"
+            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
+            httpUrlTaskManager.actionTask();
+            
+            //                 HashMap<String, Object> map = new HashMap<String, Object>();
+            //                 map.put("idx", data);
+            //                 httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
             break;
-         }
-     }
-
+            //         case SET_BUCKETLIST:
+            //             mListView = (ListView) findViewById(R.id.share_list_listview);
+            //             mListAdapter = new ShareListAdpater(this, R.layout.share_list_line, mBucketDataList, this);
+            //             mListView.setAdapter(mListAdapter);
+            //             break;
+            //         case CHECK_NETWORK:
+            //             boolean isConnect = NetworkUtils.isConnectivityStatus(this);
+            //             if (!isConnect) {
+            //                 String connectMsg = getString(R.string.check_network);
+            //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, connectMsg));
+            //             } else {
+            //                 mHandler.sendEmptyMessage(CATEGORY_LIST);
+            //             }
+        //             break;
+        default:
+            break;
+        }
+    }
+    
     
 }

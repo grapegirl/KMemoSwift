@@ -1,23 +1,6 @@
 /**
  *
  */
-package momo.kikiplus.com.kbucket.Managers.http;
-
-import android.os.AsyncTask;
-import android.util.Log;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
-import java.net.URLConnection;
-
-import momo.kikiplus.com.kbucket.Utils.KLog;
 
 
 /**
@@ -25,7 +8,7 @@ import momo.kikiplus.com.kbucket.Utils.KLog;
  * @version 1.0
  * @Class Name : HTTPManager.java
  * @Description : HTTP 통신 매니저 클래스
- * @since 2014.08.01
+ * @since 2017-11-04
  */
 public class HttpUrlTaskManager extends AsyncTask<String, Void, Void> {
 
