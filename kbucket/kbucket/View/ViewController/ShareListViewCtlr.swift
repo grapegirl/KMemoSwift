@@ -1,8 +1,8 @@
-﻿//
+//
 //  ShareListViewCtlr.swift
 //  공유 목록
 //
-//  Created by grapegirl on 2017. 9. 01..
+//  Created by grapegirl on 2017. 11. 04..
 //  Copyright © 2017년 kikiplus. All rights reserved.
 //
 
@@ -10,60 +10,136 @@ import UIKit
 
 
 class ShareListViewCtlr: UIViewController {
-
+    
     private let TAG : String = "ShareListViewCtlr"
-
-    private let TOAST_MASSEGE : Int = 10
-    private let CATEGORY_LIST : Int = 20
-    private let SET_CATEGORY : Int = 30
-    private let SERVER_LOADING_FAIL : Int = 40
-    private let SHARE_BUCKET_LIST : Int = 50
-    private let SET_BUCKETLIST : Int = 60
-    private let CHECK_NETWORK : Int = 70
-
-
-    // private ArrayList<Category> mCategoryList = null;
-    // private android.os.Handler mHandler = null;
-    // private Button[] mButton = new Button[9];
-    // private ArrayList<Bucket> mBucketDataList = null;
+    
+    private let TOAST_MASSEGE : Int             = 10
+    private let CATEGORY_LIST : Int             = 20
+    private let SET_CATEGORY : Int              = 30
+    private let SERVER_LOADING_FAIL : Int       = 40
+    private let SHARE_BUCKET_LIST : Int         = 50
+    private let SET_BUCKETLIST : Int            = 60
+    private let CHECK_NETWORK : Int             = 70
+    
+    private var mCategoryList = Array<Category>()
+    private var mBucketDataList = Array<Bucket>()
+    private var mButtonList = Array<UIButton>()
+    
+    @IBOutlet weak var btCategory0: UIButton!
+    @IBOutlet weak var btCategory1: UIButton!
+    @IBOutlet weak var btCategory2: UIButton!
+    @IBOutlet weak var btCategory3: UIButton!
+    @IBOutlet weak var btCategory4: UIButton!
+    @IBOutlet weak var btCategory5: UIButton!
+    @IBOutlet weak var btCategory6: UIButton!
+    @IBOutlet weak var btCategory7: UIButton!
+    @IBOutlet weak var btCategory8: UIButton!
+    
+  
     // private ShareListAdpater mListAdapter = null;
     // private ListView mListView = null;
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad");
+        
+      
+        //     mHandler.sendEmptyMessage(CHECK_NETWORK);
+        //     AppUtils.sendTrackerScreen(this, "모두가지화면");
+        initialize()
     }
-
-
-
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    //     setContentView(R.layout.share_list_activity);
-    //     setBackgroundColor();
-    //     setTextPont();
-    //     mHandler = new android.os.Handler(this);
-    //     mCategoryList = new ArrayList<Category>();
-    //     mBucketDataList = new ArrayList<Bucket>();
-    //     mHandler.sendEmptyMessage(CHECK_NETWORK);
-    //     AppUtils.sendTrackerScreen(this, "모두가지화면");
-    // }
-
-    // private void setBackgroundColor() {
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.share_back_color).setBackgroundColor(color);
-    //     }
-    // }
-
-    // @Override
-    // public void finish() {
-    //     super.finish();
-    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    // }
-
+    
+    func initialize(){
+        setCategoryList()
+    }
+    
+    func setButtonList(){
+        mButtonList.append(btCategory0)
+        mButtonList.append(btCategory1)
+        mButtonList.append(btCategory2)
+        mButtonList.append(btCategory3)
+        mButtonList.append(btCategory4)
+        mButtonList.append(btCategory5)
+        mButtonList.append(btCategory6)
+        mButtonList.append(btCategory7)
+        mButtonList.append(btCategory8)
+    }
+    
+    func setCategoryList() {
+        let category0  = Category(name : "LIEF", code: 0)
+        let category1 = Category(name : "LOVE", code : 1)
+        let category2 = Category(name : "WORK", code : 2)
+        let category3 = Category(name : "EDUCATION", code : 3)
+        let category4 = Category(name : "FAMILY", code : 4)
+        let category5 = Category(name : "FINANCE", code : 5)
+        let category6 = Category(name : "DEVELOP", code : 6)
+        let category7 = Category(name : "HEALTH", code : 7)
+        let category8 = Category(name : "ETC", code : 8)
+        
+        mCategoryList.append(category0)
+        mCategoryList.append(category1)
+        mCategoryList.append(category2)
+        mCategoryList.append(category3)
+        mCategoryList.append(category4)
+        mCategoryList.append(category5)
+        mCategoryList.append(category6)
+        mCategoryList.append(category7)
+        mCategoryList.append(category8)
+    }
+    
+    @IBAction func onBackPressed(_ sender: Any) {
+        KLog.d(tag: TAG, msg: "onBackPressed");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewCtrl")
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
+    
+    @IBAction func onClick(_ sender: Any) {
+        var categoryCode : String = "1"
+        
+        switch(sender  as! UIButton ){
+        case btCategory0:
+            categoryCode = "1"
+            KLog.d(tag: TAG, msg: "Category0")
+        case btCategory1:
+            categoryCode = "2"
+            KLog.d(tag: TAG, msg: "Category1")
+        case btCategory2:
+            categoryCode = "3"
+            KLog.d(tag: TAG, msg: "Category2")
+        case btCategory3:
+            categoryCode = "4"
+            KLog.d(tag: TAG, msg: "Category3")
+        case btCategory4:
+            categoryCode = "5"
+            KLog.d(tag: TAG, msg: "Category4")
+        case btCategory5:
+            categoryCode = "6"
+            KLog.d(tag: TAG, msg: "Category5")
+        case btCategory6:
+            categoryCode = "7"
+            KLog.d(tag: TAG, msg: "Category6")
+        case btCategory7:
+            categoryCode = "8"
+            KLog.d(tag: TAG, msg: "Category7")
+        case btCategory8:
+            categoryCode = "9"
+            KLog.d(tag: TAG, msg: "Category8")
+            handleMessage(what: SHARE_BUCKET_LIST, obj : categoryCode)
+            break;
+        default:
+            break;
+            //  case R.id.share_list_detailBtn:
+            //             int sharedIdx = (int) v.getTag();
+            //             int idx = mBucketDataList.get(sharedIdx).getIdx();
+            //             Intent intent = new Intent(this, ShareDetailActivity.class);
+            //             intent.putExtra(ContextUtils.NUM_SHARE_BUCKET_IDX, idx + "");
+            //             intent.putExtra(ContextUtils.OBJ_SHARE_BUCKET, mBucketDataList.get(sharedIdx));
+            //             startActivity(intent);
+            //             break;
+        }
+        
+    }
     // @Override
     // public void onHttpReceive(int type, int actionId, Object obj) {
     //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive actionId: " + actionId);
@@ -121,10 +197,10 @@ class ShareListViewCtlr: UIViewController {
     //                     bucket.setNickName(jsonObject.getString("nickName"));
     //                     bucket.setCategoryCode(jsonObject.getInt("categoryCode"));
     //                     bucket.setDate(jsonObject.getString("createDt"));
-
+    
     //                     mBucketDataList.add(bucket);
     //                 }
-
+    
     //                 if (mBucketDataList != null) {
     //                     if (mBucketDataList.size() > 0) {
     //                         realmMgr realmMgr = new realmMgr();
@@ -141,10 +217,11 @@ class ShareListViewCtlr: UIViewController {
     //         }
     //     }
     // }
-
-    // @Override
-    // public boolean handleMessage(Message msg) {
-    //     switch (msg.what) {
+    
+    
+    
+    func handleMessage(what : Int, obj : String) {
+         switch (what) {
     //         case TOAST_MASSEGE:
     //             Toast.makeText(getApplicationContext(), (String) msg.obj, Toast.LENGTH_LONG).show();
     //             break;
@@ -178,18 +255,17 @@ class ShareListViewCtlr: UIViewController {
     //                 finish();
     //             }
     //             break;
-    //         case SHARE_BUCKET_LIST:
-    //             String data = (String) msg.obj;
-    //             if (data == null) {
-    //                 data = ContextUtils.DEFULAT_SHARE_BUCKET_IDX;
-    //                 setButtonSelected(R.id.category_item0);
-    //             }
+             case SHARE_BUCKET_LIST:
+                var data : String = String(obj)
+                if (data == nil) {
+                     data = ContextUtils.DEFULAT_SHARE_BUCKET_IDX
+                 }
     //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-    //             httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_BUCKET_LIST_URL, true, this, IHttpReceive.BUCKET_LIST);
-    //             HashMap<String, Object> map = new HashMap<String, Object>();
-    //             map.put("idx", data);
-    //             httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-    //             break;
+                 httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_BUCKET_LIST_URL, true, this, IHttpReceive.BUCKET_LIST);
+//                 HashMap<String, Object> map = new HashMap<String, Object>();
+//                 map.put("idx", data);
+//                 httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
+                 break;
     //         case SET_BUCKETLIST:
     //             mListView = (ListView) findViewById(R.id.share_list_listview);
     //             mListAdapter = new ShareListAdpater(this, R.layout.share_list_line, mBucketDataList, this);
@@ -204,79 +280,10 @@ class ShareListViewCtlr: UIViewController {
     //                 mHandler.sendEmptyMessage(CATEGORY_LIST);
     //             }
     //             break;
-    //     }
-    //     return false;
-    // }
+         default:
+            break;
+         }
+     }
 
-    // /**
-    //  * 버튼에 해당 키값 설정하기
-    //  */
-    // private void setButton() {
-    //     mButton[0] = (Button) findViewById(R.id.category_item0);
-    //     mButton[1] = (Button) findViewById(R.id.category_item1);
-    //     mButton[2] = (Button) findViewById(R.id.category_item2);
-    //     mButton[3] = (Button) findViewById(R.id.category_item3);
-    //     mButton[4] = (Button) findViewById(R.id.category_item4);
-    //     mButton[5] = (Button) findViewById(R.id.category_item5);
-    //     mButton[6] = (Button) findViewById(R.id.category_item6);
-    //     mButton[7] = (Button) findViewById(R.id.category_item7);
-    //     mButton[8] = (Button) findViewById(R.id.category_item8);
-
-    //     for (int i = 0; i < mButton.length; i++) {
-    //         mButton[i].setOnClickListener(this);
-    //         Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-    //         mButton[i].setTypeface(typeFace);
-    //         mButton[i].setText(mCategoryList.get(i).getCategoryName());
-    //         mButton[i].setTag(mCategoryList.get(i).getCategoryCode());
-    //     }
-    // }
-
-    // /**
-    //  * 선택한 카데고리 버튼 색상 변경하는 메소드
-    //  *
-    //  * @param id
-    //  */
-    // private void setButtonSelected(int id) {
-    //     for (int i = 0; i < mButton.length; i++) {
-    //         if (mButton[i].getId() == id) {
-    //             mButton[i].setBackgroundColor(0xFFFFFFFF);
-    //             mButton[i].setTextColor(0xFF99CC00);
-    //         } else {
-    //             mButton[i].setBackgroundColor(0xFF99CC00);
-    //             mButton[i].setTextColor(0xFFFFFFFF);
-    //         }
-    //     }
-    // }
-
-    // @Override
-    // public void onClick(View v) {
-    //     switch (v.getId()) {
-    //         case R.id.category_item0:
-    //         case R.id.category_item1:
-    //         case R.id.category_item2:
-    //         case R.id.category_item3:
-    //         case R.id.category_item4:
-    //         case R.id.category_item5:
-    //         case R.id.category_item6:
-    //         case R.id.category_item7:
-    //         case R.id.category_item8:
-    //             int categoryCode = (int) v.getTag();
-    //             setButtonSelected(v.getId());
-    //             mHandler.sendMessage(mHandler.obtainMessage(SHARE_BUCKET_LIST, categoryCode + ""));
-    //             break;
-    //         case R.id.share_list_detailBtn:
-    //             int sharedIdx = (int) v.getTag();
-    //             int idx = mBucketDataList.get(sharedIdx).getIdx();
-    //             Intent intent = new Intent(this, ShareDetailActivity.class);
-    //             intent.putExtra(ContextUtils.NUM_SHARE_BUCKET_IDX, idx + "");
-    //             intent.putExtra(ContextUtils.OBJ_SHARE_BUCKET, mBucketDataList.get(sharedIdx));
-    //             startActivity(intent);
-    //             break;
-    //     }
-    // }
-
-    // private void setTextPont() {
-    //     Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-    //     ((Button) findViewById(R.id.share_list_text)).setTypeface(typeFace);
-    // }
+    
 }

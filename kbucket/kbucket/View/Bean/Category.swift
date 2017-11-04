@@ -12,30 +12,15 @@ import UIKit
 class Category  {
     
    /** 카테고리 코드 */
-	private var mCategoryCode : Int {
-        get {
-            return mCategoryCode
-        }
-        set(categoryCode) {
-            mCategoryCode = categoryCode
-        }
-    }
+	private var mCategoryCode : Int  = -1
 	/** 카테고리명 */
-	private var mCategoryName : String {
-        get {
-            return mCategoryName
-        }
-        set(categoryName) {
-            mCategoryName = categoryName
-        }
-    }
+    private var mCategoryName : String  = ""
 
 
     /**
      * 생성자
      */
     init() {
-
     }
 
     init(name : String, code : Int){

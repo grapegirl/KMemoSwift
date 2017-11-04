@@ -75,6 +75,10 @@ class ViewController: UIViewController {
     
     @IBAction func onClickShare(_ sender: Any) {
         KLog.d(tag: "ViewController", msg: "onClickShare");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "ShareListViewCtlr")
+        
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
     }
     
     @IBAction func onClickRank(_ sender: Any) {
