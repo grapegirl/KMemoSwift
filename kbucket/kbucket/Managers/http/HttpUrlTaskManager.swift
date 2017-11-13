@@ -45,83 +45,20 @@ class HttpUrlTaskManager {
         let url = URL(string: mURl)
         KLog.d(tag: TAG, msg: "@@ url : " + mURl )
         let task = URLSession.shared.dataTask(with: url!, completionHandler : {
-            (data, response, error) -> Void in
-            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else{
-                return
-            }
-            guard let returnStr = String(data: data!, encoding: .utf8) else {
-                return
-            }
+            (data : Data?, response : URLResponse?, error : Error?) -> Void in
             
-            print(returnStr)
+            guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else{
+                if self.mIHttpReceive != nil {
+                    self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_FAIL, actionId: ConstHTTP.BUCKET_LIST, data: data! )
+                }
+                return
+            }
+           
+            if self.mIHttpReceive != nil {
+                self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_OK, actionId: ConstHTTP.BUCKET_LIST, data: data! )
+            }
         })
         
         task.resume()
-//        try {
-//        URL url = new URL(mURl);
-//        URLConnection urlConnection = url.openConnection();
-//        HttpURLConnection httpURLConnection = (HttpURLConnection) urlConnection;
-//        httpURLConnection.setConnectTimeout(5000);
-//        httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-//        if (isPost) {
-//        try {
-//        httpURLConnection.setRequestMethod("POST");
-//        } catch (ProtocolException e) {
-//        e.printStackTrace();
-//        }
-//        httpURLConnection.setDoOutput(true);
-//        } else {
-//        httpURLConnection.setRequestMethod("GET");
-//        }
-//        httpURLConnection.setDoInput(true);
-//        httpURLConnection.setUseCaches(false);
-//        httpURLConnection.setDefaultUseCaches(false);
-//
-//        if (isPost) {//Post 방식으로 데이타 전달시
-//        OutputStream outputStream = httpURLConnection.getOutputStream();
-//        if (params != null) {
-//        String sendData = (String) params[0];
-//        //System.out.println("@@ sendData : " + sendData);
-//        outputStream.write(sendData.getBytes("UTF-8"));
-//        outputStream.flush();
-//        outputStream.close();
-//        }
-//        }
-//        if (httpURLConnection.getResponseCode() == HttpURLConnection.HTTP_OK) {
-//        String buffer = null;
-//        BufferedReader bufferedReader;
-//        if (isPost) {
-//        bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
-//        } else {
-//        bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream(), "UTF-8"));
-//        }
-//        while ((buffer = bufferedReader.readLine()) != null) {
-//        data += buffer;
-//        }
-//        bufferedReader.close();
-//        httpURLConnection.disconnect();
-//        mIHttpReceive.onHttpReceive(mIHttpReceive.HTTP_OK, mId,  data);
-//        }else{
-//        mIHttpReceive.onHttpReceive(mIHttpReceive.HTTP_FAIL, mId, httpURLConnection.getResponseMessage());
-//        }
-//        } catch (MalformedURLException e) {
-//        e.printStackTrace();
-//        Log.d(this.getClass().getSimpleName(), " @@ MalformedURLException");
-//        mIHttpReceive.onHttpReceive(mIHttpReceive.HTTP_FAIL, mId,  null);
-//
-//        } catch (ProtocolException e) {
-//        e.printStackTrace();
-//        Log.d(this.getClass().getSimpleName(), " @@ ProtocolException");
-//        mIHttpReceive.onHttpReceive(mIHttpReceive.HTTP_FAIL, mId, null);
-//        } catch (UnsupportedEncodingException e) {
-//        e.printStackTrace();
-//        Log.d(this.getClass().getSimpleName(), " @@ UnsupportedEncodingException");
-//        mIHttpReceive.onHttpReceive(mIHttpReceive.HTTP_FAIL, mId, null);
-//        } catch (IOException e) {
-//        e.printStackTrace();
-//        Log.d(this.getClass().getSimpleName(), " @@ IOException");
-//        mIHttpReceive.onHttpReceive(mIHttpReceive.HTTP_FAIL, mId, null);
-//        }
-//        return null;
     }
 }

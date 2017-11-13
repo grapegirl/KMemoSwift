@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ShareListViewCtlr: UIViewController , IHttpReceive{
+class ShareListViewCtlr: UIViewController , IHttpReceive {
     
     private let TAG : String = "ShareListViewCtlr"
     
@@ -142,23 +142,25 @@ class ShareListViewCtlr: UIViewController , IHttpReceive{
         
     }
     
-    func onHttpReceive(type: Int, actionId: Int, data: String) {
-        //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive actionId: " + actionId);
-        //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive  type: " + type);
-        //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive  obj: " + obj);
-        //     String mData = (String) obj;
-        //     boolean isValid = false;
-        //     if (mData != null) {
-        //         try {
-        //             JSONObject json = new JSONObject(mData);
-        //             isValid = json.getBoolean("isValid");
-        //         } catch (JSONException e) {
-        //             KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-        //         }
-        //     }
-        //     if (actionId == IHttpReceive.CATEGORY_LIST) {
+    func onHttpReceive(type: Int, actionId: Int, data: Data) {
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
+        var isValid : Bool  = false
+                    do {
+                        if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                            if jsonString != nil {
+                               isValid = jsonString["isValid"] as! Bool
+                               // print(jsonString)
+                            }
+                        }
+                    } catch {
+                        print("JSON 파상 에러")
+                    }
+        
+
+             if (actionId == ConstHTTP.CATEGORY_LIST) {
         //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-        //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
+                 if (type == ConstHTTP.HTTP_OK && isValid == true) {
         //             try {
         //                 JSONObject json = new JSONObject(mData);
         //                 JSONArray jsonArray = json.getJSONArray("categoryVOList");
@@ -176,47 +178,49 @@ class ShareListViewCtlr: UIViewController , IHttpReceive{
         //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
         //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
         //             }
-        //         } else {
-        //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-        //         }
-        //     } else if (actionId == BUCKET_LIST) {
+                 } else {
+//                     mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
+                 }
+          } else if (actionId == ConstHTTP.BUCKET_LIST) {
         //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-        //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
-        //             try {
-        //                 JSONObject json = new JSONObject(mData);
-        //                 JSONArray jsonArray = json.getJSONArray("bucketList");
-        //                 KLog.d(this.getClass().getSimpleName(), "@@ jsonArray :   " + jsonArray);
-        //                 int size = jsonArray.length();
-        //                 mBucketDataList.clear();
-        //                 for (int i = 0; i < size; i++) {
-        //                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-        //                     Bucket bucket = new Bucket();
-        //                     bucket.setContent(jsonObject.getString("content"));
-        //                     bucket.setPhone(jsonObject.getString("phone"));
-        //                     bucket.setIdx(jsonObject.getInt("idx"));
-        //                     bucket.setImageUrl(jsonObject.getString("imageUrl"));
-        //                     bucket.setNickName(jsonObject.getString("nickName"));
-        //                     bucket.setCategoryCode(jsonObject.getInt("categoryCode"));
-        //                     bucket.setDate(jsonObject.getString("createDt"));
-        
-        //                     mBucketDataList.add(bucket);
-        //                 }
-        
-        //                 if (mBucketDataList != null) {
-        //                     if (mBucketDataList.size() > 0) {
-        //                         realmMgr realmMgr = new realmMgr();
-        //                         realmMgr.updateBucketShare(mBucketDataList);
-        //                     }
-        //                 }
-        //                 mHandler.sendEmptyMessage(SET_BUCKETLIST);
-        //             } catch (JSONException e) {
-        //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-        //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-        //             }
-        //         } else {
+                
+                 if (type == ConstHTTP.HTTP_OK && isValid == true) {
+                     do {
+                        if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            let bucketList : NSArray = jsonString["bucketList"] as! NSArray
+                          
+                            print(bucketList.count)
+                            
+                            var size : Int = bucketList.count
+                            mBucketDataList.removeAll()
+                            
+                            for index in 0...bucketList.count-1  {
+                                
+                                let aObject = bucketList[index] as! [String : AnyObject]
+                                let bucket : Bucket = Bucket()
+                                bucket.mContent = aObject["content"] as! String
+                                bucket.mPhone = aObject["phone"] as! String
+                                bucket.mIdx = aObject["idx"] as! Int
+                                bucket.mPhone = aObject["phone"] as! String
+                                bucket.mImageURl = aObject["imageUrl"] as! String
+                                bucket.mNickName = aObject["nickName"] as! String
+                                bucket.mCategoryCode = aObject["categoryCode"] as! Int
+                                bucket.mCompleteDate = aObject["createDt"] as! String
+                                
+                                KLog.d(tag: TAG, msg: bucket.toString())
+
+                                mBucketDataList.append(bucket)
+                            }
+                        }
+                      //  mHandler.sendEmptyMessage(SET_BUCKETLIST);
+                     } catch  {
+                        KLog.d(tag : TAG, msg : "@@ jsonException message ");
+//                         mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
+                     }
+                 } else {
         //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-        //         }
-        //     }
+                 }
+             }
     }
     
     func handleMessage(what : Int, obj : String) {
@@ -261,7 +265,7 @@ class ShareListViewCtlr: UIViewController , IHttpReceive{
             }
             //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
             
-            var url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx=1"
+            var url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
             let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
             httpUrlTaskManager.actionTask();
             

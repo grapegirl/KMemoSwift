@@ -13,5 +13,6 @@ protocol IHttpReceive {
     /***
      * 리비스 콜백 메소드
      */
-    func onHttpReceive(type : Int, actionId: Int,  data : String)
+    func onHttpReceive(type : Int, actionId: Int,  data : Data)
+    
 }

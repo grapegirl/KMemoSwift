@@ -1,3 +1,27 @@
+3.0.2 Release notes (2017-11-08)
+=============================================================
+
+Prebuilt frameworks are now included for Swift 3.2.2 and 4.0.2.
+
+### Bugfixes
+
+* Fix a crash when a linking objects property is retrieved from a model object instance via
+  Swift subscripting.
+* Fix incorrect behavior if a call to `posix_fallocate` is interrupted.
+
+3.0.1 Release notes (2017-10-26)
+=============================================================
+
+### Bugfixes
+
+* Explicitly exclude KVO-generated object subclasses from the schema.
+* Fix regression where the type of a Realm model class is not properly determined, causing crashes
+  when a type value derived at runtime by `type(of:)` is passed into certain APIs.
+* Fix a crash when an `Object` subclass has implicitly ignored `let`
+  properties.
+* Fix several cases where adding a notification block from within a
+  notification callback could produce incorrect results.
+
 3.0.0 Release notes (2017-10-16)
 =============================================================
 

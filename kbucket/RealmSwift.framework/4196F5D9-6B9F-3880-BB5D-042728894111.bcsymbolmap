@@ -1,5 +1,5 @@
 BCSymbolMap Version: 2.0
-Apple LLVM version 9.0.0 (clang-900.0.37)
+Apple LLVM version 9.0.0 (clang-900.0.38)
 Realm/ObjectStore/src/binding_callback_thread_observer.cpp
 /Users/realm/workspace/cocoa-pipeline
 __ZNK5realm19CollectionChangeSet5emptyEv
@@ -51,12 +51,12 @@ __ZNSt3__117bad_function_callD1Ev
 __ZNSt3__117bad_function_callD0Ev
 /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp
 ~bad_function_call
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/functional
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/functional
 __insertion_sort_incomplete<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:830:15) &, (anonymous namespace)::RowInfo *>
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/algorithm
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/algorithm
 operator()<(anonymous namespace)::RowInfo, (anonymous namespace)::RowInfo>
 swap<(anonymous namespace)::RowInfo>
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/type_traits
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/type_traits
 __sort5<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:830:15) &, (anonymous namespace)::RowInfo *>
 __sort4<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:830:15) &, (anonymous namespace)::RowInfo *>
 __sort3<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:830:15) &, (anonymous namespace)::RowInfo *>
@@ -75,25 +75,25 @@ __sort3<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/i
 __sort<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:778:47) &, (anonymous namespace)::RowInfo *>
 __insertion_sort_3<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:778:47) &, (anonymous namespace)::RowInfo *>
 __swap_out_circular_buffer
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/vector
 swap<(anonymous namespace)::RowInfo *>
 __end_cap
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__split_buffer
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__split_buffer
 first
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/memory
 __construct_backward<(anonymous namespace)::RowInfo>
 __split_buffer
 allocate
 __allocate
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/new
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/new
 __throw_length_error
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/stdexcept
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/stdexcept
 length_error
 __compressed_pair
 __libcpp_compressed_pair_imp
 __rotate_forward<std::__1::__wrap_iter<realm::IndexSet *> >
 operator++
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iterator
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iterator
 operator==<realm::IndexSet *, realm::IndexSet *>
 swap<realm::IndexSet>
 ~IndexSet
@@ -129,9 +129,9 @@ __move_range
 move_backward<realm::IndexSet *, realm::IndexSet *>
 __move_backward<realm::IndexSet *, realm::IndexSet *>
 find<unsigned long>
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__hash_table
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__hash_table
 __hash_iterator
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/unordered_map
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/unordered_map
 __constrain_hash
 __hash
 operator[]
@@ -148,7 +148,7 @@ rehash
 __next_hash_pow2
 __clz
 ceil
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/math.h
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/math.h
 max_load_factor
 __is_hash_power2
 remove
@@ -165,7 +165,7 @@ __destruct_at_end
 construct<std::__1::pair<unsigned long, unsigned long>, unsigned long, unsigned long &>
 __construct<std::__1::pair<unsigned long, unsigned long>, unsigned long, unsigned long &>
 pair<unsigned long, unsigned long &, false>
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/utility
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/utility
 __recommend
 capacity
 __insertion_sort_incomplete<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:171:15) &, realm::CollectionChangeSet::Move *>
@@ -239,7 +239,7 @@ swap
 __insertion_sort_incomplete<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:736:33) &, (anonymous namespace)::LongestCommonSubsequenceCalculator::Row *>
 operator()<(anonymous namespace)::LongestCommonSubsequenceCalculator::Row, (anonymous namespace)::LongestCommonSubsequenceCalculator::Row>
 operator<<unsigned long &, unsigned long &, unsigned long &, unsigned long &>
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/tuple
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/tuple
 operator()<std::__1::tuple<unsigned long &, unsigned long &>, std::__1::tuple<unsigned long &, unsigned long &> >
 swap<(anonymous namespace)::LongestCommonSubsequenceCalculator::Row>
 __sort5<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_change_builder.cpp:736:33) &, (anonymous namespace)::LongestCommonSubsequenceCalculator::Row *>
@@ -464,10 +464,10 @@ _GLOBAL__sub_I_collection_notifier.cpp
 __cxx_global_var_init
 core/include/realm/metrics/query_info.hpp
 basic_string
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string
 __init
 assign
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__string
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__string
 copy
 __set_short_size
 destroy<std::__1::shared_ptr<realm::_impl::CollectionNotifier> >
@@ -481,10 +481,10 @@ construct<std::__1::shared_ptr<realm::_impl::CollectionNotifier>, const std::__1
 __construct<std::__1::shared_ptr<realm::_impl::CollectionNotifier>, const std::__1::shared_ptr<realm::_impl::CollectionNotifier> &>
 error
 unlock
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__mutex_base
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__mutex_base
 lock
 __fill_n_false<std::__1::vector<bool, std::__1::allocator<bool> > >
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__bit_reference
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__bit_reference
 min<unsigned long>
 min<unsigned long, std::__1::__less<unsigned long, unsigned long> >
 __fill_n_true<std::__1::vector<bool, std::__1::allocator<bool> > >
@@ -530,9 +530,9 @@ RelatedTable
 __push_back_slow_path<realm::_impl::DeepChangeChecker::RelatedTable>
 target_type
 target
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/typeinfo
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/typeinfo
 __call<realm::_impl::DeepChangeChecker &, unsigned long>
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__functional_base
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__functional_base
 __invoke<realm::_impl::DeepChangeChecker &, unsigned long>
 destroy_deallocate
 ~__compressed_pair
@@ -550,7 +550,7 @@ unbind_ptr
 core/include/realm/table.hpp
 ~lock_guard
 operator unsigned long
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/atomic
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/atomic
 lock_guard
 atomic_thread_fence
 fetch_sub
@@ -580,7 +580,7 @@ deliver
 add_notifier
 after_advance
 operator!=<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/exception
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/exception
 get_transact_stage
 core/include/realm/group_shared.hpp
 before_advance
@@ -593,18 +593,18 @@ operator-<const std::__1::shared_ptr<realm::_impl::CollectionNotifier> *, std::_
 package_and_wait
 ~unique_lock
 end<std::__1::vector<std::__1::shared_ptr<realm::_impl::CollectionNotifier>, std::__1::allocator<std::__1::shared_ptr<realm::_impl::CollectionNotifier> > > >
-remove_if<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:448:20)>
+remove_if<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:442:20)>
 operator()<std::__1::shared_ptr<realm::_impl::CollectionNotifier> >
 operator=<realm::VersionID, void>
 version
 has_run
-find_if<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:448:20) &>
+find_if<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:442:20) &>
 operator==<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *, std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>
 begin<std::__1::vector<std::__1::shared_ptr<realm::_impl::CollectionNotifier>, std::__1::allocator<std::__1::shared_ptr<realm::_impl::CollectionNotifier> > > >
-wait_for_notifiers<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:439:51)>
+wait_for_notifiers<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:433:51)>
 Realm/ObjectStore/src/impl/realm_coordinator.hpp
 wait<(lambda at Realm/ObjectStore/src/impl/realm_coordinator.hpp:195:30)>
-all_of<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:442:66)>
+all_of<std::__1::__wrap_iter<std::__1::shared_ptr<realm::_impl::CollectionNotifier> *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:436:66)>
 have_callbacks
 unique_lock
 NotifierPackage
@@ -618,12 +618,12 @@ attach_to
 package_for_delivery
 is_for_realm
 deliver_error
-for_each_callback<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:344:23)>
+for_each_callback<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:338:23)>
 owns_lock
 operator()<std::__1::unique_lock<std::__1::mutex>, realm::_impl::CollectionNotifier::Callback>
-for_each_callback<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:327:23)>
+for_each_callback<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:317:23)>
 after
-for_each_callback<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:311:23)>
+for_each_callback<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:301:23)>
 before
 prepare_handover
 fill_n<std::__1::vector<bool, std::__1::allocator<bool> > >
@@ -634,14 +634,14 @@ __align_it
 add_required_change_info
 operator!=<realm::_impl::DeepChangeChecker::RelatedTable *>
 __make_ref
-max_element<std::__1::__wrap_iter<realm::_impl::DeepChangeChecker::RelatedTable *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:286:28)>
+max_element<std::__1::__wrap_iter<realm::_impl::DeepChangeChecker::RelatedTable *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:276:28)>
 operator()<realm::_impl::DeepChangeChecker::RelatedTable &, realm::_impl::DeepChangeChecker::RelatedTable &>
 lock_target
 is_alive
 operator!=<realm::Realm>
 suppress_next_notification
 find_callback
-find_if<std::__1::__wrap_iter<realm::_impl::CollectionNotifier::Callback *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:250:23)>
+find_if<std::__1::__wrap_iter<realm::_impl::CollectionNotifier::Callback *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/collection_notifier.cpp:240:23)>
 operator()<realm::_impl::CollectionNotifier::Callback>
 operator==<realm::_impl::CollectionNotifier::Callback *, realm::_impl::CollectionNotifier::Callback *>
 end<std::__1::vector<realm::_impl::CollectionNotifier::Callback, std::__1::allocator<realm::_impl::CollectionNotifier::Callback> > >
@@ -728,7 +728,7 @@ __ZTINSt3__119__async_assoc_stateIvNS_12__async_funcIZN5realm5_impl20ExternalCom
 /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp
 _GLOBAL__sub_I_external_commit_helper.cpp
 __thread_proxy<std::__1::tuple<std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, void (std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> >::*)(), std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> > *> >
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/thread
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/thread
 ~tuple
 ~__tuple_impl
 ~__tuple_leaf
@@ -737,8 +737,8 @@ __invoke<void (std::__1::__async_assoc_state<void, std::__1::__async_func<(lambd
 get<2, std::__1::unique_ptr<std::__1::__thread_struct, std::__1::default_delete<std::__1::__thread_struct> >, void (std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> >::*)(), std::__1::__async_assoc_state<void, std::__1::__async_func<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)> > *>
 set_pointer
 __libcpp_tls_set
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__threading_support
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/future
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__threading_support
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/future
 __execute<>
 __invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/impl/apple/external_commit_helper.cpp:157:47)>
 name
@@ -747,7 +747,7 @@ __on_zero_shared
 ~__async_assoc_state
 ~__assoc_sub_state
 str
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/sstream
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/sstream
 __zero
 basic_string<char *>
 __init<char *>
@@ -759,15 +759,15 @@ __get_short_pointer
 distance<char *>
 __distance<char *>
 egptr
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/streambuf
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/streambuf
 eback
 pbase
 pptr
 __loadword<unsigned long>
 __pad_and_output<char, std::__1::char_traits<char> >
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/locale
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/locale
 width
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ios
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ios
 sputn
 ~basic_string
 __get_long_pointer
@@ -775,12 +775,12 @@ __is_long
 data
 __get_pointer
 __put_character_sequence<char, std::__1::char_traits<char> >
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ostream
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/ostream
 setstate
 failed
 fill
 widen
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__locale
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__locale
 use_facet<std::__1::ctype<char> >
 eq_int_type
 flags
@@ -811,7 +811,7 @@ operator long long
 seekoff
 fpos
 ~basic_stringbuf
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iosfwd
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iosfwd
 _ZTv0_n12_NSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED0Ev
 ~basic_ostringstream
 _ZTv0_n12_NSt3__119basic_ostringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev
@@ -866,11 +866,11 @@ _ZTv0_n12_NSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1E
 _ZThn8_NSt3__118basic_stringstreamIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev
 format
 strchr
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string.h
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/string.h
 __libcpp_strchr
 basic_stringstream
 basic_iostream
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/istream
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/istream
 basic_istream
 print
 operator<<<char, std::__1::char_traits<char> >
@@ -961,7 +961,7 @@ operator()<realm::_impl::ChunkedRangeVector::Chunk>
 count
 operator==<realm::_impl::ChunkedRangeVector::Chunk *, const realm::_impl::ChunkedRangeVector::Chunk *>
 contains
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/initializer_list
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/initializer_list
 operator-<const realm::_impl::ChunkedRangeVector::Chunk *, const realm::_impl::ChunkedRangeVector::Chunk *>
 move<std::__1::pair<unsigned long, unsigned long> *, std::__1::pair<unsigned long, unsigned long> *>
 __move<std::__1::pair<unsigned long, unsigned long> *, std::__1::pair<unsigned long, unsigned long> *>
@@ -1381,7 +1381,6 @@ __ZN5realm31ObjectSchemaValidationExceptionC2IJRKNSt3__112basic_stringIcNS2_11ch
 __ZN5realmeqERKNS_8PropertyES2_
 __ZN5realm8PropertyC2ERKS0_
 __GLOBAL__sub_I_object_schema.cpp
-__ZN5realm4syncL21object_id_column_nameE
 Realm/ObjectStore/src/object_schema.cpp
 _GLOBAL__sub_I_object_schema.cpp
 __emplace_back_slow_path<char const (&)[46], const std::__1::basic_string<char> &, const std::__1::basic_string<char> &>
@@ -1507,14 +1506,13 @@ equal<const char *, const char *, std::__1::__equal_to<char, char> >
 is_null
 ObjectSchema
 set_primary_key_property
-get_column_name
-core/include/realm/descriptor.hpp
-core/include/realm/array_string.hpp
+swap<const realm::Table *>
 core/include/realm/group.hpp
 do_get_table
 from_core_type
 operator|
 get_subdescriptor
+core/include/realm/descriptor.hpp
 shared_ptr<realm::Descriptor>
 get_column_attr
 __construct_at_end<const realm::Property *>
@@ -1594,6 +1592,7 @@ __ZN5realm6BpTreeIxE12EraseHandlerD0Ev
 __ZN5realm6BpTreeIxE12SliceHandler10slice_leafENS_6MemRefEmmRNS_9AllocatorE
 __GLOBAL__sub_I_object_store.cpp
 __ZN12_GLOBAL__N_1L21c_object_table_prefixE
+__ZN5realm4syncL21object_id_column_nameE
 Realm/ObjectStore/src/object_store.cpp
 _GLOBAL__sub_I_object_store.cpp
 compare_values<realm::Column<long long> >
@@ -1749,7 +1748,7 @@ replace_root_array
 get_mem
 get_ref
 get_search_index
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/array
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/array
 move_last_row_over
 erase_rows
 insert_rows
@@ -1813,6 +1812,9 @@ object_type_for_table_name
 substr
 begins_with
 delete_data_for_object
+property_for_column_index
+get_column_name
+core/include/realm/array_string.hpp
 apply_post_migration_changes
 ~Applier
 ~TableHelper
@@ -1854,7 +1856,7 @@ emplace_back<char const (&)[42], const std::__1::basic_string<char> &, const std
 emplace_back<char const (&)[40], const std::__1::basic_string<char> &, const std::__1::basic_string<char> &>
 emplace_back<char const (&)[27], const std::__1::basic_string<char> &>
 needs_migration
-any_of<std::__1::__wrap_iter<const realm::SchemaChange *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/object_store.cpp:451:24)>
+any_of<std::__1::__wrap_iter<const realm::SchemaChange *>, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/object_store.cpp:450:24)>
 operator()<const realm::SchemaChange &>
 visit<Visitor>
 end<std::__1::vector<realm::SchemaChange, std::__1::allocator<realm::SchemaChange> > >
@@ -2199,7 +2201,7 @@ get_cached_schema
 emplace_back<std::__1::shared_ptr<realm::Realm> &, bool &>
 RealmFileException
 code
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/system_error
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/system_error
 make_unique<realm::_impl::ExternalCommitHelper, realm::_impl::RealmCoordinator &>
 make_shared_realm
 make_shared<make_shared_enabler, realm::Realm::Config, std::__1::shared_ptr<realm::_impl::RealmCoordinator> >
@@ -2787,7 +2789,7 @@ core/include/realm/timestamp.hpp
 isnan<double>
 __libcpp_isnan<double>
 __inline_isnand
-/Applications/Xcode-9.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/usr/include/math.h
+/Applications/Xcode-9.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/usr/include/math.h
 ___ZN12_GLOBAL__N_110makeSetterIU8__strongP6NSDateS3_EEP11objc_objectP11RLMProperty_block_invoke_2
 ___ZN12_GLOBAL__N_110makeSetterIU8__strongP6NSDateS3_EEP11objc_objectP11RLMProperty_block_invoke
 translateError<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMAccessor.mm:80:20)>
@@ -3141,9 +3143,9 @@ __libcpp_compressed_pair_imp<std::__1::allocator<realm::_impl::NotificationWrapp
 NotificationWrapper
 Value<const std::__1::map<std::__1::basic_string<char>, realm::util::Any, std::__1::less<std::__1::basic_string<char> >, std::__1::allocator<std::__1::pair<const std::__1::basic_string<char>, realm::util::Any> > > &>
 map
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/map
 ~__tree
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__tree
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/__tree
 __root
 insert<std::__1::__map_const_iterator<std::__1::__tree_const_iterator<std::__1::__value_type<std::__1::basic_string<char>, realm::util::Any>, std::__1::__tree_node<std::__1::__value_type<std::__1::basic_string<char>, realm::util::Any>, void *> *, int> > >
 __tree_next_iter<std::__1::__tree_end_node<std::__1::__tree_node_base<void *> *> *, std::__1::__tree_node_base<void *> *>
@@ -3861,7 +3863,7 @@ __GLOBAL__sub_I_RLMNetworkClient.mm
 /Users/realm/workspace/cocoa-pipeline/Realm/RLMNetworkClient.mm
 _GLOBAL__sub_I_RLMNetworkClient.mm
 NSLocationInRange
-/Applications/Xcode-9.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
+/Applications/Xcode-9.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/NSRange.h
 __73+[RLMNetworkClient sendRequestToEndpoint:server:JSON:timeout:completion:]_block_invoke
 -[RLMObject init]
 -[RLMObject initWithValue:schema:]
@@ -3997,26 +3999,25 @@ __ZN5realm19ThreadSafeReferenceINS_6ObjectEED1Ev
 +[RLMObjectUtil indexedPropertiesForClass:]
 +[RLMObjectUtil linkingObjectsPropertiesForClass:]
 +[RLMObjectUtil linkingObjectProperties:]
-+[RLMObjectUtil getSwiftGenericProperties:]
++[RLMObjectUtil getSwiftProperties:]
 +[RLMObjectUtil getOptionalProperties:]
 +[RLMObjectUtil requiredPropertiesForClass:]
-+[RLMGenericPropertyMetadata metadataForListProperty:index:]
-+[RLMGenericPropertyMetadata metadataForLinkingObjectsProperty:className:linkedPropertyName:index:]
-+[RLMGenericPropertyMetadata metadataForOptionalProperty:type:index:]
-+[RLMGenericPropertyMetadata metadataForNilLiteralOptionalProperty:index:]
--[RLMGenericPropertyMetadata propertyName]
--[RLMGenericPropertyMetadata setPropertyName:]
--[RLMGenericPropertyMetadata className]
--[RLMGenericPropertyMetadata setClassName:]
--[RLMGenericPropertyMetadata linkedPropertyName]
--[RLMGenericPropertyMetadata setLinkedPropertyName:]
--[RLMGenericPropertyMetadata index]
--[RLMGenericPropertyMetadata setIndex:]
--[RLMGenericPropertyMetadata propertyType]
--[RLMGenericPropertyMetadata setPropertyType:]
--[RLMGenericPropertyMetadata kind]
--[RLMGenericPropertyMetadata setKind:]
--[RLMGenericPropertyMetadata .cxx_destruct]
++[RLMSwiftPropertyMetadata metadataForOtherProperty:]
++[RLMSwiftPropertyMetadata metadataForListProperty:]
++[RLMSwiftPropertyMetadata metadataForLinkingObjectsProperty:className:linkedPropertyName:]
++[RLMSwiftPropertyMetadata metadataForOptionalProperty:type:]
++[RLMSwiftPropertyMetadata metadataForNilLiteralOptionalProperty:]
+-[RLMSwiftPropertyMetadata propertyName]
+-[RLMSwiftPropertyMetadata setPropertyName:]
+-[RLMSwiftPropertyMetadata className]
+-[RLMSwiftPropertyMetadata setClassName:]
+-[RLMSwiftPropertyMetadata linkedPropertyName]
+-[RLMSwiftPropertyMetadata setLinkedPropertyName:]
+-[RLMSwiftPropertyMetadata propertyType]
+-[RLMSwiftPropertyMetadata setPropertyType:]
+-[RLMSwiftPropertyMetadata kind]
+-[RLMSwiftPropertyMetadata setKind:]
+-[RLMSwiftPropertyMetadata .cxx_destruct]
 __ZL18coerceToObjectTypeP11objc_objectP10objc_classP9RLMSchema
 __ZN5realm19ThreadSafeReferenceINS_6ObjectEED2Ev
 __ZN5realm19ThreadSafeReferenceINS_6ObjectEED0Ev
@@ -4027,12 +4028,11 @@ __ZZ18RLMObjectUtilClassE14objectUtilObjc
 __ZGVZ18RLMObjectUtilClassE14objectUtilObjc
 __ZZ18RLMObjectUtilClassE15objectUtilSwift
 __ZGVZ18RLMObjectUtilClassE15objectUtilSwift
-_OBJC_IVAR_$_RLMGenericPropertyMetadata._propertyName
-_OBJC_IVAR_$_RLMGenericPropertyMetadata._className
-_OBJC_IVAR_$_RLMGenericPropertyMetadata._linkedPropertyName
-_OBJC_IVAR_$_RLMGenericPropertyMetadata._index
-_OBJC_IVAR_$_RLMGenericPropertyMetadata._propertyType
-_OBJC_IVAR_$_RLMGenericPropertyMetadata._kind
+_OBJC_IVAR_$_RLMSwiftPropertyMetadata._propertyName
+_OBJC_IVAR_$_RLMSwiftPropertyMetadata._className
+_OBJC_IVAR_$_RLMSwiftPropertyMetadata._linkedPropertyName
+_OBJC_IVAR_$_RLMSwiftPropertyMetadata._propertyType
+_OBJC_IVAR_$_RLMSwiftPropertyMetadata._kind
 /Users/realm/workspace/cocoa-pipeline/Realm/RLMObjectBase.mm
 _GLOBAL__sub_I_RLMObjectBase.mm
 coerceToObjectType
@@ -4062,7 +4062,10 @@ ___40+[RLMObjectSchema schemaForObjectClass:]_block_invoke
 ___40+[RLMObjectSchema schemaForObjectClass:]_block_invoke_2
 ___40+[RLMObjectSchema schemaForObjectClass:]_block_invoke_3
 +[RLMObjectSchema propertiesForClass:isSwift:]
-__ZZ46+[RLMObjectSchema propertiesForClass:isSwift:]ENK3$_1clEP11RLMPropertyi
++[RLMObjectSchema addSwiftProperties:objectUtil:instance:indexed:]
+___66+[RLMObjectSchema addSwiftProperties:objectUtil:instance:indexed:]_block_invoke
+___copy_helper_block_.162
+___destroy_helper_block_.163
 -[RLMObjectSchema copyWithZone:]
 -[RLMObjectSchema isEqualToObjectSchema:]
 -[RLMObjectSchema description]
@@ -4086,9 +4089,6 @@ __ZZ46+[RLMObjectSchema propertiesForClass:isSwift:]ENK3$_1clEP11RLMPropertyi
 -[RLMObjectSchema setUnmanagedClass:]
 -[RLMObjectSchema computedProperties]
 -[RLMObjectSchema .cxx_destruct]
-____ZZ46+[RLMObjectSchema propertiesForClass:isSwift:]ENK3$_0clEP8NSString_block_invoke
-___copy_helper_block_.315
-___destroy_helper_block_.316
 _OBJC_IVAR_$_RLMObjectSchema._allPropertiesByName
 _OBJC_IVAR_$_RLMObjectSchema._properties
 _OBJC_IVAR_$_RLMObjectSchema._computedProperties
@@ -4098,6 +4098,7 @@ __ZGVZ40+[RLMObjectSchema schemaForObjectClass:]E18s_swiftObjectClass
 ___block_descriptor_tmp.69
 ___block_literal_global.70
 ___block_descriptor_tmp.84
+___block_descriptor_tmp.165
 _OBJC_IVAR_$_RLMObjectSchema._objectClass
 _OBJC_IVAR_$_RLMObjectSchema._className
 _OBJC_IVAR_$_RLMObjectSchema._accessorClass
@@ -4105,13 +4106,10 @@ _OBJC_IVAR_$_RLMObjectSchema._unmanagedClass
 _OBJC_IVAR_$_RLMObjectSchema._swiftGenericProperties
 __ZZ41-[RLMObjectSchema swiftGenericProperties]E18s_swiftObjectClass
 __ZGVZ41-[RLMObjectSchema swiftGenericProperties]E18s_swiftObjectClass
-___block_descriptor_tmp.318
 /Users/realm/workspace/cocoa-pipeline/Realm/RLMObjectSchema.mm
-___ZZ46+[RLMObjectSchema propertiesForClass:isSwift:]ENK3$_0clEP8NSString_block_invoke
 /Users/realm/workspace/cocoa-pipeline/Realm/RLMObjectSchema_Private.h
 /Users/realm/workspace/cocoa-pipeline/Realm/RLMObjectSchema.h
-_ZZ46+[RLMObjectSchema propertiesForClass:isSwift:]EN3$_0C1ERKS_
-_ZZ46+[RLMObjectSchema propertiesForClass:isSwift:]EN3$_0C2ERKS_
+__66+[RLMObjectSchema addSwiftProperties:objectUtil:instance:indexed:]_block_invoke
 __40+[RLMObjectSchema schemaForObjectClass:]_block_invoke_3
 __40+[RLMObjectSchema schemaForObjectClass:]_block_invoke_2
 __40+[RLMObjectSchema schemaForObjectClass:]_block_invoke
@@ -4372,7 +4370,7 @@ rawTypeShouldBeTreatedAsComputedProperty
 typeFromProtocolString
 RLMValidateSwiftPropertyName
 islower
-/Applications/Xcode-9.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/usr/include/ctype.h
+/Applications/Xcode-9.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/usr/include/ctype.h
 __istype
 isascii
 RLMPropertyTypeIsComputed
@@ -5639,7 +5637,7 @@ SubQueryCountHandoverPatch
 make_subexpr<realm::SubQueryCount, const realm::SubQueryCount &>
 LinkMap
 accumulate<std::__1::__wrap_iter<unsigned long *>, unsigned long, (lambda at core/include/realm/query_expression.hpp:3340:79)>
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/numeric
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/numeric
 sort<unsigned long>
 sort<unsigned long *>
 sort<unsigned long *, std::__1::__less<unsigned long, unsigned long> >
@@ -6292,7 +6290,7 @@ __GLOBAL__sub_I_sync_config.cpp
 _GLOBAL__sub_I_sync_config.cpp
 realm_url
 partial_sync_identifier
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iomanip
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/iomanip
 operator<<
 hex
 setf
@@ -6804,13 +6802,13 @@ ___25+[RLMSchema sharedSchema]_block_invoke_2
 -[RLMSchema copyWithZone:]
 -[RLMSchema isEqualToSchema:]
 ___29-[RLMSchema isEqualToSchema:]_block_invoke
-___copy_helper_block_.94
-___destroy_helper_block_.95
+___copy_helper_block_.93
+___destroy_helper_block_.94
 -[RLMSchema description]
 -[RLMSchema objectStoreCopy]
 ___28-[RLMSchema objectStoreCopy]_block_invoke
-___copy_helper_block_.125
-___destroy_helper_block_.126
+___copy_helper_block_.124
+___destroy_helper_block_.125
 -[RLMSchema objectSchemaByName]
 -[RLMSchema setObjectSchemaByName:]
 -[RLMSchema .cxx_destruct]
@@ -6822,14 +6820,17 @@ __ZL21s_privateSharedSchema
 _OBJC_IVAR_$_RLMSchema._objectSchemaByName
 _OBJC_IVAR_$_RLMSchema._objectSchema
 __ZL19s_sharedSchemaState
-___block_literal_global.79
-___block_descriptor_tmp.97
+___block_descriptor_tmp.75
+___block_descriptor_tmp.77
+___block_literal_global.78
+___block_descriptor_tmp.96
 _OBJC_IVAR_$_RLMSchema._objectStoreSchema
+___block_descriptor_tmp.127
 /Users/realm/workspace/cocoa-pipeline/Realm/RLMSchema.mm
 _GLOBAL__sub_I_RLMSchema.mm
-__cxx_global_var_init.19
-__cxx_global_var_init.17
-__cxx_global_var_init.12
+__cxx_global_var_init.18
+__cxx_global_var_init.16
+__cxx_global_var_init.11
 __push_back_slow_path<realm::ObjectSchema>
 construct<realm::ObjectSchema, realm::ObjectSchema>
 __construct<realm::ObjectSchema, realm::ObjectSchema>
@@ -6952,7 +6953,6 @@ _OBJC_IVAR_$_RLMSyncCredentials._userInfo
 /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncCredentials.h
 __ZNK5realm4util10RootLogger3getEv
 +[RLMSyncManager sharedManager]
-___31+[RLMSyncManager sharedManager]_block_invoke
 -[RLMSyncManager initWithCustomRootDirectory:]
 -[RLMSyncManager appID]
 -[RLMSyncManager logLevel]
@@ -6961,8 +6961,8 @@ ___31+[RLMSyncManager sharedManager]_block_invoke
 ___29-[RLMSyncManager _fireError:]_block_invoke
 -[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]
 ___81-[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorClass:]_block_invoke
-___copy_helper_block_.43
-___destroy_helper_block_.44
+___copy_helper_block_.39
+___destroy_helper_block_.40
 -[RLMSyncManager _allUsers]
 +[RLMSyncManager resetForTesting]
 -[RLMSyncManager errorHandler]
@@ -6978,12 +6978,11 @@ __ZN12_GLOBAL__N_115CocoaSyncLogger6do_logEN5realm4util6Logger5LevelENSt3__112ba
 __ZThn4_N12_GLOBAL__N_115CocoaSyncLoggerD1Ev
 __ZThn4_N12_GLOBAL__N_115CocoaSyncLoggerD0Ev
 __ZThn4_N12_GLOBAL__N_115CocoaSyncLogger6do_logEN5realm4util6Logger5LevelENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEE
+__ZNSt3__117__call_once_proxyINS_5tupleIJOZ31+[RLMSyncManager sharedManager]E3$_0EEEEEvPv
 __GLOBAL__sub_I_RLMSyncManager.mm
 __ZL15s_sharedManager
-__ZL11s_onceToken
 _OBJC_IVAR_$_RLMSyncManager._appID
-___block_descriptor_tmp.31
-___block_descriptor_tmp.45
+___block_descriptor_tmp.41
 _OBJC_IVAR_$_RLMSyncManager._errorHandler
 _OBJC_IVAR_$_RLMSyncManager._sessionCompletionNotifier
 __ZTVN12_GLOBAL__N_122CocoaSyncLoggerFactoryE
@@ -6995,6 +6994,9 @@ __ZTSN12_GLOBAL__N_115CocoaSyncLoggerE
 __ZTIN12_GLOBAL__N_115CocoaSyncLoggerE
 /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncManager.mm
 _GLOBAL__sub_I_RLMSyncManager.mm
+__call_once_proxy<std::__1::tuple<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncManager.mm:93:26) &&> >
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/mutex
+__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncManager.mm:93:26)>
 destroy<std::__1::shared_ptr<realm::SyncUser> >
 __destroy<std::__1::shared_ptr<realm::SyncUser> >
 _ZThn4_N12_GLOBAL__N_115CocoaSyncLogger6do_logEN5realm4util6Logger5LevelENSt3__112basic_stringIcNS5_11char_traitsIcEENS5_9allocatorIcEEEE
@@ -7017,9 +7019,13 @@ __81-[RLMSyncManager _fireErrorWithCode:message:isFatal:session:userInfo:errorCl
 __29-[RLMSyncManager _fireError:]_block_invoke
 levelForSyncLogLevel
 logLevelForLevel
-__31+[RLMSyncManager sharedManager]_block_invoke
-_dispatch_once
-/Applications/Xcode-9.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.sdk/usr/include/dispatch/once.h
+call_once<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncManager.mm:93:26)>
+__call_once_param
+tuple<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncManager.mm:93:26), false, false>
+__tuple_impl<0, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncManager.mm:93:26) &&, (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncManager.mm:93:26)>
+__tuple_leaf<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncManager.mm:93:26), void>
+__libcpp_acquire_load<unsigned long>
+once_flag
 -[RLMSyncPermission initWithRealmPath:identity:accessLevel:]
 -[RLMSyncPermission initWithRealmPath:username:accessLevel:]
 -[RLMSyncPermission initWithPermission:]
@@ -7119,6 +7125,8 @@ _ZZ49-[RLMSyncPermissionResults addNotificationBlock:]EN3$_4C1EOS_
 _ZZ49-[RLMSyncPermissionResults addNotificationBlock:]EN3$_4C2EOS_
 translateRLMResultsErrors<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncPermissionResults.mm:151:38)>
 keypath_is_valid
+_dispatch_once
+/Applications/Xcode-9.1.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.sdk/usr/include/dispatch/once.h
 translateRLMResultsErrors<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncPermissionResults.mm:135:38)>
 translateRLMResultsErrors<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncPermissionResults.mm:127:38)>
 translateRLMResultsErrors<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/RLMSyncPermissionResults.mm:79:38)>
@@ -7875,7 +7883,6 @@ free_lock_info
 core/include/realm/util/interprocess_mutex.hpp
 swap<realm::util::InterprocessMutex::LockInfo *>
 __call_once_proxy<std::__1::tuple<void (&)()> >
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/mutex
 __invoke<void (&)()>
 get<0, void (&)()>
 initialize_statics
@@ -7896,11 +7903,9 @@ unmap
 ~InterprocessMutex
 InterprocessMutex
 call_once<void (&)()>
-__call_once_param
 tuple<true, false>
 __tuple_impl<0, void (&)(), void (&)()>
 __tuple_leaf<void (&)(), void>
-__libcpp_acquire_load<unsigned long>
 Map
 MapBase
 File
@@ -8008,7 +8013,7 @@ __ZNSt3__114basic_ofstreamIcNS_11char_traitsIcEEED0Ev
 __ZTv0_n12_NSt3__114basic_ofstreamIcNS_11char_traitsIcEEED0Ev
 /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/impl/sync_file.cpp
 SyncUserIdentifier
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/fstream
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/fstream
 basic_filebuf
 always_noconv
 use_facet<std::__1::codecvt<char, char, mbstate_t> >
@@ -8477,7 +8482,7 @@ insert<std::__1::__map_iterator<std::__1::__tree_iterator<std::__1::__value_type
 insert<std::__1::pair<const std::__1::basic_string<char>, realm::util::Any> &, void>
 ns_since_unix_epoch
 duration_cast<std::__1::chrono::duration<long long, std::__1::ratio<1, 1000000000> >, long long, std::__1::ratio<1, 1000000> >
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/chrono
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/chrono
 operator-<std::__1::chrono::system_clock, std::__1::chrono::duration<long long, std::__1::ratio<1, 1000000> >, std::__1::chrono::duration<long long, std::__1::ratio<1, 1000000> > >
 operator-<long long, std::__1::ratio<1, 1000000>, long long, std::__1::ratio<1, 1000000> >
 time_since_epoch
@@ -8675,7 +8680,6 @@ __ZTSZN5realm11SyncSession19create_sync_sessionEvE3$_5
 __ZTIZN5realm11SyncSession19create_sync_sessionEvE3$_5
 /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp
 _GLOBAL__sub_I_sync_session.cpp
-__cxx_global_var_init.11
 Error
 __cxx_global_var_init.10
 Inactive
@@ -8691,39 +8695,39 @@ __construct_node_hash<unsigned long long &, realm::SyncSession::NotifierPackage>
 construct<std::__1::pair<const unsigned long long, realm::SyncSession::NotifierPackage>, unsigned long long &, realm::SyncSession::NotifierPackage>
 __construct<std::__1::pair<const unsigned long long, realm::SyncSession::NotifierPackage>, unsigned long long &, realm::SyncSession::NotifierPackage>
 pair<unsigned long long &, realm::SyncSession::NotifierPackage, false>
-__call<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37) &, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long>
-__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37) &, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long>
-__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37)> &>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37)> &, 0, 0>
+__call<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37) &, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long>
+__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37) &, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long, unsigned long long>
+__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37)> &>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37)> &, 0, 0>
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_5C1ERKS1_
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_5C2ERKS1_
-__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37)> &&>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37)> &&, 0, 0>
-__call<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29) &, realm::VersionID, realm::VersionID>
-__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29) &, realm::VersionID, realm::VersionID>
-__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29)> &>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29)> &, 0, 0>
+__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37)> &&>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37)> &&, 0, 0>
+__call<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29) &, realm::VersionID, realm::VersionID>
+__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29) &, realm::VersionID, realm::VersionID>
+__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29)> &>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29)> &, 0, 0>
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_4C1ERKS1_
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_4C2ERKS1_
-__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29)> &&>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29)> &&, 0, 0>
-__call<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28) &, std::__1::error_code, bool, const std::__1::basic_string<char> &>
-__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28) &, std::__1::error_code, bool, const std::__1::basic_string<char> &>
-__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28)> &>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28)> &, 0, 0>
+__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29)> &&>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29)> &&, 0, 0>
+__call<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28) &, std::__1::error_code, bool, const std::__1::basic_string<char> &>
+__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28) &, std::__1::error_code, bool, const std::__1::basic_string<char> &>
+__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28)> &>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28)> &, 0, 0>
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_3C1ERKS1_
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_3C2ERKS1_
-__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28)> &&>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28)> &&, 0, 0>
+__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28)> &&>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28)> &&, 0, 0>
 swap<std::__1::__function::__base<bool (const std::__1::basic_string<char> &, unsigned short, const char *, unsigned long, int, int)> *>
-__call<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12) &>
-__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12) &>
-__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12)> &>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12)> &, 0, 0>
+__call<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12) &>
+__invoke<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12) &>
+__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12)> &>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12) &, const std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12)> &, 0, 0>
 _ZZNK5realm11SyncSession15NotifierPackage17create_invocationERKNS0_8ProgressERbEN3$_2C1ERKS6_
 _ZZNK5realm11SyncSession15NotifierPackage17create_invocationERKNS0_8ProgressERbEN3$_2C2ERKS6_
-__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12)> &&>
-__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12)> &&, 0, 0>
+__compressed_pair<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12)> &&>
+__libcpp_compressed_pair_imp<const (lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12) &, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12)> &&, 0, 0>
 destroy<std::__1::function<void ()> >
 __destroy<std::__1::function<void ()> >
 swap<std::__1::function<void ()> *>
@@ -8806,29 +8810,29 @@ OptionalStorage<const unsigned long long &>
 async_wait_for_download_completion
 wait_for_download_completion
 wait_for_upload_completion
-function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37), void>
-__compressed_pair<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37) &&>
-__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:752:37) &&, 0>
+function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37), void>
+__compressed_pair<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37) &&>
+__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:750:37) &&, 0>
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_5C1EOS1_
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_5C2EOS1_
-function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29), void>
-__compressed_pair<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29) &&>
-__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:742:29) &&, 0>
+function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29), void>
+__compressed_pair<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29) &&>
+__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:740:29) &&, 0>
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_4C1EOS1_
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_4C2EOS1_
-function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28), void>
-__compressed_pair<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28) &&>
-__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:730:28) &&, 0>
+function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28), void>
+__compressed_pair<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28) &&>
+__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:728:28) &&, 0>
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_3C1EOS1_
 _ZZN5realm11SyncSession19create_sync_sessionEvEN3$_3C2EOS1_
 make_unique<realm::sync::Session, realm::sync::Client &, std::__1::basic_string<char> &, realm::sync::Session::Config &>
 create_invocation
-function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12), void>
-__compressed_pair<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12) &&, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12)> &&>
-__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12) &&, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:709:12)> &&, 0, 0>
+function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12), void>
+__compressed_pair<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12) &&, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12)> &&>
+__libcpp_compressed_pair_imp<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12) &&, std::__1::allocator<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:707:12)> &&, 0, 0>
 _ZZNK5realm11SyncSession15NotifierPackage17create_invocationERKNS0_8ProgressERbEN3$_2C1EOS6_
 _ZZNK5realm11SyncSession15NotifierPackage17create_invocationERKNS0_8ProgressERbEN3$_2C2EOS6_
-function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:696:16), void>
+function<(lambda at /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/sync/sync_session.cpp:694:16), void>
 handle_progress_update
 operator!=<std::__1::function<void ()> *>
 emplace_back<std::__1::function<void ()> >
@@ -9276,7 +9280,7 @@ what
 ~BufferSizeOverflow
 int_multiply_with_overflow_detect<unsigned long, int>
 core/include/realm/util/safe_int_ops.hpp
-int_less_than<int, unsigned long>
+int_less_than<unsigned long, unsigned long>
 less
 advance_read<realm::_impl::NullInstructionObserver>
 get_history
@@ -9549,7 +9553,7 @@ transact_log_reserve
 __ZZN5realm4util11uuid_stringEvE6engine
 __ZGVZN5realm4util11uuid_stringEvE6engine
 /Users/realm/workspace/cocoa-pipeline/Realm/ObjectStore/src/util/uuid.cpp
-/Applications/Xcode-9.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/random
+/Applications/Xcode-9.1.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include/c++/v1/random
 __rshift<18>
 __lshift<15>
 __lshift<7>
@@ -10143,6 +10147,7 @@ __ZNSt3__110__function6__funcIZN12_GLOBAL__N_110Connection27initiate_ping_output
 __ZNSt3__110__function6__funcIZN12_GLOBAL__N_110Connection27initiate_ping_output_bufferEvE3$_4NS_9allocatorIS4_EEFvvEEclEv
 __ZNKSt3__110__function6__funcIZN12_GLOBAL__N_110Connection27initiate_ping_output_bufferEvE3$_4NS_9allocatorIS4_EEFvvEE6targetERKSt9type_info
 __ZNKSt3__110__function6__funcIZN12_GLOBAL__N_110Connection27initiate_ping_output_bufferEvE3$_4NS_9allocatorIS4_EEFvvEE11target_typeEv
+__ZN12_GLOBAL__N_111SessionImpl20send_refresh_messageEv
 __ZNSt3__110__function6__funcIZN12_GLOBAL__N_110Connection28initiate_write_output_bufferEPNS2_11SessionImplEE3$_3NS_9allocatorIS6_EEFvvEED1Ev
 __ZNSt3__110__function6__funcIZN12_GLOBAL__N_110Connection28initiate_write_output_bufferEPNS2_11SessionImplEE3$_3NS_9allocatorIS6_EEFvvEED0Ev
 __ZNKSt3__110__function6__funcIZN12_GLOBAL__N_110Connection28initiate_write_output_bufferEPNS2_11SessionImplEE3$_3NS_9allocatorIS6_EEFvvEE7__cloneEv
@@ -10702,16 +10707,15 @@ __ZL25original_protocol_getName
 __ZL36original_objc_copyClassNamesForImage
 __ZL12demangleLock
 __ZL9Demangled
-Apple LLVM version 9.0.0 (clang-900.0.35)
-/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -fno-sanitize=vptr -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -fembed-bitcode=all -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources/armv7 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/Symbols/BuiltProducts -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -Wno-error=incomplete-umbrella -Wno-error=incomplete-umbrella -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-66/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.o -mlinker-version=302.3 -march=armv7a
-/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-66/source/arclite.mm
-/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-66
+/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang -x objective-c++ -arch armv7 -fmessage-length=0 -fdiagnostics-show-note-include-stack -fmacro-backtrace-limit=0 -std=c++11 -Wno-trigraphs -fno-exceptions -fno-rtti -fno-sanitize=vptr -mpascal-strings -Os -Wno-missing-field-initializers -Wmissing-prototypes -Wno-implicit-atomic-properties -Wno-arc-repeated-use-of-weak -Wno-non-virtual-dtor -Wno-overloaded-virtual -Wno-exit-time-destructors -Wno-missing-braces -Wparentheses -Wswitch -Wno-unused-function -Wno-unused-label -Wno-unused-parameter -Wunused-variable -Wunused-value -Wno-empty-body -Wno-uninitialized -Wno-unknown-pragmas -Wno-shadow -Wno-four-char-constants -Wno-conversion -Wno-constant-conversion -Wno-int-conversion -Wno-bool-conversion -Wno-enum-conversion -Wno-float-conversion -Wno-non-literal-null-conversion -Wno-objc-literal-conversion -Wshorten-64-to-32 -Wno-newline-eof -Wno-selector -Wno-strict-selector-match -Wno-undeclared-selector -Wno-deprecated-implementations -Wno-c++11-extensions -D NDEBUG=1 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.Internal.sdk -fstrict-aliasing -Wprotocol -Wdeprecated-declarations -Winvalid-offsetof -miphoneos-version-min=4.3 -g -fno-threadsafe-statics -Wno-sign-conversion -Wno-infinite-recursion -Wno-move -Wno-comma -Wno-block-capture-autoreleasing -Wno-strict-prototypes -Wno-range-loop-analysis -fembed-bitcode=all -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-generated-files.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-own-target-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-all-target-headers.hmap -iquote /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/arclite_iphoneos-project-headers.hmap -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/Symbols/BuiltProducts/include -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources/armv7 -I /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/DerivedSources -F/Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/Symbols/BuiltProducts -iframework /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.Internal.sdk/System/Library/PrivateFrameworks -Wall -Wextra -Wno-gcc-compat -Wno-error=incomplete-umbrella -Wno-error=invalid-ios-deployment-target -Wno-error=incomplete-umbrella -Wno-error=invalid-ios-deployment-target -MMD -MT dependencies -MF /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.d --serialize-diagnostics /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.dia -c /Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-67/source/arclite.mm -o /Library/Caches/com.apple.xbs/Binaries/arclite_iOS/install/TempContent/Objects/arclite.build/arclite_iOS.build/Objects-normal/armv7/arclite.o -mlinker-version=302.3.1 -march=armv7a
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-67/source/arclite.mm
+/Library/Caches/com.apple.xbs/Sources/arclite_iOS/arclite-67
 fixStringForCoreData
 cxxConstruct
 arclite_uninitialized_function
 scanMangledField
 isdigit
-/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.0.Internal.sdk/usr/include/ctype.h
+/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.1.Internal.sdk/usr/include/ctype.h
 __isctype
 demangledName
 copySwiftV1DemangledName
