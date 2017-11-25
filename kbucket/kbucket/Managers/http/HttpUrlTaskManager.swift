@@ -46,7 +46,6 @@ class HttpUrlTaskManager {
         KLog.d(tag: TAG, msg: "@@ url : " + mURl )
         let task = URLSession.shared.dataTask(with: url!, completionHandler : {
             (data : Data?, response : URLResponse?, error : Error?) -> Void in
-            
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else{
                 if self.mIHttpReceive != nil {
                     self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_FAIL, actionId: ConstHTTP.BUCKET_LIST, data: data! )
@@ -55,7 +54,7 @@ class HttpUrlTaskManager {
             }
            
             if self.mIHttpReceive != nil {
-                self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_OK, actionId: ConstHTTP.BUCKET_LIST, data: data! )
+               self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_OK, actionId: ConstHTTP.BUCKET_LIST, data: data! )
             }
         })
         

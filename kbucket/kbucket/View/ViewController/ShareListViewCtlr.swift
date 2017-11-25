@@ -7,9 +7,9 @@
 //
 
 import UIKit
+import Foundation
 
-
-class ShareListViewCtlr: UIViewController , IHttpReceive {
+class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, UITableViewDataSource, EventProtocol {
     
     private let TAG : String = "ShareListViewCtlr"
     
@@ -35,6 +35,7 @@ class ShareListViewCtlr: UIViewController , IHttpReceive {
     @IBOutlet weak var btCategory7: UIButton!
     @IBOutlet weak var btCategory8: UIButton!
     
+    @IBOutlet weak var mTableView: UITableView!
     
     // private ShareListAdpater mListAdapter = null;
     // private ListView mListView = null;
@@ -51,6 +52,9 @@ class ShareListViewCtlr: UIViewController , IHttpReceive {
     
     func initialize(){
         setCategoryList()
+        mTableView.delegate = self
+        mTableView.dataSource = self
+        handleMessage(what: SHARE_BUCKET_LIST, obj : "1")
     }
     
     func setButtonList(){
@@ -185,31 +189,34 @@ class ShareListViewCtlr: UIViewController , IHttpReceive {
         //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
                 
                  if (type == ConstHTTP.HTTP_OK && isValid == true) {
+                   
                      do {
                         if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                             let bucketList : NSArray = jsonString["bucketList"] as! NSArray
-                          
-                            print(bucketList.count)
-                            
-                            var size : Int = bucketList.count
+                            let size : Int = bucketList.count
                             mBucketDataList.removeAll()
+                            if size > 0 {
+                                for index in 0...bucketList.count-1  {
+                                    
+                                    let aObject = bucketList[index] as! [String : AnyObject]
+                                    let bucket : Bucket = Bucket()
+                                    bucket.mContent = aObject["content"] as! String
+                                    bucket.mPhone = aObject["phone"] as! String
+                                    bucket.mIdx = aObject["idx"] as! Int
+                                    bucket.mPhone = aObject["phone"] as! String
+                                    bucket.mImageURl = aObject["imageUrl"] as! String
+                                    bucket.mNickName = aObject["nickName"] as! String
+                                    bucket.mCategoryCode = aObject["categoryCode"] as! Int
+                                    bucket.mCompleteDate = aObject["createDt"] as! String
+                                    
+                                    //KLog.d(tag: TAG, msg: bucket.toString())
+                                    
+                                    mBucketDataList.append(bucket)
+                                }
+                            }
                             
-                            for index in 0...bucketList.count-1  {
-                                
-                                let aObject = bucketList[index] as! [String : AnyObject]
-                                let bucket : Bucket = Bucket()
-                                bucket.mContent = aObject["content"] as! String
-                                bucket.mPhone = aObject["phone"] as! String
-                                bucket.mIdx = aObject["idx"] as! Int
-                                bucket.mPhone = aObject["phone"] as! String
-                                bucket.mImageURl = aObject["imageUrl"] as! String
-                                bucket.mNickName = aObject["nickName"] as! String
-                                bucket.mCategoryCode = aObject["categoryCode"] as! Int
-                                bucket.mCompleteDate = aObject["createDt"] as! String
-                                
-                                KLog.d(tag: TAG, msg: bucket.toString())
-
-                                mBucketDataList.append(bucket)
+                            DispatchQueue.main.async {
+                                 self.mTableView.reloadData()
                             }
                         }
                       //  mHandler.sendEmptyMessage(SET_BUCKETLIST);
@@ -265,7 +272,8 @@ class ShareListViewCtlr: UIViewController , IHttpReceive {
             }
             //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
             
-            var url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
+            let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
+//            let url = "http://chasw12.dothome.co.kr/logcheck.php"
             let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
             httpUrlTaskManager.actionTask();
             
@@ -292,5 +300,41 @@ class ShareListViewCtlr: UIViewController , IHttpReceive {
         }
     }
     
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mBucketDataList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = mTableView.dequeueReusableCell(withIdentifier: "ShareCustomCell", for: indexPath) as! ShareCustomCell
+        cell.etEdit.text = mBucketDataList[indexPath.row].mContent
+        cell.mData = mBucketDataList[indexPath.row].mContent
+        cell.selectionStyle = .none
+        
+        cell.setOnEventListener(listenr: self)
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        KLog.d(tag: TAG, msg: "row: \(indexPath.row)")
+    }
+    
+    func receiveEventFromViewItem(gbn : Int, data : String) {
+        KLog.d(tag: TAG, msg: "receiveEventFromViewItem data : " + data)
+        switch(gbn){
+        case 0://상세보기
+            KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
+//            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailViewCtlr")
+//
+//            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+//            present(uvc!, animated: true, completion: nil)
+            
+            break;
+        
+        default:
+            break;
+        }
+    }
     
 }

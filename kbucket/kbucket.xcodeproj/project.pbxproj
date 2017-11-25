@@ -53,6 +53,7 @@
 		0080F62E1FAD5DAA0076893B /* IHttpReceive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F62D1FAD5DAA0076893B /* IHttpReceive.swift */; };
 		0080F6301FAD5F6F0076893B /* ConstHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F62F1FAD5F6F0076893B /* ConstHTTP.swift */; };
 		0080F6321FAD60890076893B /* HttpUrlTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F6311FAD60890076893B /* HttpUrlTaskManager.swift */; };
+		00816CE01FC8FC9B000372F2 /* ShareCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */; };
 		00975E941FB689FE003ABBEF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00975E901FB68554003ABBEF /* Realm.framework */; };
 		00975E951FB689FE003ABBEF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00975E901FB68554003ABBEF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00975E961FB68A01003ABBEF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00975E911FB68554003ABBEF /* RealmSwift.framework */; };
@@ -157,6 +158,7 @@
 		0080F62D1FAD5DAA0076893B /* IHttpReceive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IHttpReceive.swift; path = Managers/http/IHttpReceive.swift; sourceTree = "<group>"; };
 		0080F62F1FAD5F6F0076893B /* ConstHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstHTTP.swift; sourceTree = "<group>"; };
 		0080F6311FAD60890076893B /* HttpUrlTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpUrlTaskManager.swift; path = Managers/http/HttpUrlTaskManager.swift; sourceTree = "<group>"; };
+		00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShareCustomCell.swift; path = View/Bean/ShareCustomCell.swift; sourceTree = "<group>"; };
 		00975E901FB68554003ABBEF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		00975E911FB68554003ABBEF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		00A6A9451F60179900F65A1E /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppUtils.swift; path = Utils/AppUtils.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 				005994171F5A4532007777A1 /* UpdateApp.swift */,
 				005994181F5A4532007777A1 /* Version.swift */,
 				0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */,
+				00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */,
 				0059940D1F5A3F21007777A1 /* PostData.swift */,
 			);
 			name = Bean;
@@ -514,6 +517,7 @@
 				005994471F5A4579007777A1 /* WriteDetailViewCtlr.swift in Sources */,
 				00004A6C1EF41D8D0074DCFB /* ViewController.swift in Sources */,
 				0059943B1F5A4579007777A1 /* MainViewCtlr.swift in Sources */,
+				00816CE01FC8FC9B000372F2 /* ShareCustomCell.swift in Sources */,
 				00A6A9571F60179900F65A1E /* ErrorLogUtils.swift in Sources */,
 				005994441F5A4579007777A1 /* ShareDetailViewCtlr.swift in Sources */,
 				005994491F5A4579007777A1 /* WriteViewCtlr.swift in Sources */,
