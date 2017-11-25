@@ -34,17 +34,11 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
     @IBOutlet weak var btCategory6: UIButton!
     @IBOutlet weak var btCategory7: UIButton!
     @IBOutlet weak var btCategory8: UIButton!
-    
     @IBOutlet weak var mTableView: UITableView!
-    
-    // private ShareListAdpater mListAdapter = null;
-    // private ListView mListView = null;
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         KLog.d(tag: TAG, msg: "viewDidLoad");
-        
-        
         //     mHandler.sendEmptyMessage(CHECK_NETWORK);
         //     AppUtils.sendTrackerScreen(this, "모두가지화면");
         initialize()
@@ -133,17 +127,8 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
             break;
         default:
             break;
-            //  case R.id.share_list_detailBtn:
-            //             int sharedIdx = (int) v.getTag();
-            //             int idx = mBucketDataList.get(sharedIdx).getIdx();
-            //             Intent intent = new Intent(this, ShareDetailActivity.class);
-            //             intent.putExtra(ContextUtils.NUM_SHARE_BUCKET_IDX, idx + "");
-            //             intent.putExtra(ContextUtils.OBJ_SHARE_BUCKET, mBucketDataList.get(sharedIdx));
-            //             startActivity(intent);
-            //             break;
         }
         handleMessage(what: SHARE_BUCKET_LIST, obj : categoryCode)
-        
     }
     
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
@@ -210,43 +195,27 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                                     bucket.mCompleteDate = aObject["createDt"] as! String
                                     
                                     //KLog.d(tag: TAG, msg: bucket.toString())
-                                    
                                     mBucketDataList.append(bucket)
                                 }
                             }
-                            
-                            DispatchQueue.main.async {
-                                 self.mTableView.reloadData()
-                            }
+                        handleMessage(what: SET_BUCKETLIST, obj: "")
                         }
-                      //  mHandler.sendEmptyMessage(SET_BUCKETLIST);
                      } catch  {
                         KLog.d(tag : TAG, msg : "@@ jsonException message ");
-//                         mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-                     }
+                        handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+                    }
                  } else {
-        //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
+                    handleMessage(what: SERVER_LOADING_FAIL, obj: "")
                  }
              }
     }
     
     func handleMessage(what : Int, obj : String) {
         switch (what) {
-            //         case TOAST_MASSEGE:
-            //             Toast.makeText(getApplicationContext(), (String) msg.obj, Toast.LENGTH_LONG).show();
-            //             break;
-            //         case CATEGORY_LIST:
-            //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-            //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_CATEGORY_URL, false, this, IHttpReceive.CATEGORY_LIST);
-            //             httpUrlTaskManager.execute();
-            //             break;
-            //         case SET_CATEGORY:
-            //             setButton();
-            //             findViewById(R.id.share_category_view).setVisibility(View.VISIBLE);
-            //             KLog.d(TAG, "@@ SET_CATEGORY");
-            //             mHandler.sendEmptyMessage(SHARE_BUCKET_LIST);
-            //             break;
-            //         case SERVER_LOADING_FAIL:
+            case TOAST_MASSEGE:
+                Toast.showToast(message: obj)
+                break;
+            case SERVER_LOADING_FAIL:
             //             realmMgr realmMgr = new realmMgr();
             //             RealmResults<Bucket> infoList = realmMgr.selectBucketShareList();
             //             if (infoList != null) {
@@ -264,29 +233,27 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
             //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
             //                 finish();
             //             }
-        //             break;
+            break;
         case SHARE_BUCKET_LIST:
             var data : String = String(obj)
             if (data == nil) {
                 data = ContextUtils.DEFULAT_SHARE_BUCKET_IDX
             }
-            //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-            
-            let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
-//            let url = "http://chasw12.dothome.co.kr/logcheck.php"
-            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
-            httpUrlTaskManager.actionTask();
-            
+            //  KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
             //                 HashMap<String, Object> map = new HashMap<String, Object>();
             //                 map.put("idx", data);
             //                 httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
+            let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
+            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
+            httpUrlTaskManager.actionTask();
             break;
-            //         case SET_BUCKETLIST:
-            //             mListView = (ListView) findViewById(R.id.share_list_listview);
-            //             mListAdapter = new ShareListAdpater(this, R.layout.share_list_line, mBucketDataList, this);
-            //             mListView.setAdapter(mListAdapter);
-            //             break;
-            //         case CHECK_NETWORK:
+         case SET_BUCKETLIST:
+            DispatchQueue.main.async {
+                self.mTableView.reloadData()
+            }
+            break;
+        case CHECK_NETWORK:
+            break;
             //             boolean isConnect = NetworkUtils.isConnectivityStatus(this);
             //             if (!isConnect) {
             //                 String connectMsg = getString(R.string.check_network);
@@ -294,7 +261,6 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
             //             } else {
             //                 mHandler.sendEmptyMessage(CATEGORY_LIST);
             //             }
-        //             break;
         default:
             break;
         }
@@ -308,7 +274,7 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
         
         let cell = mTableView.dequeueReusableCell(withIdentifier: "ShareCustomCell", for: indexPath) as! ShareCustomCell
         cell.etEdit.text = mBucketDataList[indexPath.row].mContent
-        cell.mData = mBucketDataList[indexPath.row].mContent
+        cell.mData = String(mBucketDataList[indexPath.row].mIdx)
         cell.selectionStyle = .none
         
         cell.setOnEventListener(listenr: self)
@@ -326,9 +292,15 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
         case 0://상세보기
             KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
 //            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailViewCtlr")
-//
 //            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
 //            present(uvc!, animated: true, completion: nil)
+            
+            
+            //             int idx = mBucketDataList.get(sharedIdx).getIdx();
+            //             Intent intent = new Intent(this, ShareDetailActivity.class);
+            //             intent.putExtra(ContextUtils.NUM_SHARE_BUCKET_IDX, idx + "");
+            //             intent.putExtra(ContextUtils.OBJ_SHARE_BUCKET, mBucketDataList.get(sharedIdx));
+            //             startActivity(intent);
             
             break;
         

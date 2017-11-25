@@ -13,8 +13,8 @@ class ShareCustomCell : UITableViewCell{
     
     private let TAG : String = "ShareCustomCell"
     
-    @IBOutlet weak var btDetail: UIButton!
-    @IBOutlet weak var etEdit: UITextField!
+    @IBOutlet public var btDetail: UIButton!
+    @IBOutlet public var etEdit: UITextField!
     
     public var mData : String = ""
     private var mListenr : EventProtocol? = nil
@@ -24,7 +24,6 @@ class ShareCustomCell : UITableViewCell{
         switch((sender  as! UIButton))
         {
             case btDetail:
-                KLog.d(tag: TAG, msg: "onClick btDetail index : " + mData)
                 mListenr?.receiveEventFromViewItem(gbn: 0, data: mData)
                 break;
             default:

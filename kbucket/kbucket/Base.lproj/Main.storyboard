@@ -492,6 +492,7 @@
                                                     </state>
                                                     <connections>
                                                         <action selector="onClick:" destination="Ait-vZ-ruu" eventType="touchUpInside" id="IWy-7Z-Dsd"/>
+                                                        <action selector="onClick:" destination="vhj-7d-14n" eventType="touchUpInside" id="qTD-eY-wTx"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
