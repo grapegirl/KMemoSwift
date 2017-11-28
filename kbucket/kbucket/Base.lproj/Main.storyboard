@@ -307,6 +307,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="editingDidEnd" id="pNY-4Z-xmh"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="GTq-bV-5pw">
                                 <rect key="frame" x="76" y="199" width="259" height="30"/>
@@ -321,6 +324,9 @@
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="editingDidEnd" id="YNA-aN-oqk"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnJ-k0-xjd">
                                 <rect key="frame" x="22" y="151" width="42" height="21"/>
@@ -393,6 +399,9 @@
                                 <state key="normal" title="갤러리">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="touchUpInside" id="Ns2-jp-MAy"/>
+                                </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtx-qg-MKq">
                                 <rect key="frame" x="63" y="89" width="49" height="31"/>
@@ -405,6 +414,9 @@
                                 <state key="normal" title="카메라">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="touchUpInside" id="Dil-5L-Xaw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2f-nH-W1S">
                                 <rect key="frame" x="22" y="18" width="46" height="30"/>
@@ -417,21 +429,35 @@
                                     <action selector="onBackPressed:" destination="aMF-eL-1tI" eventType="touchUpInside" id="hRN-7L-nGt"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgK-TN-aet">
+                                <rect key="frame" x="39" y="345" width="296" height="261"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbb-D2-ko7">
+                                <rect key="frame" x="264" y="345" width="71" height="65"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.89260018129999996" blue="0.3228536232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
                     <connections>
                         <outlet property="btCamera" destination="Tse-0H-7zu" id="vqz-XB-R5V"/>
+                        <outlet property="btCheckbox" destination="qtx-qg-MKq" id="GKL-pI-D1y"/>
                         <outlet property="btDel" destination="g93-ua-wUj" id="CnT-O3-MXM"/>
                         <outlet property="btGallery" destination="Zot-Pu-YY5" id="p7S-R4-f1L"/>
                         <outlet property="btSave" destination="raL-fM-XlY" id="dmX-pZ-0vc"/>
                         <outlet property="btShare" destination="yJY-RF-p6w" id="b7c-26-ikZ"/>
                         <outlet property="ckComplete" destination="qtx-qg-MKq" id="pN0-u2-s2V"/>
+                        <outlet property="etCompleteDate" destination="qRt-96-qDj" id="euJ-9x-Vrd"/>
+                        <outlet property="etContent" destination="GTq-bV-5pw" id="e34-Kj-Rrk"/>
+                        <outlet property="etDate" destination="Wc4-yV-CAq" id="VOm-Fv-hDm"/>
+                        <outlet property="ivImage" destination="sgK-TN-aet" id="lnP-LE-0Ry"/>
+                        <outlet property="ivRemoveImage" destination="hbb-D2-ko7" id="2A7-WD-LLw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iub-k6-mqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-57" y="66"/>
+            <point key="canvasLocation" x="-57.5" y="65.5"/>
         </scene>
         <!--Share List View Ctlr-->
         <scene sceneID="NEa-Xw-IRN">

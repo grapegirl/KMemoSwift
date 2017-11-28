@@ -172,10 +172,8 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                  }
           } else if (actionId == ConstHTTP.BUCKET_LIST) {
         //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-                
-                 if (type == ConstHTTP.HTTP_OK && isValid == true) {
-                   
-                     do {
+                if (type == ConstHTTP.HTTP_OK && isValid == true) {
+                    do {
                         if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                             let bucketList : NSArray = jsonString["bucketList"] as! NSArray
                             let size : Int = bucketList.count

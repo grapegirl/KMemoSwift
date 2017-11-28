@@ -16,6 +16,7 @@ class Bucket : Object {
     /**
      * 카테고리코드
      */
+    
     dynamic var mCategoryCode : Int = 0
     /**
      * 메모내용
@@ -34,7 +35,8 @@ class Bucket : Object {
     /**
      * 번호
      */
-    dynamic var mIdx : Int = 0
+   
+    dynamic var mIdx : Int  = 0
     /**
      * 닉네임
      */
@@ -48,18 +50,15 @@ class Bucket : Object {
      */
     dynamic var mImageURl : String = ""
     
-
-    
-    override static func primaryKey() -> String? {
-        return "mContent"
-    }
-    
     public func toString() -> String{
         var strTemp = ""
         strTemp = "mContents : " + mContent + ",mCompleteDate: " + mCompleteDate
         return strTemp
     }
 
+    override static func primaryKey() -> String? {
+        return "mContent"
+    }
  
 //    public HashMap<String, Object> toHasnMap() {
 //         HashMap<String, Object> map = new HashMap<String, Object>();

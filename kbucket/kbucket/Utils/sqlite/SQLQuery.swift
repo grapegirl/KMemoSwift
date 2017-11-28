@@ -30,25 +30,26 @@ class SQLQuery{
     }
 
     public func selectKbucket() -> Results<Bucket>? {
-        // Get the default Realm
         do{
             let realm = try! Realm()
-            
-            // Query Realm for all dogs less than 2 years old
             let bucketList = realm.objects(Bucket.self)
-            
             return bucketList
-
         }catch let error as NSError{
             KLog.d(tag: TAG, msg: "selectKbucet db error")
             return nil
         }
-        
     }
-//
-//    public func selectKbucket(memoContents : String ) -> LinkedList<String> {
-//        
-//    }
+
+    public func selectKbucket(memoContents : String ) -> Results<Bucket>? {
+        do{
+            let realm = try! Realm()
+            let bucketList = realm.objects(Bucket.self).filter("mContent = '" + memoContents + "'")
+            return bucketList
+        }catch let error as NSError{
+            KLog.d(tag: TAG, msg: "selectKbucet db error")
+            return nil
+        }
+    }
 //
 //    public func containsKbucket(memoContents : String ) -> Bool {
 //      
@@ -91,14 +92,14 @@ class SQLQuery{
 
         let realm = try! Realm()
 
-        let bucketObj = realm.objects(Bucket.self).filter("contents = '" + contents + "'")
+        let bucketObj = realm.objects(Bucket.self).filter("mContent = '" + contents + "'")
         
         //bucketObj.mContent = newContents
 
         try! realm.write {
             realm.add(bucketObj, update: true)
         }
-        KLog.d(tag: TAG, msg: "success updateMemoContent mContent : " + newContents);
+        KLog.d(tag: TAG, msg: "success updateMemoContent mContent : " + newContents)
     }
 
     /**
@@ -117,8 +118,22 @@ class SQLQuery{
     /**
      * 메모 내용 업데이트 (수정)
      */
-    public func updateMemoContent(contents : String , newContents : String , completeYn : String , date : String , imagePath : String , deadline: String ) -> Void {
+    public func updateMemoContent(newBucket : Bucket, cotents : String ) -> Void {
+        KLog.d(tag: TAG, msg: "updateMemoContent contents : " + cotents)
+        KLog.d(tag: TAG, msg: "updateMemoContent newContents : " + newBucket.mContent)
         
+        let realm = try! Realm()
+       
+        let bucketObj = realm.objects(Bucket.self).filter("mContent = '" + cotents + "'")
+        let strCount = String(describing: bucketObj.count)
+        try! realm.write {
+            let cnt = bucketObj.count
+            if cnt == 1 {
+               realm.delete(bucketObj.first!)
+            }
+            realm.add(newBucket)
+        }
+        KLog.d(tag: TAG, msg: "success updateMemoContent mContent : " + newBucket.mContent)
     }
 
     /**

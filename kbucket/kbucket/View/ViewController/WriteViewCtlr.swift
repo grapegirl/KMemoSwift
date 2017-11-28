@@ -40,8 +40,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         initialize()
     }
     
-    func initialize()
-    {
+    func initialize(){
         mSqlQuery = SQLQuery()
         if(mSqlQuery != nil){
             var bucketList : Results<Bucket>? = nil
@@ -130,14 +129,12 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
      * @param Content 추가할 내용
      * @return 중복 데이타 여부(true- 중복된 데이타 있음, false - 없음)
      */
-    func checkduplicateData(checkString : String) -> Bool
-    {
+    func checkduplicateData(checkString : String) -> Bool{
         if mDataList.contains(checkString){
             return true;
         }
         return false;
     }
-    
     
     override func viewDidDisappear(_ animated: Bool) {
         KLog.d(tag: TAG, msg: "viewDidDisappear");
@@ -174,19 +171,13 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         KLog.d(tag: TAG, msg: "receiveEventFromViewItem data : " + data)
         switch(gbn){
         case 0://수정
-            //index = Integer.valueOf((String) v.getTag());
-            //             Intent intent = new Intent(this, WriteDetailActivity.class);
-            //             intent.putExtra("CONTENTS", mDataList.get(index));
-            //             intent.putExtra("BACK", ContextUtils.VIEW_WRITE);
-            //             startActivity(intent);
-            //             finish();
-            
             KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
-            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailViewCtlr")
-            
-            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-            present(uvc!, animated: true, completion: nil)
-            
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailViewCtlr") as! WriteDetailViewCtlr
+            uvc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+            let index:Int! = Int(data)
+            uvc.CONTENTS = mDataList[index]
+            uvc.BACK = ContextUtils.VIEW_WRITE
+            present(uvc, animated: true, completion: nil)
             break;
         case 1://삭제
             let index:Int? = Int(data)
