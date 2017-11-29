@@ -39,7 +39,6 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         KLog.d(tag: TAG, msg: "viewDidLoad");
-        //     mHandler.sendEmptyMessage(CHECK_NETWORK);
         //     AppUtils.sendTrackerScreen(this, "모두가지화면");
         initialize()
     }
@@ -51,38 +50,16 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
         handleMessage(what: SHARE_BUCKET_LIST, obj : "1")
     }
     
-    func setButtonList(){
-        mButtonList.append(btCategory0)
-        mButtonList.append(btCategory1)
-        mButtonList.append(btCategory2)
-        mButtonList.append(btCategory3)
-        mButtonList.append(btCategory4)
-        mButtonList.append(btCategory5)
-        mButtonList.append(btCategory6)
-        mButtonList.append(btCategory7)
-        mButtonList.append(btCategory8)
-    }
-    
     func setCategoryList() {
-        let category0  = Category(name : "LIEF", code: 0)
-        let category1 = Category(name : "LOVE", code : 1)
-        let category2 = Category(name : "WORK", code : 2)
-        let category3 = Category(name : "EDUCATION", code : 3)
-        let category4 = Category(name : "FAMILY", code : 4)
-        let category5 = Category(name : "FINANCE", code : 5)
-        let category6 = Category(name : "DEVELOP", code : 6)
-        let category7 = Category(name : "HEALTH", code : 7)
-        let category8 = Category(name : "ETC", code : 8)
-        
-        mCategoryList.append(category0)
-        mCategoryList.append(category1)
-        mCategoryList.append(category2)
-        mCategoryList.append(category3)
-        mCategoryList.append(category4)
-        mCategoryList.append(category5)
-        mCategoryList.append(category6)
-        mCategoryList.append(category7)
-        mCategoryList.append(category8)
+        mCategoryList.append(Category(name : "LIEF", code: 0))
+        mCategoryList.append(Category(name : "LOVE", code : 1))
+        mCategoryList.append(Category(name : "WORK", code : 2))
+        mCategoryList.append(Category(name : "EDUCATION", code : 3))
+        mCategoryList.append(Category(name : "FAMILY", code : 4))
+        mCategoryList.append(Category(name : "FINANCE", code : 5))
+        mCategoryList.append(Category(name : "DEVELOP", code : 6))
+        mCategoryList.append(Category(name : "HEALTH", code : 7))
+        mCategoryList.append(Category(name : "ETC", code : 8))
     }
     
     @IBAction func onBackPressed(_ sender: Any) {
@@ -94,40 +71,30 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
     
     @IBAction func onClick(_ sender: Any) {
         var categoryCode : String = "1"
-        
         switch(sender  as! UIButton ){
         case btCategory0:
             categoryCode = "1"
-            KLog.d(tag: TAG, msg: "Category0")
         case btCategory1:
             categoryCode = "2"
-            KLog.d(tag: TAG, msg: "Category1")
         case btCategory2:
             categoryCode = "3"
-            KLog.d(tag: TAG, msg: "Category2")
         case btCategory3:
             categoryCode = "4"
-            KLog.d(tag: TAG, msg: "Category3")
         case btCategory4:
             categoryCode = "5"
-            KLog.d(tag: TAG, msg: "Category4")
         case btCategory5:
             categoryCode = "6"
-            KLog.d(tag: TAG, msg: "Category5")
         case btCategory6:
             categoryCode = "7"
-            KLog.d(tag: TAG, msg: "Category6")
         case btCategory7:
             categoryCode = "8"
-            KLog.d(tag: TAG, msg: "Category7")
         case btCategory8:
             categoryCode = "9"
-            KLog.d(tag: TAG, msg: "Category8")
-            
             break;
         default:
             break;
         }
+        KLog.d(tag: TAG, msg: "Category" + categoryCode)
         handleMessage(what: SHARE_BUCKET_LIST, obj : categoryCode)
     }
     
@@ -135,44 +102,45 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
         var isValid : Bool  = false
-                    do {
-                        if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
-                            if jsonString != nil {
-                               isValid = jsonString["isValid"] as! Bool
-                               // print(jsonString)
-                            }
-                        }
-                    } catch {
-                        print("JSON 파상 에러")
-                    }
+        do {
+            if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                if jsonString != nil {
+                    isValid = jsonString["isValid"] as! Bool
+                    // print(jsonString)
+                }
+            }
+        } catch {
+            print("JSON 파상 에러")
+        }
         
-
-             if (actionId == ConstHTTP.CATEGORY_LIST) {
-        //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-                 if (type == ConstHTTP.HTTP_OK && isValid == true) {
-        //             try {
-        //                 JSONObject json = new JSONObject(mData);
-        //                 JSONArray jsonArray = json.getJSONArray("categoryVOList");
-        //                 KLog.d(this.getClass().getSimpleName(), "@@ jsonArray :   " + jsonArray);
-        //                 int size = jsonArray.length();
-        //                 for (int i = 0; i < size; i++) {
-        //                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-        //                     Category category = new Category();
-        //                     category.setCategoryCode(jsonObject.getInt("categoryCode"));
-        //                     category.setCategoryName(jsonObject.getString("categoryName"));
-        //                     mCategoryList.add(category);
-        //                 }
-        //                 mHandler.sendEmptyMessage(SET_CATEGORY);
-        //             } catch (JSONException e) {
-        //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-        //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-        //             }
-                 } else {
-//                     mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-                 }
-          } else if (actionId == ConstHTTP.BUCKET_LIST) {
-        //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-                if (type == ConstHTTP.HTTP_OK && isValid == true) {
+        if (actionId == ConstHTTP.CATEGORY_LIST) {
+//         KProgressDialog.setDataLoadingDialog(this, false, null, false);
+            if (type == ConstHTTP.HTTP_OK && isValid == true) {
+                do {
+                      if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            let List : NSArray = jsonString["categoryVOList"] as! NSArray
+                            let size : Int = List.count
+                            if size > 0 {
+                            for index in 0...size-1  {
+                                let aObject = List[index] as! [String : AnyObject]
+                                let category : Category = Category()
+                                category.mCategoryCode = aObject["categoryCode"] as! Int
+                                category.mCategoryName = aObject["categoryName"] as! String
+                                mCategoryList.append(category)
+                             }
+                        }
+                    }
+                    handleMessage(what: SET_CATEGORY, obj: "")
+                } catch {
+                    KLog.d(tag : TAG, msg : "@@ Exception : " + error)
+                    handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+                }
+            } else {
+                  handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+            }
+        } else if (actionId == ConstHTTP.BUCKET_LIST) {
+            //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
+            if (type == ConstHTTP.HTTP_OK && isValid == true) {
                     do {
                         if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
                             let bucketList : NSArray = jsonString["bucketList"] as! NSArray
@@ -198,14 +166,14 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                             }
                         handleMessage(what: SET_BUCKETLIST, obj: "")
                         }
-                     } catch  {
+                } catch  {
                         KLog.d(tag : TAG, msg : "@@ jsonException message ");
                         handleMessage(what: SERVER_LOADING_FAIL, obj: "")
-                    }
-                 } else {
-                    handleMessage(what: SERVER_LOADING_FAIL, obj: "")
-                 }
-             }
+                }
+            } else {
+                handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+            }
+        }
     }
     
     func handleMessage(what : Int, obj : String) {
@@ -214,53 +182,41 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                 Toast.showToast(message: obj)
                 break;
             case SERVER_LOADING_FAIL:
-            //             realmMgr realmMgr = new realmMgr();
-            //             RealmResults<Bucket> infoList = realmMgr.selectBucketShareList();
-            //             if (infoList != null) {
-            //                 if (infoList.size() > 0) {
-            //                     mBucketDataList.clear();
-            //                     for (int i = 0; i < infoList.size(); i++) {
-            //                         Bucket bucket = infoList.get(i);
-            //                         mBucketDataList.add(bucket);
-            //                     }
-            //                     mHandler.sendEmptyMessage(SET_BUCKETLIST);
-            //                 }
-            //             } else {
-            //                 KLog.d(TAG, "@@ SERVER_LOADING_FAIL");
-            //                 String message = getString(R.string.server_fail_string);
-            //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-            //                 finish();
-            //             }
-            break;
-        case SHARE_BUCKET_LIST:
-            var data : String = String(obj)
-            if (data == nil) {
-                data = ContextUtils.DEFULAT_SHARE_BUCKET_IDX
-            }
-            //  KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-            //                 HashMap<String, Object> map = new HashMap<String, Object>();
-            //                 map.put("idx", data);
-            //                 httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-            let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
-            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
-            httpUrlTaskManager.actionTask();
-            break;
-         case SET_BUCKETLIST:
-            DispatchQueue.main.async {
-                self.mTableView.reloadData()
-            }
-            break;
-        case CHECK_NETWORK:
-            break;
-            //             boolean isConnect = NetworkUtils.isConnectivityStatus(this);
-            //             if (!isConnect) {
-            //                 String connectMsg = getString(R.string.check_network);
-            //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, connectMsg));
-            //             } else {
-            //                 mHandler.sendEmptyMessage(CATEGORY_LIST);
-            //             }
-        default:
-            break;
+                var message = AppUtils.localizedString(forKey : "server_fail_string")
+                handleMessage(what: TOAST_MASSEGE, obj: message)
+                //  finish();
+                UIView.animate(withDuration: highlightTime, delay: 0.0, options: [.curveLinear, .allowUserInteraction, .beginFromCurrentState], animations: { 
+                   // animation code
+                }) { (finished) in
+                    // completion code
+                }
+                break;
+            case SHARE_BUCKET_LIST:
+                var data : String = String(obj)
+                if (data == nil) {
+                    data = ContextUtils.DEFULAT_SHARE_BUCKET_IDX
+                }
+                //  KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
+                let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
+                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
+                httpUrlTaskManager.actionTask();
+                break;
+            case SET_BUCKETLIST:
+                DispatchQueue.main.async {
+                    self.mTableView.reloadData()
+                }
+                break;
+            case CHECK_NETWORK:
+                break;
+                let isConnect  : Bool = true //NetworkUtils.isConnectivityStatus(this)
+                if (isConnect == false) {
+                    var connectMsg = AppUtils.localizedString(forKey : "check_network")
+                    handleMessage(what: TOAST_MASSEGE, obj: connectMsg)
+                } else {
+                    handleMessage(what: CATEGORY_LIST, obj: message)
+                }
+            default:
+                break;
         }
     }
     
@@ -269,16 +225,13 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = mTableView.dequeueReusableCell(withIdentifier: "ShareCustomCell", for: indexPath) as! ShareCustomCell
         cell.etEdit.text = mBucketDataList[indexPath.row].mContent
         cell.mData = String(mBucketDataList[indexPath.row].mIdx)
         cell.selectionStyle = .none
-        
         cell.setOnEventListener(listenr: self)
         return cell
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         KLog.d(tag: TAG, msg: "row: \(indexPath.row)")
@@ -288,19 +241,14 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
         KLog.d(tag: TAG, msg: "receiveEventFromViewItem data : " + data)
         switch(gbn){
         case 0://상세보기
-            KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
-//            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailViewCtlr")
-//            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-//            present(uvc!, animated: true, completion: nil)
-            
-            
+           KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
+           let uvc = self.storyboard?.instantiateViewController(withIdentifier: "ShareDetailViewCtlr")
+           uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
             //             int idx = mBucketDataList.get(sharedIdx).getIdx();
-            //             Intent intent = new Intent(this, ShareDetailActivity.class);
             //             intent.putExtra(ContextUtils.NUM_SHARE_BUCKET_IDX, idx + "");
             //             intent.putExtra(ContextUtils.OBJ_SHARE_BUCKET, mBucketDataList.get(sharedIdx));
-            //             startActivity(intent);
-            
-            break;
+           present(uvc!, animated: true, completion: nil)
+           break;
         
         default:
             break;

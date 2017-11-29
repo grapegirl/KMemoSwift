@@ -53,7 +53,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet weak var ivRemoveImage: UIImageView!
     // private ConfirmPopup mConfirmPopup = null;
     // private SpinnerListPopup mCategoryPopup = null;
-    // private android.os.Handler mHandler = null;
     
     var picker:UIImagePickerController? = UIImagePickerController()
     
@@ -89,11 +88,9 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         }
     }
     
-    
     /**
      * DB 데이타 불러와서 데이타 표시하기
      */
-    
     private func setData() {
         if(mSqlQuery != nil){
             var bucketList : Results<Bucket>? = nil
@@ -189,23 +186,21 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         case btDel:
             KLog.d(tag: TAG, msg: "onClick btDel")
-            //             String title = getString(R.string.delete_popup_title);
-            //             String content = getString(R.string.delete_popup_content);
+            var title = AppUtils.localizedString(forKey : "delete_popup_title")
+            var content = AppUtils.localizedString(forKey : "delete_popup_content")
             //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_DELETE);
             //             mConfirmPopup.showDialog()
             break;
         case btShare:
             KLog.d(tag: TAG, msg: "onClick btShare")
-            //             title = getString(R.string.share_popup_title);
-            //             content = getString(R.string.share_popup_content);
+            var title = AppUtils.localizedString(forKey : "share_popup_title")
+            var content = AppUtils.localizedString(forKey : "share_popup_content")
             //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_SHARE);
             //             mConfirmPopup.showDialog();
             break
         case btCamera:
              KLog.d(tag: TAG, msg: "onClick btCamera")
              startCamera()
-            //         //이미지 첨부(카메라로 가져오기)
-            //         case R.id.write_image_camera:
             //             mPhotoPath = DataUtils.getNewFileName();
             //             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             //             intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(mPhotoPath)));
@@ -214,8 +209,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         case btGallery:
              KLog.d(tag: TAG, msg: "onClick btGallery")
              openGallary()
-            //갤러리로 부터 이미지 가져오기
-            //         case R.id.write_image_gallery:
             //             intent = new Intent(Intent.ACTION_PICK);
             //             intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
             //             intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -223,8 +216,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         case etDate:
              KLog.d(tag: TAG, msg: "onClick etDate")
-            //날짜 선택하기
-            //         case R.id.write_layout_titleView:
             //             GregorianCalendar gregorianCalendar = new GregorianCalendar();
             //             int year = gregorianCalendar.get(Calendar.YEAR);
             //             int month = gregorianCalendar.get(Calendar.MONTH);
@@ -243,18 +234,33 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             //             datePickerDialog = new DatePickerDialog(WriteDetailActivity.this, dateSetListener2, year, month, day);
             //             datePickerDialog.show();
             break;
-            //첨부 이미지 삭제하기
-            //         case R.id.write_image_remove:
-            //             mPhotoPath = null;
-            //             hideImageAttachButton(false);
-            //             mImageView.setVisibility(View.INVISIBLE);
-            //             ((Button) findViewById(R.id.write_image_remove)).setVisibility(View.INVISIBLE);
-        //             break;
+        
+        case ivRemoveImage:
+            mPhotoPath = ""
+            hideImageAttachButton(ishide : false)
+            ivImage.isHidden = true
+            ivRemoveImage.isHidden = true
+            break;
+        
         default:
             break;
         }
     }
     
+     private func dateSetListener(sender: UITextField) {
+        let datePickerView:UIDatePicker = UIDatePicker()
+        datePickerView.datePickerMode = UIDatePickerMode.Date
+        sender.inputView = datePickerView
+        datePickerView.addTarget(self, action: #selector(ViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
+     }
+
+    private func datePickerValueChanged(sender:UIDatePicker) {
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
+        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
+        dateTextField.text = dateFormatter.stringFromDate(sender.date)
+    }
+
     // private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
     //     @Override
     //     public void onDateSet(DatePicker view, int year, int monthOfYear,
@@ -346,73 +352,76 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     //     }
     // }
     
-    // /**
-    //  * 서버로 전송할 데이타 만들기
-    //  *
-    //  * @return 전송 데이타
-    //  */
-    // private HashMap<String, Object> shareBucketImage() {
-    //     Bucket bucket = new Bucket();
-    //     String userNickName = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-    //     bucket.setNickName(userNickName);
-    //     bucket.setContent(mContents);
-    //     bucket.setImageUrl("");
-    //     bucket.setDate(mDate);
-    //     bucket.setCategoryCode(mCategory);
-    //     return bucket.toHasnMap();
-    // }
+    /**
+     * 서버로 전송할 데이타 만들기
+     *
+     * @return 전송 데이타
+     */
+    private func shareBucketImage() -> Bucket {
+        let bucket : Bucket = Bucket()
+        let userNickName = UserDefault.read(key : ContextUtils.KEY_USER_NICKNAME)
+        bucket.mNickName = userNickName
+        bucket.mContent = mContent
+        bucket.mImageURl = ""
+        bucket.mDate = mDate
+        bucket.mCategory = mCategory
+        
+        return bucket
+    }
     
     func onHttpReceive(type : Int, actionId: Int,  data : Data){
-        //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive : " + obj);
-        //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive type : " + type);
-        //     // 버킷 공유 결과
-        //     String mData = (String) obj;
-        //     boolean isValid = false;
-        //     if (actionId == IHttpReceive.INSERT_BUCKET) {
-        //         if (type == IHttpReceive.HTTP_FAIL) {
-        //             String message = getString(R.string.write_bucekt_fail_string);
-        //             mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-        //         } else {
-        //             if (mData != null) {
-        //                 try {
-        //                     JSONObject json = new JSONObject(mData);
-        //                     isValid = json.getBoolean("isValid");
-        //                     mImageIdx = json.getInt("idx");
-        //                 } catch (JSONException e) {
-        //                     KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-        //                 }
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive : " + obj);
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive type : " + type);
         
-        //                 if (isValid == true) {
-        //                     // 이미지가 있는 경우 전송함
-        //                     if (mPhotoPath != null && !mPhotoPath.equals("")) {
-        //                         mHandler.sendEmptyMessage(UPLOAD_IMAGE);
-        //                     } else {
-        //                         String message = getString(R.string.write_bucekt_success_string);
-        //                         mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-        //                     }
-        //                 }
-        //             }
-        //         }
-        //     }// 이미지 업로드 결과
-        //     else if (actionId == IHttpReceive.INSERT_IMAGE) {
-        //         if (type == IHttpReceive.HTTP_FAIL) {
-        //             String message = getString(R.string.upload_image_fail_string);
-        //             mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-        //         } else {
-        //             if (mData != null) {
-        //                 try {
-        //                     JSONObject json = new JSONObject(mData);
-        //                     isValid = json.getBoolean("isValid");
-        //                 } catch (JSONException e) {
-        //                     KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-        //                 }
-        //             }
-        //             if (isValid == true) {
-        //                 String message = getString(R.string.write_bucekt_success_string);
-        //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-        //             }
-        //         }
-        //     }
+        var isValid : Bool  = false
+        do {
+            if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                if jsonString != nil {
+                    isValid = jsonString["isValid"] as! Bool
+                    print(jsonString)
+                }
+            }
+        } catch {
+            print("JSON 파상 에러")
+        }
+
+        if (actionId == IHttpReceive.INSERT_BUCKET) {
+                if (type == IHttpReceive.HTTP_FAIL) {
+                    let message = AppUtils.localizedString(forKey : "write_bucekt_fail_string")
+                    handleMessage(what: TOAST_MASSEGE, obj: message)
+                } else {
+                    if (data != nil) {
+                        do {
+                            if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                                    mImageIdx = json.getInt("idx")
+                            }
+                        } catch {
+                             KLog.d(tag : TAG, msg : "@@ Exception : " + error)
+                        }
+        
+                        if (isValid == true) {
+                            // 이미지가 있는 경우 전송함
+                            if (mPhotoPath != nil && mPhotoPath.count > 0 ) {
+                                handleMessage(what: UPLOAD_IMAGE, obj: "")
+                            } else {
+                                 let message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                                handleMessage(what: TOAST_MASSEGE, obj: message)
+                            }
+                        }
+                    }
+                }
+            }// 이미지 업로드 결과
+            else if (actionId == IHttpReceive.INSERT_IMAGE) {
+                if (type == IHttpReceive.HTTP_FAIL) {
+                    let message = AppUtils.localizedString(forKey : "upload_image_fail_string")
+                    handleMessage(what: TOAST_MASSEGE, obj: message)
+                } else {
+                    if (isValid == true) {
+                        let message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                        handleMessage(what: TOAST_MASSEGE, obj: message)
+                    }
+                }
+            }
     }
     
     func handleMessage(what : Int, obj : String) {
@@ -421,38 +430,42 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             Toast.showToast(message: obj)
             break;
         case UPLOAD_IMAGE:
-            //             String photoPath = mPhotoPath;
-            //             KLog.d(TAG, "@@ UPLOAD IMAGE 전송 시작 !");
-            //             if (photoPath != null && !photoPath.equals("")) {
-            //                 Bitmap bitmap = ByteUtils.getFileBitmap(photoPath);
+            let photoPath = mPhotoPath
+             KLog.d(tag : TAG, msg : "handleMessage UPLOAD_IMAGE photoPath : " + photoPath);
+             if(photoPath != nil && photoPath.count > 0 ){
+//                 Bitmap bitmap = ByteUtils.getFileBitmap(photoPath);
             //                 Calendar calendar = Calendar.getInstance();
             //                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_hhmmss");
             //                 String fileName = sdf.format(calendar.getTime());
             
             //                 byte[] bytes = ByteUtils.getByteArrayFromBitmap(bitmap);
-            //                 HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, this, IHttpReceive.INSERT_IMAGE, bytes);
-            //                 httpUrlFileUploadManager.execute(photoPath, "idx", mImageIdx + "", fileName + ".jpg");
-            //             } else {
-            //                 KLog.d(TAG, "@@ UPLOAD IMAGE NO !");
-            //             }
+            let  httpUrlFileUploadManager : HttpUrlFileUploadManager =  HttpUrlFileUploadManager(url : ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, post : true, receive : self, id : ConstHTTP.INSERT_IMAGE, bytes)
+            httpUrlFileUploadManager.actionTask(photoPath, "idx", mImageIdx + "", fileName + ".jpg")
+            // HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, this, IHttpReceive.INSERT_IMAGE, bytes);
+             // httpUrlFileUploadManager.execute(photoPath, "idx", mImageIdx + "", fileName + ".jpg");
+             }else{
+                 KLog.d(tag : TAG, msg : "@@ UPLOAD IMAGE NO !");
+             }
             break;
         case UPLOAD_BUCKET:
-            //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_INSERT_BUCKET_URL, true, this, IHttpReceive.INSERT_BUCKET);
-            //             httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(shareBucketImage()));
-            //             break;
-            //         case SELECT_BUCKET_CATEGORY:
-            //             String title = getString(R.string.category_popup_title);
-            //             String content = getString(R.string.category_popup_content);
-            //             ArrayList<Category> list = new ArrayList<Category>();
-            //             list.add(new Category("LIEF", 1));
-            //             list.add(new Category("LOVE", 2));
-            //             list.add(new Category("WORK", 3));
-            //             list.add(new Category("EDUCATION", 4));
-            //             list.add(new Category("FAMILY", 5));
-            //             list.add(new Category("FINANCE", 6));
-            //             list.add(new Category("DEVELOP", 7));
-            //             list.add(new Category("HEALTH", 8));
-            //             list.add(new Category("ETC", 9));
+            let url  = ContextUtils.KBUCKET_INSERT_BUCKET_URL
+            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.INSERT_BUCKET);
+            httpUrlTaskManager.actionTask();
+            break;
+        case SELECT_BUCKET_CATEGORY:
+            let title = AppUtils.localizedString(forKey : "category_popup_title")
+            let content = AppUtils.localizedString(forKey : "category_popup_content")
+
+            var list : Array<Category> = Array()
+            list.append(Category("LIEF", 1))
+            list.append(Category("LOVE", 2))
+            list.append(Category("WORK", 3))
+            list.append(Category("EDUCATION", 4))
+            list.append(Category("FAMILY", 5))
+            list.append(Category("FINANCE", 6))
+            list.append(Category("DEVELOP", 7))
+            list.append(Category("HEALTH", 8))
+            list.append(Category("ETC", 9))
             //             mCategoryPopup = new SpinnerListPopup(this, title, "", list, R.layout.popupview_spinner_list, this, OnPopupEventListener.POPUP_BUCKET_CATEGORY);
             //             mCategoryPopup.showDialog();
             break;
@@ -460,8 +473,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         }
     }
-    
-    
     
     func startCamera(){
         var captureSesssion: AVCaptureSession!
@@ -521,10 +532,8 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
         
         present(picker!, animated: true, completion: nil)
-       // presentViewController(picker!, animated: true, completion: nil)
     }
 
-    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
