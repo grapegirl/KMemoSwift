@@ -1,5 +1,5 @@
 ﻿//
-//  NoticeViewCtlr.swift
+//  NoticeView.swift
 //  공지사항
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,8 +9,9 @@
 import UIKit
 
 
-class NoticeViewCtlr: UIViewController , IHttpReceive {
-    private let TAG : String = "NoticeViewCtlr"
+class NoticeView: UIViewController , IHttpReceive {
+    
+    private let TAG : String = "NoticeView"
 
     private let TOAST_MASSEGE : Int             = 10
     private let LOAD_NOTICE_LIST : Int          = 20

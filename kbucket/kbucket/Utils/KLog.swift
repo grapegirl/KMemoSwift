@@ -20,8 +20,7 @@ class KLog{
     }
 
     public static func d(tag : String, msg : String) -> Void {
-        if (VIEW_LOG == true)
-        {
+        if (VIEW_LOG == true){
             print(tag, " @@ "  + msg);
         }
     }

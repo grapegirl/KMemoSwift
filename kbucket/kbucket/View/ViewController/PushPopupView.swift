@@ -1,5 +1,5 @@
 ﻿//
-//  PushPopupViewCtlr.swift
+//  PushPopupView.swift
 //  푸쉬 팝업 
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class PushPopupViewCtlr: UIViewController {
+class PushPopupView: UIViewController {
 
-    private let TAG : String = "PushPopupViewCtlr"
+    private let TAG : String = "PushPopupView"
  
     override func viewDidLoad() {
         super.viewDidLoad()

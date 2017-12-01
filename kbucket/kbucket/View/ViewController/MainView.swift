@@ -1,5 +1,5 @@
 ﻿//
-//  MainViewCtlr.swift
+//  MainView.swift
 //  메인
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class MainViewCtlr: UIViewController {
+class MainView: UIViewController {
 
-    private let TAG : String = "MainViewCtlr"
+    private let TAG : String = "MainView"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,25 +18,10 @@ class MainViewCtlr: UIViewController {
         KLog.d(tag: TAG, msg: "viewDidLoad");
     }
 
-    // private final String TAG = this.getClass().getSimpleName();
-    // private Handler mHandler;
     // private long backKeyPressedTime = 0L;
     // private Toast finishToast;
     // private BasicPopup mBasicPopup;
     // private AIPopup mAIPopup;
-
-    // private final int TOAST_MASSEGE = 0;
-    // private final int WRITE_BUCEKT = 10;
-    // private final int BUCKET_LIST = 20;
-    // private final int SHOW_CONF = 30;
-    // private final int SHARE_THE_WORLD = 40;
-    // private final int NOTICE = 50;
-    // private final int UPDATE_USER = 60;
-    // private final int REQUEST_AI = 70;
-    // private final int FAIL_AI = 71;
-    // private final int RESPOND_AI = 72;
-    // private final int CHECK_VERSION = 80;
-    // private final int UPLOAD_DB = 90;
 
     // private DrawerLayout mDrawer;
     // private ActionBarDrawerToggle mToggle;
@@ -45,84 +30,6 @@ class MainViewCtlr: UIViewController {
     // private final int MY_PERMISSION_REQUEST = 1000;
 
     // private boolean mbInitialUserUpdate = false;
-
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    //     setContentView(R.layout.main_activity);
-    //     String token = FirebaseInstanceId.getInstance().getToken();
-    //     KLog.d(this.getClass().getSimpleName(), "@@ main FCM token : " + token);
-
-    //     mDrawerList = (ListView) findViewById(R.id.drawer_list);
-
-    //     setBackgroundColor();
-    //     setTextPont();
-
-    //     String[] confDatas = getResources().getStringArray(R.array.confList);
-
-    //     confDatas[8] += ": " + AppUtils.getVersionName(this);
-    //     mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-    //             android.R.layout.simple_list_item_1, confDatas));
-    //     mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
-    //     mDrawer = (DrawerLayout) findViewById(R.id.dl_activity_main_drawer);
-    //     mToggle = new ActionBarDrawerToggle(this, mDrawer,
-    //             R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
-
-    //         @Override
-    //         public void onDrawerClosed(View drawerView) {
-    //             super.onDrawerClosed(drawerView);
-    //         }
-
-    //         @Override
-    //         public void onDrawerOpened(View drawerView) {
-    //             super.onDrawerOpened(drawerView);
-    //         }
-
-    //     };
-    //     mDrawer.setDrawerListener(mToggle);
-
-    //     mHandler = new Handler(this);
-    //     Thread.setDefaultUncaughtExceptionHandler(new ErrorLogUtils.UncaughtExceptionHandlerApplication());
-
-    //     SQLQuery sqlQuery = new SQLQuery();
-    //     sqlQuery.createTable(getApplicationContext());
-    //     sqlQuery.createChatTable(getApplicationContext());
-    //     //이벤트 리스너 등록
-    //     ((Button) findViewById(R.id.main_writeBtn)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.main_update_btn)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.main_ai_btn)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.main_listBtn)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.main_bucketlistBtn)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.main_conf_btn)).setOnClickListener(this);
-    //     ((Button) findViewById(R.id.main_bucketRankBtn)).setOnClickListener(this);
-
-    //     AdView adView = new AdView(this);
-    //     adView.setAdUnitId(ContextUtils.KBUCKET_AD_UNIT_ID);
-    //     adView.setAdSize(AdSize.BANNER);
-    //     LinearLayout layout = (LinearLayout) findViewById(R.id.main_ad_layout);
-    //     layout.addView(adView);
-    //     AdRequest adRequest = new AdRequest.Builder().build();
-    //     adView.loadAd(adRequest);
-
-    //     Intent getIntent = getIntent();
-    //     String data = getIntent.getStringExtra(ContextUtils.WIDGET_SEND_DATA);
-    //     if (data != null && data.equals(ContextUtils.WIDGET_SHARE)) {
-    //         ShareSocial();
-    //     }
-    //     mHandler.sendEmptyMessage(CHECK_VERSION);
-    //     checkPermision();
-
-    //     AppUtils.sendTrackerScreen(this, "메인화면");
-    // }
-
-    // private void setBackgroundColor() {
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.main_back_color).setBackgroundColor(color);
-    //     }
-    // }
 
 
     // @Override
@@ -185,73 +92,7 @@ class MainViewCtlr: UIViewController {
     //     }
     // }
 
-    // @Override
-    // public boolean handleMessage(Message message) {
-    //     switch (message.what) {
-    //         case TOAST_MASSEGE://메시지 출력
-    //             Toast.makeText(getApplicationContext(), (String) message.obj, Toast.LENGTH_LONG).show();
-    //             break;
-    //         case WRITE_BUCEKT://버킷 작성
-    //             Intent intent = new Intent(this, WriteActivity.class);
-    //             startActivity(intent);
-    //             break;
-    //         case BUCKET_LIST://리스트 목록 보여주기
-    //             intent = new Intent(this, BucketListActivity.class);
-    //             startActivity(intent);
-    //             break;
-    //         case SHOW_CONF://환경설정 보여주기
-    //             intent = new Intent(this, ConfigurationActivity.class);
-    //             startActivity(intent);
-    //             break;
-    //         case SHARE_THE_WORLD://공유화면 보여주기
-    //             intent = new Intent(this, ShareListActivity.class);
-    //             startActivity(intent);
-    //             break;
-    //         case NOTICE://공지사항 화면 보여주기
-    //             intent = new Intent(this, NoticeActivity.class);
-    //             startActivity(intent);
-    //             break;
-    //         case UPDATE_USER://사용자 정보 없데이트
-    //             UserUpdateTask userUpdateTask = new UserUpdateTask(this, getUserData());
-    //             userUpdateTask.execute();
-    //             break;
-    //         case REQUEST_AI:
-    //             String userNickName = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-    //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_AI, true, this, IHttpReceive.REQUEST_AI);
-    //             HashMap<String, Object> map = new HashMap<String, Object>();
-    //             map.put("nickname", userNickName);
-    //             httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-    //             break;
-    //         case FAIL_AI:
-    //             KProgressDialog.setDataLoadingDialog(this, false, null, false);
-    //             String title = getString(R.string.popup_title);
-    //             String content = getString(R.string.popup_prepare_string);
-    //             mBasicPopup = new BasicPopup(this, title, content, R.layout.popup_basic, this, OnPopupEventListener.POPUP_BASIC);
-    //             mBasicPopup.showDialog();
-    //             break;
-    //         case RESPOND_AI:// AI 대답
-    //             KProgressDialog.setDataLoadingDialog(this, false, null, false);
-    //             mAIPopup = new AIPopup(this, (String) message.obj, R.layout.popup_ai, this, OnPopupEventListener.POPUP_AI);
-    //             mAIPopup.showDialog();
-    //             break;
-    //         case CHECK_VERSION://버전 체크
-    //             AppUpdateTask appUpdateTask = new AppUpdateTask(this);
-    //             appUpdateTask.execute();
-    //             break;
-    //         case UPLOAD_DB:
-    //             String path = (String) message.obj;
-    //             int nIndex = path.indexOf(ContextUtils.KEY_FILE_FOLDER + "/");
-    //             String fileName = path.substring(nIndex + 6, path.length());
-    //             userNickName = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-    //             byte[] bytes = ByteUtils.getByteArrayFromFile(path);
-    //             HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_DB_URL, this, IHttpReceive.UPLOAD_DB, bytes);
-    //             httpUrlFileUploadManager.execute(path, "nickname", userNickName, fileName);
-    //             break;
-    //     }
-    //     return false;
-    // }
-
-    // /**
+     // /**
     //  * 소셜로 가지 앱 홍보하기
     //  */
     // private void ShareSocial() {

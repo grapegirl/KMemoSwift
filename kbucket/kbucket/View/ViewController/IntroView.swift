@@ -1,5 +1,5 @@
 ﻿//
-//  IntroViewCtlr.swift
+//  IntroView.swift
 //  인트로
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class IntroViewCtlr: UIViewController {
+class IntroView: UIViewController {
 
-    private let TAG : String = "IntroViewCtlr"
+    private let TAG : String = "IntroView"
 
     override func viewDidLoad() {
         super.viewDidLoad()

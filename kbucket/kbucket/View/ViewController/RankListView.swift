@@ -1,5 +1,5 @@
 ﻿//
-//  RankListViewCtlr.swift
+//  RankListView.swift
 //  버킷 랭킹 목록
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class RankListViewCtlr: UIViewController , IHttpReceive {
+class RankListView : UIViewController , IHttpReceive {
 
-    private let TAG : String = "RankListViewCtlr"
+    private let TAG : String = "RankListView"
 
     private let TOAST_MASSEGE : Int         = 10
     private let SERVER_LOADING_FAIL : Int   = 20

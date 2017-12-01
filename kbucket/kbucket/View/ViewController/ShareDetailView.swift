@@ -1,5 +1,5 @@
 ﻿//
-//  ShareDetailViewCtlr.swift
+//  ShareDetailView.swift
 //  공유 싱세 화면
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,9 +9,9 @@
 import UIKit
 
 
-class ShareDetailViewCtlr : UIViewController , IHttpReceive {
+class ShareDetailView : UIViewController , IHttpReceive {
 
-    private let TAG : String = "ShareDetailViewCtlr"
+    private let TAG : String = "ShareDetailView"
    
     private let TOAST_MASSEGE : Int             = 10
     private let DOWNLOAD_IMAGE : Int            = 20

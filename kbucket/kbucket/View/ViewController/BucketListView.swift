@@ -1,5 +1,5 @@
 ﻿//
-//  BucketListViewCtlr.swift
+//  BucketListView.swift
 //  완료 가지 리스트 목록
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,9 +9,9 @@
 import UIKit
 
 
-class BucketListViewCtlr: UIViewController , IHttpReceive {
+class BucketListView: UIViewController , IHttpReceive {
 
-    private let TAG : String = "BucketListViewCtlr"
+    private let TAG : String = "BucketListView"
 
     private let TOAST_MASSEGE : Int                = 10
     private let UPLOAD_IMAGE : Int                 = 20

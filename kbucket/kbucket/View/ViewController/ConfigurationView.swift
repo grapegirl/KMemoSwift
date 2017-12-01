@@ -1,5 +1,5 @@
 ﻿//
-//  ConfigurationViewCtlr.swift
+//  ConfigurationView.swift
 //  환경설정
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,9 +9,9 @@
 import UIKit
 
 
-class ConfigurationViewCtlr: UIViewController , IHttpReceive {
+class ConfigurationView: UIViewController , IHttpReceive {
 
-    private let TAG : String = "ConfigurationViewCtlr"
+    private let TAG : String = "ConfigurationView"
 
     private let START_VERSION : Int                 = 10
     private let SHOW_GOOGLE_VERSION : Int           = 20

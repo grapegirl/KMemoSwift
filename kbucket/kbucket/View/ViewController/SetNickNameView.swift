@@ -1,5 +1,5 @@
 ﻿//
-//  SetNickNameViewCtlr.swift
+//  SetNickNameView.swift
 //  사용자 닉네임 설정
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SetNickNameViewCtlr: UIViewController {
+class SetNickNameView : UIViewController {
 
-    private let TAG : String = "SetNickNameViewCtlr"
+    private let TAG : String = "SetNickNameView"
     private var mSqlQuery : SQLQuery? = nil
     // private Button mButton;
 

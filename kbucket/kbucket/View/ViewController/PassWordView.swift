@@ -1,5 +1,5 @@
 ﻿//
-//  PassWordViewCtlr.swift
+//  PassWordView.swift
 //  패스워드
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PassWordViewCtlr: UIViewController {
+class PassWordView : UIViewController {
 
     private let TAG : String = "PassWordViewCtlr"
     private var mPasswordData : ArrayList<String>()

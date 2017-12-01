@@ -1,5 +1,5 @@
 //
-//  WriteViewCtlr.swift
+//  WriteView.swift
 //  kbucket
 //
 //  Created by 김미혜 on 2017. 8. 20..
@@ -10,9 +10,9 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSource, EventProtocol {
+class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource, EventProtocol {
     
-    private let TAG : String = "WriteViewCtrl"
+    private let TAG : String = "WriteView"
     
     private var mBucketDataList = Array<PostData>()
     private var mDataList = Array<String>()
@@ -25,7 +25,6 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var btSortName: UIButton!
     @IBOutlet weak var btSortLastest: UIButton!
     @IBOutlet weak var btSortDeadLine: UIButton!
-    
     
     public var temp :  String = ""
     private var mSqlQuery  : SQLQuery? = nil

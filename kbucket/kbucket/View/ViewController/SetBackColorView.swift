@@ -1,5 +1,5 @@
 ﻿//
-//  SetBackColorViewCtlr.swift
+//  SetBackColorView.swift
 //  사용자 테마 설정
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class SetBackColorViewCtlr: UIViewController {
+class SetBackColorView : UIViewController {
 
-    private let TAG : String = "SetBackColorViewCtlr"
+    private let TAG : String = "SetBackColorView"
     private var mImageButton = Array<UIButton>()
 
     override func viewDidLoad() {

@@ -1,5 +1,5 @@
 ﻿//
-//  QuestionViewCtlr.swift
+//  QuestionView.swift
 //  문의하기
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class QuestionViewCtlr: UIViewController {
+class QuestionView: UIViewController {
 
-    private let TAG : String = "QuestionViewCtlr"
+    private let TAG : String = "QuestionView"
     private var mTitleIndex : Int = 1
 
     override func viewDidLoad() {

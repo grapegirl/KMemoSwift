@@ -1,5 +1,5 @@
 ﻿//
-//  AddBucketViewCtlr.swift
+//  AddBucketView.swift
 //   버킷 추가
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,9 +9,9 @@
 import UIKit
 
 
-class AddBucketViewCtlr: UIViewController {
+class AddBucketView: UIViewController {
 
-    private let TAG : String = "AddBucketViewCtlr"
+    private let TAG : String = "AddBucketView"
 
     private var mBucketDataList = Array<PostData>()
     private var mDataList  = ArrayList<String>()

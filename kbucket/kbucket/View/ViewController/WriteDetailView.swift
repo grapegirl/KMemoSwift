@@ -1,5 +1,5 @@
 //
-//  WriteDetailViewCtlr.swift
+//  WriteDetailView.swift
 //  버킷 상세 클래스
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -11,10 +11,10 @@ import Foundation
 import RealmSwift
 import AVFoundation
 
-class WriteDetailViewCtlr: UIViewController , IHttpReceive, AVCapturePhotoCaptureDelegate , UIImagePickerControllerDelegate,
+class WriteDetailView: UIViewController , IHttpReceive, AVCapturePhotoCaptureDelegate , UIImagePickerControllerDelegate,
 UIPopoverControllerDelegate,UINavigationControllerDelegate {
     
-    private let TAG : String = "WriteDetailViewCtlr"
+    private let TAG : String = "WriteDetailView"
     private var mContents : String = ""
     private var mDate : String = ""
     private var mDeadLineDate : String = ""

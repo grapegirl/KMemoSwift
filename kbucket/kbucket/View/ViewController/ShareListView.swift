@@ -1,5 +1,5 @@
 //
-//  ShareListViewCtlr.swift
+//  ShareListView.swift
 //  공유 목록
 //
 //  Created by grapegirl on 2017. 11. 04..
@@ -9,9 +9,9 @@
 import UIKit
 import Foundation
 
-class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, UITableViewDataSource, EventProtocol {
+class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITableViewDataSource, EventProtocol {
     
-    private let TAG : String = "ShareListViewCtlr"
+    private let TAG : String = "ShareListView"
     
     private let TOAST_MASSEGE : Int             = 10
     private let CATEGORY_LIST : Int             = 20
