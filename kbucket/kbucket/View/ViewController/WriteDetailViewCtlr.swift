@@ -171,7 +171,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
             present(uvc!, animated: true, completion: nil)
         }else{
-            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteViewCtrl")
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
             uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
             present(uvc!, animated: true, completion: nil)
         }

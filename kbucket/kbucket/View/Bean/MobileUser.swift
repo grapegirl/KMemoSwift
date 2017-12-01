@@ -14,7 +14,7 @@ class MobileUser {
    /**
      * 모바일 OS
      */
-    private var mOs : String {
+    var mOs : String {
         get {
             return mOs
         }
@@ -25,7 +25,7 @@ class MobileUser {
     /**
      * 사용자 전화번호
      */
-    private var mPhone : String {
+    var mPhone : String {
         get {
             return mPhone
         }
@@ -36,7 +36,7 @@ class MobileUser {
     /**
      * 사용자 닉네임
      */
-    private var mUserNickName  : String {
+    var mUserNickName  : String {
         get {
             return mUserNickName
         }
@@ -47,7 +47,7 @@ class MobileUser {
     /**
      * 사용자 버전명
      */
-    private var mVersionName  : String {
+    var mVersionName  : String {
         get {
             return mVersionName
         }
@@ -58,7 +58,7 @@ class MobileUser {
     /**
      * 사용자 마켓구분
      */
-    private var mMarket  : String {
+    var mMarket  : String {
         get {
             return mMarket
         }
@@ -69,7 +69,7 @@ class MobileUser {
     /**
      * 사용자 언어
      */
-    private var mLanguage  : String {
+    var mLanguage  : String {
         get {
             return mLanguage
         }
@@ -80,7 +80,7 @@ class MobileUser {
     /**
      * 사용자 나라
      */
-    private var mCountry  : String {
+    var mCountry  : String {
         get {
             return mCountry
         }
@@ -91,7 +91,7 @@ class MobileUser {
     /**
      * 사용자 최근 방문 날짜
      */
-    private var mLastDt  : String {
+    var mLastDt  : String {
         get {
             return mLastDt
         }
@@ -102,7 +102,7 @@ class MobileUser {
     /**
      * 사용자 생성 날짜
      */
-    private var mCreateDt  : String {
+    var mCreateDt  : String {
         get {
             return mCreateDt
         }
@@ -113,7 +113,7 @@ class MobileUser {
     /**
      * 사용자 토큰키
      */
-    private var mGcmToken  : String {
+    var mGcmToken  : String {
         get {
             return mGcmToken
         }

@@ -15,6 +15,8 @@ class ContextUtils : NSObject{
     static let SORT_MEMO : String = "SORT_MEMO"
 
     static let SORT_DEADLINE : String = "SORT_DEADLINE"
+
+    static let MAIN_VIEW : String = "MainViewCtrl"
     
     
 }

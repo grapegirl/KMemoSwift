@@ -64,7 +64,7 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
     
     @IBAction func onBackPressed(_ sender: Any) {
         KLog.d(tag: TAG, msg: "onBackPressed");
-        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewCtrl")
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
         present(uvc!, animated: true, completion: nil)
     }
@@ -199,7 +199,7 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                 //  KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
                 let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
                 let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
-                httpUrlTaskManager.actionTask();
+                httpUrlTaskManager.actionTask()
                 break;
             case SET_BUCKETLIST:
                 DispatchQueue.main.async {

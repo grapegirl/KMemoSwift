@@ -11,50 +11,26 @@ import UIKit
 class SetNickNameViewCtlr: UIViewController {
 
     private let TAG : String = "SetNickNameViewCtlr"
+    private var mSqlQuery : SQLQuery? = nil
+    // private Button mButton;
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: TAG, msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad")
+        initialize()
     }
 
-    // private Button mButton;
-    // private SQLQuery mSqlQuery = null;
-
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    //     setContentView(R.layout.set_nickname_activity);
-    //     setBackgroundColor();
-
-    //     mSqlQuery = new SQLQuery();
-    //     mButton = (Button) findViewById(R.id.nickname_okBtn);
-    //     mButton.setOnClickListener(this);
-
-    //     String nickname = (String)SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-    //     if(nickname != null){
-    //         ((EditText) findViewById(R.id.nickname_editText)).setText(nickname);
-    //         ((EditText) findViewById(R.id.nickname_editText)).requestFocus(nickname.length());
-    //     }
-    //     AppUtils.sendTrackerScreen(this, "닉네임변경화면");
-    // }
-
-    // private void setBackgroundColor(){
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.nickname_back_color).setBackgroundColor(color);
-    //     }
-    // }
-
-    // @Override
-    // public void finish() {
-    //     super.finish();
-    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    // }
-
-    // @Override
-    // public void onClick(View v) {
+    func initialize(){
+        mSqlQuery = SQLQuery()
+        let nickname = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
+        if(nickname != nil){
+            // ((EditText) findViewById(R.id.nickname_editText)).setText(nickname);
+            // ((EditText) findViewById(R.id.nickname_editText)).requestFocus(nickname.length());
+        }
+        //AppUtils.sendTrackerScreen(this, "닉네임변경화면");
+    }
+    
+    @IBAction func onClick(_ sender: Any) {
     //     String nickname = ((EditText) findViewById(R.id.nickname_editText)).getText().toString();
     //     KLog.d(this.getClass().getSimpleName(), "@@ nickname : " + nickname);
     //     nickname = nickname.replaceAll(" ","");
@@ -66,10 +42,11 @@ class SetNickNameViewCtlr: UIViewController {
     //     SharedPreferenceUtils.write(getApplicationContext(), ContextUtils.KEY_USER_NICKNAME, nickname);
     //     mSqlQuery.updateUserNickName(this, nickname);
     //     finish();
-    // }
-
-    // @Override
-    // public void onBackPressed() {
-    //     finish();
-    // }
+    }
+    
+    @IBAction func onBackPressed(_ sender: Any) {
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
 }

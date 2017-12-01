@@ -9,159 +9,112 @@
 import UIKit
 
 
-class NoticeViewCtlr: UIViewController {
+class NoticeViewCtlr: UIViewController , IHttpReceive {
+    private let TAG : String = "NoticeViewCtlr"
 
-   private let TAG : String = "NoticeViewCtlr"
+    private let TOAST_MASSEGE : Int             = 10
+    private let LOAD_NOTICE_LIST : Int          = 20
+    private let SET_NOTICE_LIST : Int           = 30
+    private let SERVER_LOADING_FAIL : Int       = 40
+
+    private var mList = Array<UpdateApp>()
+    private var mGroupList = Array<String>()
+    private var mChildList = Array<String>()
+    private var mChildListContent = Array<String>()
+   // private ExpandableListView mExtendableListView = null;
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad");
+        initialize()
     }
 
-    // private final String TAG = this.getClass().getSimpleName();
-    // private Handler mHandler = null;
-    // private ArrayList<UpdateApp> mList = null;
-    // private ExpandableListView mExtendableListView = null;
+    func initialize(){
+        //    KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
+        handleMessage(what: LOAD_NOTICE_LIST, obj: "")
+        //     AppUtils.sendTrackerScreen(this, "공지화면");
+    }
 
-    // private final int TOAST_MASSEGE = 10;
-    // private final int LOAD_NOTICE_LIST = 20;
-    // private final int SET_NOTICE_LIST = 30;
-    // private final int SERVER_LOADING_FAIL = 40;
+   func finish(){
+        KLog.d(tag: TAG, msg: "finish")
+        deleteImageResource()
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+   }
 
-    // private ArrayList<String> mGroupList = null;
-    // private ArrayList<ArrayList<String>> mChildList = null;
-    // private ArrayList<String> mChildListContent = null;
+    func onHttpReceive(type: Int, actionId: Int, data: Data) {
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
 
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    //     setContentView(R.layout.notice_extended);
-    //     setBackgroundColor();
-    //     setTextPont();
+        var isValid : Bool  = false
+        do {
+            if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                if jsonString != nil {
+                    isValid = jsonString["isValid"] as! Bool
+                    // print(jsonString)
+                }
+            }
+        } catch {
+            print("JSON 파상 에러")
+        }
 
-    //     mHandler = new Handler(this);
-    //     mList = new ArrayList<UpdateApp>();
-    //     mGroupList = new ArrayList<String>();
-    //     mChildList = new ArrayList<ArrayList<String>>();
-    //     KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
+        if (actionId == ConstHTTP.NOTICE_LIST) {
+         if (type == ConstHTTP.HTTP_OK && isValid == true) {
 
-    //     mHandler.sendEmptyMessage(LOAD_NOTICE_LIST);
-    //     AppUtils.sendTrackerScreen(this, "공지화면");
-    // }
+              do {
+                      if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            let List : NSArray = jsonString["updateVOList"] as! NSArray
+                            let size : Int = List.count
+                            if size > 0 {
+                            mList.removeAll()
+                            mGroupList.removeAll()
+                            mChildList.removeAll()
+                            for index in 0...size-1  {
+                                let aObject = List[index] as! [String : AnyObject]
+                                let updateApp : UpdateApp = Comment()
+                                updateApp.mCategoryCode = aObject["versionCode"] as! Int
+                                updateApp.mCategoryName = aObject["updateContent"] as! String
+                                mList.append(updateApp)
 
-    // private void setBackgroundColor() {
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.notice_back_color).setBackgroundColor(color);
-    //     }
-    // }
+                                //let mTitle = jsonObject.getString("updateContent").split("\n")[0];
+                                let mTitle = aObject["updateContent"] as! String
+                                mGroupList.append(mTitle)
+                                mChildListContent = new ArrayList<String>()
+                                mChildListContent.append(aObject["updateContent"] as! String)
+                                mChildList.append(mChildListContent);
+                             }
+                        }
+                    }
+                    handleMessage(what: SET_NOTICE_LIST, obj: "")
+                } catch {
+                    KLog.d(tag : TAG, msg : "@@ Exception : " + error)
+                    handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+                }
+        } 
+    }
 
-    // @Override
-    // public void finish() {
-    //     super.finish();
-    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    // }
-
-    // @Override
-    // public void onHttpReceive(int type, int actionId, Object obj) {
-    //     String mData = (String) obj;
-    //     boolean isValid = false;
-    //     if (mData != null) {
-    //         try {
-    //             JSONObject json = new JSONObject(mData);
-    //             isValid = json.getBoolean("isValid");
-    //         } catch (JSONException e) {
-    //             KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-    //         }
-    //     }
-    //     if (actionId == IHttpReceive.NOTICE_LIST) {
-    //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
-    //             try {
-    //                 JSONObject json = new JSONObject(mData);
-    //                 JSONArray jsonArray = json.getJSONArray("updateVOList");
-    //                 KLog.d(this.getClass().getSimpleName(), "@@ jsonArray :   " + jsonArray);
-    //                 int size = jsonArray.length();
-    //                 mList.clear();
-    //                 mGroupList.clear();
-    //                 mChildList.clear();
-    //                 for (int i = 0; i < size; i++) {
-    //                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-    //                     UpdateApp updateApp = new UpdateApp();
-    //                     updateApp.setVersionCode(jsonObject.getInt("versionCode"));
-    //                     updateApp.setContent(jsonObject.getString("updateContent"));
-    //                     mList.add(updateApp);
-
-    //                     String mTitle = jsonObject.getString("updateContent").split("\n")[0];
-    //                     mGroupList.add(mTitle);
-    //                     mChildListContent = new ArrayList<String>();
-    //                     mChildListContent.add(jsonObject.getString("updateContent"));
-    //                     mChildList.add(mChildListContent);
-    //                 }
-
-    //                 if (mList != null && mList.size() > 0) {
-    //                     realmMgr realmMgr = new realmMgr();
-    //                     realmMgr.updateNotice(mList);
-    //                 }
-    //                 mHandler.sendEmptyMessage(SET_NOTICE_LIST);
-    //             } catch (JSONException e) {
-    //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-    //             }
-    //         } else {
-    //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-    //         }
-    //     }
-    // }
-
-    // @Override
-    // public boolean handleMessage(Message msg) {
-    //     switch (msg.what) {
-    //         case LOAD_NOTICE_LIST:
-    //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_NOTICE_URL, false, this, IHttpReceive.NOTICE_LIST);
-    //             httpUrlTaskManager.execute();
-    //             break;
-    //         case SET_NOTICE_LIST:
-    //             KProgressDialog.setDataLoadingDialog(this, false, null, false);
-    //             mExtendableListView = (ExpandableListView) findViewById(R.id.notice_listview_extended);
-    //             mExtendableListView.setAdapter(new BaseExpandableAdapter(this, mGroupList, mChildList));
-    //             break;
-    //         case TOAST_MASSEGE:
-    //             Toast.makeText(getApplicationContext(), (String) msg.obj, Toast.LENGTH_LONG).show();
-    //             break;
-    //         case SERVER_LOADING_FAIL:
-    //             realmMgr realmMgr = new realmMgr();
-    //             RealmResults<UpdateApp> infoList = realmMgr.selectNoticeList();
-    //             if (infoList != null) {
-    //                 if (infoList.size() > 0) {
-    //                     mList.clear();
-    //                     mGroupList.clear();
-    //                     mChildList.clear();
-    //                     for (int i = 0; i < infoList.size(); i++) {
-    //                         UpdateApp updateApp = infoList.get(i);
-    //                         mList.add(updateApp);
-    //                         String mTitle = updateApp.getContent().split("\n")[0];
-    //                         mGroupList.add(mTitle);
-    //                         mChildListContent = new ArrayList<String>();
-    //                         mChildListContent.add(updateApp.getContent());
-    //                         mChildList.add(mChildListContent);
-    //                     }
-    //                     mHandler.sendEmptyMessage(SET_NOTICE_LIST);
-    //                 }
-    //             } else {
-    //                 KProgressDialog.setDataLoadingDialog(this, false, null, false);
-    //                 KLog.d(TAG, "@@ SERVER_LOADING_FAIL");
-    //                 String message = getString(R.string.server_fail_string);
-    //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-    //                 finish();
-    //             }
-    //             break;
-    //     }
-    //     return false;
-    // }
-
-    // private void setTextPont() {
-    //     Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-    //     ((Button) findViewById(R.id.notice_list_text)).setTypeface(typeFace);
-    // }
+    func handleMessage(what : Int, obj : String) {
+        switch (what) {
+            case TOAST_MASSEGE:
+                Toast.showToast(message: obj)
+                break;
+        case LOAD_NOTICE_LIST:
+            let url  = ContextUtils.KBUCKET_NOTICE_URL
+            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : false, receive : self, id : ConstHTTP.NOTICE_LIST);
+            httpUrlTaskManager.actionTask()
+            break;
+        case SET_NOTICE_LIST:
+            // KProgressDialog.setDataLoadingDialog(this, false, null, false);
+            // mExtendableListView = (ExpandableListView) findViewById(R.id.notice_listview_extended);
+            // mExtendableListView.setAdapter(new BaseExpandableAdapter(this, mGroupList, mChildList));
+            break;
+        case SERVER_LOADING_FAIL:
+            //KProgressDialog.setDataLoadingDialog(this, false, null, false);
+            var message = AppUtils.localizedString(forKey : "server_fail_string")
+            handleMessage(what: TOAST_MASSEGE, obj: message)
+            finish()
+            break;
+        }
+    }
 }

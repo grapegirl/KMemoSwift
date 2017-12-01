@@ -1,179 +1,133 @@
-﻿////
-////  ShareDetailViewCtlr.swift
-////  공유 싱세 화면
-////
-////  Created by grapegirl on 2017. 9. 01..
-////  Copyright © 2017년 kikiplus. All rights reserved.
-////
+﻿//
+//  ShareDetailViewCtlr.swift
+//  공유 싱세 화면
 //
-//import UIKit
+//  Created by grapegirl on 2017. 9. 01..
+//  Copyright © 2017년 kikiplus. All rights reserved.
 //
-//
-//class ShareListViewCtlr : UIViewController {
-//
-//    private let TAG : String = "ShareListViewCtlr"
-//
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//        // Do any additional setup after loading the view, typically from a nib.
-//        KLog.d(tag: TAG, msg: "viewDidLoad");
-//    }
-//
-//    // private final String TAG = this.getClass().getSimpleName();
-//    // private android.os.Handler mHandler = null;
-//    // private ArrayList<Comment> mCommentList = null;
-//    // private CommentListAdpater mListAdapter = null;
-//    // private ListView mListView = null;
-//
-//    // private int mBucketNo = -1;
-//    // private Bucket mBucket;
-//    // private String mUserNickname = null;
-//    // private String mDetailImageFileName = null;
-//
-//    // private final int TOAST_MASSEGE = 10;
-//    // private final int DOWNLOAD_IMAGE = 20;
-//    // private final int LOAD_COMMENT_LIST = 30;
-//    // private final int SERVER_LOADING_FAIL = 40;
-//    // private final int SET_COMMENT_LIST = 50;
-//    // private final int SET_IMAGE = 60;
-//
-//    // private SQLQuery mSqlQuery = null;
-//    // private ConfirmPopup mConfirmPopup = null;
-//
-//    // @Override
-//    // protected void onCreate(Bundle savedInstanceState) {
-//    //     super.onCreate(savedInstanceState);
-//    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-//    //     setContentView(R.layout.share_detail_activity);
-//    //     setBackgroundColor();
-//
-//    //     mHandler = new Handler(this);
-//    //     mCommentList = new ArrayList<Comment>();
-//    //     mSqlQuery = new SQLQuery();
+
+import UIKit
+
+
+class ShareDetailViewCtlr : UIViewController , IHttpReceive {
+
+    private let TAG : String = "ShareDetailViewCtlr"
+   
+    private let TOAST_MASSEGE : Int             = 10
+    private let DOWNLOAD_IMAGE : Int            = 20
+    private let LOAD_COMMENT_LIST : Int         = 30
+    private let SERVER_LOADING_FAIL : Int       = 40
+    private let SET_COMMENT_LIST : Int          = 50
+    private let SET_IMAGE : Int                 = 60
+   
+    private var mCommentList = Array<Comment>()
+
+    public var mUserNickname :  String = ""
+    public var mDetailImageFileName :  String = ""
+
+    private var mSqlQuery : SQLQuery? = nil
+    private var mBucketNo : Int = -1
+    public var mBucket  : Bucket 
+
+   // private CommentListAdpater mListAdapter = null;
+   // private ListView mListView = null;
+   // private ConfirmPopup mConfirmPopup = null;
+
+   override func viewDidLoad() {
+       super.viewDidLoad()
+       // Do any additional setup after loading the view, typically from a nib.
+       KLog.d(tag: TAG, msg: "viewDidLoad");
+       initialize()
+   }
+
+    func initialize(){
+        mBucketDataList = Array<PostData>()
+        mSqlQuery = SQLQuery()
 //    //     Intent Intent = getIntent();
 //    //     String idx = Intent.getStringExtra(ContextUtils.NUM_SHARE_BUCKET_IDX);
 //    //     mBucket = (Bucket) Intent.getSerializableExtra(ContextUtils.OBJ_SHARE_BUCKET);
-//
 //    //     mUserNickname = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
 //    //     mHandler.sendMessage(mHandler.obtainMessage(LOAD_COMMENT_LIST, idx));
-//
 //    //     ((Button) findViewById(R.id.comment_layout_sendBtn)).setOnClickListener(this);
 //    //     ((Button) findViewById(R.id.share_add)).setOnClickListener(this);
 //    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setOnClickListener(this);
-//    //     setData(mBucket);
-//    //     AppUtils.sendTrackerScreen(this, "모두가지상세화면");
-//    // }
-//
-//    // private void setBackgroundColor() {
-//    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-//    //     if (color != -1) {
-//    //         findViewById(R.id.bucketdetail_back_color).setBackgroundColor(color);
-//    //     }
-//    // }
-//
-//    // @Override
-//    // public void finish() {
-//    //     super.finish();
-//    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-//    // }
-//
-//    // @Override
-//    // protected void onDestroy() {
-//    //     super.onDestroy();
-//    //     deleteImageResource();
-//    // }
-//
-//    // /**
-//    //  * 데이타 초기화
-//    //  */
-//    // private void setData(Bucket bucket) {
-//    //     mBucketNo = bucket.getIdx();
-//    //     Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-//    //     ((Button) findViewById(R.id.share_detail_text)).setTypeface(typeFace);
-//    //     ((TextView) findViewById(R.id.share_title_textview)).setTypeface(typeFace);
-//    //     ((TextView) findViewById(R.id.share_contents_textview)).setTypeface(typeFace);
-//    //     ((TextView) findViewById(R.id.share_title_textview)).setText(bucket.getDate());
-//    //     ((TextView) findViewById(R.id.share_contents_textview)).setText(bucket.getContent());
-//    //     ((Button) findViewById(R.id.share_add)).setTypeface(typeFace);
-//
-//    //     KLog.d(TAG, "@@ image exists : " + bucket.getImageUrl());
-//    //     if (bucket.getImageUrl() != null && !bucket.getImageUrl().equals("N")) {
-//    //         mHandler.sendEmptyMessage(DOWNLOAD_IMAGE);
-//    //     }
-//    // }
-//
-//    // @Override
-//    // public void onHttpReceive(int type, int actionId, Object obj) {
-//    //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive actionId: " + actionId);
-//    //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive  type: " + type);
-//    //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive  obj: " + obj);
-//    //     String mData = (String) obj;
-//    //     boolean isValid = false;
-//    //     if (actionId != IHttpReceive.DOWNLOAD_IMAGE && mData != null) {
-//    //         try {
-//    //             JSONObject json = new JSONObject(mData);
-//    //             isValid = json.getBoolean("isValid");
-//    //         } catch (JSONException e) {
-//    //             KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-//    //         }
-//    //     }
-//    //     if (actionId == IHttpReceive.COMMENT_LIST) {
-//    //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-//    //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
-//    //             try {
-//    //                 JSONObject json = new JSONObject(mData);
-//    //                 JSONArray jsonArray = json.getJSONArray("CommentVOList");
-//    //                 KLog.d(this.getClass().getSimpleName(), "@@ jsonArray :   " + jsonArray);
-//    //                 int size = jsonArray.length();
-//    //                 mCommentList.clear();
-//    //                 for (int i = 0; i < size; i++) {
-//    //                     JSONObject jsonObject = (JSONObject) jsonArray.get(i);
-//    //                     Comment comment = new Comment();
-//    //                     comment.setNickName(jsonObject.getString("nickName"));
-//    //                     comment.setDate(jsonObject.getString("createDt"));
-//    //                     comment.setContent(jsonObject.getString("content"));
-//    //                     mCommentList.add(comment);
-//    //                 }
-//    //                 if (mCommentList != null && mCommentList.size() > 0) {
-//    //                     realmMgr realmMgr = new realmMgr();
-//    //                     realmMgr.updateBucketComment(mCommentList, mBucketNo);
-//    //                 }
-//    //                 mHandler.sendEmptyMessage(SET_COMMENT_LIST);
-//    //             } catch (Exception e) {
-//    //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-//    //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-//    //             }
-//    //         } else {
-//    //             RealmResults<Comment> infoList = realmMgr.selectBucketCommentList(mBucketNo);
-//    //             if (infoList != null) {
-//    //                 mCommentList.clear();
-//    //                 for (int i = 0; i < infoList.size(); i++) {
-//    //                     mCommentList.add(infoList.get(i));
-//    //                 }
-//    //                 mHandler.sendEmptyMessage(SET_COMMENT_LIST);
-//    //             } else {
-//    //                 mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-//    //             }
-//    //         }
-//    //     } else if (actionId == INSERT_COMMENT) {
-//    //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
-//    //         if (type == IHttpReceive.HTTP_OK && isValid == true) {
-//    //             mHandler.sendMessage(mHandler.obtainMessage(LOAD_COMMENT_LIST, mBucketNo));
-//    //         } else {
-//    //             mHandler.sendEmptyMessage(SERVER_LOADING_FAIL);
-//    //         }
-//    //     } else if (actionId == IHttpReceive.DOWNLOAD_IMAGE) {
-//    //         if (type == IHttpReceive.HTTP_OK) {
-//    //             KLog.d(TAG, "downlaod image " + obj);
-//    //             mHandler.sendEmptyMessage(SET_IMAGE);
-//    //         }
-//    //     }
-//    // }
-//
-//    // @Override
-//    // public void onClick(View v) {
-//    //     switch (v.getId()) {
-//    //         case R.id.comment_layout_sendBtn:
+        setData(bucket : mBucket)
+        //AppUtils.sendTrackerScreen(this, "모두가지상세화면");
+    }
+
+   /**
+    * 데이타 초기화
+    */
+   func setData( bucket : Bucket) {
+       mBucketNo = bucket.getIdx()
+       KLog.d(tag : TAG, msg : "@@ image exists  type: " + bucket.getImageUrl());
+
+       if (bucket.getImageUrl() != nil && !bucket.getImageUrl().equals("N")) {
+           handleMessage(what: DOWNLOAD_IMAGE, obj: "")
+       }
+   }
+
+    func onHttpReceive(type: Int, actionId: Int, data: Data) {
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
+
+        var isValid : Bool  = false
+        do {
+            if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                if jsonString != nil {
+                    isValid = jsonString["isValid"] as! Bool
+                    // print(jsonString)
+                }
+            }
+        } catch {
+            print("JSON 파상 에러")
+        }
+
+        if (actionId == ConstHTTP.COMMENT_LIST) {
+            //  KProgressDialog.setDataLoadingDialog(this, false, null, false);
+           if (type == ConstHTTP.HTTP_OK && isValid == true) {
+                do {
+                      if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            let List : NSArray = jsonString["CommentVOList"] as! NSArray
+                            let size : Int = List.count
+                            if size > 0 {
+                            mCommentList.removeAll()
+                            for index in 0...size-1  {
+                                let aObject = List[index] as! [String : AnyObject]
+                                let comment : Comment = Comment()
+                                comment.mCategoryCode = aObject["nickName"] as! String
+                                comment.mCategoryName = aObject["createDt"] as! String
+                                comment.mCategoryName = aObject["content"] as! String
+                                mCommentList.append(comment)
+                             }
+                        }
+                    }
+                    handleMessage(what: SET_COMMENT_LIST, obj: "")
+                } catch {
+                    KLog.d(tag : TAG, msg : "@@ Exception : " + error)
+                    handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+                }
+           } else {
+                 handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+           }
+        } else if (actionId == ConstHTTP.COMMENT_LIST) {
+            //KProgressDialog.setDataLoadingDialog(this, false, null, false);
+           if (type == ConstHTTP.HTTP_OK && isValid == true) {
+                handleMessage(what: LOAD_COMMENT_LIST, obj: String(mBucketNo)
+           } else {
+               handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+           }
+        } else if (actionId == ConstHTTP.DOWNLOAD_IMAGE) {
+            if (type == ConstHTTP.HTTP_OK) {
+               KLog.d(TAG, "downlaod image " + obj);
+               handleMessage(what: SET_IMAGE, obj: "")
+            }
+        }
+    }
+
+        @IBAction func onClick(_ sender: Any) {
+            switch(sender  as! UIButton ){
+//         case R.id.comment_layout_sendBtn:
 //    //             String text = ((EditText) findViewById(R.id.comment_layout_text)).getText().toString();
 //    //             if (text.replaceAll(" ", "").equals("")) {
 //    //                 break;
@@ -199,93 +153,99 @@
 //    //             mConfirmPopup = new ConfirmPopup(this, title, content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_ADD);
 //    //             mConfirmPopup.showDialog();
 //    //             break;
-//    //     }
-//    // }
-//
-//    // @Override
-//    // public boolean handleMessage(Message msg) {
-//    //     switch (msg.what) {
-//    //         case DOWNLOAD_IMAGE:
-//    //             String url = ContextUtils.KBUCKET_DOWNLOAD_IAMGE + "?idx=" + mBucketNo;
-//    //             KLog.d(TAG, "@@ download image url : " + url);
-//    //             HttpUrlFileDownloadManager urlTaskManager = new HttpUrlFileDownloadManager(url, this, IHttpReceive.DOWNLOAD_IMAGE);
-//    //             mDetailImageFileName = DataUtils.getNewFileName();
-//    //             urlTaskManager.execute(mDetailImageFileName);
-//    //             findViewById(R.id.share_contents_loadingbar).setVisibility(View.VISIBLE);
-//    //             break;
-//    //         case LOAD_COMMENT_LIST:
-//    //             //KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string));
-//    //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_COMMENT_URL, true, this, IHttpReceive.COMMENT_LIST);
-//    //             HashMap<String, Object> map = new HashMap<String, Object>();
-//    //             map.put("idx", mBucketNo);
-//    //             httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-//    //             break;
-//    //         case SET_COMMENT_LIST:
-//    //             mListView = (ListView) findViewById(R.id.share_comment_listview);
-//    //             mListAdapter = new CommentListAdpater(this, R.layout.comment_list_line, mCommentList, this);
-//    //             mListView.setAdapter(mListAdapter);
-//    //             break;
-//    //         case TOAST_MASSEGE:
-//    //             Toast.makeText(getApplicationContext(), (String) msg.obj, Toast.LENGTH_LONG).show();
-//    //             break;
-//    //         case SERVER_LOADING_FAIL:
-//    //             KLog.d(TAG, "@@ SERVER_LOADING_FAIL");
-//    //             String message = getString(R.string.server_fail_string);
-//    //             mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-//    //             finish();
-//    //             break;
-//    //         case SET_IMAGE:
-//    //             findViewById(R.id.share_contents_loadingbar).setVisibility(View.INVISIBLE);
-//    //             try {
-//    //                 //Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName);
-//    //                 BitmapFactory.Options options = new BitmapFactory.Options();
-//    //                 options.outWidth = 150;
-//    //                 options.outHeight = 150;
-//    //                 Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName, options);
-//    //                 ((ImageView) findViewById(R.id.share_contents_imageview)).setScaleType(ImageView.ScaleType.FIT_XY);
-//    //                 ((ImageView) findViewById(R.id.share_contents_imageview)).setImageBitmap(bitmap);
-//    //             } catch (Exception e) {
-//    //                 e.printStackTrace();
-//    //                 KLog.d(TAG, "@@ set image : " + e.toString());
-//    //             }
-//    //             break;
-//    //     }
-//    //     return false;
-//    // }
-//
-//    // /**
-//    //  * 이미지 리소스 해제하기
-//    //  */
-//    // private void deleteImageResource() {
-//    //     if (mBucket.getImageUrl() != null && !mBucket.getImageUrl().equals("N")) {
-//    //         DataUtils.deleteFile(mDetailImageFileName);
-//    //     }
-//    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setImageBitmap(null);
-//    // }
-//
-//    // @Override
-//    // public void onPopupAction(int popId, int what, Object obj) {
-//    //     if (popId == OnPopupEventListener.POPUP_BUCKET_ADD) {
-//    //         if (what == POPUP_BTN_OK) {
-//    //             String contents = ((TextView) findViewById(R.id.share_contents_textview)).getText().toString();
-//    //             boolean inContainsBucket = mSqlQuery.containsKbucket(getApplicationContext(), contents);
-//    //             if (!inContainsBucket) {
-//    //                 Date dateTime = new Date();
-//    //                 String date = DateUtils.getStringDateFormat(DateUtils.DATE_YYMMDD_PATTER, dateTime);
-//    //                 mSqlQuery.insertUserSetting(getApplicationContext(), contents, date, "N", "");
-//    //                 realmMgr.insertPostData(new PostData(contents, date));
-//
-//    //                 mConfirmPopup.closeDialog();
-//
-//    //                 String message = getString(R.string.share_add_popup_ok);
-//    //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-//    //             } else {
-//    //                 String message = getString(R.string.check_input_bucket_string);
-//    //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-//    //             }
-//    //         } else {
-//    //             mConfirmPopup.closeDialog();
-//    //         }
-//    //     }
-//    // }
-//}
+            default:
+                break;
+        }
+
+        func finish(){
+            KLog.d(tag: TAG, msg: "finish")
+            deleteImageResource()
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
+            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+            present(uvc!, animated: true, completion: nil)
+        }
+
+        func handleMessage(what : Int, obj : String) {
+            switch (what) {
+                case TOAST_MASSEGE:
+                    Toast.showToast(message: obj)
+                    break;
+                case DOWNLOAD_IMAGE:
+                    // String url = ContextUtils.KBUCKET_DOWNLOAD_IAMGE + "?idx=" + mBucketNo;
+                    // KLog.d(TAG, "@@ download image url : " + url);
+                    // HttpUrlFileDownloadManager urlTaskManager = new HttpUrlFileDownloadManager(url, this, IHttpReceive.DOWNLOAD_IMAGE);
+                    // mDetailImageFileName = DataUtils.getNewFileName();
+                    // urlTaskManager.execute(mDetailImageFileName);
+                    // findViewById(R.id.share_contents_loadingbar).setVisibility(View.VISIBLE);
+                    break;
+                case LOAD_COMMENT_LIST:
+                    //KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string));
+                    // HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_COMMENT_URL, true, this, IHttpReceive.COMMENT_LIST);
+                    // HashMap<String, Object> map = new HashMap<String, Object>();
+                    // map.put("idx", mBucketNo);
+                    // httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
+                    break;
+                case SET_COMMENT_LIST:
+                    // mListView = (ListView) findViewById(R.id.share_comment_listview);
+                    // mListAdapter = new CommentListAdpater(this, R.layout.comment_list_line, mCommentList, this);
+                    // mListView.setAdapter(mListAdapter);
+                    break;
+                case SERVER_LOADING_FAIL:
+                    var message = AppUtils.localizedString(forKey : "server_fail_string")
+                    handleMessage(what: TOAST_MASSEGE, obj: message)
+                    finish()
+                    break;
+                case SET_IMAGE:
+                    // findViewById(R.id.share_contents_loadingbar).setVisibility(View.INVISIBLE);
+                    // try {
+                    //     //Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName);
+                    //     BitmapFactory.Options options = new BitmapFactory.Options();
+                    //     options.outWidth = 150;
+                    //     options.outHeight = 150;
+                    //     Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName, options);
+                    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setScaleType(ImageView.ScaleType.FIT_XY);
+                    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setImageBitmap(bitmap);
+                    // } catch (Exception e) {
+                    //     e.printStackTrace();
+                    //     KLog.d(TAG, "@@ set image : " + e.toString());
+                    // }
+                    break;
+                }
+        }
+            
+   /**
+    * 이미지 리소스 해제하기
+    */
+   private func deleteImageResource() {
+       if (mBucket.getImageUrl() != nil && !mBucket.getImageUrl().equals("N")) {
+        //   DataUtils.deleteFile(mDetailImageFileName);
+       }
+       //((ImageView) findViewById(R.id.share_contents_imageview)).setImageBitmap(null);
+   }
+
+   // @Override
+   // public void onPopupAction(int popId, int what, Object obj) {
+   //     if (popId == OnPopupEventListener.POPUP_BUCKET_ADD) {
+   //         if (what == POPUP_BTN_OK) {
+   //             String contents = ((TextView) findViewById(R.id.share_contents_textview)).getText().toString();
+   //             boolean inContainsBucket = mSqlQuery.containsKbucket(getApplicationContext(), contents);
+   //             if (!inContainsBucket) {
+   //                 Date dateTime = new Date();
+   //                 String date = DateUtils.getStringDateFormat(DateUtils.DATE_YYMMDD_PATTER, dateTime);
+   //                 mSqlQuery.insertUserSetting(getApplicationContext(), contents, date, "N", "");
+   //                 realmMgr.insertPostData(new PostData(contents, date));
+
+   //                 mConfirmPopup.closeDialog();
+
+   //                 String message = getString(R.string.share_add_popup_ok);
+   //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
+   //             } else {
+   //                 String message = getString(R.string.check_input_bucket_string);
+   //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
+   //             }
+   //         } else {
+   //             mConfirmPopup.closeDialog();
+   //         }
+   //     }
+   // }
+}

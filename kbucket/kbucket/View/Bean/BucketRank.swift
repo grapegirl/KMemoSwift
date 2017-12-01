@@ -14,7 +14,7 @@ class BucketRank {
     /**
      * 카테고리코드
      */
-    private var mCategoryCode : Int {
+    var mCategoryCode : Int {
         get {
             return mCategoryCode
         }
@@ -25,7 +25,7 @@ class BucketRank {
     /**
      * 카테고리명
      */
-    private var mCategoryName : String {
+    var mCategoryName : String {
         get {
             return mCategoryName
         }
@@ -36,7 +36,7 @@ class BucketRank {
     /**
      * 메모내용
      */
-    private var mContent : String {
+    var mContent : String {
         get {
             return mContent
         }
@@ -47,7 +47,7 @@ class BucketRank {
     /**
      * 번호
      */
-    private var mIdx : Int { 
+    var mIdx : Int { 
         get {
             return mIdx
         }
@@ -58,7 +58,7 @@ class BucketRank {
     /**
      * 최고에요 카운트
      */
-    private var mBestCnt : Int {
+    var mBestCnt : Int {
         get {
             return mBestCnt
         }
@@ -69,7 +69,7 @@ class BucketRank {
     /**
      * 좋아요 카운트
      */
-    private var mGoodCnt : Int {
+    var mGoodCnt : Int {
         get {
             return mGoodCnt
         }
@@ -80,7 +80,7 @@ class BucketRank {
     /**
      * 괜찮아요 카운트
      */
-    private var mSoSoCnt : Int {
+    var mSoSoCnt : Int {
         get {
             return mSoSoCnt
         }
@@ -91,7 +91,7 @@ class BucketRank {
     /**
      * 사용자 카운트
      */
-    private var mComment : Int {
+    var mComment : Int {
         get {
             return mComment
         }

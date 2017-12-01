@@ -12,9 +12,9 @@ import UIKit
 class Category  {
     
    /** 카테고리 코드 */
-	private var mCategoryCode : Int  = -1
+	var mCategoryCode : Int  = -1
 	/** 카테고리명 */
-    private var mCategoryName : String  = ""
+    var mCategoryName : String  = ""
 
 
     /**

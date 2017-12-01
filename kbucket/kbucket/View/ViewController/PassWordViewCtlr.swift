@@ -10,25 +10,18 @@ import UIKit
 
 class PassWordViewCtlr: UIViewController {
 
-     private let TAG : String = "PassWordViewCtlr"
-
+    private let TAG : String = "PassWordViewCtlr"
+    private var mPasswordData : ArrayList<String>()
+    private var isPasswordset : bool
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: TAG, msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad")
+        initialize()
     }
 
-    // private final String TAG = this.getClass().getSimpleName();
-    // private Button[] mButton;
-    // private ArrayList<String> mPasswordData;
-    // private boolean isPasswordset = false;
-
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    //     setContentView(R.layout.password_activity);
-    //     setBackgroundColor();
+    func initialize(){
     //     mButton = new Button[15];
     //     mPasswordData = new ArrayList<>();
 
@@ -62,25 +55,17 @@ class PassWordViewCtlr: UIViewController {
     //         isPasswordset = false;
     //     }
     //     AppUtils.sendTrackerScreen(this, "암호설정화면");
-    // }
+    }
 
-    // private void setBackgroundColor(){
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.password_back_color).setBackgroundColor(color);
-    //     }
-    // }
+    func finish(){
+         KLog.d(tag: TAG, msg: "finish");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
 
-
-    // @Override
-    // public void finish() {
-    //     super.finish();
-    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    // }
-
-    // @Override
-    // public void onClick(View v) {
-    //     switch (v.getId()) {
+     @IBAction func onClick(_ sender: Any) {
+          switch(sender  as! UIButton ){
     //         case R.id.password_num0:
     //         case R.id.password_num1:
     //         case R.id.password_num2:
@@ -106,18 +91,16 @@ class PassWordViewCtlr: UIViewController {
     //                 setButtonText();
     //             }
     //             break;
-    //     }
-    // }
+        }
+    }
 
-    // private void printPassword() {
-    //     KLog.d(this.getClass().getSimpleName(), "@@ start");
-    //     for (int i = 0; i < mPasswordData.size(); i++) {
-    //         KLog.d(this.getClass().getSimpleName(), "@@ " + i + " 번쨰:" + mPasswordData.get(i));
-    //     }
-    //     KLog.d(this.getClass().getSimpleName(), "@@ end");
-    // }
+    private func printPassword() {
+        // for (int i = 0; i < mPasswordData.size(); i++) {
+        //     KLog.d(this.getClass().getSimpleName(), "@@ " + i + " 번쨰:" + mPasswordData.get(i));
+        // }
+    }
 
-    // private void setButtonText() {
+    private func setButtonText() {
     //     KLog.d(this.getClass().getSimpleName(), "@@ mPasswordData size : " + mPasswordData.size());
     //     for (int i = 1; i <= mPasswordData.size(); i++) {
     //         mButton[i].setText("*");
@@ -171,5 +154,5 @@ class PassWordViewCtlr: UIViewController {
     //             }
     //         }
     //     }
-    // }
+    }
 }
