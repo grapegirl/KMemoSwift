@@ -14,25 +14,11 @@ class IntroViewCtlr: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: TAG, msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad")
+        initialize()
     }
 
-    // private final String TAG = this.getClass().getSimpleName();
-    // private Handler mHandler;
-
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     setContentView(R.layout.intro_activity);
-    //     setBackgroundColor();
-
-    //     Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-    //     ((TextView) findViewById(R.id.intro_textview1)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.intro_textview2)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.intro_textview3)).setText(AppUtils.getVersionName(getApplicationContext()));
-    //     ((TextView) findViewById(R.id.intro_textview3)).setTypeface(typeFace);
-
+      func initialize(){
     //     Animation anim1 = new AlphaAnimation(0.0f, 1.0f);
     //     anim1.setDuration(500);
     //     Animation anim2 = new AlphaAnimation(0.0f, 1.0f);
@@ -43,7 +29,6 @@ class IntroViewCtlr: UIViewController {
     //     findViewById(R.id.intro_imageview2).setAnimation(anim2);
     //     findViewById(R.id.intro_imageview3).setAnimation(anim3);
 
-    //     mHandler = new Handler(this);
     //     Timer timer;
     //     TimerTask timerTask = new TimerTask() {
     //         @Override
@@ -69,24 +54,13 @@ class IntroViewCtlr: UIViewController {
     //             }
     //         }
     //     };
-
     //     timer = new Timer();
     //     timer.schedule(timerTask, 2000);
+    }
 
-    // }
-
-    // private void setBackgroundColor() {
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.intro_back_color).setBackgroundColor(color);
-    //     }
-    // }
-
-
-    // @Override
-    // public boolean handleMessage(Message msg) {
-    //     switch (msg.what) {
-    //         case 0://바로 실행할때
+    func handleMessage(what : Int, obj : String) {
+            switch (what) {
+        //         case 0://바로 실행할때
     //             Intent intent = new Intent(this, MainActivity.class);
     //             startActivity(intent);
     //             finish();
@@ -121,12 +95,11 @@ class IntroViewCtlr: UIViewController {
     //             startActivity(intent);
     //             finish();
     //             break;
-    //     }
-    //     return false;
-    // }
+        }
+    }
 
-    // @Override
-    // public void onBackPressed() {
-    // }
+    @IBAction func onBackPressed(_ sender: Any) {
+        KLog.d(tag: TAG, msg: "onBackPressed");
+    }
 }
 

@@ -9,102 +9,84 @@
 import UIKit
 
 
-class BucketListViewCtlr: UIViewController {
+class BucketListViewCtlr: UIViewController , IHttpReceive {
 
     private let TAG : String = "BucketListViewCtlr"
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: TAG, msg: "viewDidLoad");
-    }
-    
+    private let TOAST_MASSEGE : Int                = 10
+    private let UPLOAD_IMAGE : Int                 = 20
+    private let UPLOAD_BUCKET : Int                = 30
+    private let SELECT_BUCKET_CATEGORY : Int       = 40
 
-    // private final String TAG = this.getClass().getSimpleName();
+    private var mDataList = Array<PostData>()
+    private var mSqlQuery  : SQLQuery? = nil
 
-    // private ArrayList<PostData> mDataList = null;
+    private var mShareIdx : Int = -1
+    private var mImageIdx : Int = -1
+    private var mCategory : Int = 1
+
     // private ListView mListView = null;
     // private CardViewListAdpater mListAdapter = null;
-    // private SQLQuery mSqlQuery = null;
-
     // private ConfirmPopup mConfirmPopup = null;
     // private SpinnerListPopup mCategoryPopup = null;
 
-    // private int mShareIdx = -1;
-    // private int mImageIdx = -1;
-    // private int mCategory = 1;
-
-    // private android.os.Handler mHandler = null;
-    // private final int TOAST_MASSEGE = 10;
-    // private final int UPLOAD_IMAGE = 20;
-    // private final int UPLOAD_BUCKET = 30;
-    // private final int SELECT_BUCKET_CATEGORY = 40;
-
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    //     setContentView(R.layout.bucket_list_activity);
-    //     setBackgroundColor();
-    //     setTextPont();
-
-    //     mHandler = new android.os.Handler(this);
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        KLog.d(tag: TAG, msg: "viewDidLoad")
+        initialize()
+    }
+    
+    func initialize(){
     //     mListView = (ListView) findViewById(R.id.bucket_list_listview);
     //     mDataList = new ArrayList<PostData>();
-    //     mSqlQuery = new SQLQuery();
-    //     setListData();
+            mSqlQuery = SQLQuery()
+            setListData()
     //     Collections.reverse(mDataList);
     //     mListAdapter = new CardViewListAdpater(this, R.layout.cardview_list_line, mDataList, this, this);
     //     mListView.setAdapter(mListAdapter);
     //     AppUtils.sendTrackerScreen(this, "완료가지화면");
-    // }
+    }
 
-    // private void setBackgroundColor() {
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     KLog.d(TAG, "@@ color : " + color);
-    //     if (color != -1) {
-    //         findViewById(R.id.bucketlist_back_color).setBackgroundColor(color);
-    //     }
-    // }
+    func finish(){
+            KLog.d(tag: TAG, msg: "finish")
+            deleteImageResource()
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
+            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+            present(uvc!, animated: true, completion: nil)
+    }
+   
+    /**
+     * DB 데이타 불러와서 데이타 표시하기
+     */
+    private func setListData() {
+        // LinkedList<LinkedHashMap<String, String>> map = mSqlQuery.selectKbucket(getApplicationContext());
+        // if (map == null) {
+        //     return;
+        // }
+        // for (int i = 0; i < map.size(); i++) {
+        //     LinkedHashMap<String, String> memoMap = map.get(i);
+        //     KLog.d(this.getClass().getSimpleName(), "@@ memoMap" + memoMap.toString());
 
+        //     if (memoMap.get("complete_yn").equals("N")) {
+        //         continue;
+        //     }
+        //     PostData postData = new PostData("", memoMap.get("contents"), memoMap.get("date"), i);
+        //     postData.setImageName(memoMap.get("image_path"));
+        //     postData.setCompleteYN(memoMap.get("complete_yn"));
+        //     mDataList.add(postData);
+        // }
+    }
 
-    // @Override
-    // public void finish() {
-    //     super.finish();
-    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    // }
-
-    // /**
-    //  * DB 데이타 불러와서 데이타 표시하기
-    //  */
-    // private void setListData() {
-    //     LinkedList<LinkedHashMap<String, String>> map = mSqlQuery.selectKbucket(getApplicationContext());
-    //     if (map == null) {
-    //         return;
-    //     }
-    //     for (int i = 0; i < map.size(); i++) {
-    //         LinkedHashMap<String, String> memoMap = map.get(i);
-    //         KLog.d(this.getClass().getSimpleName(), "@@ memoMap" + memoMap.toString());
-
-    //         if (memoMap.get("complete_yn").equals("N")) {
-    //             continue;
-    //         }
-    //         PostData postData = new PostData("", memoMap.get("contents"), memoMap.get("date"), i);
-    //         postData.setImageName(memoMap.get("image_path"));
-    //         postData.setCompleteYN(memoMap.get("complete_yn"));
-    //         mDataList.add(postData);
-    //     }
-    // }
-
-    // @Override
-    // public void onClick(View v) {
+   @IBAction func onClick(_ sender: Any) {
+        switch(sender  as! UIButton ){
     //     int index = v.getId();
     //     Intent intent = new Intent(this, WriteDetailActivity.class);
     //     intent.putExtra("CONTENTS", mDataList.get(index).getContents());
     //     intent.putExtra("BACK", ContextUtils.VIEW_COMPLETE_LIST);
     //     startActivity(intent);
     //     finish();
-    // }
+        }
+    }
 
     // @Override
     // public boolean onLongClick(View v) {
@@ -140,59 +122,59 @@ class BucketListViewCtlr: UIViewController {
     //     }
     // }
 
-    // @Override
-    // public void onHttpReceive(int type, int actionId, Object obj) {
-    //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive : " + obj);
-    //     KLog.d(this.getClass().getSimpleName(), "@@ onHttpReceive type : " + type);
-    //     // 버킷 공유 결과
-    //     String mData = (String) obj;
-    //     boolean isValid = false;
-    //     if (actionId == IHttpReceive.INSERT_BUCKET) {
-    //         if (type == IHttpReceive.HTTP_FAIL) {
-    //             String message = getString(R.string.write_bucekt_fail_string);
-    //             mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-    //         } else {
-    //             if (mData != null) {
-    //                 try {
-    //                     JSONObject json = new JSONObject(mData);
-    //                     isValid = json.getBoolean("isValid");
-    //                     mImageIdx = json.getInt("idx");
-    //                 } catch (JSONException e) {
-    //                     KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-    //                 }
+   func onHttpReceive(type: Int, actionId: Int, data: Data) {
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
+        var isValid : Bool  = false
+        do {
+            if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                if jsonString != nil {
+                    isValid = jsonString["isValid"] as! Bool
+                    // print(jsonString)
+                }
+            }
+        } catch {
+            print("JSON 파상 에러")
+        }
 
-    //                 if (isValid == true) {
-    //                     // 이미지가 있는 경우 전송함
-    //                     if (mDataList.get(mShareIdx).getImageName() != null && !mDataList.get(mShareIdx).getImageName().equals("")) {
-    //                         mHandler.sendEmptyMessage(UPLOAD_IMAGE);
-    //                     } else {
-    //                         String message = getString(R.string.write_bucekt_success_string);
-    //                         mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-    //                     }
-    //                 }
-    //             }
-    //         }
-    //     }// 이미지 업로드 결과
-    //     else if (actionId == IHttpReceive.INSERT_IMAGE) {
-    //         if (type == IHttpReceive.HTTP_FAIL) {
-    //             String message = getString(R.string.upload_image_fail_string);
-    //             mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-    //         } else {
-    //             if (mData != null) {
-    //                 try {
-    //                     JSONObject json = new JSONObject(mData);
-    //                     isValid = json.getBoolean("isValid");
-    //                 } catch (JSONException e) {
-    //                     KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-    //                 }
-    //             }
-    //             if (isValid == true) {
-    //                 String message = getString(R.string.write_bucekt_success_string);
-    //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, message));
-    //             }
-    //         }
-    //     }
-    // }
+         if (actionId == ConstHTTP.INSERT_BUCKET) {
+            if (type == ConstHTTP.HTTP_FAIL) {
+                var message = AppUtils.localizedString(forKey : "write_bucekt_fail_string")
+                handleMessage(what: TOAST_MASSEGE, obj: message)
+            } else {
+                do {
+                    if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                        isValid = jsonString["isValid"] as! Bool
+                        mImageIdx = jsonString["idx"] as! Int
+                    }
+
+                    if (isValid == true) {
+                    // 이미지가 있는 경우 전송함
+                    // if (mDataList.get(mShareIdx).getImageName() != null && !mDataList.get(mShareIdx).getImageName().equals("")) {
+                    //     mHandler.sendEmptyMessage(UPLOAD_IMAGE);
+                    // } else {
+                        // var message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                        // handleMessage(what: TOAST_MASSEGE, obj: message)
+                    // }
+                    }
+                } catch  {
+                        KLog.d(tag : TAG, msg : "@@ jsonException message ");
+                        handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+                }
+            }
+        }// 이미지 업로드 결과
+        else if (actionId == ConstHTTP.INSERT_IMAGE) {
+            if (type == IHttpReceive.HTTP_FAIL) {
+                var message = AppUtils.localizedString(forKey : "upload_image_fail_string")
+                handleMessage(what: TOAST_MASSEGE, obj: message)
+            } else {
+                if (isValid == true) {
+                    var message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                    handleMessage(what: TOAST_MASSEGE, obj: message)
+                }
+            }
+        }
+    }
 
     // /**
     //  * 서버로 전송할 데이타 만들기
@@ -226,13 +208,12 @@ class BucketListViewCtlr: UIViewController {
     //     return bucket.toHasnMap();
     // }
 
-    // @Override
-    // public boolean handleMessage(Message msg) {
-    //     switch (msg.what) {
-    //         case TOAST_MASSEGE:
-    //             Toast.makeText(getApplicationContext(), (String) msg.obj, Toast.LENGTH_LONG).show();
-    //             break;
-    //         case UPLOAD_IMAGE:
+    func handleMessage(what : Int, obj : String) {
+        switch (what) {
+            case TOAST_MASSEGE:
+                Toast.showToast(message: obj)
+                break;
+            case UPLOAD_IMAGE:
     //             String photoPath = mDataList.get(mShareIdx).getImageName();
     //             KLog.d(TAG, "@@ UPLOAD IMAGE 전송 시작 !");
     //             if (photoPath != null && !photoPath.equals("")) {
@@ -247,12 +228,13 @@ class BucketListViewCtlr: UIViewController {
     //             } else {
     //                 KLog.d(TAG, "@@ UPLOAD IMAGE NO !");
     //             }
-    //             break;
-    //         case UPLOAD_BUCKET:
-    //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_INSERT_BUCKET_URL, true, this, IHttpReceive.INSERT_BUCKET);
-    //             httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(shareBucketImage()));
-    //             break;
-    //         case SELECT_BUCKET_CATEGORY:
+                break;
+            case UPLOAD_BUCKET:
+                let url  = ContextUtils.KBUCKET_INSERT_BUCKET_URL
+                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.INSERT_BUCKET);
+                httpUrlTaskManager.actionTask()
+                break;
+            case SELECT_BUCKET_CATEGORY:
     //             String title = getString(R.string.category_popup_title);
     //             String content = getString(R.string.category_popup_content);
     //             ArrayList<Category> list = new ArrayList<Category>();
@@ -267,14 +249,7 @@ class BucketListViewCtlr: UIViewController {
     //             list.add(new Category("ETC", 9));
     //             mCategoryPopup = new SpinnerListPopup(this, title, "", list, R.layout.popupview_spinner_list, this, OnPopupEventListener.POPUP_BUCKET_CATEGORY);
     //             mCategoryPopup.showDialog();
-    //             break;
-    //     }
-    //     return false;
-    // }
-
-    // private void setTextPont() {
-    //     Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-    //     ((Button) findViewById(R.id.bucket_list_text)).setTypeface(typeFace);
-    // }
-
+                break;
+        }
+    }
 }
