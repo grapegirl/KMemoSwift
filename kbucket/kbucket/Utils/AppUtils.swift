@@ -245,12 +245,13 @@ class AppUtils {
      * 앱 리소스 String 반환
      * @param  key  리소스 키값
      */
-    public func localizedString(forKey key: String) -> String {
-        var result = Bundle.main.localizedString(forKey: key, value: nil, table: nil)
-
-        if result == key {
-            result = Bundle.main.localizedString(forKey: key, value: nil, table: "Default")
-        }
+    public static func localizedString(forKey key: String) -> String {
+//        var result = Bundle.main.localizedString(forKey: key, value: nil, table: nil)
+//
+//        if result == key {
+//            result = Bundle.main.localizedString(forKey: key, value: nil, table: "Default")
+//        }
+        var result = ""
         return result
     }
   }

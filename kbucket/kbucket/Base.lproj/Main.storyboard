@@ -308,7 +308,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="editingDidEnd" id="pNY-4Z-xmh"/>
+                                    <action selector="onClickEditor:" destination="aMF-eL-1tI" eventType="editingDidEnd" id="Gou-dU-sMG"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="GTq-bV-5pw">
@@ -325,7 +325,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                                 <connections>
-                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="editingDidEnd" id="YNA-aN-oqk"/>
+                                    <action selector="onClickEditor:" destination="aMF-eL-1tI" eventType="editingDidEnd" id="gG8-pC-NwA"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="날짜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BnJ-k0-xjd">
@@ -400,7 +400,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="touchUpInside" id="Ns2-jp-MAy"/>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="touchUpInside" id="isT-G5-Cfg"/>
                                 </connections>
                             </button>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qtx-qg-MKq">

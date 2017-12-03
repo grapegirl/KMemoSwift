@@ -124,15 +124,15 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                             for index in 0...size-1  {
                                 let aObject = List[index] as! [String : AnyObject]
                                 let category : Category = Category()
-                                category.mCategoryCode = aObject["categoryCode"] as! Int
-                                category.mCategoryName = aObject["categoryName"] as! String
-                                mCategoryList.append(category)
+                                let code = aObject["categoryCode"] as! Int
+                                let name = aObject["categoryName"] as! String
+                                mCategoryList.append(Category(name : name, code: code))
                              }
                         }
                     }
                     handleMessage(what: SET_CATEGORY, obj: "")
                 } catch {
-                    KLog.d(tag : TAG, msg : "@@ Exception : " + error)
+                    KLog.d(tag : TAG, msg : "@@ Exception ")
                     handleMessage(what: SERVER_LOADING_FAIL, obj: "")
                 }
             } else {
@@ -185,7 +185,8 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                 var message = AppUtils.localizedString(forKey : "server_fail_string")
                 handleMessage(what: TOAST_MASSEGE, obj: message)
                 //  finish();
-                UIView.animate(withDuration: highlightTime, delay: 0.0, options: [.curveLinear, .allowUserInteraction, .beginFromCurrentState], animations: { 
+               
+                UIView.animate(withDuration: 0, delay: 0.0, options: [.curveLinear, .allowUserInteraction, .beginFromCurrentState], animations: {
                    // animation code
                 }) { (finished) in
                     // completion code
@@ -210,10 +211,10 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                 break;
                 let isConnect  : Bool = true //NetworkUtils.isConnectivityStatus(this)
                 if (isConnect == false) {
-                    var connectMsg = AppUtils.localizedString(forKey : "check_network")
+                    var connectMsg =  AppUtils.localizedString(forKey :"check_network")
                     handleMessage(what: TOAST_MASSEGE, obj: connectMsg)
                 } else {
-                    handleMessage(what: CATEGORY_LIST, obj: message)
+                    handleMessage(what: CATEGORY_LIST, obj: "")
                 }
             default:
                 break;

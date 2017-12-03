@@ -177,8 +177,30 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         }
     }
     
+    @IBAction func onClickEditor(_ sender2: Any){
+        switch (sender2  as! UITextField )  {
+            case etDate:
+                 KLog.d(tag: TAG, msg: "onClick etDate")
+                 let datePickerView : UIDatePicker = UIDatePicker()
+                 datePickerView.datePickerMode = UIDatePickerMode.date
+                 etDate.inputView = datePickerView
+                 datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"),
+                                          for: UIControlEvents.valueChanged)
+                break;
+            case etCompleteDate:
+                 KLog.d(tag: TAG, msg: "onClick etCompleteDate")
+                 let datePickerView : UIDatePicker = UIDatePicker()
+                 datePickerView.datePickerMode = UIDatePickerMode.date
+                 etDate.inputView = datePickerView
+                 datePickerView.addTarget(self, action: Selector("datePickerValueChanged2:"),
+                                          for: UIControlEvents.valueChanged)
+                break;
+            default:
+                break;
+        }
+    }
     @IBAction func onClick(_ sender: Any) {
-        switch (sender  as! UIButton)  {
+        switch (sender  as! UIButton )  {
         case btSave:
             KLog.d(tag: TAG, msg: "onClick btSave")
             updateDBDate()
@@ -209,78 +231,33 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         case btGallery:
              KLog.d(tag: TAG, msg: "onClick btGallery")
              openGallary()
-            //             intent = new Intent(Intent.ACTION_PICK);
-            //             intent.setType(MediaStore.Images.Media.CONTENT_TYPE);
-            //             intent.setData(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            //             startActivityForResult(intent, REQ_CODE_GALLERY);
             break;
-        case etDate:
-             KLog.d(tag: TAG, msg: "onClick etDate")
-            //             GregorianCalendar gregorianCalendar = new GregorianCalendar();
-            //             int year = gregorianCalendar.get(Calendar.YEAR);
-            //             int month = gregorianCalendar.get(Calendar.MONTH);
-            //             int day = gregorianCalendar.get(Calendar.DAY_OF_MONTH);
-            //             int hour = gregorianCalendar.get(Calendar.HOUR_OF_DAY);
-            //             int minute = gregorianCalendar.get(Calendar.MINUTE);
-            //             DatePickerDialog datePickerDialog = new DatePickerDialog(WriteDetailActivity.this, dateSetListener, year, month, day);
-            //             datePickerDialog.show();
-            break;
-        case etCompleteDate:
-             KLog.d(tag: TAG, msg: "onClick etCompleteDate")
-            //             gregorianCalendar = new GregorianCalendar();
-            //             year = gregorianCalendar.get(Calendar.YEAR);
-            //             month = gregorianCalendar.get(Calendar.MONTH);
-            //             day = gregorianCalendar.get(Calendar.DAY_OF_MONTH);
-            //             datePickerDialog = new DatePickerDialog(WriteDetailActivity.this, dateSetListener2, year, month, day);
-            //             datePickerDialog.show();
-            break;
-        
-        case ivRemoveImage:
-            mPhotoPath = ""
-            hideImageAttachButton(ishide : false)
-            ivImage.isHidden = true
-            ivRemoveImage.isHidden = true
-            break;
-        
+//        case ivRemoveImage:
+//            mPhotoPath = ""
+//            hideImageAttachButton(ishide : false)
+//            ivImage.isHidden = true
+//            ivRemoveImage.isHidden = true
+//            break;
+//
         default:
             break;
         }
+         
     }
     
-     private func dateSetListener(sender: UITextField) {
-        let datePickerView:UIDatePicker = UIDatePicker()
-        datePickerView.datePickerMode = UIDatePickerMode.Date
-        sender.inputView = datePickerView
-        datePickerView.addTarget(self, action: #selector(ViewController.datePickerValueChanged), forControlEvents: UIControlEvents.ValueChanged)
-     }
-
     private func datePickerValueChanged(sender:UIDatePicker) {
-        let dateFormatter = NSDateFormatter()
-        dateFormatter.dateStyle = NSDateFormatterStyle.MediumStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.NoStyle
-        dateTextField.text = dateFormatter.stringFromDate(sender.date)
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY-MM-DD"
+        etDate.text = dateFormatter.string(from: sender.date)
+        etDate.resignFirstResponder()
+    }
+    private func datePickerValueChanged2(sender:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY-MM-DD"
+        etCompleteDate.text = dateFormatter.string(from: sender.date)
+        etCompleteDate.resignFirstResponder()
     }
 
-    // private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
-    //     @Override
-    //     public void onDateSet(DatePicker view, int year, int monthOfYear,
-    //                           int dayOfMonth) {
-    //         String msg = String.format("%d-%02d-%02d", year, monthOfYear + 1, dayOfMonth);
-    //         mDate = msg;
-    //         ((TextView) findViewById(R.id.write_layout_titleView)).setText(mDate);
-    //     }
-    // };
-    
-    // private DatePickerDialog.OnDateSetListener dateSetListener2 = new DatePickerDialog.OnDateSetListener() {
-    //     @Override
-    //     public void onDateSet(DatePicker view, int year, int monthOfYear,
-    //                           int dayOfMonth) {
-    //         String msg = String.format("%d-%02d-%02d", year, monthOfYear + 1, dayOfMonth);
-    //         mDeadLineDate = msg;
-    //         ((TextView) findViewById(R.id.write_layout_deadline)).setText(mDeadLineDate);
-    //     }
-    // };
-    
     // @Override
     // protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     //     if (requestCode == REQ_CODE_PICKCUTRE) {
@@ -352,27 +329,10 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     //     }
     // }
     
-    /**
-     * 서버로 전송할 데이타 만들기
-     *
-     * @return 전송 데이타
-     */
-    private func shareBucketImage() -> Bucket {
-        let bucket : Bucket = Bucket()
-        let userNickName = UserDefault.read(key : ContextUtils.KEY_USER_NICKNAME)
-        bucket.mNickName = userNickName
-        bucket.mContent = mContent
-        bucket.mImageURl = ""
-        bucket.mDate = mDate
-        bucket.mCategory = mCategory
-        
-        return bucket
-    }
+  func onHttpReceive(type : Int, actionId: Int,  data : Data){
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
     
-    func onHttpReceive(type : Int, actionId: Int,  data : Data){
-        KLog.d(tag : TAG, msg : "@@ onHttpReceive : " + obj);
-        KLog.d(tag : TAG, msg : "@@ onHttpReceive type : " + type);
-        
         var isValid : Bool  = false
         do {
             if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
@@ -385,18 +345,18 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             print("JSON 파상 에러")
         }
 
-        if (actionId == IHttpReceive.INSERT_BUCKET) {
-                if (type == IHttpReceive.HTTP_FAIL) {
+        if (actionId == ConstHTTP.INSERT_BUCKET) {
+                if (type == ConstHTTP.HTTP_FAIL) {
                     let message = AppUtils.localizedString(forKey : "write_bucekt_fail_string")
                     handleMessage(what: TOAST_MASSEGE, obj: message)
                 } else {
                     if (data != nil) {
                         do {
                             if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                                    mImageIdx = json.getInt("idx")
+                                    //mImageIdx = json.getInt("idx")
                             }
                         } catch {
-                             KLog.d(tag : TAG, msg : "@@ Exception : " + error)
+                             KLog.d(tag : TAG, msg : "@@ Exception ")
                         }
         
                         if (isValid == true) {
@@ -411,8 +371,8 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
                     }
                 }
             }// 이미지 업로드 결과
-            else if (actionId == IHttpReceive.INSERT_IMAGE) {
-                if (type == IHttpReceive.HTTP_FAIL) {
+            else if (actionId == ConstHTTP.INSERT_IMAGE) {
+                if (type == ConstHTTP.HTTP_FAIL) {
                     let message = AppUtils.localizedString(forKey : "upload_image_fail_string")
                     handleMessage(what: TOAST_MASSEGE, obj: message)
                 } else {
@@ -439,8 +399,8 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             //                 String fileName = sdf.format(calendar.getTime());
             
             //                 byte[] bytes = ByteUtils.getByteArrayFromBitmap(bitmap);
-            let  httpUrlFileUploadManager : HttpUrlFileUploadManager =  HttpUrlFileUploadManager(url : ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, post : true, receive : self, id : ConstHTTP.INSERT_IMAGE, bytes)
-            httpUrlFileUploadManager.actionTask(photoPath, "idx", mImageIdx + "", fileName + ".jpg")
+//            let  httpUrlFileUploadManager : HttpUrlFileUploadManager =  HttpUrlFileUploadManager(url : ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, post : true, receive : self, id : ConstHTTP.INSERT_IMAGE, bytes)
+//            httpUrlFileUploadManager.actionTask(photoPath, "idx", mImageIdx + "", fileName + ".jpg")
             // HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, this, IHttpReceive.INSERT_IMAGE, bytes);
              // httpUrlFileUploadManager.execute(photoPath, "idx", mImageIdx + "", fileName + ".jpg");
              }else{
@@ -457,15 +417,15 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             let content = AppUtils.localizedString(forKey : "category_popup_content")
 
             var list : Array<Category> = Array()
-            list.append(Category("LIEF", 1))
-            list.append(Category("LOVE", 2))
-            list.append(Category("WORK", 3))
-            list.append(Category("EDUCATION", 4))
-            list.append(Category("FAMILY", 5))
-            list.append(Category("FINANCE", 6))
-            list.append(Category("DEVELOP", 7))
-            list.append(Category("HEALTH", 8))
-            list.append(Category("ETC", 9))
+            list.append(Category(name : "LIEF", code : 1))
+            list.append(Category(name : "LOVE", code : 2))
+            list.append(Category(name : "WORK", code : 3))
+            list.append(Category(name : "EDUCATION", code : 4))
+            list.append(Category(name : "FAMILY", code : 5))
+            list.append(Category(name : "FINANCE", code : 6))
+            list.append(Category(name : "DEVELOP", code : 7))
+            list.append(Category(name : "HEALTH", code : 8))
+            list.append(Category(name : "ETC", code : 9))
             //             mCategoryPopup = new SpinnerListPopup(this, title, "", list, R.layout.popupview_spinner_list, this, OnPopupEventListener.POPUP_BUCKET_CATEGORY);
             //             mCategoryPopup.showDialog();
             break;
@@ -539,9 +499,11 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        KLog.d(tag: TAG, msg: "imagePickerController" )
         var chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
         ivImage.contentMode = .scaleAspectFill
         ivImage.image = chosenImage
+        ivImage.isHidden = false
         dismiss(animated: true, completion: nil)
     }
     
