@@ -60,12 +60,11 @@ class IntroView: UIViewController {
 
     func handleMessage(what : Int, obj : String) {
             switch (what) {
-        //         case 0://바로 실행할때
-    //             Intent intent = new Intent(this, MainActivity.class);
-    //             startActivity(intent);
-    //             finish();
-    //             break;
-    //         case 1://비밀번호 맞추기
+            case 0://바로 실행할때
+                changeView(strView : "MainView")
+                finish()
+                break;
+            case 1://비밀번호 맞추기
     //             intent = new Intent(this, PassWordActivity.class);
     //             Intent intent2 = getIntent();
     //             String startView = intent2.getStringExtra("DATA");
@@ -73,33 +72,39 @@ class IntroView: UIViewController {
     //             intent.putExtra("DATA", startView);
     //             startActivity(intent);
     //             finish();
-    //             break;
-    //         case 2://가지 작성 화면
-    //             intent = new Intent(this, WriteActivity.class);
-    //             startActivity(intent);
-    //             finish();
-    //             break;
-    //         case 3://리스트 화면
-    //             intent = new Intent(this, BucketListActivity.class);
-    //             startActivity(intent);
-    //             finish();
-    //             break;
-    //         case 4://모두의 가지화면
-    //             intent = new Intent(this, ShareListActivity.class);
-    //             startActivity(intent);
-    //             finish();
-    //             break;
-    //         case 5:
-    //             intent = new Intent(this, MainActivity.class);
-    //             intent.putExtra(ContextUtils.WIDGET_SEND_DATA, ContextUtils.WIDGET_SHARE);
-    //             startActivity(intent);
-    //             finish();
-    //             break;
+                break;
+            case 2://가지 작성 화면
+                changeView(strView : "WriteView")
+                finish()
+                break;
+            case 3://리스트 화면
+                changeView(strView : "BucketListView")
+                finish()
+                break;
+            case 4://모두의 가지화면
+                changeView(strView : "ShareListView")
+                finish()
+                break;
+            case 5:
+                changeView(strView : "MainView")
+                finish()
+                break;
         }
     }
 
     @IBAction func onBackPressed(_ sender: Any) {
         KLog.d(tag: TAG, msg: "onBackPressed");
+    }
+
+    private func changeView(strView : String){
+        KLog.d(tag: TAG, msg: "changeView : " + strView)
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier : strView)
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
+    
+    private func finish(){
+        KLog.d(tag: TAG, msg: "finish")
     }
 }
 

@@ -51,15 +51,15 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     }
     
     func setCategoryList() {
-        mCategoryList.append(Category(name : "LIEF", code: 0))
-        mCategoryList.append(Category(name : "LOVE", code : 1))
-        mCategoryList.append(Category(name : "WORK", code : 2))
-        mCategoryList.append(Category(name : "EDUCATION", code : 3))
-        mCategoryList.append(Category(name : "FAMILY", code : 4))
-        mCategoryList.append(Category(name : "FINANCE", code : 5))
-        mCategoryList.append(Category(name : "DEVELOP", code : 6))
-        mCategoryList.append(Category(name : "HEALTH", code : 7))
-        mCategoryList.append(Category(name : "ETC", code : 8))
+        mCategoryList.append(Category(name : "LIEF", code: 1))
+        mCategoryList.append(Category(name : "LOVE", code : 2))
+        mCategoryList.append(Category(name : "WORK", code : 3))
+        mCategoryList.append(Category(name : "EDUCATION", code : 4))
+        mCategoryList.append(Category(name : "FAMILY", code : 5))
+        mCategoryList.append(Category(name : "FINANCE", code : 6))
+        mCategoryList.append(Category(name : "DEVELOP", code : 7))
+        mCategoryList.append(Category(name : "HEALTH", code : 8))
+        mCategoryList.append(Category(name : "ETC", code : 9))
     }
     
     @IBAction func onBackPressed(_ sender: Any) {

@@ -35,7 +35,7 @@ class WriteMemoView : UIViewController {
     }
     
 
-    func onClickModify(message : String) {
+    func onClickModify(message : String) change{
         // String memo = ((EditText) findViewById(R.id.write_meo_content)).getText().toString();
         // SharedPreferenceUtils.write(this, ContextUtils.KEY_USER_MEMO, memo);
         // KMemoWidget.updateWidget(this, mWidgetId);

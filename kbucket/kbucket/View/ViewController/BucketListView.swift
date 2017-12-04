@@ -38,9 +38,8 @@ class BucketListView: UIViewController , IHttpReceive {
     
     func initialize(){
     //     mListView = (ListView) findViewById(R.id.bucket_list_listview);
-    //     mDataList = new ArrayList<PostData>();
-            mSqlQuery = SQLQuery()
-            setListData()
+           mSqlQuery = SQLQuery()
+           setListData()
     //     Collections.reverse(mDataList);
     //     mListAdapter = new CardViewListAdpater(this, R.layout.cardview_list_line, mDataList, this, this);
     //     mListView.setAdapter(mListAdapter);
@@ -59,32 +58,39 @@ class BucketListView: UIViewController , IHttpReceive {
      * DB 데이타 불러와서 데이타 표시하기
      */
     private func setListData() {
-        // LinkedList<LinkedHashMap<String, String>> map = mSqlQuery.selectKbucket(getApplicationContext());
-        // if (map == null) {
-        //     return;
-        // }
-        // for (int i = 0; i < map.size(); i++) {
-        //     LinkedHashMap<String, String> memoMap = map.get(i);
-        //     KLog.d(this.getClass().getSimpleName(), "@@ memoMap" + memoMap.toString());
+         if(mSqlQuery != nil){
+            var bucketList : Results<Bucket>? = nil
 
-        //     if (memoMap.get("complete_yn").equals("N")) {
-        //         continue;
-        //     }
-        //     PostData postData = new PostData("", memoMap.get("contents"), memoMap.get("date"), i);
-        //     postData.setImageName(memoMap.get("image_path"));
-        //     postData.setCompleteYN(memoMap.get("complete_yn"));
-        //     mDataList.add(postData);
-        // }
+            bucketList = mSqlQuery?.selectKbucket()
+
+            let strCount = String(describing: bucketList?.count)
+            KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
+            for kbucket in bucketList!
+            {
+                KLog.d(tag: TAG, msg: "realm DB data : " + kbucket.mContent)
+                if  (kbucket.mCompleteYN != nil && kbucket.mCompleteYN == "N") {
+                    continue
+                }
+                var postData = PostData()
+                postData.m_contents = kbucket.mContent
+                postData.m_date = kbucket.mCompleteDate
+                postData.mImageName = kbucket.mImageURl
+                postData.mCompleteYN = kbucket.mCompleteYN
+                mDataList.append(postData)
+            }
+        }
     }
 
    @IBAction func onClick(_ sender: Any) {
         switch(sender  as! UIButton ){
-    //     int index = v.getId();
-    //     Intent intent = new Intent(this, WriteDetailActivity.class);
-    //     intent.putExtra("CONTENTS", mDataList.get(index).getContents());
-    //     intent.putExtra("BACK", ContextUtils.VIEW_COMPLETE_LIST);
-    //     startActivity(intent);
-    //     finish();
+            let index = 0
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailView")
+            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+            uvc?.CONTENTS = mDataList[index].mContent
+            uvc?.BACK = ContextUtils.VIEW_COMPLETE_LIST
+            present(uvc!, animated: true, completion: nil)
+
+            finish()
         }
     }
 
@@ -149,13 +155,13 @@ class BucketListView: UIViewController , IHttpReceive {
                     }
 
                     if (isValid == true) {
-                    // 이미지가 있는 경우 전송함
-                    // if (mDataList.get(mShareIdx).getImageName() != null && !mDataList.get(mShareIdx).getImageName().equals("")) {
-                    //     mHandler.sendEmptyMessage(UPLOAD_IMAGE);
-                    // } else {
-                        // var message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
-                        // handleMessage(what: TOAST_MASSEGE, obj: message)
-                    // }
+                        // 이미지가 있는 경우 전송함
+                        if (mDataList[mShareIdx].mImageName != nil && mDataList[mShareIdx].mImageName.count > 0) {
+                            handleMessage(what: UPLOAD_IMAGE, obj: "")
+                        } else {
+                            var message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                            handleMessage(what: TOAST_MASSEGE, obj: message)
+                        }
                     }
                 } catch  {
                         KLog.d(tag : TAG, msg : "@@ jsonException message ");
@@ -235,20 +241,22 @@ class BucketListView: UIViewController , IHttpReceive {
                 httpUrlTaskManager.actionTask()
                 break;
             case SELECT_BUCKET_CATEGORY:
-    //             String title = getString(R.string.category_popup_title);
-    //             String content = getString(R.string.category_popup_content);
-    //             ArrayList<Category> list = new ArrayList<Category>();
-    //             list.add(new Category("LIEF", 1));
-    //             list.add(new Category("LOVE", 2));
-    //             list.add(new Category("WORK", 3));
-    //             list.add(new Category("EDUCATION", 4));
-    //             list.add(new Category("FAMILY", 5));
-    //             list.add(new Category("FINANCE", 6));
-    //             list.add(new Category("DEVELOP", 7));
-    //             list.add(new Category("HEALTH", 8));
-    //             list.add(new Category("ETC", 9));
-    //             mCategoryPopup = new SpinnerListPopup(this, title, "", list, R.layout.popupview_spinner_list, this, OnPopupEventListener.POPUP_BUCKET_CATEGORY);
-    //             mCategoryPopup.showDialog();
+                let title = AppUtils.localizedString(forKey : "category_popup_title")
+                let content = AppUtils.localizedString(forKey : "category_popup_content")
+                  
+                var list = Array<Category>()
+                list.append(Category(name : "LIEF", code: 1))
+                list.append(Category(name : "LOVE", code : 2))
+                list.append(Category(name : "WORK", code : 3))
+                list.append(Category(name : "EDUCATION", code : 4))
+                list.append(Category(name : "FAMILY", code : 5))
+                list.append(Category(name : "FINANCE", code : 6))
+                list.append(Category(name : "DEVELOP", code : 7))
+                list.append(Category(name : "HEALTH", code : 8))
+                list.append(Category(name : "ETC", code : 9))
+    
+    //           mCategoryPopup = new SpinnerListPopup(this, title, "", list, R.layout.popupview_spinner_list, this, OnPopupEventListener.POPUP_BUCKET_CATEGORY);
+    //           mCategoryPopup.showDialog();
                 break;
         }
     }
