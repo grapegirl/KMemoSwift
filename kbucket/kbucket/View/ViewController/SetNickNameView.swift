@@ -1,4 +1,4 @@
-﻿//
+//
 //  SetNickNameView.swift
 //  사용자 닉네임 설정
 //
@@ -45,8 +45,6 @@ class SetNickNameView : UIViewController {
     }
     
     @IBAction func onBackPressed(_ sender: Any) {
-        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
-        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-        present(uvc!, animated: true, completion: nil)
+        ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
     }
 }

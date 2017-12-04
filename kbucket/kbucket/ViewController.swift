@@ -127,7 +127,7 @@ class ViewController: UIViewController {
     }
         
     @IBAction func onClickWriteBucket(_ sender: Any) {
-        changeView(viewName: "WriteViewCtrl")
+        changeView(viewName: "WriteView")
     }
     
     @IBAction func onClickComplete(_ sender: Any) {
@@ -135,7 +135,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onClickShare(_ sender: Any) {
-        changeView(viewName: "ShareListViewCtlr")
+        changeView(viewName: "ShareListView")
     }
     
     @IBAction func onClickRank(_ sender: Any) {

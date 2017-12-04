@@ -44,7 +44,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     }
     
     func initialize(){
-        setCategoryList()
+        //setCategoryList()
         mTableView.delegate = self
         mTableView.dataSource = self
         handleMessage(what: SHARE_BUCKET_LIST, obj : "1")
@@ -208,7 +208,6 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                 }
                 break;
             case CHECK_NETWORK:
-                break;
                 let isConnect  : Bool = true //NetworkUtils.isConnectivityStatus(this)
                 if (isConnect == false) {
                     var connectMsg =  AppUtils.localizedString(forKey :"check_network")
@@ -216,6 +215,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                 } else {
                     handleMessage(what: CATEGORY_LIST, obj: "")
                 }
+                break;
             default:
                 break;
         }
@@ -243,12 +243,10 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
         switch(gbn){
         case 0://상세보기
            KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
-           let uvc = self.storyboard?.instantiateViewController(withIdentifier: "ShareDetailViewCtlr")
-           uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+           ViewUtils.changeView(strView: "ShareDetailView", viewCtrl: self)
             //             int idx = mBucketDataList.get(sharedIdx).getIdx();
             //             intent.putExtra(ContextUtils.NUM_SHARE_BUCKET_IDX, idx + "");
             //             intent.putExtra(ContextUtils.OBJ_SHARE_BUCKET, mBucketDataList.get(sharedIdx));
-           present(uvc!, animated: true, completion: nil)
            break;
         
         default:

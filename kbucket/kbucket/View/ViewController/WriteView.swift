@@ -32,10 +32,8 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         KLog.d(tag: TAG, msg: "viewDidLoad");
-        
         mTableView.delegate = self
         mTableView.dataSource = self
-        
         initialize()
     }
     
@@ -43,20 +41,17 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
         mSqlQuery = SQLQuery()
         if(mSqlQuery != nil){
             var bucketList : Results<Bucket>? = nil
-
             bucketList = mSqlQuery?.selectKbucket()
 
             let strCount = String(describing: bucketList?.count)
             KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
-            for kbucket in bucketList!
-            {
+            for kbucket in bucketList!{
                 KLog.d(tag: TAG, msg: "realm DB data : " + kbucket.mContent)
                 if  (kbucket.mContent != nil && kbucket.mContent == "Y") {
                     continue
                 }
                 mDataList.append(kbucket.mContent)
             }
-
         }
         sort()
         print("@@ 디렉토리 : " + NSHomeDirectory())
@@ -80,17 +75,14 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
         } else {
             mDataList.sort(){$0 > $1}
         }
-        
         print(mDataList)
         self.mTableView.reloadData()
     }
     
     
     @IBAction func onBackPressed(_ sender: Any) {
-        KLog.d(tag: TAG, msg: "onBackPressed");
-        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
-        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-        present(uvc!, animated: true, completion: nil)
+        KLog.d(tag: TAG, msg: "onBackPressed")
+        ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
     }
     
     @IBAction func onClick(_ sender: Any) {
@@ -188,9 +180,7 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
                 if(result){
                     mDataList.remove(at: index!)
                     self.mTableView.reloadData()
-                    
                 }
-                
             }
             break;
         default:

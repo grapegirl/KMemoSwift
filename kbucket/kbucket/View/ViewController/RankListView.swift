@@ -185,9 +185,7 @@ class RankListView : UIViewController , IHttpReceive {
     }
 
     private func finish(){
-        KLog.d(tag: TAG, msg: "finish");
-        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
-        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-        present(uvc!, animated: true, completion: nil)
+        KLog.d(tag: TAG, msg: "finish")
+        ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
     }
 }

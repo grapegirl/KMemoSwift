@@ -12,7 +12,7 @@
         <!--Main-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="MainViewCtrl" title="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" title="Main" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="ViewController" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="AOD-TB-I22"/>
                         <viewControllerLayoutGuide type="bottom" id="n7G-lh-QWN"/>
@@ -123,10 +123,10 @@
             </objects>
             <point key="canvasLocation" x="-907" y="66"/>
         </scene>
-        <!--Write View Ctrl-->
+        <!--Write View-->
         <scene sceneID="93d-Ep-dPk">
             <objects>
-                <viewController storyboardIdentifier="WriteViewCtrl" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ait-vZ-ruu" customClass="WriteViewCtrl" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Ait-vZ-ruu" customClass="WriteView" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BWL-2u-fuA"/>
                         <viewControllerLayoutGuide type="bottom" id="1d2-uk-wKK"/>
@@ -281,10 +281,10 @@
             </objects>
             <point key="canvasLocation" x="-481" y="66"/>
         </scene>
-        <!--Write Detail View Ctlr-->
+        <!--Write Detail View-->
         <scene sceneID="6gR-kz-iwH">
             <objects>
-                <viewController storyboardIdentifier="WriteDetailViewCtlr" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aMF-eL-1tI" customClass="WriteDetailViewCtlr" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WriteDetailView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="aMF-eL-1tI" customClass="WriteDetailView" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="CLb-Qo-SHt"/>
                         <viewControllerLayoutGuide type="bottom" id="ReB-Di-d4U"/>
@@ -459,10 +459,10 @@
             </objects>
             <point key="canvasLocation" x="-57.5" y="65.5"/>
         </scene>
-        <!--Share List View Ctlr-->
+        <!--Share List View-->
         <scene sceneID="NEa-Xw-IRN">
             <objects>
-                <viewController storyboardIdentifier="ShareListViewCtlr" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZRx-Kd-yj8" customClass="ShareListViewCtlr" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShareListView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZRx-Kd-yj8" customClass="ShareListView" customModule="kbucket" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="61R-fX-SWO"/>
                         <viewControllerLayoutGuide type="bottom" id="ZU9-da-2rb"/>

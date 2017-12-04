@@ -19,8 +19,8 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     private var mDate : String = ""
     private var mDeadLineDate : String = ""
     private var mPhotoPath : String = ""
-    var CONTENTS  = String()
-    var BACK  = String()
+    public var CONTENTS  = String()
+    public var BACK  = String()
     
     private var mImageIdx : Int = -1
     private var mCategory : Int = 1
@@ -97,8 +97,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             bucketList = mSqlQuery?.selectKbucket(memoContents: mContents)
             let strCount = String(describing: bucketList?.count)
             KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
-            for kbucket in bucketList!
-            {
+            for kbucket in bucketList! {
                 KLog.d(tag: TAG, msg: "realm DB mContent : " + kbucket.mContent)
                 KLog.d(tag: TAG, msg: "realm DB mCompleteDate : " + kbucket.mCompleteDate)
                 KLog.d(tag: TAG, msg: "realm DB mCompleteYN : " + kbucket.mCompleteYN)
@@ -120,7 +119,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
                     hideImageAttachButton(ishide: false)
                     ivImage.isHidden = true
                 }
-                
                 etDate.text = kbucket.mCompleteDate
                 etContent.text = kbucket.mContent
                 etCompleteDate.text = kbucket.mCompleteDate
@@ -167,13 +165,9 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     private func back(strBack : String){
         KLog.d(tag: TAG, msg: "back : " + strBack)
         if(BACK == ContextUtils.VIEW_COMPLETE_LIST){
-            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "BucketListViewCtrl")
-            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-            present(uvc!, animated: true, completion: nil)
+            ViewUtils.changeView(strView: "BucketListViewCtrl", viewCtrl: self)
         }else{
-            let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
-            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-            present(uvc!, animated: true, completion: nil)
+            ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
         }
     }
     
@@ -441,11 +435,9 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         
         captureSesssion = AVCaptureSession()
         stillImageOutput = AVCapturePhotoOutput()
-        
         captureSesssion.sessionPreset = AVCaptureSessionPreset1920x1080 // 해상도설정
         
         let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
-        
         do {
             let input = try AVCaptureDeviceInput(device: device)
             
@@ -490,7 +482,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     func openGallary(){
         picker!.allowsEditing = false
         picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        
         present(picker!, animated: true, completion: nil)
     }
 

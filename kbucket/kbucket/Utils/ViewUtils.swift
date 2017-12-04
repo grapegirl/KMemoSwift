@@ -10,20 +10,18 @@ import UIKit
 
 class ViewUtils {
     
-    private let TAG : String = "ViewUtils"
+    let TAG : String = "ViewUtils"
 
     init() {
     }
     
-    public static func changeView(strView : String){
-        KLog.d(tag: TAG, msg: "changeView : " + strView)
-        let uvc = self.storyboard?.instantiateViewController(withIdentifier : strView)
+    public static func changeView(strView : String, viewCtrl : UIViewController){
+        let uvc = viewCtrl.storyboard?.instantiateViewController(withIdentifier : strView)
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-        present(uvc!, animated: true, completion: nil)
+        viewCtrl.present(uvc!, animated: true, completion: nil)
     }
 
-    public static func finish(){
-        KLog.d(tag: TAG, msg: "finish")
-        self.dismiss(animated: true, completion : nil)
+    public static func finish(viewCtrl : UIViewController){
+        viewCtrl.dismiss(animated: true, completion : nil)
     }    
 }

@@ -60,7 +60,6 @@ class ShareDetailView : UIViewController , IHttpReceive {
    func setData( bucket : Bucket) {
        mBucketNo = bucket.mIdx
        KLog.d(tag : TAG, msg : "@@ image exists  type: " + bucket.mImageURl)
-
        if (bucket.mImageURl != nil && bucket.mImageURl != "N") {
            handleMessage(what: DOWNLOAD_IMAGE, obj: "")
        }
@@ -111,12 +110,10 @@ class ShareDetailView : UIViewController , IHttpReceive {
            }
         } else if (actionId == ConstHTTP.COMMENT_LIST) {
             //KProgressDialog.setDataLoadingDialog(this, false, null, false);
-
-           if (type == ConstHTTP.HTTP_OK && isValid == true) {
-            handleMessage(what: LOAD_COMMENT_LIST, obj: String(mBucketNo))
-            
-           } else{
-            handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+            if (type == ConstHTTP.HTTP_OK && isValid == true) {
+                handleMessage(what: LOAD_COMMENT_LIST, obj: String(mBucketNo))
+            } else{
+                handleMessage(what: SERVER_LOADING_FAIL, obj: "")
             }
         } else if (actionId == ConstHTTP.DOWNLOAD_IMAGE) {
             if (type == ConstHTTP.HTTP_OK) {
@@ -159,15 +156,15 @@ class ShareDetailView : UIViewController , IHttpReceive {
             }
         }
 
-        func finish(){
-            KLog.d(tag: TAG, msg: "finish")
-            deleteImageResource()
-            let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
-            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-            present(uvc!, animated: true, completion: nil)
-        }
+    func finish(){
+        KLog.d(tag: TAG, msg: "finish")
+        deleteImageResource()
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
 
-        func handleMessage(what : Int, obj : String) {
+    func handleMessage(what : Int, obj : String) {
 //            switch (what) {
 //                case TOAST_MASSEGE:
 //                    Toast.showToast(message: obj)
@@ -213,7 +210,7 @@ class ShareDetailView : UIViewController , IHttpReceive {
 //                    // }
 //                    break;
 //                }
-        }
+    }
             
    /**
     * 이미지 리소스 해제하기
