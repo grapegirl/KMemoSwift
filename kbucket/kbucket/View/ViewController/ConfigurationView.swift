@@ -133,7 +133,7 @@ class ConfigurationView : UIViewController , IHttpReceive {
                     KLog.d(tag : TAG, msg : "@@ Exception : ")
                     mMarketVersionName = "-"
                 }
-            } else {
+            } else{
               mMarketVersionName = "-"
             }
             handleMessage(what: SHOW_GOOGLE_VERSION, obj: "")

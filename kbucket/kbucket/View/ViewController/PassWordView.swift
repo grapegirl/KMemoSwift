@@ -11,8 +11,9 @@ import UIKit
 class PassWordView : UIViewController {
 
     private let TAG : String = "PassWordView"
-   // private var mPasswordData : ArrayList<String>()
+   private var mPasswordData = Array<String>()
     private var isPasswordset : Bool = false
+
  
     override func viewDidLoad() {
         super.viewDidLoad()

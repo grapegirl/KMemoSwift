@@ -93,9 +93,9 @@ class NoticeView: UIViewController , IHttpReceive {
                     KLog.d(tag : TAG, msg : "@@ Exception : ")
                     handleMessage(what: SERVER_LOADING_FAIL, obj: "")
                 }
-            } 
-        }
-    }
+        	} 
+    	}
+	}
 
     func handleMessage(what : Int, obj : String) {
 //        switch(what){

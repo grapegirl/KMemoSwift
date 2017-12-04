@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionView: UIViewController {
+class QuestionView : UIViewController {
 
     private let TAG : String = "QuestionView"
     private var mTitleIndex : Int = 1

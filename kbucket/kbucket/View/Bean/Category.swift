@@ -29,8 +29,7 @@ class Category  {
             mCategoryName = newVal
         }
     }
-
-
+    
     /**
      * 생성자
      */

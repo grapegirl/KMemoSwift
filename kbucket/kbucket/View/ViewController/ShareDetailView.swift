@@ -99,7 +99,7 @@ class ShareDetailView : UIViewController , IHttpReceive {
                                 comment.mContent = aObject["content"] as! String
                                 mCommentList.append(comment)
                              }
-                        }
+                      	  }
                     }
                     handleMessage(what: SET_COMMENT_LIST, obj: "")
                 } catch {
@@ -111,11 +111,13 @@ class ShareDetailView : UIViewController , IHttpReceive {
            }
         } else if (actionId == ConstHTTP.COMMENT_LIST) {
             //KProgressDialog.setDataLoadingDialog(this, false, null, false);
-//           if (type == ConstHTTP.HTTP_OK && isValid == true) {
-//            handleMessage(what: LOAD_COMMENT_LIST, obj: String(mBucketNo)
-//           } else{
-//            handleMessage(what: SERVER_LOADING_FAIL, obj: "")
-//            }
+
+           if (type == ConstHTTP.HTTP_OK && isValid == true) {
+            handleMessage(what: LOAD_COMMENT_LIST, obj: String(mBucketNo))
+            
+           } else{
+            handleMessage(what: SERVER_LOADING_FAIL, obj: "")
+            }
         } else if (actionId == ConstHTTP.DOWNLOAD_IMAGE) {
             if (type == ConstHTTP.HTTP_OK) {
                 KLog.d(tag : TAG, msg : "downlaod image ")

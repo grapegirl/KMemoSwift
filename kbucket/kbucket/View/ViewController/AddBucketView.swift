@@ -48,7 +48,7 @@ class AddBucketView: UIViewController {
     }
 
     @IBAction func onClick(_ sender: Any) {
-            switch(sender  as! UIButton ){
+//            switch(sender  as! UIButton ){
     //         case R.id.interest_bucket_list_add:
     //             mbVisible = !mbVisible;
     //             mListAdapter.setDataVisible(mbVisible);
@@ -63,9 +63,7 @@ class AddBucketView: UIViewController {
     //             data = mDataList.get(index);
     //             removeDBData(data);
     //             break;
-            default:
-                break;
-         }
+//        }
     }
 
     func setListData() {
