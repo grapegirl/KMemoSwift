@@ -1,5 +1,5 @@
 //
-//  WriteViewCtlr.swift
+//  WriteView.swift
 //  kbucket
 //
 //  Created by 김미혜 on 2017. 8. 20..
@@ -10,9 +10,9 @@ import UIKit
 import Foundation
 import RealmSwift
 
-class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSource, EventProtocol {
+class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource, EventProtocol {
     
-    private let TAG : String = "WriteViewCtrl"
+    private let TAG : String = "WriteView"
     
     private var mBucketDataList = Array<PostData>()
     private var mDataList = Array<String>()
@@ -25,7 +25,6 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     @IBOutlet weak var btSortName: UIButton!
     @IBOutlet weak var btSortLastest: UIButton!
     @IBOutlet weak var btSortDeadLine: UIButton!
-    
     
     public var temp :  String = ""
     private var mSqlQuery  : SQLQuery? = nil
@@ -89,7 +88,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
     
     @IBAction func onBackPressed(_ sender: Any) {
         KLog.d(tag: TAG, msg: "onBackPressed");
-        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewCtrl")
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
         present(uvc!, animated: true, completion: nil)
     }
@@ -172,7 +171,7 @@ class WriteViewCtrl : UIViewController,  UITableViewDelegate, UITableViewDataSou
         switch(gbn){
         case 0://수정
             KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
-            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailViewCtlr") as! WriteDetailViewCtlr
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailView") as! WriteDetailView
             uvc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
             let index:Int! = Int(data)
             uvc.CONTENTS = mDataList[index]

@@ -1,5 +1,5 @@
 //
-//  ShareListViewCtlr.swift
+//  ShareListView.swift
 //  공유 목록
 //
 //  Created by grapegirl on 2017. 11. 04..
@@ -9,9 +9,9 @@
 import UIKit
 import Foundation
 
-class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, UITableViewDataSource, EventProtocol {
+class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITableViewDataSource, EventProtocol {
     
-    private let TAG : String = "ShareListViewCtlr"
+    private let TAG : String = "ShareListView"
     
     private let TOAST_MASSEGE : Int             = 10
     private let CATEGORY_LIST : Int             = 20
@@ -64,7 +64,7 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
     
     @IBAction func onBackPressed(_ sender: Any) {
         KLog.d(tag: TAG, msg: "onBackPressed");
-        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "MainViewCtrl")
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
         present(uvc!, animated: true, completion: nil)
     }
@@ -200,7 +200,7 @@ class ShareListViewCtlr: UIViewController , IHttpReceive, UITableViewDelegate, U
                 //  KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
                 let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
                 let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
-                httpUrlTaskManager.actionTask();
+                httpUrlTaskManager.actionTask()
                 break;
             case SET_BUCKETLIST:
                 DispatchQueue.main.async {

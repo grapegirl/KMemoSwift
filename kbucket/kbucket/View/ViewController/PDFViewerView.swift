@@ -1,5 +1,5 @@
 ﻿//
-//  PDFViewerViewCtlr.swift
+//  PDFViewerView.swift
 //  kbucket
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,9 +9,9 @@
 import UIKit
 
 
-class PDFViewerViewCtlr: UIViewController {
+class PDFViewerView : UIViewController {
 
-     private let TAG : String = "PDFViewerViewCtlr"
+     private let TAG : String = "PDFViewerView"
 
     override func viewDidLoad() {
         super.viewDidLoad()

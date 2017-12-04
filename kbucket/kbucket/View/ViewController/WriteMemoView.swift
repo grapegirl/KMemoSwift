@@ -1,5 +1,5 @@
 ﻿//
-//  WriteMemoViewCtlr.swift
+//  WriteMemoView.swift
 //  메모 작성 클래스
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -8,9 +8,9 @@
 
 import UIKit
 
-class WriteMemoViewCtlr : UIViewController {
+class WriteMemoView : UIViewController {
 
-   private let TAG : String = "WriteMemoViewCtlr"
+   private let TAG : String = "WriteMemoView"
 
    @IBOutlet weak var btModify: UIButton!
    @IBOutlet weak var etContent: UIButton!

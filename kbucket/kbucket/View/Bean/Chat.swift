@@ -12,7 +12,7 @@ import UIKit
 class Chat  {
     
    /** 내용 */
-	private var mContent :  String {
+	var mContent :  String {
         get {
             return mContent
         }
@@ -21,7 +21,7 @@ class Chat  {
         }
     }
 	/** 날짜 */
-	private var mDate :  String {
+	var mDate :  String {
         get {
             return mDate
         }
@@ -30,7 +30,7 @@ class Chat  {
         }
     }
 	/** 방번호 */
-	private var mIdx :  String {
+	var mIdx :  String {
         get {
             return mIdx
         }
@@ -39,7 +39,7 @@ class Chat  {
         }
     }
 	/** 닉네임 */
-	private var mNickName :  String {
+	var mNickName :  String {
         get {
             return mNickName
         }
@@ -48,7 +48,7 @@ class Chat  {
         }
     }
 	/** 사용자 전화번호 */
-	private var mPhone :  String {
+	var mPhone :  String {
         get {
             return mPhone
         }
@@ -57,7 +57,7 @@ class Chat  {
         }
     }
 	/** 이미지 저장경로 */
-	private var mImageURl :  String {
+	var mImageURl :  String {
         get {
             return mImageURl
         }
@@ -66,7 +66,7 @@ class Chat  {
         }
     }
 	/** 숨긴 여부 */
-	private var mIsHidden :  String {
+	var mIsHidden :  String {
         get {
             return mIsHidden
         }
@@ -75,7 +75,7 @@ class Chat  {
         }
     }
 	/** seq */
-	private var mSeq : Int {
+	var mSeq : Int {
         get {
             return mSeq
         }

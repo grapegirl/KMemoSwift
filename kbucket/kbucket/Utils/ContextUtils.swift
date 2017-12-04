@@ -99,6 +99,7 @@ class ContextUtils{
     public static let SORT_DEADLINE : String = "SORT_DEADLINE"     
     public static let BACK_MEMO : String = "BACK_MEMO"     
 
+    public static let MAIN_VIEW : String = "MainView"
 
     /**************************************************************************
      *

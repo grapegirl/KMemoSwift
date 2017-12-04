@@ -1,5 +1,5 @@
 //
-//  WriteDetailViewCtlr.swift
+//  WriteDetailView.swift
 //  버킷 상세 클래스
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -11,10 +11,10 @@ import Foundation
 import RealmSwift
 import AVFoundation
 
-class WriteDetailViewCtlr: UIViewController , IHttpReceive, AVCapturePhotoCaptureDelegate , UIImagePickerControllerDelegate,
+class WriteDetailView: UIViewController , IHttpReceive, AVCapturePhotoCaptureDelegate , UIImagePickerControllerDelegate,
 UIPopoverControllerDelegate,UINavigationControllerDelegate {
     
-    private let TAG : String = "WriteDetailViewCtlr"
+    private let TAG : String = "WriteDetailView"
     private var mContents : String = ""
     private var mDate : String = ""
     private var mDeadLineDate : String = ""
@@ -171,7 +171,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
             present(uvc!, animated: true, completion: nil)
         }else{
-            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteViewCtrl")
+            let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
             uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
             present(uvc!, animated: true, completion: nil)
         }

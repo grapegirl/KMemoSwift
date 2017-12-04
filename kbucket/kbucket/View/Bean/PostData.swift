@@ -14,7 +14,7 @@ class PostData  {
    /**
      * 타이틀
      */
-    private var m_title : String { 
+    var m_title : String { 
         get {
             return m_title
         }
@@ -26,7 +26,7 @@ class PostData  {
     /**
      * 등록 날짜
      */
-    private var m_date : String { 
+    var m_date : String { 
         get {
             return m_date
         }
@@ -37,7 +37,7 @@ class PostData  {
     /**
      * 내용
      */
-    private var m_contents : String { 
+    var m_contents : String { 
         get {
             return m_contents
         }
@@ -49,7 +49,7 @@ class PostData  {
     /**
      * 순번
      */
-    private var mNo : Int {
+    var mNo : Int {
         get {
             return mNo
         }
@@ -61,7 +61,7 @@ class PostData  {
     /**
      * 이미지 이름
      */
-    private var mImageName : String { 
+    var mImageName : String { 
       get {
             return mImageName
         }
@@ -73,7 +73,7 @@ class PostData  {
     /**
      * 완료여부
      */
-    private var mCompleteYN : String { 
+    var mCompleteYN : String { 
         get {
             return mCompleteYN
         }
@@ -85,7 +85,7 @@ class PostData  {
     /**
      * 기한
      */
-    private var mDeadline : String { 
+    var mDeadline : String { 
         get {
             return mDeadline
         }

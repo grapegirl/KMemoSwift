@@ -14,7 +14,29 @@
 		00004A741EF41D8D0074DCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00004A721EF41D8D0074DCFB /* LaunchScreen.storyboard */; };
 		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
 		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
-		0008E3231F91973600F498E6 /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0008E3221F91973600F498E6 /* EventProtocol.swift */; };
+		0011338D1FD3A9C6007BCAD7 /* PassWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133791FD3A9C4007BCAD7 /* PassWordView.swift */; };
+		0011338E1FD3A9C6007BCAD7 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337A1FD3A9C4007BCAD7 /* WriteView.swift */; };
+		0011338F1FD3A9C6007BCAD7 /* AddBucketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337B1FD3A9C4007BCAD7 /* AddBucketView.swift */; };
+		001133901FD3A9C6007BCAD7 /* RankListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337C1FD3A9C4007BCAD7 /* RankListView.swift */; };
+		001133911FD3A9C6007BCAD7 /* PushPopupView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337D1FD3A9C4007BCAD7 /* PushPopupView.swift */; };
+		001133921FD3A9C6007BCAD7 /* ShareDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337E1FD3A9C4007BCAD7 /* ShareDetailView.swift */; };
+		001133931FD3A9C6007BCAD7 /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337F1FD3A9C4007BCAD7 /* ChatView.swift */; };
+		001133941FD3A9C6007BCAD7 /* NoticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133801FD3A9C5007BCAD7 /* NoticeView.swift */; };
+		001133951FD3A9C6007BCAD7 /* WriteMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133811FD3A9C5007BCAD7 /* WriteMemoView.swift */; };
+		001133961FD3A9C6007BCAD7 /* WriteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133821FD3A9C5007BCAD7 /* WriteDetailView.swift */; };
+		001133971FD3A9C6007BCAD7 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133831FD3A9C5007BCAD7 /* TutorialView.swift */; };
+		001133981FD3A9C6007BCAD7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133841FD3A9C5007BCAD7 /* MainView.swift */; };
+		001133991FD3A9C6007BCAD7 /* PDFViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133851FD3A9C5007BCAD7 /* PDFViewerView.swift */; };
+		0011339A1FD3A9C6007BCAD7 /* SetBackColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133861FD3A9C5007BCAD7 /* SetBackColorView.swift */; };
+		0011339B1FD3A9C6007BCAD7 /* SetNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133871FD3A9C5007BCAD7 /* SetNickNameView.swift */; };
+		0011339C1FD3A9C6007BCAD7 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133881FD3A9C5007BCAD7 /* QuestionView.swift */; };
+		0011339D1FD3A9C6007BCAD7 /* ConfigurationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133891FD3A9C5007BCAD7 /* ConfigurationView.swift */; };
+		0011339E1FD3A9C6007BCAD7 /* BucketListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011338A1FD3A9C5007BCAD7 /* BucketListView.swift */; };
+		0011339F1FD3A9C6007BCAD7 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011338B1FD3A9C5007BCAD7 /* IntroView.swift */; };
+		001133A01FD3A9C6007BCAD7 /* ShareListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011338C1FD3A9C5007BCAD7 /* ShareListView.swift */; };
+		001133A21FD3AA04007BCAD7 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133A11FD3AA04007BCAD7 /* Toast.swift */; };
+		001133A51FD3AA18007BCAD7 /* ConstHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133A41FD3AA18007BCAD7 /* ConstHTTP.swift */; };
+		001133A71FD3AA36007BCAD7 /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133A61FD3AA36007BCAD7 /* EventProtocol.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
 		0059940E1F5A3F21007777A1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059940D1F5A3F21007777A1 /* PostData.swift */; };
 		005994191F5A4532007777A1 /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994111F5A4532007777A1 /* Bucket.swift */; };
@@ -25,33 +47,11 @@
 		0059941E1F5A4532007777A1 /* MobileUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994161F5A4532007777A1 /* MobileUser.swift */; };
 		0059941F1F5A4532007777A1 /* UpdateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994171F5A4532007777A1 /* UpdateApp.swift */; };
 		005994201F5A4532007777A1 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994181F5A4532007777A1 /* Version.swift */; };
-		005994361F5A4579007777A1 /* AddBucketViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994221F5A4579007777A1 /* AddBucketViewCtlr.swift */; };
-		005994371F5A4579007777A1 /* BucketListViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994231F5A4579007777A1 /* BucketListViewCtlr.swift */; };
-		005994381F5A4579007777A1 /* ChatViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994241F5A4579007777A1 /* ChatViewCtlr.swift */; };
-		005994391F5A4579007777A1 /* ConfigurationViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994251F5A4579007777A1 /* ConfigurationViewCtlr.swift */; };
-		0059943A1F5A4579007777A1 /* IntroViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994261F5A4579007777A1 /* IntroViewCtlr.swift */; };
-		0059943B1F5A4579007777A1 /* MainViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994271F5A4579007777A1 /* MainViewCtlr.swift */; };
-		0059943C1F5A4579007777A1 /* NoticeViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994281F5A4579007777A1 /* NoticeViewCtlr.swift */; };
-		0059943D1F5A4579007777A1 /* PassWordViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994291F5A4579007777A1 /* PassWordViewCtlr.swift */; };
-		0059943E1F5A4579007777A1 /* PDFViewerViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059942A1F5A4579007777A1 /* PDFViewerViewCtlr.swift */; };
-		0059943F1F5A4579007777A1 /* PushPopupViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059942B1F5A4579007777A1 /* PushPopupViewCtlr.swift */; };
-		005994401F5A4579007777A1 /* QuestionViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059942C1F5A4579007777A1 /* QuestionViewCtlr.swift */; };
-		005994411F5A4579007777A1 /* RankListViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059942D1F5A4579007777A1 /* RankListViewCtlr.swift */; };
-		005994421F5A4579007777A1 /* SetBackColorViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059942E1F5A4579007777A1 /* SetBackColorViewCtlr.swift */; };
-		005994431F5A4579007777A1 /* SetNickNameViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059942F1F5A4579007777A1 /* SetNickNameViewCtlr.swift */; };
-		005994441F5A4579007777A1 /* ShareDetailViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994301F5A4579007777A1 /* ShareDetailViewCtlr.swift */; };
-		005994451F5A4579007777A1 /* ShareListViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994311F5A4579007777A1 /* ShareListViewCtlr.swift */; };
-		005994461F5A4579007777A1 /* TutorialViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994321F5A4579007777A1 /* TutorialViewCtlr.swift */; };
-		005994471F5A4579007777A1 /* WriteDetailViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994331F5A4579007777A1 /* WriteDetailViewCtlr.swift */; };
-		005994481F5A4579007777A1 /* WriteMemoViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994341F5A4579007777A1 /* WriteMemoViewCtlr.swift */; };
-		005994491F5A4579007777A1 /* WriteViewCtlr.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994351F5A4579007777A1 /* WriteViewCtlr.swift */; };
-		0059944C1F5A4ADC007777A1 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059944B1F5A4ADC007777A1 /* Toast.swift */; };
 		007038ED1F63685700372A7C /* SQLiteAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EB1F63685700372A7C /* SQLiteAdapter.swift */; };
 		007038EE1F63685700372A7C /* SQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EC1F63685700372A7C /* SQLQuery.swift */; };
 		007038F01F63686E00372A7C /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EF1F63686E00372A7C /* LinkedList.swift */; };
 		0074C43C1F510A1700BB7CB0 /* FirstCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */; };
 		0080F62E1FAD5DAA0076893B /* IHttpReceive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F62D1FAD5DAA0076893B /* IHttpReceive.swift */; };
-		0080F6301FAD5F6F0076893B /* ConstHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F62F1FAD5F6F0076893B /* ConstHTTP.swift */; };
 		0080F6321FAD60890076893B /* HttpUrlTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F6311FAD60890076893B /* HttpUrlTaskManager.swift */; };
 		00816CE01FC8FC9B000372F2 /* ShareCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */; };
 		00975E941FB689FE003ABBEF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00975E901FB68554003ABBEF /* Realm.framework */; };
@@ -119,7 +119,29 @@
 		00004A851EF41D8D0074DCFB /* kbucketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00004A891EF41D8D0074DCFB /* kbucketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketUITests.swift; sourceTree = "<group>"; };
 		00004A8B1EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0008E3221F91973600F498E6 /* EventProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventProtocol.swift; sourceTree = "<group>"; };
+		001133791FD3A9C4007BCAD7 /* PassWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassWordView.swift; path = View/ViewController/PassWordView.swift; sourceTree = "<group>"; };
+		0011337A1FD3A9C4007BCAD7 /* WriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteView.swift; path = View/ViewController/WriteView.swift; sourceTree = "<group>"; };
+		0011337B1FD3A9C4007BCAD7 /* AddBucketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBucketView.swift; path = View/ViewController/AddBucketView.swift; sourceTree = "<group>"; };
+		0011337C1FD3A9C4007BCAD7 /* RankListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankListView.swift; path = View/ViewController/RankListView.swift; sourceTree = "<group>"; };
+		0011337D1FD3A9C4007BCAD7 /* PushPopupView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushPopupView.swift; path = View/ViewController/PushPopupView.swift; sourceTree = "<group>"; };
+		0011337E1FD3A9C4007BCAD7 /* ShareDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareDetailView.swift; path = View/ViewController/ShareDetailView.swift; sourceTree = "<group>"; };
+		0011337F1FD3A9C4007BCAD7 /* ChatView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatView.swift; path = View/ViewController/ChatView.swift; sourceTree = "<group>"; };
+		001133801FD3A9C5007BCAD7 /* NoticeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoticeView.swift; path = View/ViewController/NoticeView.swift; sourceTree = "<group>"; };
+		001133811FD3A9C5007BCAD7 /* WriteMemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteMemoView.swift; path = View/ViewController/WriteMemoView.swift; sourceTree = "<group>"; };
+		001133821FD3A9C5007BCAD7 /* WriteDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteDetailView.swift; path = View/ViewController/WriteDetailView.swift; sourceTree = "<group>"; };
+		001133831FD3A9C5007BCAD7 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialView.swift; path = View/ViewController/TutorialView.swift; sourceTree = "<group>"; };
+		001133841FD3A9C5007BCAD7 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = View/ViewController/MainView.swift; sourceTree = "<group>"; };
+		001133851FD3A9C5007BCAD7 /* PDFViewerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDFViewerView.swift; path = View/ViewController/PDFViewerView.swift; sourceTree = "<group>"; };
+		001133861FD3A9C5007BCAD7 /* SetBackColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetBackColorView.swift; path = View/ViewController/SetBackColorView.swift; sourceTree = "<group>"; };
+		001133871FD3A9C5007BCAD7 /* SetNickNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetNickNameView.swift; path = View/ViewController/SetNickNameView.swift; sourceTree = "<group>"; };
+		001133881FD3A9C5007BCAD7 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionView.swift; path = View/ViewController/QuestionView.swift; sourceTree = "<group>"; };
+		001133891FD3A9C5007BCAD7 /* ConfigurationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationView.swift; path = View/ViewController/ConfigurationView.swift; sourceTree = "<group>"; };
+		0011338A1FD3A9C5007BCAD7 /* BucketListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BucketListView.swift; path = View/ViewController/BucketListView.swift; sourceTree = "<group>"; };
+		0011338B1FD3A9C5007BCAD7 /* IntroView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroView.swift; path = View/ViewController/IntroView.swift; sourceTree = "<group>"; };
+		0011338C1FD3A9C5007BCAD7 /* ShareListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareListView.swift; path = View/ViewController/ShareListView.swift; sourceTree = "<group>"; };
+		001133A11FD3AA04007BCAD7 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = View/Toast.swift; sourceTree = "<group>"; };
+		001133A41FD3AA18007BCAD7 /* ConstHTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstHTTP.swift; path = View/Const/ConstHTTP.swift; sourceTree = "<group>"; };
+		001133A61FD3AA36007BCAD7 /* EventProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventProtocol.swift; path = View/Protocol/EventProtocol.swift; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
 		0059940D1F5A3F21007777A1 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = View/Bean/PostData.swift; sourceTree = "<group>"; };
 		005994111F5A4532007777A1 /* Bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bucket.swift; path = View/Bean/Bucket.swift; sourceTree = "<group>"; };
@@ -130,33 +152,11 @@
 		005994161F5A4532007777A1 /* MobileUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MobileUser.swift; path = View/Bean/MobileUser.swift; sourceTree = "<group>"; };
 		005994171F5A4532007777A1 /* UpdateApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateApp.swift; path = View/Bean/UpdateApp.swift; sourceTree = "<group>"; };
 		005994181F5A4532007777A1 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = View/Bean/Version.swift; sourceTree = "<group>"; };
-		005994221F5A4579007777A1 /* AddBucketViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBucketViewCtlr.swift; path = View/ViewController/AddBucketViewCtlr.swift; sourceTree = "<group>"; };
-		005994231F5A4579007777A1 /* BucketListViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BucketListViewCtlr.swift; path = View/ViewController/BucketListViewCtlr.swift; sourceTree = "<group>"; };
-		005994241F5A4579007777A1 /* ChatViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ChatViewCtlr.swift; path = View/ViewController/ChatViewCtlr.swift; sourceTree = "<group>"; };
-		005994251F5A4579007777A1 /* ConfigurationViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationViewCtlr.swift; path = View/ViewController/ConfigurationViewCtlr.swift; sourceTree = "<group>"; };
-		005994261F5A4579007777A1 /* IntroViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = IntroViewCtlr.swift; path = View/ViewController/IntroViewCtlr.swift; sourceTree = "<group>"; };
-		005994271F5A4579007777A1 /* MainViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainViewCtlr.swift; path = View/ViewController/MainViewCtlr.swift; sourceTree = "<group>"; };
-		005994281F5A4579007777A1 /* NoticeViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = NoticeViewCtlr.swift; path = View/ViewController/NoticeViewCtlr.swift; sourceTree = "<group>"; };
-		005994291F5A4579007777A1 /* PassWordViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassWordViewCtlr.swift; path = View/ViewController/PassWordViewCtlr.swift; sourceTree = "<group>"; };
-		0059942A1F5A4579007777A1 /* PDFViewerViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDFViewerViewCtlr.swift; path = View/ViewController/PDFViewerViewCtlr.swift; sourceTree = "<group>"; };
-		0059942B1F5A4579007777A1 /* PushPopupViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PushPopupViewCtlr.swift; path = View/ViewController/PushPopupViewCtlr.swift; sourceTree = "<group>"; };
-		0059942C1F5A4579007777A1 /* QuestionViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionViewCtlr.swift; path = View/ViewController/QuestionViewCtlr.swift; sourceTree = "<group>"; };
-		0059942D1F5A4579007777A1 /* RankListViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankListViewCtlr.swift; path = View/ViewController/RankListViewCtlr.swift; sourceTree = "<group>"; };
-		0059942E1F5A4579007777A1 /* SetBackColorViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetBackColorViewCtlr.swift; path = View/ViewController/SetBackColorViewCtlr.swift; sourceTree = "<group>"; };
-		0059942F1F5A4579007777A1 /* SetNickNameViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetNickNameViewCtlr.swift; path = View/ViewController/SetNickNameViewCtlr.swift; sourceTree = "<group>"; };
-		005994301F5A4579007777A1 /* ShareDetailViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareDetailViewCtlr.swift; path = View/ViewController/ShareDetailViewCtlr.swift; sourceTree = "<group>"; };
-		005994311F5A4579007777A1 /* ShareListViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareListViewCtlr.swift; path = View/ViewController/ShareListViewCtlr.swift; sourceTree = "<group>"; };
-		005994321F5A4579007777A1 /* TutorialViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialViewCtlr.swift; path = View/ViewController/TutorialViewCtlr.swift; sourceTree = "<group>"; };
-		005994331F5A4579007777A1 /* WriteDetailViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteDetailViewCtlr.swift; path = View/ViewController/WriteDetailViewCtlr.swift; sourceTree = "<group>"; };
-		005994341F5A4579007777A1 /* WriteMemoViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteMemoViewCtlr.swift; path = View/ViewController/WriteMemoViewCtlr.swift; sourceTree = "<group>"; };
-		005994351F5A4579007777A1 /* WriteViewCtlr.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteViewCtlr.swift; path = View/ViewController/WriteViewCtlr.swift; sourceTree = "<group>"; };
-		0059944B1F5A4ADC007777A1 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		007038EB1F63685700372A7C /* SQLiteAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteAdapter.swift; path = Utils/sqlite/SQLiteAdapter.swift; sourceTree = "<group>"; };
 		007038EC1F63685700372A7C /* SQLQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLQuery.swift; path = Utils/sqlite/SQLQuery.swift; sourceTree = "<group>"; };
 		007038EF1F63686E00372A7C /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkedList.swift; path = Utils/LinkedList.swift; sourceTree = "<group>"; };
 		0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FirstCustomCell.swift; path = View/Bean/FirstCustomCell.swift; sourceTree = "<group>"; };
 		0080F62D1FAD5DAA0076893B /* IHttpReceive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IHttpReceive.swift; path = Managers/http/IHttpReceive.swift; sourceTree = "<group>"; };
-		0080F62F1FAD5F6F0076893B /* ConstHTTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstHTTP.swift; sourceTree = "<group>"; };
 		0080F6311FAD60890076893B /* HttpUrlTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpUrlTaskManager.swift; path = Managers/http/HttpUrlTaskManager.swift; sourceTree = "<group>"; };
 		00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShareCustomCell.swift; path = View/Bean/ShareCustomCell.swift; sourceTree = "<group>"; };
 		00975E901FB68554003ABBEF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -263,14 +263,24 @@
 		0008E3211F9196F300F498E6 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
-				0008E3221F91973600F498E6 /* EventProtocol.swift */,
+				001133A61FD3AA36007BCAD7 /* EventProtocol.swift */,
 			);
 			name = Protocol;
+			sourceTree = "<group>";
+		};
+		001133A31FD3AA0F007BCAD7 /* Const */ = {
+			isa = PBXGroup;
+			children = (
+				001133A41FD3AA18007BCAD7 /* ConstHTTP.swift */,
+			);
+			name = Const;
 			sourceTree = "<group>";
 		};
 		0059940F1F5A43FE007777A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				001133A31FD3AA0F007BCAD7 /* Const */,
+				001133A11FD3AA04007BCAD7 /* Toast.swift */,
 				0008E3211F9196F300F498E6 /* Protocol */,
 				005994211F5A4550007777A1 /* ViewController */,
 				005994101F5A4510007777A1 /* Bean */,
@@ -299,26 +309,26 @@
 		005994211F5A4550007777A1 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				005994221F5A4579007777A1 /* AddBucketViewCtlr.swift */,
-				005994231F5A4579007777A1 /* BucketListViewCtlr.swift */,
-				005994241F5A4579007777A1 /* ChatViewCtlr.swift */,
-				005994251F5A4579007777A1 /* ConfigurationViewCtlr.swift */,
-				005994261F5A4579007777A1 /* IntroViewCtlr.swift */,
-				005994271F5A4579007777A1 /* MainViewCtlr.swift */,
-				005994281F5A4579007777A1 /* NoticeViewCtlr.swift */,
-				005994291F5A4579007777A1 /* PassWordViewCtlr.swift */,
-				0059942A1F5A4579007777A1 /* PDFViewerViewCtlr.swift */,
-				0059942B1F5A4579007777A1 /* PushPopupViewCtlr.swift */,
-				0059942C1F5A4579007777A1 /* QuestionViewCtlr.swift */,
-				0059942D1F5A4579007777A1 /* RankListViewCtlr.swift */,
-				0059942E1F5A4579007777A1 /* SetBackColorViewCtlr.swift */,
-				0059942F1F5A4579007777A1 /* SetNickNameViewCtlr.swift */,
-				005994301F5A4579007777A1 /* ShareDetailViewCtlr.swift */,
-				005994311F5A4579007777A1 /* ShareListViewCtlr.swift */,
-				005994321F5A4579007777A1 /* TutorialViewCtlr.swift */,
-				005994331F5A4579007777A1 /* WriteDetailViewCtlr.swift */,
-				005994341F5A4579007777A1 /* WriteMemoViewCtlr.swift */,
-				005994351F5A4579007777A1 /* WriteViewCtlr.swift */,
+				0011337B1FD3A9C4007BCAD7 /* AddBucketView.swift */,
+				0011338A1FD3A9C5007BCAD7 /* BucketListView.swift */,
+				0011337F1FD3A9C4007BCAD7 /* ChatView.swift */,
+				001133891FD3A9C5007BCAD7 /* ConfigurationView.swift */,
+				0011338B1FD3A9C5007BCAD7 /* IntroView.swift */,
+				001133841FD3A9C5007BCAD7 /* MainView.swift */,
+				001133801FD3A9C5007BCAD7 /* NoticeView.swift */,
+				001133791FD3A9C4007BCAD7 /* PassWordView.swift */,
+				001133851FD3A9C5007BCAD7 /* PDFViewerView.swift */,
+				0011337D1FD3A9C4007BCAD7 /* PushPopupView.swift */,
+				001133881FD3A9C5007BCAD7 /* QuestionView.swift */,
+				0011337C1FD3A9C4007BCAD7 /* RankListView.swift */,
+				001133861FD3A9C5007BCAD7 /* SetBackColorView.swift */,
+				001133871FD3A9C5007BCAD7 /* SetNickNameView.swift */,
+				0011337E1FD3A9C4007BCAD7 /* ShareDetailView.swift */,
+				0011338C1FD3A9C5007BCAD7 /* ShareListView.swift */,
+				001133831FD3A9C5007BCAD7 /* TutorialView.swift */,
+				001133821FD3A9C5007BCAD7 /* WriteDetailView.swift */,
+				001133811FD3A9C5007BCAD7 /* WriteMemoView.swift */,
+				0011337A1FD3A9C4007BCAD7 /* WriteView.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -341,7 +351,6 @@
 				00A6A94F1F60179900F65A1E /* ScreenUtils.swift */,
 				00A6A9501F60179900F65A1E /* StringUtils.swift */,
 				00A6A9511F60179900F65A1E /* UserDefault.swift */,
-				0059944B1F5A4ADC007777A1 /* Toast.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -367,7 +376,6 @@
 			isa = PBXGroup;
 			children = (
 				0080F62D1FAD5DAA0076893B /* IHttpReceive.swift */,
-				0080F62F1FAD5F6F0076893B /* ConstHTTP.swift */,
 				0080F6311FAD60890076893B /* HttpUrlTaskManager.swift */,
 			);
 			name = http;
@@ -509,59 +517,59 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0059943D1F5A4579007777A1 /* PassWordViewCtlr.swift in Sources */,
-				005994361F5A4579007777A1 /* AddBucketViewCtlr.swift in Sources */,
+				0011339C1FD3A9C6007BCAD7 /* QuestionView.swift in Sources */,
 				0080F62E1FAD5DAA0076893B /* IHttpReceive.swift in Sources */,
+				0011338F1FD3A9C6007BCAD7 /* AddBucketView.swift in Sources */,
 				00A6A95A1F60179900F65A1E /* MemoryUtils.swift in Sources */,
-				005994481F5A4579007777A1 /* WriteMemoViewCtlr.swift in Sources */,
-				005994471F5A4579007777A1 /* WriteDetailViewCtlr.swift in Sources */,
 				00004A6C1EF41D8D0074DCFB /* ViewController.swift in Sources */,
-				0059943B1F5A4579007777A1 /* MainViewCtlr.swift in Sources */,
 				00816CE01FC8FC9B000372F2 /* ShareCustomCell.swift in Sources */,
 				00A6A9571F60179900F65A1E /* ErrorLogUtils.swift in Sources */,
-				005994441F5A4579007777A1 /* ShareDetailViewCtlr.swift in Sources */,
-				005994491F5A4579007777A1 /* WriteViewCtlr.swift in Sources */,
-				0008E3231F91973600F498E6 /* EventProtocol.swift in Sources */,
-				005994391F5A4579007777A1 /* ConfigurationViewCtlr.swift in Sources */,
+				001133941FD3A9C6007BCAD7 /* NoticeView.swift in Sources */,
+				001133901FD3A9C6007BCAD7 /* RankListView.swift in Sources */,
+				0011339A1FD3A9C6007BCAD7 /* SetBackColorView.swift in Sources */,
+				0011338D1FD3A9C6007BCAD7 /* PassWordView.swift in Sources */,
+				001133991FD3A9C6007BCAD7 /* PDFViewerView.swift in Sources */,
 				0080F6321FAD60890076893B /* HttpUrlTaskManager.swift in Sources */,
-				0080F6301FAD5F6F0076893B /* ConstHTTP.swift in Sources */,
 				0059940E1F5A3F21007777A1 /* PostData.swift in Sources */,
 				0059941E1F5A4532007777A1 /* MobileUser.swift in Sources */,
-				0059943E1F5A4579007777A1 /* PDFViewerViewCtlr.swift in Sources */,
+				0011339B1FD3A9C6007BCAD7 /* SetNickNameView.swift in Sources */,
+				001133A21FD3AA04007BCAD7 /* Toast.swift in Sources */,
 				005994201F5A4532007777A1 /* Version.swift in Sources */,
 				007038EE1F63685700372A7C /* SQLQuery.swift in Sources */,
-				005994381F5A4579007777A1 /* ChatViewCtlr.swift in Sources */,
 				007038ED1F63685700372A7C /* SQLiteAdapter.swift in Sources */,
 				0059941C1F5A4532007777A1 /* Chat.swift in Sources */,
+				001133921FD3A9C6007BCAD7 /* ShareDetailView.swift in Sources */,
+				001133981FD3A9C6007BCAD7 /* MainView.swift in Sources */,
 				00A6A95C1F60179900F65A1E /* ScreenUtils.swift in Sources */,
 				00A6A9541F60179900F65A1E /* ContextUtils.swift in Sources */,
+				001133951FD3A9C6007BCAD7 /* WriteMemoView.swift in Sources */,
 				00A6A9591F60179900F65A1E /* MediaUtils.swift in Sources */,
-				0059943A1F5A4579007777A1 /* IntroViewCtlr.swift in Sources */,
 				00A6A9561F60179900F65A1E /* DateUtils.swift in Sources */,
 				0074C43C1F510A1700BB7CB0 /* FirstCustomCell.swift in Sources */,
+				0011338E1FD3A9C6007BCAD7 /* WriteView.swift in Sources */,
+				0011339D1FD3A9C6007BCAD7 /* ConfigurationView.swift in Sources */,
 				00A6A95B1F60179900F65A1E /* NetworkUtils.swift in Sources */,
 				00A6A9581F60179900F65A1E /* KLog.swift in Sources */,
-				0059943F1F5A4579007777A1 /* PushPopupViewCtlr.swift in Sources */,
 				00A6A9551F60179900F65A1E /* DataUtils.swift in Sources */,
-				0059944C1F5A4ADC007777A1 /* Toast.swift in Sources */,
 				0059941F1F5A4532007777A1 /* UpdateApp.swift in Sources */,
 				0059941B1F5A4532007777A1 /* Category.swift in Sources */,
+				001133911FD3A9C6007BCAD7 /* PushPopupView.swift in Sources */,
+				001133961FD3A9C6007BCAD7 /* WriteDetailView.swift in Sources */,
+				001133A01FD3A9C6007BCAD7 /* ShareListView.swift in Sources */,
 				00A6A95E1F60179900F65A1E /* UserDefault.swift in Sources */,
+				001133A71FD3AA36007BCAD7 /* EventProtocol.swift in Sources */,
 				0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */,
-				005994401F5A4579007777A1 /* QuestionViewCtlr.swift in Sources */,
+				001133931FD3A9C6007BCAD7 /* ChatView.swift in Sources */,
+				001133A51FD3AA18007BCAD7 /* ConstHTTP.swift in Sources */,
 				005994191F5A4532007777A1 /* Bucket.swift in Sources */,
-				005994411F5A4579007777A1 /* RankListViewCtlr.swift in Sources */,
+				0011339E1FD3A9C6007BCAD7 /* BucketListView.swift in Sources */,
+				001133971FD3A9C6007BCAD7 /* TutorialView.swift in Sources */,
 				00A6A9521F60179900F65A1E /* AppUtils.swift in Sources */,
-				005994371F5A4579007777A1 /* BucketListViewCtlr.swift in Sources */,
+				0011339F1FD3A9C6007BCAD7 /* IntroView.swift in Sources */,
 				0059941D1F5A4532007777A1 /* Comment.swift in Sources */,
-				005994451F5A4579007777A1 /* ShareListViewCtlr.swift in Sources */,
 				007038F01F63686E00372A7C /* LinkedList.swift in Sources */,
 				00A6A9531F60179900F65A1E /* ByteUtils.swift in Sources */,
 				00004A6A1EF41D8D0074DCFB /* AppDelegate.swift in Sources */,
-				0059943C1F5A4579007777A1 /* NoticeViewCtlr.swift in Sources */,
-				005994431F5A4579007777A1 /* SetNickNameViewCtlr.swift in Sources */,
-				005994421F5A4579007777A1 /* SetBackColorViewCtlr.swift in Sources */,
-				005994461F5A4579007777A1 /* TutorialViewCtlr.swift in Sources */,
 				00A6A95D1F60179900F65A1E /* StringUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

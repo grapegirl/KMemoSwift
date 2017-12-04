@@ -19,11 +19,11 @@ class ByteUtils {
         * @param map 비트맵
         * @return 바이트 배열
         */
-    // public static byte[] getByteArrayFromBitmap(Bitmap map) {
+    //public static byte[] getByteArrayFromBitmap(Bitmap map) {
     //         ByteArrayOutputStream baos = new ByteArrayOutputStream();
     //         map.compress(Bitmap.CompressFormat.JPEG, 100, baos);
     //         return baos.toByteArray();
-    // }
+    //}
 
     // public static Bitmap getResBitmap(Context context, int bmpResId) {
     //         BitmapFactory.Options opts = new BitmapFactory.Options();

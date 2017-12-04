@@ -1,5 +1,5 @@
 ﻿//
-//  TutorialViewCtlr.swift
+//  TutorialView.swift
 //  뷰 플리퍼를 이용하여 튜토리얼
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,9 +9,9 @@
 import UIKit
 
 
-class TutorialViewCtlr: UIViewController {
+class TutorialView: UIViewController {
 
-    private let TAG : String = "TutorialViewCtlr"
+    private let TAG : String = "TutorialView"
     private var mPreTouchPosX : Int = 0
     private var mCurrentPage : Int = 0
     private var mMacPage : Int = 0

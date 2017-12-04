@@ -67,23 +67,23 @@ class StringUtils   {
      * @param newVersion 서버에서 내려오는 버전
      * @return 버전 비교값(0이면 같음, 1이면 서버에서 내려오는 버전이 크다, -1이면 서버에서 이전버전이 내려옴)
      */
-     public static func compareVersion(srcVersion : String, newVersion : String ) -> Int{
-    //     Integer[] arrSrc = getIntegrArrayFromStringArray(srcVersion.split("\\."));
-    //     Integer[] arrNew = getIntegrArrayFromStringArray(newVersion.split("\\."));
-
-    //     if (arrSrc.length != arrNew.length) {
-    //         return 1;
-    //     }
-
-    //     for (int i = 0, n = arrSrc.length; i < n; i++) {
-    //         if (arrNew[i] > arrSrc[i]) {
-    //             return 1;
-    //         } else if (arrNew[i] < arrSrc[i]) {
-    //             return -1;
-    //         }
-    //     }
-        return 0;
-    }
+//     public static func compareVersion(srcVersion : String, newVersion : String ) -> Int {
+//        var arrSrc: Array<Int> = getIntegrArrayFromStringArray(srcVersion.components(separatedBy: "\\."))
+//        var arrNew: Array<Int> = getIntegrArrayFromStringArray(newVersion.components(separatedBy: "\\."))
+//
+//        if (arrSrc.count != arrNew.count) {
+//            return 1;
+//        }
+//
+//        for (i = 0, n = arrSrc.count; i < n; i++) {
+//            if (arrNew[i] > arrSrc[i]) {
+//                return 1;
+//            } else if (arrNew[i] < arrSrc[i]) {
+//                return -1;
+//            }
+//        }
+//        return 0;
+//    }
 
     /***
      * String 배열을 integer 배열로 변환 메소드
@@ -92,14 +92,14 @@ class StringUtils   {
      * @return 변환된 integer 배열
      * @throws NumberFormatException
      */
-     public static func getIntegrArrayFromStringArray() -> Void {
-    // public static final Integer[] getIntegrArrayFromStringArray(String[] arr) throws NumberFormatException {
-    //     List<Integer> list = new ArrayList<Integer>();
-    //     for (String str : arr) {
-    //         list.add(Integer.parseInt(str));
-    //     }
-    //     return list.toArray(new Integer[list.size()]);
-    }
+//     public static func getIntegrArrayFromStringArray(arr : Array<String>) -> Array<Int> {
+//        var list = Array<Int>()
+//        for str in arr {
+//             list.append(Int(str))
+//        }
+//
+//        return list
+//    }
 
 
      /**

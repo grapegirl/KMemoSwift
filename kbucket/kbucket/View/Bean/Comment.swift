@@ -12,7 +12,7 @@ import UIKit
 class Comment {
     
     /** 메모내용 */
-	private var mContent : String {
+	var mContent : String {
         get {
             return mContent
         }
@@ -21,7 +21,7 @@ class Comment {
         }
     }
 	/** 날짜 */
-	private var mDate : String {
+	var mDate : String {
         get {
             return mDate
         }
@@ -30,7 +30,7 @@ class Comment {
         }
     }
 	/** 닉네임 */
-	private var mNickName : String {
+	var mNickName : String {
         get {
             return mNickName
         }
@@ -39,7 +39,7 @@ class Comment {
         }
     }
 	/** 번호 */
-	private var mIdx : Int {
+	var mIdx : Int {
         get {
             return mIdx
         }
@@ -48,7 +48,7 @@ class Comment {
         }
     }
 	/** 버킷No */
-	private var mBucketNo : Int {
+	var mBucketNo : Int {
         get {
             return mBucketNo
         }

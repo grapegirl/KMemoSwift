@@ -12,7 +12,7 @@ import UIKit
 class Version {
     
   	/** 버전 코드 */
-	private var mVersionCode : Int {
+	var mVersionCode : Int {
 		get {
             return mVersionCode
         }
@@ -22,7 +22,7 @@ class Version {
 	}
 
 	/** 버전명 */
-	private var mVersionName : String {
+	var mVersionName : String {
   		get {
             return mVersionName
         }
@@ -32,7 +32,7 @@ class Version {
 	}
 
 	/** 강제업데이트 여부 */
-	private var mForceYN : String {
+	var mForceYN : String {
 		get {
             return mForceYN
         }

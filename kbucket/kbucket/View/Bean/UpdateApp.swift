@@ -12,7 +12,7 @@ import UIKit
 class UpdateApp {
     
 	/** 타이틀 */
-	private var mVersionCode : Int {
+	var mVersionCode : Int {
 		get {
             return mVersionCode
         }
@@ -21,7 +21,7 @@ class UpdateApp {
         }
 	}
 	/** 내용 */
-	private var mContent : String {
+	var mContent : String {
 		get {
             return mContent
         }

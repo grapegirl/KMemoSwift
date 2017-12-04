@@ -1,5 +1,5 @@
 ﻿//
-//  ChatViewCtlr.swift
+//  ChatView.swift
 //  채팅
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,9 +9,9 @@
 import UIKit
 
 
-class ChatViewCtlr: UIViewController {
+class ChatView: UIViewController {
 
-    private let TAG : String = "ChatViewCtlr"
+    private let TAG : String = "ChatView"
 
     override func viewDidLoad() {
         super.viewDidLoad()

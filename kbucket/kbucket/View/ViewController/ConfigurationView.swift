@@ -1,5 +1,5 @@
-﻿//
-//  ConfigurationViewCtlr.swift
+//
+//  ConfigurationView.swift
 //  환경설정
 //
 //  Created by grapegirl on 2017. 9. 01..
@@ -9,38 +9,25 @@
 import UIKit
 
 
-class ConfigurationViewCtlr: UIViewController {
+class ConfigurationView : UIViewController , IHttpReceive {
 
-    private let TAG : String = "ConfigurationViewCtlr"
+    private let TAG : String = "ConfigurationView"
+
+    private let START_VERSION : Int                 = 10
+    private let SHOW_GOOGLE_VERSION : Int           = 20
+    private let FILE_SELECT_CODE : Int              = 30
+
+    private var mMarketVersionName : String         = ""
+    private var mCurrentVersionName : String         = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        KLog.d(tag: TAG, msg: "viewDidLoad");
+        KLog.d(tag: TAG, msg: "viewDidLoad")
+        //initialize()
     }
     
-
-    // private final String TAG = this.getClass().getSimpleName();
-
-    // private String mMarketVersionName = null;
-    // private String mCurrentVersionName = null;
-    // private android.os.Handler mHandler = null;
-
-    // private final int START_VERSION = 10;
-    // private final int SHOW_GOOGLE_VERSION = 20;
-    // private final int FILE_SELECT_CODE = 30;
-
-    // @Override
-    // protected void onCreate(Bundle savedInstanceState) {
-    //     super.onCreate(savedInstanceState);
-    //     this.overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
-    //     setContentView(R.layout.conf_activity);
-
-    //     setBackgroundColor();
-    //     setTextPont();
-
-    //     mHandler = new android.os.Handler(this);
-    //     mCurrentVersionName = AppUtils.getVersionName(this);
+    func initialize(){
+        //  mCurrentVersionName = AppUtils.getVersionName(this);
     //     ((TextView) findViewById(R.id.conf_current_version)).setText(mCurrentVersionName);
     //     mHandler.sendEmptyMessage(START_VERSION);
 
@@ -53,25 +40,19 @@ class ConfigurationViewCtlr: UIViewController {
     //     ((Button) findViewById(R.id.conf_guide_btn)).setOnClickListener(this);
     //     ((Button) findViewById(R.id.conf_userSetting)).setOnClickListener(this);
     //     ((Button) findViewById(R.id.conf_userBackSetting)).setOnClickListener(this);
-    // }
+    }
+    
+    func finish(){
+        KLog.d(tag: TAG, msg: "finish")
+       // deleteImageResource()
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
 
-    // private void setBackgroundColor() {
-    //     int color = (Integer) SharedPreferenceUtils.read(getApplicationContext(), ContextUtils.BACK_MEMO, SharedPreferenceUtils.SHARED_PREF_VALUE_INTEGER);
-    //     if (color != -1) {
-    //         findViewById(R.id.conf_back_color).setBackgroundColor(color);
-    //     }
-    // }
-
-    // @Override
-    // public void finish() {
-    //     super.finish();
-    //     this.overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-    // }
-
-    // @Override
-    // public void onClick(View v) {
-    //     switch (v.getId()) {
-    //         //암호설정
+    @IBAction func onClick(_ sender: Any) {
+           // switch(sender  as! UIButton ){
+  //         //암호설정
     //         case R.id.conf_password_on_btn:
     //             Intent intent = new Intent(this, PassWordActivity.class);
     //             intent.putExtra("SET", "SET");
@@ -134,31 +115,31 @@ class ConfigurationViewCtlr: UIViewController {
     //             intent = new Intent(this, SetBackColorActivity.class);
     //             startActivity(intent);
     //             break;
+         //   }
+    }
+ 
+    func onHttpReceive(type: Int, actionId: Int, data: Data) {
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
 
-    //     }
-    // }
-
-
-    // @Override
-    // public void onHttpReceive(int type, int actionId, Object obj) {
-    //     KLog.d(this.getClass().getSimpleName(), " @@ onHttpReceive type:" + type + ", object: " + obj);
-    //     if (actionId == IHttpReceive.UPDATE_VERSION) {
-    //         if (type == IHttpReceive.HTTP_OK) {
-    //             String mData = (String) obj;
-    //             try {
-    //                 JSONObject json = new JSONObject(mData);
-    //                 int versionCode = json.getInt("versionCode");
-    //                 mMarketVersionName = json.getString("versionName");
-    //             } catch (JSONException e) {
-    //                 KLog.e(TAG, "@@ jsonException message : " + e.getMessage());
-    //                 mMarketVersionName = "-";
-    //             }
-    //         } else {
-    //             mMarketVersionName = "-";
-    //         }
-    //         mHandler.sendEmptyMessage(SHOW_GOOGLE_VERSION);
-    //     }
-    // }
+        if (actionId == ConstHTTP.UPDATE_VERSION) {
+            if (type == ConstHTTP.HTTP_OK) {
+                do {
+                    if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            let versionCode : Int = jsonString["versionCode"] as! Int
+                            let versionName : String = jsonString["versionName"] as! String
+                    }
+                } catch {
+                    KLog.d(tag : TAG, msg : "@@ Exception : ")
+                    mMarketVersionName = "-"
+                }
+            } else {
+              mMarketVersionName = "-"
+            }
+            handleMessage(what: SHOW_GOOGLE_VERSION, obj: "")
+        }
+       
+    }
 
     // /**
     //  * 구글 앱스토어에서 버전 명 변환하는 메소드
@@ -182,20 +163,22 @@ class ConfigurationViewCtlr: UIViewController {
     //     return mVer;
     // }
 
-    // @Override
-    // public boolean handleMessage(Message msg) {
-    //     switch (msg.what) {
-    //         case SHOW_GOOGLE_VERSION:
-    //             ((TextView) findViewById(R.id.conf_lastest_version)).setText(mMarketVersionName);
-    //             break;
-    //         case START_VERSION:
-    //             HttpUrlTaskManager urlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_VERSION_UPDATE_URL, false, this, IHttpReceive.UPDATE_VERSION);
-    //             KLog.d(TAG, "@@ URL : " + ContextUtils.KBUCKET_VERSION_UPDATE_URL);
-    //             urlTaskManager.execute();
-    //             break;
-    //     }
-    //     return false;
-    // }
+    func handleMessage(what : Int, obj : String) {
+//            switch (what) {
+//                case TOAST_MASSEGE:
+//                    Toast.showToast(message: obj)
+//                    break;
+//            case SHOW_GOOGLE_VERSION:
+//    //             ((TextView) findViewById(R.id.conf_lastest_version)).setText(mMarketVersionName);
+//                break;
+//            case START_VERSION:
+//                let url  = ContextUtils.KBUCKET_VERSION_UPDATE_URL
+//                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : false, receive : self, id : ConstHTTP.UPDATE_VERSION);
+//                httpUrlTaskManager.actionTask()
+//                break;
+//        }
+        
+    }
 
     // /**
     //  * 파일 선택
@@ -237,22 +220,4 @@ class ConfigurationViewCtlr: UIViewController {
     //     super.onActivityResult(requestCode, resultCode, data);
     // }
 
-    // private void setTextPont() {
-    //     Typeface typeFace = DataUtils.getHannaFont(getApplicationContext());
-    //     ((Button) findViewById(R.id.conf_password_on_btn)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.conf_question_btn)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.conf_import_btn)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.conf_export_btn)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.conf_password_off_btn)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.conf_guide_btn)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.conf_update_btn)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.conf_userBackSetting)).setTypeface(typeFace);
-    //     ((Button) findViewById(R.id.conf_userSetting)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.conf_current_textview)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.conf_current_version)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.conf_lastest_textview)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.conf_lastest_version)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.intro_textview1)).setTypeface(typeFace);
-    //     ((TextView) findViewById(R.id.intro_textview2)).setTypeface(typeFace);
-    // }
 }
