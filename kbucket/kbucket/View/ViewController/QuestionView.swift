@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuestionView: UIViewController {
+class QuestionView : UIViewController {
 
     private let TAG : String = "QuestionView"
     private var mTitleIndex : Int = 1
@@ -30,8 +30,8 @@ class QuestionView: UIViewController {
     //     AppUtils.sendTrackerScreen(this, "문의화면");
      }
     
-    private func finish()
-        KLog.d(tag: TAG, msg: "finish");
+    private func finish(){
+        KLog.d(tag: TAG, msg: "finish")
         let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
         present(uvc!, animated: true, completion: nil)

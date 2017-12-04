@@ -20,8 +20,8 @@ class RankListView : UIViewController , IHttpReceive {
     private let CHECK_NETWORK : Int         = 70
 
     private var mBucketDataList = Array<BucketRank>()
-    private mBucketRankComment : Int
-    private mBucketRankIdx : Int = -1
+    private var mBucketRankComment : Int
+    private var mBucketRankIdx : Int = -1
 
     // private RankListAdpater mListAdapter = null;
     // private ListView mListView = null;

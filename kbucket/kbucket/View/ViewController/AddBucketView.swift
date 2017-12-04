@@ -63,7 +63,7 @@ class AddBucketView: UIViewController {
     //             data = mDataList.get(index);
     //             removeDBData(data);
     //             break;
-    //     }
+        }
     }
 
     private func setListData() {

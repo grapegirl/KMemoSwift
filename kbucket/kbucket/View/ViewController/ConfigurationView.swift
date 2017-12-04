@@ -132,6 +132,7 @@ class ConfigurationView: UIViewController , IHttpReceive {
                 } catch {
                     KLog.d(tag : TAG, msg : "@@ Exception : " + error)
                     mMarketVersionName = "-"
+                }
             }else{
               mMarketVersionName = "-"
             }

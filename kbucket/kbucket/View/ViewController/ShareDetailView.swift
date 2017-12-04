@@ -100,7 +100,7 @@ class ShareDetailView : UIViewController , IHttpReceive {
                                 comment.mCategoryName = aObject["content"] as! String
                                 mCommentList.append(comment)
                              }
-                        }
+                      	  }
                     }
                     handleMessage(what: SET_COMMENT_LIST, obj: "")
                 } catch {
@@ -113,7 +113,7 @@ class ShareDetailView : UIViewController , IHttpReceive {
         } else if (actionId == ConstHTTP.COMMENT_LIST) {
             //KProgressDialog.setDataLoadingDialog(this, false, null, false);
            if (type == ConstHTTP.HTTP_OK && isValid == true) {
-                handleMessage(what: LOAD_COMMENT_LIST, obj: String(mBucketNo)
+                handleMessage(what: LOAD_COMMENT_LIST, obj: String(mBucketNo))
            } else {
                handleMessage(what: SERVER_LOADING_FAIL, obj: "")
            }
@@ -155,6 +155,7 @@ class ShareDetailView : UIViewController , IHttpReceive {
 //    //             break;
             default:
                 break;
+			}
         }
 
         func finish(){
