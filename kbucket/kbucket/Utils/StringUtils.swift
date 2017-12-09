@@ -102,29 +102,6 @@ class StringUtils   {
 //    }
 
 
-     /**
-     * 포스트 방식으로 데이타 전송시 인자 설정 메소드
-     *
-     * @param sendData
-     * @return 포스트 방식 전송 데이타
-     */
-     public static func getHTTPPostSendData(sendData : String) -> String {
-    // public static String getHTTPPostSendData(HashMap<String, Object> sendData) {
-        var sb = sendData
-
-    //     //키값과 값을 추가함.
-    //     Set<String> key = sendData.keySet();
-    //     for (Iterator iterator = key.iterator(); iterator.hasNext(); ) {
-    //         String keyName = (String) iterator.next();
-    //         Object value = (Object) sendData.get(keyName);
-
-    //         if (iterator.hasNext())
-    //             sb.append(keyName).append("=").append(value).append("&");
-    //         else
-    //             sb.append(keyName).append("=").append(value);
-    //     }
-    //     //System.out.println("@@ getHTTPPostSendData :  " + sb.toString());
-        return sb
-    }
+    
 
 }

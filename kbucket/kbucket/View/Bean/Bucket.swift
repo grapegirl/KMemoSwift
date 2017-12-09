@@ -60,19 +60,19 @@ class Bucket : Object {
         return "mContent"
     }
  
-//    public HashMap<String, Object> toHasnMap() {
-//         HashMap<String, Object> map = new HashMap<String, Object>();
-//         map.put("CATEGORY_CODE", mCategoryCode);
-//         map.put("NICKNAME", mNickName);
-//         map.put("PHONE", mPhone);
-//         map.put("CONTENT", mContent);
-//         if (mImageURl != null && !mImageURl.equals("")) {
-//             map.put("IMAGE_URL", "Y");
-//         } else {
-//             map.put("IMAGE_URL", "N");
-//         }
-//         map.put("CREATE_DT", mCompleteDate);
-//         return map;
-//     }
+    public func toDictionary() -> [String:String] {
+        var map =  [String:String]()
+        map["CATEGORY_CODE"] = String(mCategoryCode)
+        map["NICKNAME"] = mNickName
+        map["PHONE"] = mPhone
+        map["CONTENT"] = mContent
+        if (mImageURl.count > 0) {
+             map["IMAGE_URL"] = "Y"
+        } else {
+            map["IMAGE_URL"] = "N"
+        }
+        map["CREATE_DT"] = mCompleteDate
+        return map
+     }
 }
 

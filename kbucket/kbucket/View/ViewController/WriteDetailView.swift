@@ -208,6 +208,9 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             var content = AppUtils.localizedString(forKey : "delete_popup_content")
             //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_DELETE);
             //             mConfirmPopup.showDialog()
+            
+            removeDBData(Content: mContents)
+            back(strBack : BACK)
             break;
         case btShare:
             KLog.d(tag: TAG, msg: "onClick btShare")
@@ -215,6 +218,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             var content = AppUtils.localizedString(forKey : "share_popup_content")
             //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_SHARE);
             //             mConfirmPopup.showDialog();
+            handleMessage(what: UPLOAD_BUCKET, obj: "")
             break
         case btCamera:
              KLog.d(tag: TAG, msg: "onClick btCamera")
@@ -369,13 +373,14 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             // HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, this, IHttpReceive.INSERT_IMAGE, bytes);
              // httpUrlFileUploadManager.execute(photoPath, "idx", mImageIdx + "", fileName + ".jpg");
              }else{
-                 KLog.d(tag : TAG, msg : "@@ UPLOAD IMAGE NO !");
+                 KLog.d(tag : TAG, msg : "@@ UPLOAD IMAGE NO !")
              }
             break;
         case UPLOAD_BUCKET:
             let url  = ContextUtils.KBUCKET_INSERT_BUCKET_URL
-            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.INSERT_BUCKET);
-            httpUrlTaskManager.actionTask();
+            let httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.INSERT_BUCKET)
+            let data = getHTTPPostSendData(sendData : shareBucketImage())
+            httpUrlTaskManager.actionTaskWithData(data : data)
             break;
         case SELECT_BUCKET_CATEGORY:
             let title = AppUtils.localizedString(forKey : "category_popup_title")
@@ -472,5 +477,38 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         mPhotoPath = tempImageName!.count > 0 ? tempImageName! : ""
         KLog.d(tag: TAG, msg: "imagePickerController mPhotoPath : " + mPhotoPath )
         dismiss(animated: true, completion: nil)
+    }
+    
+    /**
+     * 서버로 전송할 데이타 만들기
+     *
+     * @return 전송 데이타
+     */
+    private func shareBucketImage() -> [String:String] {
+        var bucket = Bucket()
+        let userNickName = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
+        bucket.mNickName = userNickName
+        bucket.mContent = mContents
+        bucket.mImageURl = mPhotoPath
+        bucket.mCompleteDate = mDate
+        bucket.mCategoryCode = 9
+        return bucket.toDictionary()
+    }
+    
+    /**
+     * 포스트 방식으로 데이타 전송시 인자 설정 메소드
+     *
+     * @param sendData
+     * @return 포스트 방식 전송 데이타
+     */
+    private func getHTTPPostSendData(sendData : [String: String]) -> String {
+        var sb = ""
+        let keys = Array(sendData.keys)
+        for key in keys {
+            let value = sendData[key]!
+            sb += key + "=" + value + "&"
+        }
+        print("@@ getHTTPPostSendData :  " + sb)
+        return sb
     }
 }

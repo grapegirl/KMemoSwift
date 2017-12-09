@@ -48,16 +48,58 @@ class HttpUrlTaskManager {
             (data : Data?, response : URLResponse?, error : Error?) -> Void in
             guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else{
                 if self.mIHttpReceive != nil {
-                    self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_FAIL, actionId: ConstHTTP.BUCKET_LIST, data: data! )
+                    self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_FAIL, actionId: self.mId, data: data! )
                 }
                 return
             }
            
             if self.mIHttpReceive != nil {
-               self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_OK, actionId: ConstHTTP.BUCKET_LIST, data: data! )
+               self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_OK, actionId: self.mId, data: data! )
             }
         })
         
         task.resume()
+    }
+    
+    func actionTaskWithData(data : String){
+        let url = URL(string: mURl)
+        KLog.d(tag: TAG, msg: "@@ url : " + mURl )
+        if(isPost){
+            var request = URLRequest(url: url!)
+            request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+            request.httpMethod = "POST"
+            let postString = data
+            request.httpBody = postString.data(using: .utf8)
+            let task = URLSession.shared.dataTask(with: request, completionHandler : {
+                (data : Data?, response : URLResponse?, error : Error?) -> Void in
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else{
+                    if self.mIHttpReceive != nil {
+                        self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_FAIL, actionId: self.mId, data: data! )
+                    }
+                    return
+                }
+                
+                if self.mIHttpReceive != nil {
+                    self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_OK, actionId: self.mId, data: data! )
+                }
+            })
+            task.resume()
+        }else{
+            let task = URLSession.shared.dataTask(with: url!, completionHandler : {
+                (data : Data?, response : URLResponse?, error : Error?) -> Void in
+                guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else{
+                    if self.mIHttpReceive != nil {
+                        self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_FAIL, actionId: self.mId, data: data! )
+                    }
+                    return
+                }
+                
+                if self.mIHttpReceive != nil {
+                    self.mIHttpReceive.onHttpReceive(type: ConstHTTP.HTTP_OK, actionId: self.mId , data: data! )
+                }
+            })
+            task.resume()
+        }
+        
     }
 }
