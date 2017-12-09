@@ -50,7 +50,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     @IBOutlet weak var etCompleteDate: UITextField!
     
     @IBOutlet weak var ivImage: UIImageView!
-    @IBOutlet weak var ivRemoveImage: UIImageView!
+    @IBOutlet weak var btRemoveImage: UIButton!
     // private ConfirmPopup mConfirmPopup = null;
     // private SpinnerListPopup mCategoryPopup = null;
     
@@ -82,9 +82,13 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         if (ishide) {
             btCamera.isHidden = true
             btGallery.isHidden = true
+            btRemoveImage.isHidden = false
+            ivImage.isHidden = false
         } else {
             btCamera.isHidden = false
             btGallery.isHidden = false
+            btRemoveImage.isHidden = true
+            ivImage.isHidden = true
         }
     }
     
@@ -109,15 +113,13 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
                     btCheckbox.isOn = false
                 }
                 
-                if(kbucket.mImageURl != nil && kbucket.mImageURl.count > 0 ){
+                if(kbucket.mImageURl.count > 0 ){
                     hideImageAttachButton(ishide: true)
-                    ivImage.isHidden = true
-                    //         mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-                    //         mImageView.setImageBitmap(bm);
-                    ivRemoveImage.isHidden = true
+                    mPhotoPath = kbucket.mImageURl
+                    let image = DataUtils.load(fileName: mPhotoPath)
+                    ivImage.image = image
                 }else{
                     hideImageAttachButton(ishide: false)
-                    ivImage.isHidden = true
                 }
                 etDate.text = kbucket.mCompleteDate
                 etContent.text = kbucket.mContent
@@ -132,7 +134,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     private func updateDBDate() {
         let NewContents = etContent.text!
         let completeYN = btCheckbox.isOn ? "Y" : "N"
-        let imagePath = mPhotoPath != nil ? mPhotoPath : ""
+        let imagePath = mPhotoPath.count > 0 ? mPhotoPath : ""
         let date = etDate.text != nil ?  etDate.text! : ""
         let completeDate = etCompleteDate.text != nil ? etCompleteDate.text! : ""
         
@@ -226,13 +228,13 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
              KLog.d(tag: TAG, msg: "onClick btGallery")
              openGallary()
             break;
-//        case ivRemoveImage:
-//            mPhotoPath = ""
-//            hideImageAttachButton(ishide : false)
-//            ivImage.isHidden = true
-//            ivRemoveImage.isHidden = true
-//            break;
-//
+        case btRemoveImage:
+            KLog.d(tag: TAG, msg: "onClick btRemoveImage")
+            mPhotoPath = ""
+            hideImageAttachButton(ishide : false)
+            ivImage.isHidden = true
+            btRemoveImage.isHidden = true
+            break;
         default:
             break;
         }
@@ -263,34 +265,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     //                 mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
     //                 mImageView.setImageBitmap(bm);
     //                 ((Button) findViewById(R.id.write_image_remove)).setVisibility(View.VISIBLE);
-    //             }
-    //         }
-    //     } else if (requestCode == REQ_CODE_GALLERY) {
-    //         if (data != null) {
-    //             Uri imgUri = data.getData();
-    //             if (imgUri != null) {
-    //                 KLog.d(TAG, "@@ photo data: " + imgUri.getPath());
-    //                 mPhotoPath = DataUtils.getNewFileName();
-    //                 try {
-    //                     String imagePath = DataUtils.getMediaScanPath(this, imgUri);
-    //                     KLog.d(TAG, "@@ photo imagePath :" + imagePath);
-    //                     if (imagePath == null) {
-    //                         String message = getString(R.string.write_bucekt_image_attch);
-    //                         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-    //                     }
-    //                     DataUtils.copyFile(imagePath, mPhotoPath);
-    //                     ByteUtils.setFileResize(mPhotoPath, 400, 800, false);
-    //                     Bitmap photo = ByteUtils.getFileBitmap(mPhotoPath);
-    //                     if (photo != null) {
-    //                         hideImageAttachButton(true);
-    //                         mImageView.setVisibility(View.VISIBLE);
-    //                         mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-    //                         mImageView.setImageBitmap(photo);
-    //                         ((Button) findViewById(R.id.write_image_remove)).setVisibility(View.VISIBLE);
-    //                     }
-    //                 } catch (IOException e) {
-    //                     e.printStackTrace();
-    //                 }
     //             }
     //         }
     //     }
@@ -386,13 +360,10 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         case UPLOAD_IMAGE:
             let photoPath = mPhotoPath
              KLog.d(tag : TAG, msg : "handleMessage UPLOAD_IMAGE photoPath : " + photoPath);
-             if(photoPath != nil && photoPath.count > 0 ){
-//                 Bitmap bitmap = ByteUtils.getFileBitmap(photoPath);
-            //                 Calendar calendar = Calendar.getInstance();
-            //                 SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_hhmmss");
-            //                 String fileName = sdf.format(calendar.getTime());
-            
-            //                 byte[] bytes = ByteUtils.getByteArrayFromBitmap(bitmap);
+             if(photoPath.count > 0 ){
+//           Bitmap bitmap = ByteUtils.getFileBitmap(photoPath);
+//           let fileName = DateUtils.getStringDateFormat(pattern: "yyyyMMdd_hhmmss")
+//           byte[] bytes = ByteUtils.getByteArrayFromBitmap(bitmap);
 //            let  httpUrlFileUploadManager : HttpUrlFileUploadManager =  HttpUrlFileUploadManager(url : ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, post : true, receive : self, id : ConstHTTP.INSERT_IMAGE, bytes)
 //            httpUrlFileUploadManager.actionTask(photoPath, "idx", mImageIdx + "", fileName + ".jpg")
             // HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, this, IHttpReceive.INSERT_IMAGE, bytes);
@@ -491,11 +462,15 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         KLog.d(tag: TAG, msg: "imagePickerController" )
-        var chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
-        ivImage.contentMode = .scaleAspectFill
+        let chosenImage = info[UIImagePickerControllerOriginalImage] as! UIImage
+        hideImageAttachButton(ishide: true)
         ivImage.image = chosenImage
         ivImage.isHidden = false
+        
+        let fileName = DateUtils.getStringDateFormat(pattern: "yyyyMMdd_hhmmss")
+        let tempImageName  = DataUtils.save(image: chosenImage, fileName: fileName)
+        mPhotoPath = tempImageName!.count > 0 ? tempImageName! : ""
+        KLog.d(tag: TAG, msg: "imagePickerController mPhotoPath : " + mPhotoPath )
         dismiss(animated: true, completion: nil)
     }
-    
 }

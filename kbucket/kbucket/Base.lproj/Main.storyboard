@@ -429,14 +429,18 @@
                                     <action selector="onBackPressed:" destination="aMF-eL-1tI" eventType="touchUpInside" id="hRN-7L-nGt"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sgK-TN-aet">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="nophoto" translatesAutoresizingMaskIntoConstraints="NO" id="sgK-TN-aet">
                                 <rect key="frame" x="39" y="345" width="296" height="261"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hbb-D2-ko7">
-                                <rect key="frame" x="264" y="345" width="71" height="65"/>
+                            <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x4Y-Cr-BYO">
+                                <rect key="frame" x="290" y="345" width="47" height="41"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
+                                <state key="normal" image="remove"/>
+                                <connections>
+                                    <action selector="onClick:" destination="aMF-eL-1tI" eventType="touchUpInside" id="3ip-72-DFC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.89260018129999996" blue="0.3228536232" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -445,6 +449,7 @@
                         <outlet property="btCheckbox" destination="qtx-qg-MKq" id="GKL-pI-D1y"/>
                         <outlet property="btDel" destination="g93-ua-wUj" id="CnT-O3-MXM"/>
                         <outlet property="btGallery" destination="Zot-Pu-YY5" id="p7S-R4-f1L"/>
+                        <outlet property="btRemoveImage" destination="x4Y-Cr-BYO" id="g3B-hr-nve"/>
                         <outlet property="btSave" destination="raL-fM-XlY" id="dmX-pZ-0vc"/>
                         <outlet property="btShare" destination="yJY-RF-p6w" id="b7c-26-ikZ"/>
                         <outlet property="ckComplete" destination="qtx-qg-MKq" id="pN0-u2-s2V"/>
@@ -452,7 +457,6 @@
                         <outlet property="etContent" destination="GTq-bV-5pw" id="e34-Kj-Rrk"/>
                         <outlet property="etDate" destination="Wc4-yV-CAq" id="VOm-Fv-hDm"/>
                         <outlet property="ivImage" destination="sgK-TN-aet" id="lnP-LE-0Ry"/>
-                        <outlet property="ivRemoveImage" destination="hbb-D2-ko7" id="2A7-WD-LLw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iub-k6-mqx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -652,4 +656,8 @@
             <point key="canvasLocation" x="375.5" y="65.5"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="nophoto" width="150" height="150"/>
+        <image name="remove" width="100" height="80"/>
+    </resources>
 </document>

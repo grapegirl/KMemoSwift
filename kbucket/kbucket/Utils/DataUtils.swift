@@ -8,6 +8,7 @@
  */
 
 
+import UIKit
 import Foundation
 
 class DataUtils {
@@ -89,6 +90,31 @@ class DataUtils {
     //     in.close();
     //     out.close();
     // }
+    
+    public static var documentsUrl: URL {
+        return FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    }
+    
+    public static func save(image: UIImage, fileName : String) -> String? {
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        if let imageData = UIImageJPEGRepresentation(image, 1.0) {
+            try? imageData.write(to: fileURL, options: .atomic)
+            return fileName // ----> Save fileName
+        }
+        print("Error saving image")
+        return nil
+    }
+    
+    public static func load(fileName: String) -> UIImage? {
+        let fileURL = documentsUrl.appendingPathComponent(fileName)
+        do {
+            let imageData = try Data(contentsOf: fileURL)
+            return UIImage(data: imageData)
+        } catch {
+            print("Error loading image : \(error)")
+        }
+        return nil
+    }
 
     // /**
     //  * 미디어 스캔하여 경로 반환 메소드
