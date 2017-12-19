@@ -131,7 +131,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func onClickComplete(_ sender: Any) {
-        KLog.d(tag: "ViewController", msg: "onClickComplete");
+        KLog.d(tag: "ViewController", msg: "onClickComplete")
+        changeView(viewName: "BucketListView")
     }
     
     @IBAction func onClickShare(_ sender: Any) {

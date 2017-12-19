@@ -14,85 +14,36 @@ class PostData  {
    /**
      * 타이틀
      */
-    var m_title : String { 
-        get {
-            return m_title
-        }
-        set(title) {
-            m_title = title
-        }
-    }
+    var m_title : String  = ""
 
     /**
      * 등록 날짜
      */
-    var m_date : String { 
-        get {
-            return m_date
-        }
-        set(date) {
-            m_date = date
-        }        
-    }
+    var m_date : String  = ""
     /**
      * 내용
      */
-    var m_contents : String { 
-        get {
-            return m_contents
-        }
-        set(content) {
-            m_contents = content
-        }
-    }
+    var m_contents : String  = ""
 
     /**
      * 순번
      */
-    var mNo : Int {
-        get {
-            return mNo
-        }
-        set(no) {
-            mNo = no
-        }
-    }
+    var mNo : Int  = -1
 
     /**
      * 이미지 이름
      */
-    var mImageName : String { 
-      get {
-            return mImageName
-        }
-        set(imgName) {
-            mImageName = imgName
-        }
-    }
+    var mImageName : String = ""
 
     /**
      * 완료여부
      */
-    var mCompleteYN : String { 
-        get {
-            return mCompleteYN
-        }
-        set(completeYn) {
-            mCompleteYN = completeYn
-        }
-    }
+    var mCompleteYN : String  = ""
 
     /**
      * 기한
      */
-    var mDeadline : String { 
-        get {
-            return mDeadline
-        }
-        set(deadline) {
-            mDeadline = deadline
-        }
-    }
+    var mDeadline : String = ""
 
     
     /**
@@ -112,9 +63,9 @@ class PostData  {
         self.mNo = 0
     }
 
-    init(contents : String, date : String) {
+    init(contents : String, complete : String) {
         self.m_title = ""
-        self.m_date = date
+        self.mCompleteYN = complete
         self.m_contents = contents
         self.mNo = 0
     }
@@ -135,6 +86,15 @@ class PostData  {
     deinit {
 
     }
+    
+    public func getTitle() -> String{
+        return m_title
+    }
+    
+    public func getContent() -> String{
+        return m_contents
+    }
+    
 
     var description : String {
         return "contents=\(m_contents),date=\(m_date),complete_yn=\(mCompleteYN),image_path=\(mImageName)"

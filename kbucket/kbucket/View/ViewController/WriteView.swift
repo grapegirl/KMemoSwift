@@ -46,8 +46,9 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
             let strCount = String(describing: bucketList?.count)
             KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
             for kbucket in bucketList!{
-                KLog.d(tag: TAG, msg: "realm DB data : " + kbucket.mContent)
-                if  (kbucket.mContent != nil && kbucket.mContent == "Y") {
+                KLog.d(tag: TAG, msg: "realm DB mContent : " + kbucket.mContent)
+                KLog.d(tag: TAG, msg: "realm DB mCompleteYN : " + kbucket.mCompleteYN)
+                if  (kbucket.mContent != nil && kbucket.mCompleteYN == "Y") {
                     continue
                 }
                 mDataList.append(kbucket.mContent)

@@ -30,9 +30,9 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     private let UPLOAD_BUCKET : Int = 30
     private let SELECT_BUCKET_CATEGORY : Int = 40
     
-     /*카메라 호출 리턴값*/
+    /*카메라 호출 리턴값*/
     private let REQ_CODE_PICKCUTRE : Int = 1000
-     /*갤러리 호출 리턴값*/
+    /*갤러리 호출 리턴값*/
     private let REQ_CODE_GALLERY : Int = 1001
     
     @IBOutlet weak var btShare: UIButton!
@@ -175,24 +175,24 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     
     @IBAction func onClickEditor(_ sender2: Any){
         switch (sender2  as! UITextField )  {
-            case etDate:
-                 KLog.d(tag: TAG, msg: "onClick etDate")
-                 let datePickerView : UIDatePicker = UIDatePicker()
-                 datePickerView.datePickerMode = UIDatePickerMode.date
-                 etDate.inputView = datePickerView
-                 datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"),
-                                          for: UIControlEvents.valueChanged)
-                break;
-            case etCompleteDate:
-                 KLog.d(tag: TAG, msg: "onClick etCompleteDate")
-                 let datePickerView : UIDatePicker = UIDatePicker()
-                 datePickerView.datePickerMode = UIDatePickerMode.date
-                 etDate.inputView = datePickerView
-                 datePickerView.addTarget(self, action: Selector("datePickerValueChanged2:"),
-                                          for: UIControlEvents.valueChanged)
-                break;
-            default:
-                break;
+        case etDate:
+            KLog.d(tag: TAG, msg: "onClick etDate")
+            let datePickerView : UIDatePicker = UIDatePicker()
+            datePickerView.datePickerMode = UIDatePickerMode.date
+            etDate.inputView = datePickerView
+            datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"),
+                                     for: UIControlEvents.valueChanged)
+            break;
+        case etCompleteDate:
+            KLog.d(tag: TAG, msg: "onClick etCompleteDate")
+            let datePickerView : UIDatePicker = UIDatePicker()
+            datePickerView.datePickerMode = UIDatePickerMode.date
+            etDate.inputView = datePickerView
+            datePickerView.addTarget(self, action: Selector("datePickerValueChanged2:"),
+                                     for: UIControlEvents.valueChanged)
+            break;
+        default:
+            break;
         }
     }
     @IBAction func onClick(_ sender: Any) {
@@ -221,16 +221,16 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             handleMessage(what: UPLOAD_BUCKET, obj: "")
             break
         case btCamera:
-             KLog.d(tag: TAG, msg: "onClick btCamera")
-             startCamera()
+            KLog.d(tag: TAG, msg: "onClick btCamera")
+            startCamera()
             //             mPhotoPath = DataUtils.getNewFileName();
             //             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             //             intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(mPhotoPath)));
             //             startActivityForResult(intent, REQ_CODE_PICKCUTRE);
             break;
         case btGallery:
-             KLog.d(tag: TAG, msg: "onClick btGallery")
-             openGallary()
+            KLog.d(tag: TAG, msg: "onClick btGallery")
+            openGallary()
             break;
         case btRemoveImage:
             KLog.d(tag: TAG, msg: "onClick btRemoveImage")
@@ -242,7 +242,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         default:
             break;
         }
-         
+        
     }
     
     private func datePickerValueChanged(sender:UIDatePicker) {
@@ -257,7 +257,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         etCompleteDate.text = dateFormatter.string(from: sender.date)
         etCompleteDate.resignFirstResponder()
     }
-
+    
     // @Override
     // protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     //     if (requestCode == REQ_CODE_PICKCUTRE) {
@@ -301,10 +301,10 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     //     }
     // }
     
-  func onHttpReceive(type : Int, actionId: Int,  data : Data){
+    func onHttpReceive(type : Int, actionId: Int,  data : Data){
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
-    
+        
         var isValid : Bool  = false
         do {
             if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
@@ -316,44 +316,44 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         } catch {
             print("JSON 파상 에러")
         }
-
-        if (actionId == ConstHTTP.INSERT_BUCKET) {
-                if (type == ConstHTTP.HTTP_FAIL) {
-                    let message = AppUtils.localizedString(forKey : "write_bucekt_fail_string")
-                    handleMessage(what: TOAST_MASSEGE, obj: message)
-                } else {
-                    if (data != nil) {
-                        do {
-                            if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                                    //mImageIdx = json.getInt("idx")
-                            }
-                        } catch {
-                             KLog.d(tag : TAG, msg : "@@ Exception ")
-                        }
         
-                        if (isValid == true) {
-                            // 이미지가 있는 경우 전송함
-                            if (mPhotoPath != nil && mPhotoPath.count > 0 ) {
-                                handleMessage(what: UPLOAD_IMAGE, obj: "")
-                            } else {
-                                 let message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
-                                handleMessage(what: TOAST_MASSEGE, obj: message)
-                            }
+        if (actionId == ConstHTTP.INSERT_BUCKET) {
+            if (type == ConstHTTP.HTTP_FAIL) {
+                let message = AppUtils.localizedString(forKey : "write_bucekt_fail_string")
+                handleMessage(what: TOAST_MASSEGE, obj: message)
+            } else {
+                if (data != nil) {
+                    do {
+                        if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
+                            //mImageIdx = json.getInt("idx")
                         }
+                    } catch {
+                        KLog.d(tag : TAG, msg : "@@ Exception ")
                     }
-                }
-            }// 이미지 업로드 결과
-            else if (actionId == ConstHTTP.INSERT_IMAGE) {
-                if (type == ConstHTTP.HTTP_FAIL) {
-                    let message = AppUtils.localizedString(forKey : "upload_image_fail_string")
-                    handleMessage(what: TOAST_MASSEGE, obj: message)
-                } else {
+                    
                     if (isValid == true) {
-                        let message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
-                        handleMessage(what: TOAST_MASSEGE, obj: message)
+                        // 이미지가 있는 경우 전송함
+                        if (mPhotoPath != nil && mPhotoPath.count > 0 ) {
+                            handleMessage(what: UPLOAD_IMAGE, obj: "")
+                        } else {
+                            let message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                            handleMessage(what: TOAST_MASSEGE, obj: message)
+                        }
                     }
                 }
             }
+        }// 이미지 업로드 결과
+        else if (actionId == ConstHTTP.INSERT_IMAGE) {
+            if (type == ConstHTTP.HTTP_FAIL) {
+                let message = AppUtils.localizedString(forKey : "upload_image_fail_string")
+                handleMessage(what: TOAST_MASSEGE, obj: message)
+            } else {
+                if (isValid == true) {
+                    let message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                    handleMessage(what: TOAST_MASSEGE, obj: message)
+                }
+            }
+        }
     }
     
     func handleMessage(what : Int, obj : String) {
@@ -363,18 +363,19 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         case UPLOAD_IMAGE:
             let photoPath = mPhotoPath
-             KLog.d(tag : TAG, msg : "handleMessage UPLOAD_IMAGE photoPath : " + photoPath);
-             if(photoPath.count > 0 ){
-//           Bitmap bitmap = ByteUtils.getFileBitmap(photoPath);
-//           let fileName = DateUtils.getStringDateFormat(pattern: "yyyyMMdd_hhmmss")
-//           byte[] bytes = ByteUtils.getByteArrayFromBitmap(bitmap);
-//            let  httpUrlFileUploadManager : HttpUrlFileUploadManager =  HttpUrlFileUploadManager(url : ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, post : true, receive : self, id : ConstHTTP.INSERT_IMAGE, bytes)
-//            httpUrlFileUploadManager.actionTask(photoPath, "idx", mImageIdx + "", fileName + ".jpg")
-            // HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, this, IHttpReceive.INSERT_IMAGE, bytes);
-             // httpUrlFileUploadManager.execute(photoPath, "idx", mImageIdx + "", fileName + ".jpg");
-             }else{
-                 KLog.d(tag : TAG, msg : "@@ UPLOAD IMAGE NO !")
-             }
+            KLog.d(tag : TAG, msg : "handleMessage UPLOAD_IMAGE photoPath : " + photoPath)
+            if(photoPath.count > 0 ){
+                let  httpUrlFileUploadManager : HttpUrlFileUploadManager = HttpUrlFileUploadManager(url : ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, post : true, receive : self, id : ConstHTTP.INSERT_IMAGE)
+                let fileName : String = DateUtils.getStringDateFormat(pattern: "yyyyMMdd_hhmmss")
+                KLog.d(tag : TAG, msg : "handleMessage UPLOAD_IMAGE fileName : " + fileName)
+                var imageData = UIImagePNGRepresentation(ivImage.image!)
+                KLog.d(tag : TAG, msg : "handleMessage UPLOAD_IMAGE imageData : " )
+                httpUrlFileUploadManager.actionTask(filePath : photoPath, setValue: "idx", reqValue : String(mImageIdx), fileName : fileName + ".jpg",
+                                                    image : imageData!)
+                
+            }else{
+                KLog.d(tag : TAG, msg : "@@ UPLOAD IMAGE NO !")
+            }
             break;
         case UPLOAD_BUCKET:
             let url  = ContextUtils.KBUCKET_INSERT_BUCKET_URL
@@ -385,7 +386,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         case SELECT_BUCKET_CATEGORY:
             let title = AppUtils.localizedString(forKey : "category_popup_title")
             let content = AppUtils.localizedString(forKey : "category_popup_content")
-
+            
             var list : Array<Category> = Array()
             list.append(Category(name : "LIEF", code : 1))
             list.append(Category(name : "LOVE", code : 2))
@@ -460,7 +461,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
         present(picker!, animated: true, completion: nil)
     }
-
+    
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }

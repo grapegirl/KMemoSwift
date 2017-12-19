@@ -14,6 +14,7 @@
 		00004A741EF41D8D0074DCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00004A721EF41D8D0074DCFB /* LaunchScreen.storyboard */; };
 		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
 		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
+		000389901FDEAB150097BD4F /* BucketCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */; };
 		0011338D1FD3A9C6007BCAD7 /* PassWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133791FD3A9C4007BCAD7 /* PassWordView.swift */; };
 		0011338E1FD3A9C6007BCAD7 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337A1FD3A9C4007BCAD7 /* WriteView.swift */; };
 		0011338F1FD3A9C6007BCAD7 /* AddBucketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337B1FD3A9C4007BCAD7 /* AddBucketView.swift */; };
@@ -37,6 +38,7 @@
 		001133A21FD3AA04007BCAD7 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133A11FD3AA04007BCAD7 /* Toast.swift */; };
 		001133A51FD3AA18007BCAD7 /* ConstHTTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133A41FD3AA18007BCAD7 /* ConstHTTP.swift */; };
 		001133A71FD3AA36007BCAD7 /* EventProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133A61FD3AA36007BCAD7 /* EventProtocol.swift */; };
+		001423691FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001423681FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift */; };
 		00220C491FD5696700D14409 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00220C481FD5696600D14409 /* ViewUtils.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
 		0059940E1F5A3F21007777A1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059940D1F5A3F21007777A1 /* PostData.swift */; };
@@ -120,6 +122,7 @@
 		00004A851EF41D8D0074DCFB /* kbucketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00004A891EF41D8D0074DCFB /* kbucketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketUITests.swift; sourceTree = "<group>"; };
 		00004A8B1EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BucketCustomCell.swift; path = View/Bean/BucketCustomCell.swift; sourceTree = "<group>"; };
 		001133791FD3A9C4007BCAD7 /* PassWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassWordView.swift; path = View/ViewController/PassWordView.swift; sourceTree = "<group>"; };
 		0011337A1FD3A9C4007BCAD7 /* WriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteView.swift; path = View/ViewController/WriteView.swift; sourceTree = "<group>"; };
 		0011337B1FD3A9C4007BCAD7 /* AddBucketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBucketView.swift; path = View/ViewController/AddBucketView.swift; sourceTree = "<group>"; };
@@ -143,6 +146,7 @@
 		001133A11FD3AA04007BCAD7 /* Toast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Toast.swift; path = View/Toast.swift; sourceTree = "<group>"; };
 		001133A41FD3AA18007BCAD7 /* ConstHTTP.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstHTTP.swift; path = View/Const/ConstHTTP.swift; sourceTree = "<group>"; };
 		001133A61FD3AA36007BCAD7 /* EventProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EventProtocol.swift; path = View/Protocol/EventProtocol.swift; sourceTree = "<group>"; };
+		001423681FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpUrlFileUploadManager.swift; path = Managers/http/HttpUrlFileUploadManager.swift; sourceTree = "<group>"; };
 		00220C481FD5696600D14409 /* ViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewUtils.swift; path = Utils/ViewUtils.swift; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
 		0059940D1F5A3F21007777A1 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = View/Bean/PostData.swift; sourceTree = "<group>"; };
@@ -303,6 +307,7 @@
 				005994181F5A4532007777A1 /* Version.swift */,
 				0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */,
 				00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */,
+				0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */,
 				0059940D1F5A3F21007777A1 /* PostData.swift */,
 			);
 			name = Bean;
@@ -380,6 +385,7 @@
 			children = (
 				0080F62D1FAD5DAA0076893B /* IHttpReceive.swift */,
 				0080F6311FAD60890076893B /* HttpUrlTaskManager.swift */,
+				001423681FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift */,
 			);
 			name = http;
 			sourceTree = "<group>";
@@ -546,6 +552,7 @@
 				00A6A95C1F60179900F65A1E /* ScreenUtils.swift in Sources */,
 				00A6A9541F60179900F65A1E /* ContextUtils.swift in Sources */,
 				001133951FD3A9C6007BCAD7 /* WriteMemoView.swift in Sources */,
+				000389901FDEAB150097BD4F /* BucketCustomCell.swift in Sources */,
 				00A6A9591F60179900F65A1E /* MediaUtils.swift in Sources */,
 				00A6A9561F60179900F65A1E /* DateUtils.swift in Sources */,
 				0074C43C1F510A1700BB7CB0 /* FirstCustomCell.swift in Sources */,
@@ -559,6 +566,7 @@
 				001133911FD3A9C6007BCAD7 /* PushPopupView.swift in Sources */,
 				001133961FD3A9C6007BCAD7 /* WriteDetailView.swift in Sources */,
 				001133A01FD3A9C6007BCAD7 /* ShareListView.swift in Sources */,
+				001423691FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift in Sources */,
 				00A6A95E1F60179900F65A1E /* UserDefault.swift in Sources */,
 				001133A71FD3AA36007BCAD7 /* EventProtocol.swift in Sources */,
 				0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */,

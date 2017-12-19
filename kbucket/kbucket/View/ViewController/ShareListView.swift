@@ -99,18 +99,20 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     }
     
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
-        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
-        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
         var isValid : Bool  = false
+        print(data)
         do {
             if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                 if jsonString != nil {
                     isValid = jsonString["isValid"] as! Bool
-                    // print(jsonString)
+                     print(jsonString)
                 }
             }
         } catch {
             print("JSON 파상 에러")
+          
         }
         
         if (actionId == ConstHTTP.CATEGORY_LIST) {
@@ -198,9 +200,10 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                     data = ContextUtils.DEFULAT_SHARE_BUCKET_IDX
                 }
                 //  KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-                let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL + "?idx="+data
-                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST);
-                httpUrlTaskManager.actionTask()
+                let url  = ContextUtils.KBUCKET_BUCKET_LIST_URL
+                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST)
+                data = "idx=" + data
+                httpUrlTaskManager.actionTaskWithData(data: data)
                 break;
             case SET_BUCKETLIST:
                 DispatchQueue.main.async {

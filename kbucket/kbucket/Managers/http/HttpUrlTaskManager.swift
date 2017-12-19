@@ -63,7 +63,7 @@ class HttpUrlTaskManager {
     
     func actionTaskWithData(data : String){
         let url = URL(string: mURl)
-        KLog.d(tag: TAG, msg: "@@ url : " + mURl )
+        KLog.d(tag: TAG, msg: "@@ url : " + mURl + ", data = " + data)
         if(isPost){
             var request = URLRequest(url: url!)
             request.setValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")

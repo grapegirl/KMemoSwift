@@ -10,7 +10,7 @@ import UIKit
 import RealmSwift
 
 
-class BucketListView: UIViewController , IHttpReceive {
+class BucketListView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITableViewDataSource {
 
     private let TAG : String = "BucketListView"
 
@@ -26,7 +26,9 @@ class BucketListView: UIViewController , IHttpReceive {
     private var mImageIdx : Int = -1
     private var mCategory : Int = 1
 
-    // private ListView mListView = null;
+    @IBOutlet weak var mTableView: UITableView!
+    @IBOutlet weak var btBack: UIButton!
+    
     // private CardViewListAdpater mListAdapter = null;
     // private ConfirmPopup mConfirmPopup = null;
     // private SpinnerListPopup mCategoryPopup = null;
@@ -38,9 +40,12 @@ class BucketListView: UIViewController , IHttpReceive {
     }
     
     func initialize(){
-    //     mListView = (ListView) findViewById(R.id.bucket_list_listview);
-           mSqlQuery = SQLQuery()
-           setListData()
+        mSqlQuery = SQLQuery()
+        setListData()
+        
+        mTableView.delegate = self
+        mTableView.dataSource = self
+        
     //     Collections.reverse(mDataList);
     //     mListAdapter = new CardViewListAdpater(this, R.layout.cardview_list_line, mDataList, this, this);
     //     mListView.setAdapter(mListAdapter);
@@ -68,15 +73,13 @@ class BucketListView: UIViewController , IHttpReceive {
             KLog.d(tag: TAG, msg: "realm DB count : " + strCount)
             for kbucket in bucketList!
             {
-                KLog.d(tag: TAG, msg: "realm DB data : " + kbucket.mContent)
+                KLog.d(tag: TAG, msg: "realm DB mContent : " + kbucket.mContent)
+                KLog.d(tag: TAG, msg: "realm DB mCompleteYN : " + kbucket.mCompleteYN)
                 if  (kbucket.mCompleteYN != nil && kbucket.mCompleteYN == "N") {
                     continue
                 }
-                var postData = PostData()
-                postData.m_contents = kbucket.mContent
-                postData.m_date = kbucket.mCompleteDate
-                postData.mImageName = kbucket.mImageURl
-                postData.mCompleteYN = kbucket.mCompleteYN
+                let postData = PostData(contents : kbucket.mContent, complete : kbucket.mCompleteYN)
+                KLog.d(tag: TAG, msg: "realm DB postData : " + postData.description)
                 mDataList.append(postData)
             }
         }
@@ -84,7 +87,7 @@ class BucketListView: UIViewController , IHttpReceive {
 
    @IBAction func onClick(_ sender: Any) {
 
-//        switch(sender  as! UIButton ){
+        switch(sender  as! UIButton ){
 //            let index = 0
 //            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailView")
 //            uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
@@ -93,7 +96,13 @@ class BucketListView: UIViewController , IHttpReceive {
 //            present(uvc!, animated: true, completion: nil)
 //
 //            finish()
-//        }
+        case btBack:
+            KLog.d(tag: TAG, msg: "onBackPressed")
+            ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
+            break;
+        default:
+            break;
+        }
 
     }
 
@@ -264,4 +273,28 @@ class BucketListView: UIViewController , IHttpReceive {
 //                break;
 //        }
     }
+    
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+         KLog.d(tag: TAG, msg: "@@ tableView count : " + String(mDataList.count))
+        return mDataList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        KLog.d(tag: TAG, msg: "@@ tableView indexPath : " + String(indexPath.row))
+        let cell = mTableView.dequeueReusableCell(withIdentifier: "BucketCustomCell", for: indexPath) as! BucketCustomCell
+        
+        cell.mEtContent.text = mDataList[indexPath.row].m_contents
+        //cell.mbtDate. = mDataList[indexPath.row].m_date
+        cell.selectionStyle = .none
+        
+       // cell.setOnEventListener(listenr: self)
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        KLog.d(tag: TAG, msg: "row: \(indexPath.row)")
+    }
+
 }
