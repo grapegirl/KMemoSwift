@@ -167,7 +167,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
     private func back(strBack : String){
         KLog.d(tag: TAG, msg: "back : " + strBack)
         if(BACK == ContextUtils.VIEW_COMPLETE_LIST){
-            ViewUtils.changeView(strView: "BucketListViewCtrl", viewCtrl: self)
+            ViewUtils.changeView(strView: ContextUtils.VIEW_COMPLETE_LIST, viewCtrl: self)
         }else{
             ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
         }

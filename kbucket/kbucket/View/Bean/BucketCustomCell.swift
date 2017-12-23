@@ -13,33 +13,22 @@ import UIKit
 class BucketCustomCell  : UITableViewCell { 
     
     private let TAG : String = "BucketCustomCell"
-  
-    @IBOutlet weak var mIvImage: UIImageView!
-    @IBOutlet weak var mEtContent: UITextField!
-    @IBOutlet weak var mbtDate: UIButton!
     public var mData : String = ""
     
-    private var mListenr : EventProtocol? = nil
+    @IBOutlet weak var mEtContent: UITextField!
+    @IBOutlet weak var mBtDate: UIButton!
+    @IBOutlet weak var ivImage: UIImageView!
+    
+    private var mListener : EventProtocol? = nil
     
     @IBAction func onClick(_ sender: Any)
     {
-        switch((sender  as! UITextField))
-        {
-        case mEtContent:
-            mListenr?.receiveEventFromViewItem(gbn: 0, data: mData)
-            break;
-        default:
-            break;
-        }
-        
+         mListener?.receiveEventFromViewItem(gbn: 0, data: mData)
     }
     
-    
-    public func setOnEventListener(listenr : EventProtocol)
+    public func setOnEventListener(listener : EventProtocol)
     {
-        if (listenr != nil){
-            mListenr = listenr
-        }
+        mListener = listener
     }
 }
 

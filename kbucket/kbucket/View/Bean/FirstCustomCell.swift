@@ -20,34 +20,25 @@ class FirstCustomCell : UITableViewCell{
     public var mData : String = ""
     private var mListenr : EventProtocol? = nil
     
-    
- 
     @IBAction func onClick(_ sender: Any)
     {
-        
         switch((sender  as! UIButton))
         {
         case btDel:
-            //KLog.d(tag: TAG, msg: "onClick btDel index : " + mData)
             mListenr?.receiveEventFromViewItem(gbn: 1, data: mData)
             break;
         case btMod:
-            //KLog.d(tag: TAG, msg: "onClick btMod index : " + mData)
             mListenr?.receiveEventFromViewItem(gbn: 0, data: mData)
             break;
-            
         default:
             break;
         }
         
     }
     
-    
     public func setOnEventListener(listenr : EventProtocol)
     {
-        if (listenr != nil){
-            mListenr = listenr
-        }
+        mListenr = listenr
     }
 }
 

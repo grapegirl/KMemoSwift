@@ -70,7 +70,7 @@ class ContextUtils{
     /**
      * 완료된 가지 목록 화면
      */
-    public static let VIEW_COMPLETE_LIST : String = "BucketListActivity"     
+    public static let VIEW_COMPLETE_LIST : String = "BucketListView"
     
     /**
      * 버킷 공유(Life)

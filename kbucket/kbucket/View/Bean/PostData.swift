@@ -95,6 +95,9 @@ class PostData  {
         return m_contents
     }
     
+    public func setImage(imagePath : String){
+        mImageName = imagePath
+    }
 
     var description : String {
         return "contents=\(m_contents),date=\(m_date),complete_yn=\(mCompleteYN),image_path=\(mImageName)"

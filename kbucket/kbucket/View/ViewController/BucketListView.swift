@@ -10,7 +10,8 @@ import UIKit
 import RealmSwift
 
 
-class BucketListView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITableViewDataSource {
+class BucketListView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITableViewDataSource ,
+EventProtocol {
 
     private let TAG : String = "BucketListView"
 
@@ -75,10 +76,12 @@ class BucketListView: UIViewController , IHttpReceive ,  UITableViewDelegate, UI
             {
                 KLog.d(tag: TAG, msg: "realm DB mContent : " + kbucket.mContent)
                 KLog.d(tag: TAG, msg: "realm DB mCompleteYN : " + kbucket.mCompleteYN)
+                 KLog.d(tag: TAG, msg: "realm DB mImage : " + kbucket.mImageURl)
                 if  (kbucket.mCompleteYN != nil && kbucket.mCompleteYN == "N") {
                     continue
                 }
                 let postData = PostData(contents : kbucket.mContent, complete : kbucket.mCompleteYN)
+                postData.setImage(imagePath: kbucket.mImageURl)
                 KLog.d(tag: TAG, msg: "realm DB postData : " + postData.description)
                 mDataList.append(postData)
             }
@@ -281,20 +284,47 @@ class BucketListView: UIViewController , IHttpReceive ,  UITableViewDelegate, UI
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        KLog.d(tag: TAG, msg: "@@ tableView indexPath : " + String(indexPath.row))
         let cell = mTableView.dequeueReusableCell(withIdentifier: "BucketCustomCell", for: indexPath) as! BucketCustomCell
         
-        cell.mEtContent.text = mDataList[indexPath.row].m_contents
-        //cell.mbtDate. = mDataList[indexPath.row].m_date
+        let postData = mDataList[indexPath.row]
+        cell.mEtContent.text = postData.m_contents
+        cell.mBtDate.setTitle(title, for: UIControlState.normal)
+        cell.mData = String(indexPath.row)
+        
+        if(postData.mImageName.count > 0){
+            let image = DataUtils.load(fileName: postData.mImageName)
+            cell.ivImage.image = image
+        }
         cell.selectionStyle = .none
         
-       // cell.setOnEventListener(listenr: self)
+        cell.setOnEventListener(listener: self)
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         KLog.d(tag: TAG, msg: "row: \(indexPath.row)")
+        changeDetailView(index: indexPath.row)
     }
 
+    func receiveEventFromViewItem(gbn : Int, data : String) {
+        KLog.d(tag: TAG, msg: "receiveEventFromViewItem data : " + data)
+        switch(gbn){
+        case 0://상세 화면 이동
+            let index:Int! = Int(data)
+            changeDetailView(index: index)
+            break;
+        default:
+            break;
+        }
+    }
+    
+    private func changeDetailView(index : Int){
+        KLog.d(tag: TAG, msg: "changeDetailView");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: "WriteDetailView") as! WriteDetailView
+        uvc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        uvc.CONTENTS = mDataList[index].getContent()
+        uvc.BACK = ContextUtils.VIEW_COMPLETE_LIST
+        present(uvc, animated: true, completion: nil)
+    }
 }
