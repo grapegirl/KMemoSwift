@@ -94,8 +94,9 @@ class IntroView: UIViewController {
 //        }
     }
 
+
     @IBAction func onBackPressed(_ sender: Any) {
-        KLog.d(tag: TAG, msg: "onBackPressed");
+        KLog.d(tag:TAG, msg: "onBackPressed");
     }
 
     private func changeView(strView : String){

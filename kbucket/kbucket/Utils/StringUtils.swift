@@ -101,7 +101,21 @@ class StringUtils   {
 //        return list
 //    }
 
-
-    
+    /**
+     * 포스트 방식으로 데이타 전송시 인자 설정 메소드
+     *
+     * @param sendData
+     * @return 포스트 방식 전송 데이타
+     */
+    public static func getHTTPPostSendData(sendData : [String: String]) -> String {
+        var sb = ""
+        let keys = Array(sendData.keys)
+        for key in keys {
+            let value = sendData[key]!
+            sb += key + "=" + value + "&"
+        }
+        print("@@ getHTTPPostSendData :  " + sb)
+        return sb
+    }
 
 }

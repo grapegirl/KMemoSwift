@@ -8,8 +8,8 @@
 
 import UIKit
 import Foundation
-import RealmSwift
 import AVFoundation
+import RealmSwift
 
 class WriteDetailView: UIViewController , IHttpReceive, AVCapturePhotoCaptureDelegate , UIImagePickerControllerDelegate,
 UIPopoverControllerDelegate,UINavigationControllerDelegate {
@@ -121,9 +121,21 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
                 }else{
                     hideImageAttachButton(ishide: false)
                 }
-                etDate.text = kbucket.mCompleteDate
                 etContent.text = kbucket.mContent
-                etCompleteDate.text = kbucket.mCompleteDate
+                
+                if(kbucket.mDate.count > 0){
+                    etDate.text = kbucket.mDate
+                }else{
+                    let strDate = DateUtils.getStringDateFormat(pattern: "yy-MM-dd")
+                    etDate.text = strDate
+                }
+                if(kbucket.mCompleteDate.count > 0){
+                      etCompleteDate.text = kbucket.mCompleteDate
+                }else{
+                    let strDate = DateUtils.getStringDateFormat(pattern: "yy-MM-dd")
+                    etCompleteDate.text = strDate
+                }
+              
             }
         }
     }
@@ -142,7 +154,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         newBucket.mContent = NewContents
         newBucket.mCompleteYN = completeYN
         newBucket.mImageURl = imagePath
-        newBucket.mCompleteDate = date
+        newBucket.mDate = date
         newBucket.mCompleteDate = completeDate
         
         if(mSqlQuery != nil){
@@ -180,15 +192,15 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             let datePickerView : UIDatePicker = UIDatePicker()
             datePickerView.datePickerMode = UIDatePickerMode.date
             etDate.inputView = datePickerView
-            datePickerView.addTarget(self, action: Selector("datePickerValueChanged:"),
+            datePickerView.addTarget(self, action: #selector(datePickerValueChanged),
                                      for: UIControlEvents.valueChanged)
             break;
         case etCompleteDate:
             KLog.d(tag: TAG, msg: "onClick etCompleteDate")
             let datePickerView : UIDatePicker = UIDatePicker()
             datePickerView.datePickerMode = UIDatePickerMode.date
-            etDate.inputView = datePickerView
-            datePickerView.addTarget(self, action: Selector("datePickerValueChanged2:"),
+            etCompleteDate.inputView = datePickerView
+            datePickerView.addTarget(self, action: #selector(datePickerValueChanged2),
                                      for: UIControlEvents.valueChanged)
             break;
         default:
@@ -245,15 +257,23 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         
     }
     
-    private func datePickerValueChanged(sender:UIDatePicker) {
+    func datePickerValueChanged(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YY-MM-DD"
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "yy-MM-dd"
+        dateFormatter.timeZone = TimeZone.init(secondsFromGMT: 0)
+        KLog.d(tag: TAG, msg: "@@ datePickerValueChanged ")
         etDate.text = dateFormatter.string(from: sender.date)
         etDate.resignFirstResponder()
     }
-    private func datePickerValueChanged2(sender:UIDatePicker) {
+    func datePickerValueChanged2(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YY-MM-DD"
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "YY-MM-dd"
+        dateFormatter.timeZone = TimeZone.init(secondsFromGMT: 0)
+        KLog.d(tag: TAG, msg: "@@ datePickerValueChanged2")
         etCompleteDate.text = dateFormatter.string(from: sender.date)
         etCompleteDate.resignFirstResponder()
     }
@@ -380,7 +400,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         case UPLOAD_BUCKET:
             let url  = ContextUtils.KBUCKET_INSERT_BUCKET_URL
             let httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.INSERT_BUCKET)
-            let data = getHTTPPostSendData(sendData : shareBucketImage())
+            let data = StringUtils.getHTTPPostSendData(sendData : shareBucketImage())
             httpUrlTaskManager.actionTaskWithData(data : data)
             break;
         case SELECT_BUCKET_CATEGORY:
@@ -411,7 +431,11 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         var previewLayer: AVCaptureVideoPreviewLayer?
         
         captureSesssion = AVCaptureSession()
-        stillImageOutput = AVCapturePhotoOutput()
+        if #available(iOS 10.0, *) {
+            stillImageOutput = AVCapturePhotoOutput()
+        } else {
+            // Fallback on earlier versions
+        }
         captureSesssion.sessionPreset = AVCaptureSessionPreset1920x1080 // 해상도설정
         
         let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
@@ -496,20 +520,4 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         return bucket.toDictionary()
     }
     
-    /**
-     * 포스트 방식으로 데이타 전송시 인자 설정 메소드
-     *
-     * @param sendData
-     * @return 포스트 방식 전송 데이타
-     */
-    private func getHTTPPostSendData(sendData : [String: String]) -> String {
-        var sb = ""
-        let keys = Array(sendData.keys)
-        for key in keys {
-            let value = sendData[key]!
-            sb += key + "=" + value + "&"
-        }
-        print("@@ getHTTPPostSendData :  " + sb)
-        return sb
-    }
 }

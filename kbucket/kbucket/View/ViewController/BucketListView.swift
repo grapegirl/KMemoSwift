@@ -9,7 +9,6 @@
 import UIKit
 import RealmSwift
 
-
 class BucketListView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITableViewDataSource ,
 EventProtocol {
 
@@ -76,12 +75,15 @@ EventProtocol {
             {
                 KLog.d(tag: TAG, msg: "realm DB mContent : " + kbucket.mContent)
                 KLog.d(tag: TAG, msg: "realm DB mCompleteYN : " + kbucket.mCompleteYN)
-                 KLog.d(tag: TAG, msg: "realm DB mImage : " + kbucket.mImageURl)
-                if  (kbucket.mCompleteYN != nil && kbucket.mCompleteYN == "N") {
+                KLog.d(tag: TAG, msg: "realm DB mImage : " + kbucket.mImageURl)
+                KLog.d(tag: TAG, msg: "realm DB date : " + kbucket.mDate)
+                
+                if  (kbucket.mCompleteYN != "Y") {
                     continue
                 }
                 let postData = PostData(contents : kbucket.mContent, complete : kbucket.mCompleteYN)
                 postData.setImage(imagePath: kbucket.mImageURl)
+                postData.setDate(date: kbucket.mDate)
                 KLog.d(tag: TAG, msg: "realm DB postData : " + postData.description)
                 mDataList.append(postData)
             }
@@ -287,8 +289,12 @@ EventProtocol {
         let cell = mTableView.dequeueReusableCell(withIdentifier: "BucketCustomCell", for: indexPath) as! BucketCustomCell
         
         let postData = mDataList[indexPath.row]
+        KLog.d(tag: ContextUtils.TAG, msg: "@@ date : " + postData.m_date)
+        cell.mBtDate.setTitle(postData.m_date, for: UIControlState.normal)
+        cell.mBtDate.tintColor = .black
+        
         cell.mEtContent.text = postData.m_contents
-        cell.mBtDate.setTitle(title, for: UIControlState.normal)
+        cell.mBtDate.setTitle(postData.m_date, for: UIControlState.normal)
         cell.mData = String(indexPath.row)
         
         if(postData.mImageName.count > 0){

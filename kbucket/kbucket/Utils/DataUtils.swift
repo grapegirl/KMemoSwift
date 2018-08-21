@@ -55,22 +55,52 @@ class DataUtils {
     }
 
   
-    // /**
-    //  * 현재시간으로 파일 이름 생성 후 반환 메소드
-    //  *
-    //  * @return 현재시간으로 생성된 파일이름 반환
-    //  */
-    // public static final String getNewFileName() {
-    //     File path = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/" + ContextUtils.KEY_FILE_FOLDER);
-    //     if (!path.exists()) {
-    //         path.mkdirs();
-    //     }
-    //     Calendar calendar = Calendar.getInstance();
-    //     SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-    //     String dateTime = sdf.format(calendar.getTime());
-    //     String strPhotoPath = path.getPath() + "/" + dateTime + ".jpg";
-    //     return strPhotoPath;
-    // }
+     /**
+      * 현재시간으로 파일 이름 생성 후 반환 메소드
+      *
+      * @return 현재시간으로 생성된 파일이름 반환
+      */
+    public static func getNewFileName() -> String {
+        var strPhotoPath : String = ""
+        
+        let fileManager = FileManager()
+        
+        // document 디렉토리의 경로 저장
+        let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        // 해당 디렉토리 이름 지정
+        let dataPath = documentsDirectory.appendingPathComponent(ContextUtils.KEY_FILE_FOLDER)
+
+        do{
+            // 디렉토리 생성
+            try fileManager.createDirectory(atPath: dataPath.path, withIntermediateDirectories: false, attributes: nil)
+            
+        }catch let error as NSError{
+            print(error)
+        }
+        
+        do {
+            // 파일 이름을 기존의 경로에 추가
+            let dateTime = DateUtils.convertTime() + ".jpg";
+            let filePath = dataPath.appendingPathComponent(dateTime)
+            strPhotoPath = filePath.absoluteString
+            KLog.d(tag: ContextUtils.TAG, msg: "@@ file Path New : " + strPhotoPath)
+            // 쓸 내용
+//            let text = "Hello File From Swift"
+//
+//            do {
+//                // 쓰기 작업
+//                try text.write(to: helloPath, atomically: false, encoding: .utf8)
+//            }
+        } catch let error as NSError {
+            print("Error Writing File : \(error.localizedDescription)")
+        }
+        
+        
+    
+        return strPhotoPath
+    }
+   
 
     // /***
     //  * @param selectedImagePath

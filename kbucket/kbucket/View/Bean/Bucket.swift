@@ -49,6 +49,10 @@ class Bucket : Object {
      * 이미지 저장경로
      */
     dynamic var mImageURl : String = ""
+    /**
+     * 날짜
+     */
+    dynamic var mDate : String = ""
     
     public func toString() -> String{
         var strTemp = ""

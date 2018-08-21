@@ -39,7 +39,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         KLog.d(tag: TAG, msg: "viewDidLoad");
-        //     AppUtils.sendTrackerScreen(this, "모두가지화면");
+        //AppUtils.sendTrackerScreen(this, "모두가지화면");
         initialize()
     }
     
@@ -154,6 +154,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                                     let aObject = bucketList[index] as! [String : AnyObject]
                                     let bucket : Bucket = Bucket()
                                     bucket.mContent = aObject["content"] as! String
+                                    bucket.mDate = aObject["createDt"] as! String
                                     bucket.mPhone = aObject["phone"] as! String
                                     bucket.mIdx = aObject["idx"] as! Int
                                     bucket.mPhone = aObject["phone"] as! String
@@ -230,8 +231,9 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = mTableView.dequeueReusableCell(withIdentifier: "ShareCustomCell", for: indexPath) as! ShareCustomCell
+        
         cell.etEdit.text = mBucketDataList[indexPath.row].mContent
-        cell.mData = String(mBucketDataList[indexPath.row].mIdx)
+        cell.mData = String(indexPath.row)
         cell.selectionStyle = .none
         cell.setOnEventListener(listenr: self)
         return cell
@@ -246,12 +248,16 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
         switch(gbn){
         case 0://상세보기
            KLog.d(tag: TAG, msg: "receiveEventFromViewItem mod");
-           ViewUtils.changeView(strView: "ShareDetailView", viewCtrl: self)
-            //             int idx = mBucketDataList.get(sharedIdx).getIdx();
-            //             intent.putExtra(ContextUtils.NUM_SHARE_BUCKET_IDX, idx + "");
-            //             intent.putExtra(ContextUtils.OBJ_SHARE_BUCKET, mBucketDataList.get(sharedIdx));
+           let index:Int! = Int(data)
+           let uvc = self.storyboard?.instantiateViewController(withIdentifier: "ShareDetailView") as! ShareDetailView
+           uvc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+           uvc.idx = String(data)
+           uvc.mBucket.mIdx =  mBucketDataList[index].mIdx
+           uvc.mBucket.mContent = mBucketDataList[index].mContent
+           uvc.mBucket.mDate = mBucketDataList[index].mDate
+           present(uvc, animated: true, completion: nil)
+           
            break;
-        
         default:
             break;
         }

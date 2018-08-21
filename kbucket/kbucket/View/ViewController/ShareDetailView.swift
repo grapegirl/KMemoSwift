@@ -2,7 +2,7 @@
 //  ShareDetailView.swift
 //  공유 싱세 화면
 //
-//  Created by grapegirl on 2017. 9. 01..
+//  Created by grapegirl on 2018. 08. 21..
 //  Copyright © 2017년 kikiplus. All rights reserved.
 //
 
@@ -26,44 +26,56 @@ class ShareDetailView : UIViewController , IHttpReceive {
     public var mDetailImageFileName :  String = ""
 
     private var mSqlQuery : SQLQuery? = nil
-    private var mBucketNo : Int = -1
     public var mBucket  = Bucket()
 
    // private CommentListAdpater mListAdapter = null;
    // private ListView mListView = null;
    // private ConfirmPopup mConfirmPopup = null;
-
+    
+    public var idx : String = ""
+    @IBOutlet weak var mEtShareContent: UITextField!
+    @IBOutlet weak var mBtShareDate: UIButton!
+    
    override func viewDidLoad() {
        super.viewDidLoad()
-       // Do any additional setup after loading the view, typically from a nib.
        KLog.d(tag: TAG, msg: "viewDidLoad");
        initialize()
    }
 
     func initialize(){
         mSqlQuery = SQLQuery()
-//    //     Intent Intent = getIntent();
-//    //     String idx = Intent.getStringExtra(ContextUtils.NUM_SHARE_BUCKET_IDX);
-//    //     mBucket = (Bucket) Intent.getSerializableExtra(ContextUtils.OBJ_SHARE_BUCKET);
-//    //     mUserNickname = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-//    //     mHandler.sendMessage(mHandler.obtainMessage(LOAD_COMMENT_LIST, idx));
-//    //     ((Button) findViewById(R.id.comment_layout_sendBtn)).setOnClickListener(this);
-//    //     ((Button) findViewById(R.id.share_add)).setOnClickListener(this);
-//    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setOnClickListener(this);
+        KLog.d(tag: TAG, msg: "@@ idx : " + idx)
+        mUserNickname = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
+        handleMessage(what: LOAD_COMMENT_LIST, obj: idx)
         setData(bucket : mBucket)
         //AppUtils.sendTrackerScreen(this, "모두가지상세화면");
     }
+    
+    @IBAction func onBackPressed(_ sender: Any) {
+        KLog.d(tag: TAG, msg: "onBackPressed");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.SHARE_VIEW)
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
+    }
+    
 
    /**
     * 데이타 초기화
     */
    func setData( bucket : Bucket) {
-       mBucketNo = bucket.mIdx
-       KLog.d(tag : TAG, msg : "@@ image exists  type: " + bucket.mImageURl)
-       if (bucket.mImageURl != nil && bucket.mImageURl != "N") {
+        KLog.d(tag : TAG, msg : "@@ image exists  type: " + bucket.mImageURl)
+        if (bucket.mImageURl != nil && bucket.mImageURl != "N") {
            handleMessage(what: DOWNLOAD_IMAGE, obj: "")
        }
-   }
+    
+        mBtShareDate.setTitle(mBucket.mDate, for: UIControlState.normal)
+        mBtShareDate.tintColor = .black
+        mEtShareContent.text = mBucket.mContent
+    
+        KLog.d(tag : TAG, msg : "@@ image content : " + mBucket.mContent)
+        KLog.d(tag : TAG, msg : "@@ image date : " + mBucket.mDate)
+    
+    }
 
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
@@ -111,7 +123,7 @@ class ShareDetailView : UIViewController , IHttpReceive {
         } else if (actionId == ConstHTTP.COMMENT_LIST) {
             //KProgressDialog.setDataLoadingDialog(this, false, null, false);
             if (type == ConstHTTP.HTTP_OK && isValid == true) {
-                handleMessage(what: LOAD_COMMENT_LIST, obj: String(mBucketNo))
+                handleMessage(what: LOAD_COMMENT_LIST, obj: String(idx))
             } else{
                 handleMessage(what: SERVER_LOADING_FAIL, obj: "")
             }
@@ -165,51 +177,56 @@ class ShareDetailView : UIViewController , IHttpReceive {
     }
 
     func handleMessage(what : Int, obj : String) {
-//            switch (what) {
-//                case TOAST_MASSEGE:
-//                    Toast.showToast(message: obj)
-//                    break;
-//                case DOWNLOAD_IMAGE:
-//                    // String url = ContextUtils.KBUCKET_DOWNLOAD_IAMGE + "?idx=" + mBucketNo;
-//                    // KLog.d(TAG, "@@ download image url : " + url);
-//                    // HttpUrlFileDownloadManager urlTaskManager = new HttpUrlFileDownloadManager(url, this, IHttpReceive.DOWNLOAD_IMAGE);
-//                    // mDetailImageFileName = DataUtils.getNewFileName();
-//                    // urlTaskManager.execute(mDetailImageFileName);
-//                    // findViewById(R.id.share_contents_loadingbar).setVisibility(View.VISIBLE);
-//                    break;
-//                case LOAD_COMMENT_LIST:
-//                    //KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string));
-//                    // HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_COMMENT_URL, true, this, IHttpReceive.COMMENT_LIST);
-//                    // HashMap<String, Object> map = new HashMap<String, Object>();
-//                    // map.put("idx", mBucketNo);
-//                    // httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-//                    break;
-//                case SET_COMMENT_LIST:
-//                    // mListView = (ListView) findViewById(R.id.share_comment_listview);
-//                    // mListAdapter = new CommentListAdpater(this, R.layout.comment_list_line, mCommentList, this);
-//                    // mListView.setAdapter(mListAdapter);
-//                    break;
-//                case SERVER_LOADING_FAIL:
-//                    var message = AppUtils.localizedString(forKey : "server_fail_string")
-//                    handleMessage(what: TOAST_MASSEGE, obj: message)
-//                    finish()
-//                    break;
-//                case SET_IMAGE:
-//                    // findViewById(R.id.share_contents_loadingbar).setVisibility(View.INVISIBLE);
-//                    // try {
-//                    //     //Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName);
-//                    //     BitmapFactory.Options options = new BitmapFactory.Options();
-//                    //     options.outWidth = 150;
-//                    //     options.outHeight = 150;
-//                    //     Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName, options);
-//                    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setScaleType(ImageView.ScaleType.FIT_XY);
-//                    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setImageBitmap(bitmap);
-//                    // } catch (Exception e) {
-//                    //     e.printStackTrace();
-//                    //     KLog.d(TAG, "@@ set image : " + e.toString());
-//                    // }
-//                    break;
-//                }
+            switch (what) {
+                case TOAST_MASSEGE:
+                    Toast.showToast(message: obj)
+                    break;
+                case DOWNLOAD_IMAGE:
+                    let url : String = ContextUtils.KBUCKET_DOWNLOAD_IAMGE + "?idx=" + idx;
+                    KLog.d(tag : ContextUtils.TAG, msg : "@@ download image url : " + url);
+                    let fileUploader : HttpUrlTaskManager = HttpUrlTaskManager(url : url, post : true,
+                                                                                             receive : self, id : ConstHTTP.DOWNLOAD_IMAGE)
+                    mDetailImageFileName = DataUtils.getNewFileName()
+                    fileUploader.actionTaskWithData(data: mDetailImageFileName)
+                    // findViewById(R.id.share_contents_loadingbar).setVisibility(View.VISIBLE);
+                    break;
+                case LOAD_COMMENT_LIST:
+                    let url : String = ContextUtils.KBUCKET_COMMENT_URL
+                    //KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string));
+                    let httpUrlTaskManager : HttpUrlTaskManager = HttpUrlTaskManager(url : url, post : true, receive : self,
+                                                                                     id: ConstHTTP.COMMENT_LIST);
+                    let sender : [String: String] = ["idx" : String(idx) ]
+                    let data : String = StringUtils.getHTTPPostSendData(sendData : sender)
+                    httpUrlTaskManager.actionTaskWithData(data : data)
+                    break;
+                case SET_COMMENT_LIST:
+                    // mListView = (ListView) findViewById(R.id.share_comment_listview);
+                    // mListAdapter = new CommentListAdpater(this, R.layout.comment_list_line, mCommentList, this);
+                    // mListView.setAdapter(mListAdapter);
+                    break;
+                case SERVER_LOADING_FAIL:
+                    var message = AppUtils.localizedString(forKey : "server_fail_string")
+                    handleMessage(what: TOAST_MASSEGE, obj: message)
+                    finish()
+                    break;
+                case SET_IMAGE:
+                    // findViewById(R.id.share_contents_loadingbar).setVisibility(View.INVISIBLE);
+                    // try {
+                    //     //Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName);
+                    //     BitmapFactory.Options options = new BitmapFactory.Options();
+                    //     options.outWidth = 150;
+                    //     options.outHeight = 150;
+                    //     Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName, options);
+                    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setScaleType(ImageView.ScaleType.FIT_XY);
+                    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setImageBitmap(bitmap);
+                    // } catch (Exception e) {
+                    //     e.printStackTrace();
+                    //     KLog.d(TAG, "@@ set image : " + e.toString());
+                    // }
+                    break;
+            default:
+                break;
+        }
     }
             
    /**

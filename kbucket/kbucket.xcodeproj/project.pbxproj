@@ -57,10 +57,6 @@
 		0080F62E1FAD5DAA0076893B /* IHttpReceive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F62D1FAD5DAA0076893B /* IHttpReceive.swift */; };
 		0080F6321FAD60890076893B /* HttpUrlTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0080F6311FAD60890076893B /* HttpUrlTaskManager.swift */; };
 		00816CE01FC8FC9B000372F2 /* ShareCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */; };
-		00975E941FB689FE003ABBEF /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00975E901FB68554003ABBEF /* Realm.framework */; };
-		00975E951FB689FE003ABBEF /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00975E901FB68554003ABBEF /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00975E961FB68A01003ABBEF /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00975E911FB68554003ABBEF /* RealmSwift.framework */; };
-		00975E971FB68A01003ABBEF /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00975E911FB68554003ABBEF /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00A6A9521F60179900F65A1E /* AppUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9451F60179900F65A1E /* AppUtils.swift */; };
 		00A6A9531F60179900F65A1E /* ByteUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9461F60179900F65A1E /* ByteUtils.swift */; };
 		00A6A9541F60179900F65A1E /* ContextUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9471F60179900F65A1E /* ContextUtils.swift */; };
@@ -74,6 +70,8 @@
 		00A6A95C1F60179900F65A1E /* ScreenUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A94F1F60179900F65A1E /* ScreenUtils.swift */; };
 		00A6A95D1F60179900F65A1E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9501F60179900F65A1E /* StringUtils.swift */; };
 		00A6A95E1F60179900F65A1E /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9511F60179900F65A1E /* UserDefault.swift */; };
+		00F2848B20BBCC5A00DD60FD /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848420BBCAA100DD60FD /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		00F2848D20BBCC5E00DD60FD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848520BBCAA100DD60FD /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,8 +98,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				00975E971FB68A01003ABBEF /* RealmSwift.framework in Embed Frameworks */,
-				00975E951FB689FE003ABBEF /* Realm.framework in Embed Frameworks */,
+				00F2848D20BBCC5E00DD60FD /* RealmSwift.framework in Embed Frameworks */,
+				00F2848B20BBCC5A00DD60FD /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,8 +163,6 @@
 		0080F62D1FAD5DAA0076893B /* IHttpReceive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = IHttpReceive.swift; path = Managers/http/IHttpReceive.swift; sourceTree = "<group>"; };
 		0080F6311FAD60890076893B /* HttpUrlTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpUrlTaskManager.swift; path = Managers/http/HttpUrlTaskManager.swift; sourceTree = "<group>"; };
 		00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ShareCustomCell.swift; path = View/Bean/ShareCustomCell.swift; sourceTree = "<group>"; };
-		00975E901FB68554003ABBEF /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		00975E911FB68554003ABBEF /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		00A6A9451F60179900F65A1E /* AppUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppUtils.swift; path = Utils/AppUtils.swift; sourceTree = "<group>"; };
 		00A6A9461F60179900F65A1E /* ByteUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ByteUtils.swift; path = Utils/ByteUtils.swift; sourceTree = "<group>"; };
 		00A6A9471F60179900F65A1E /* ContextUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ContextUtils.swift; path = Utils/ContextUtils.swift; sourceTree = "<group>"; };
@@ -180,6 +176,10 @@
 		00A6A94F1F60179900F65A1E /* ScreenUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScreenUtils.swift; path = Utils/ScreenUtils.swift; sourceTree = "<group>"; };
 		00A6A9501F60179900F65A1E /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StringUtils.swift; path = Utils/StringUtils.swift; sourceTree = "<group>"; };
 		00A6A9511F60179900F65A1E /* UserDefault.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserDefault.swift; path = Utils/UserDefault.swift; sourceTree = "<group>"; };
+		00F2848020BBC7C200DD60FD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		00F2848220BBC7C800DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		00F2848420BBCAA100DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
+		00F2848520BBCAA100DD60FD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,8 +187,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00975E961FB68A01003ABBEF /* RealmSwift.framework in Frameworks */,
-				00975E941FB689FE003ABBEF /* Realm.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,12 +210,13 @@
 		00004A5D1EF41D8C0074DCFB = {
 			isa = PBXGroup;
 			children = (
-				00975E901FB68554003ABBEF /* Realm.framework */,
-				00975E911FB68554003ABBEF /* RealmSwift.framework */,
+				00F2848420BBCAA100DD60FD /* Realm.framework */,
+				00F2848520BBCAA100DD60FD /* RealmSwift.framework */,
 				00004A681EF41D8D0074DCFB /* kbucket */,
 				00004A7D1EF41D8D0074DCFB /* kbucketTests */,
 				00004A881EF41D8D0074DCFB /* kbucketUITests */,
 				00004A671EF41D8D0074DCFB /* Products */,
+				00F2847F20BBC7C100DD60FD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -388,6 +387,15 @@
 				001423681FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift */,
 			);
 			name = http;
+			sourceTree = "<group>";
+		};
+		00F2847F20BBC7C100DD60FD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00F2848220BBC7C800DD60FD /* Realm.framework */,
+				00F2848020BBC7C200DD60FD /* RealmSwift.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -757,6 +765,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = kbucket/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -775,6 +784,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = kbucket/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -19,6 +19,11 @@ class ContextUtils{
      * 개발 로그 true시 보임
      */
     public static var VIEW_LOG : Bool = false
+    
+    /**
+     * 공통 태그
+     **/
+    public static var TAG : String = "KMemo"
 
     /**************************************************************************
      *
@@ -100,6 +105,7 @@ class ContextUtils{
     public static let BACK_MEMO : String = "BACK_MEMO"     
 
     public static let MAIN_VIEW : String = "ViewController"
+    public static let SHARE_VIEW : String = "ShareListView"
 
     /**************************************************************************
      *
@@ -148,97 +154,92 @@ class ContextUtils{
     /**
      * 서버 IP
      */
-    public static let KBUCKET_SERVER_IP : String = "kikiplus.ddns.net"     
-    
-    /**
-     * 서버 port
-     */
-    public static let KBUCKET_PORT : String = "9000"     
+    public static let KBUCKET_SERVER_IP : String = "http://kikiplus.cafe24.com"
     
     /**
      * 버전 업데이트 URL
      */
-    public static let KBUCKET_VERSION_UPDATE_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/version.jsp"     
+    public static let KBUCKET_VERSION_UPDATE_URL : String = KBUCKET_SERVER_IP + "/mobile/version.jsp"
     
     /**
      * 가지 공유하기 URL
      */
-    public static let KBUCKET_INSERT_BUCKET_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/insertBucket.jsp" 
+    public static let KBUCKET_INSERT_BUCKET_URL : String = KBUCKET_SERVER_IP + "/mobile/insertBucket.jsp"
 
     /**
      * 가지 파일 업로드 URL
      */
-    public static let KBUCKET_UPLOAD_IMAGE_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/uploadFile.jsp" 
+    public static let KBUCKET_UPLOAD_IMAGE_URL : String = KBUCKET_SERVER_IP + "/mobile/uploadFile.jsp"
 
     /**
      * category URL
      */
-    public static let KBUCKET_CATEGORY_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/category.jsp" 
+    public static let KBUCKET_CATEGORY_URL : String = KBUCKET_SERVER_IP + "/mobile/category.jsp"
 
     /**
      * 버킷 리스트 URL
      */
-    public static let KBUCKET_BUCKET_LIST_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/bucketList.jsp" 
+    public static let KBUCKET_BUCKET_LIST_URL : String = KBUCKET_SERVER_IP  + "/mobile/bucketList.jsp"
 
     /**
      * 버킷 상세 URL
      */
-    public static let KBUCKET_BUCKET_DETAIL_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/bucketInfo.jsp" 
+    public static let KBUCKET_BUCKET_DETAIL_URL : String = KBUCKET_SERVER_IP + "/mobile/bucketInfo.jsp"
 
     /**
      * 버킷 댓글 URL
      */
-    public static let KBUCKET_COMMENT_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/comment.jsp" 
+    public static let KBUCKET_COMMENT_URL : String = KBUCKET_SERVER_IP + "/mobile/comment.jsp"
 
     /**
      * 버킷 댓글 업로드 URL
      */
-    public static let INSERT_COMMENT_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/insertComment.jsp" 
+    public static let INSERT_COMMENT_URL : String = KBUCKET_SERVER_IP + "/mobile/insertComment.jsp"
     
     /**
      * 공지사항URL
      */
-    public static let KBUCKET_NOTICE_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/update.jsp" 
+    public static let KBUCKET_NOTICE_URL : String = KBUCKET_SERVER_IP +  "/mobile/update.jsp"
     
     /**
      * 사용자 정보 업데이트 URL
      */
-    public static let KBUCKET_UPDATE_USER : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/insertMobileUser.jsp" 
+    public static let KBUCKET_UPDATE_USER : String = KBUCKET_SERVER_IP + "/mobile/insertMobileUser.jsp"
     
     /**
      * 이미지 다운로드 URL
      */
-    public static let KBUCKET_DOWNLOAD_IAMGE : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/downloadFile.jsp" 
+    public static let KBUCKET_DOWNLOAD_IAMGE : String = KBUCKET_SERVER_IP +  "/mobile/downloadFile.jsp"
     
     /**
      * 이미지 다운로드 URL
      */
-    public static let KBUCKET_AI : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/getAIReplay.jsp" 
+    public static let KBUCKET_AI : String = KBUCKET_SERVER_IP + "/mobile/getAIReplay.jsp"
     
     /**
      * 버킷랭킹 리스트 URL
      */
-    public static let KBUCKET_RANK_LIST_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/bucketRankList.jsp" 
+    public static let KBUCKET_RANK_LIST_URL : String = KBUCKET_SERVER_IP + "/mobile/bucketRankList.jsp"
     
     /**
      * 버킷랭킹 정보 업데이트
      */
-    public static let KBUCKET_RANK_COMMENT : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/bucketRankComment.jsp" 
+    public static let KBUCKET_RANK_COMMENT : String = KBUCKET_SERVER_IP + "/mobile/bucketRankComment.jsp"
     
     /**
      * 가지 파일 업로드 URL
      */
-    public static let KBUCKET_UPLOAD_DB_URL : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/mobile/uploadDBFile.jsp" 
+    public static let KBUCKET_UPLOAD_DB_URL : String = KBUCKET_SERVER_IP  + "/mobile/uploadDBFile.jsp"
     
     /**
      * 채팅 내용 전송 URL
      */
-    public static let INSERT_CHAT : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/chat/chat.jsp" 
+    public static let INSERT_CHAT : String = KBUCKET_SERVER_IP  + "/chat/chat.jsp"
     
     /**
      * 채팅 내용 조회 URL
      */
-    public static let SELECT_CHAT : String = "http://" + KBUCKET_SERVER_IP + ":" + KBUCKET_PORT + "/MemoServer/chat/loadChat.jsp" 
+    public static let SELECT_CHAT : String = KBUCKET_SERVER_IP  + "/chat/loadChat.jsp"
     
     /**
      * 관리자 블로그 주소

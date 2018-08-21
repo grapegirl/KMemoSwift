@@ -6,8 +6,8 @@
  * @Description : SQLQuery 클래스
  * @since 2017.09.08
  */
-import RealmSwift
 import Realm
+import RealmSwift
 
 class SQLQuery{
     
