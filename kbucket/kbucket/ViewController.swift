@@ -145,6 +145,7 @@ class ViewController: UIViewController {
     
     @IBAction func onClickSetting(_ sender: Any) {
          KLog.d(tag: "ViewController", msg: "onClickSetting");
+        changeView(viewName: "SetNickNameView")
     }
    
     @IBAction func onClickAI(_ sender: Any) {
@@ -165,7 +166,7 @@ class ViewController: UIViewController {
 
     func handleMessage(what : Int, obj : String) {
         
-//        switch (what) {
+        switch (what) {
 //            case TOAST_MASSEGE:
 //                Toast.showToast(message: obj)
 //                break;
@@ -176,10 +177,10 @@ class ViewController: UIViewController {
 //    //             intent = new Intent(this, BucketListActivity.class);
 //    //             startActivity(intent);
 //                break;
-//            case SHOW_CONF://환경설정 보여주기
-//    //             intent = new Intent(this, ConfigurationActivity.class);
-//    //             startActivity(intent);
-//                break;
+            case SHOW_CONF://환경설정 보여주기
+    //             intent = new Intent(this, ConfigurationActivity.class);
+    //             startActivity(intent);
+                break;
 //            case SHARE_THE_WORLD://공유화면 보여주기
 //                changeView(viewName: "ShareListViewCtlr")
 //                break;
@@ -222,7 +223,9 @@ class ViewController: UIViewController {
 //    //             HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_DB_URL, this, IHttpReceive.UPLOAD_DB, bytes);
 //    //             httpUrlFileUploadManager.execute(path, "nickname", userNickName, fileName);
 //                break;
-//        }
+        default:
+            break;
+        }
     }
 
     @IBAction func onBackPressed(_ sender: Any) {

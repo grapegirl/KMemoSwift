@@ -6,6 +6,7 @@
  * @Description : Log 클래스
  * @since 2017.09.04
  */
+import UIKit
 
 class AppUtils {
     
@@ -246,12 +247,7 @@ class AppUtils {
      * @param  key  리소스 키값
      */
     public static func localizedString(forKey key: String) -> String {
-//        var result = Bundle.main.localizedString(forKey: key, value: nil, table: nil)
-//
-//        if result == key {
-//            result = Bundle.main.localizedString(forKey: key, value: nil, table: "Default")
-//        }
-        var result = ""
-        return result
+        let message = NSLocalizedString(key, comment: "")
+        return message
     }
   }

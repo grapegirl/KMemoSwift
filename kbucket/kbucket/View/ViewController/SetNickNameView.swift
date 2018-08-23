@@ -2,7 +2,7 @@
 //  SetNickNameView.swift
 //  사용자 닉네임 설정
 //
-//  Created by grapegirl on 2017. 9. 01..
+//  Created by grapegirl on 2018. 8. 23..
 //  Copyright © 2017년 kikiplus. All rights reserved.
 //
 
@@ -12,8 +12,8 @@ class SetNickNameView : UIViewController {
 
     private let TAG : String = "SetNickNameView"
     private var mSqlQuery : SQLQuery? = nil
-    // private Button mButton;
-
+    @IBOutlet weak var etName: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         KLog.d(tag: TAG, msg: "viewDidLoad")
@@ -22,29 +22,37 @@ class SetNickNameView : UIViewController {
 
     func initialize(){
         mSqlQuery = SQLQuery()
-        let nickname = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
+        let nickname = UserDefault.read(key:ContextUtils.KEY_USER_NICKNAME)
         if(nickname != nil){
-            // ((EditText) findViewById(R.id.nickname_editText)).setText(nickname);
-            // ((EditText) findViewById(R.id.nickname_editText)).requestFocus(nickname.length());
+            etName.becomeFirstResponder()
+            etName.text = nickname
         }
         //AppUtils.sendTrackerScreen(this, "닉네임변경화면");
     }
     
     @IBAction func onClick(_ sender: Any) {
-    //     String nickname = ((EditText) findViewById(R.id.nickname_editText)).getText().toString();
-    //     KLog.d(this.getClass().getSimpleName(), "@@ nickname : " + nickname);
-    //     nickname = nickname.replaceAll(" ","");
-    //     if (nickname.equals("") || nickname == null) {
-    //         String message = getString(R.string.nickname_fail_string);
-    //         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-    //         return;
-    //     }
-    //     SharedPreferenceUtils.write(getApplicationContext(), ContextUtils.KEY_USER_NICKNAME, nickname);
-    //     mSqlQuery.updateUserNickName(this, nickname);
-    //     finish();
+        var name =  etName.text
+        if(name == "" || name == nil){
+            let message = AppUtils.localizedString(forKey : "nickname_fail_string")
+            Toast.showToast(message: message)
+            return
+        }
+        name = name?.replacingOccurrences(of: " ", with: "")
+        UserDefault.write(key: ContextUtils.KEY_USER_NICKNAME, value: name!)
+        mSqlQuery?.updateUserNickName(nickanme: name!)
+        back(strBack: ContextUtils.MAIN_VIEW)
     }
     
     @IBAction func onBackPressed(_ sender: Any) {
-        ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
+        back(strBack: ContextUtils.MAIN_VIEW)
+    }
+    
+    private func back(strBack : String){
+        KLog.d(tag: TAG, msg: "back : " + strBack)
+        if(strBack == ContextUtils.VIEW_COMPLETE_LIST){
+            ViewUtils.changeView(strView: ContextUtils.VIEW_COMPLETE_LIST, viewCtrl: self)
+        }else{
+            ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
+        }
     }
 }
