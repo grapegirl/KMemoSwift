@@ -251,10 +251,11 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
            let index:Int! = Int(data)
            let uvc = self.storyboard?.instantiateViewController(withIdentifier: "ShareDetailView") as! ShareDetailView
            uvc.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-           uvc.idx = String(data)
+           uvc.idx = String(mBucketDataList[index].mIdx)
            uvc.mBucket.mIdx =  mBucketDataList[index].mIdx
            uvc.mBucket.mContent = mBucketDataList[index].mContent
            uvc.mBucket.mDate = mBucketDataList[index].mDate
+           uvc.mBucket.mImageURl = mBucketDataList[index].mImageURl
            present(uvc, animated: true, completion: nil)
            
            break;

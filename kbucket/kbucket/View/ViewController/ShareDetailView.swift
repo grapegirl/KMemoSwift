@@ -9,7 +9,7 @@
 import UIKit
 
 
-class ShareDetailView : UIViewController , IHttpReceive {
+class ShareDetailView : UIViewController , IHttpReceive , UITableViewDelegate, UITableViewDataSource {
 
     private let TAG : String = "ShareDetailView"
    
@@ -35,8 +35,10 @@ class ShareDetailView : UIViewController , IHttpReceive {
     public var idx : String = ""
     @IBOutlet weak var mEtShareContent: UITextField!
     @IBOutlet weak var mBtShareDate: UIButton!
+    @IBOutlet weak var mIvShareImage: UIImageView!
+    @IBOutlet weak var mTableView: UITableView!
     
-   override func viewDidLoad() {
+    override func viewDidLoad() {
        super.viewDidLoad()
        KLog.d(tag: TAG, msg: "viewDidLoad");
        initialize()
@@ -48,6 +50,8 @@ class ShareDetailView : UIViewController , IHttpReceive {
         mUserNickname = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
         handleMessage(what: LOAD_COMMENT_LIST, obj: idx)
         setData(bucket : mBucket)
+        mTableView.delegate = self
+        mTableView.dataSource = self
         //AppUtils.sendTrackerScreen(this, "모두가지상세화면");
     }
     
@@ -63,54 +67,57 @@ class ShareDetailView : UIViewController , IHttpReceive {
     * 데이타 초기화
     */
    func setData( bucket : Bucket) {
-        KLog.d(tag : TAG, msg : "@@ image exists  type: " + bucket.mImageURl)
-        if (bucket.mImageURl != nil && bucket.mImageURl != "N") {
+        KLog.d(tag : TAG, msg : "@@ image url : " + bucket.mImageURl)
+        if (bucket.mImageURl != "N" && bucket.mImageURl.count > 0) {
            handleMessage(what: DOWNLOAD_IMAGE, obj: "")
-       }
+        }else{
+            mIvShareImage.image = UIImage(named: "nophoto")
+        }
     
         mBtShareDate.setTitle(mBucket.mDate, for: UIControlState.normal)
         mBtShareDate.tintColor = .black
         mEtShareContent.text = mBucket.mContent
     
-        KLog.d(tag : TAG, msg : "@@ image content : " + mBucket.mContent)
-        KLog.d(tag : TAG, msg : "@@ image date : " + mBucket.mDate)
     
     }
 
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
-
+    
         var isValid : Bool  = false
+        print(data)
         do {
             if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                 if jsonString != nil {
                     isValid = jsonString["isValid"] as! Bool
-                    // print(jsonString)
+                    print(jsonString)
                 }
             }
         } catch {
             print("JSON 파상 에러")
         }
-
+        
         if (actionId == ConstHTTP.COMMENT_LIST) {
             //  KProgressDialog.setDataLoadingDialog(this, false, null, false);
            if (type == ConstHTTP.HTTP_OK && isValid == true) {
                 do {
                       if let jsonString = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any] {
-                            let List : NSArray = jsonString["CommentVOList"] as! NSArray
-                            let size : Int = List.count
-                            if size > 0 {
-                            mCommentList.removeAll()
-                            for index in 0...size-1  {
+                        let List : NSArray = jsonString["CommentVOList"] as! NSArray
+                        mCommentList.removeAll()
+                        if(List.count > 0){
+                            for index in 0...List.count-1  {
                                 let aObject = List[index] as! [String : AnyObject]
                                 let comment : Comment = Comment()
                                 comment.mNickName = aObject["nickName"] as! String
                                 comment.mDate = aObject["createDt"] as! String
                                 comment.mContent = aObject["content"] as! String
+                                comment.mIdx = aObject["idx"] as! Int
+                                comment.mBucketNo = aObject["bucketNo"] as! Int
+                                
                                 mCommentList.append(comment)
-                             }
-                      	  }
+                            }
+                        }
                     }
                     handleMessage(what: SET_COMMENT_LIST, obj: "")
                 } catch {
@@ -120,18 +127,6 @@ class ShareDetailView : UIViewController , IHttpReceive {
            } else {
                  handleMessage(what: SERVER_LOADING_FAIL, obj: "")
            }
-        } else if (actionId == ConstHTTP.COMMENT_LIST) {
-            //KProgressDialog.setDataLoadingDialog(this, false, null, false);
-            if (type == ConstHTTP.HTTP_OK && isValid == true) {
-                handleMessage(what: LOAD_COMMENT_LIST, obj: String(idx))
-            } else{
-                handleMessage(what: SERVER_LOADING_FAIL, obj: "")
-            }
-        } else if (actionId == ConstHTTP.DOWNLOAD_IMAGE) {
-            if (type == ConstHTTP.HTTP_OK) {
-                KLog.d(tag : TAG, msg : "downlaod image ")
-               handleMessage(what: SET_IMAGE, obj: "")
-            }
         }
     }
 
@@ -170,7 +165,6 @@ class ShareDetailView : UIViewController , IHttpReceive {
 
     func finish(){
         KLog.d(tag: TAG, msg: "finish")
-        deleteImageResource()
         let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
         present(uvc!, animated: true, completion: nil)
@@ -182,13 +176,9 @@ class ShareDetailView : UIViewController , IHttpReceive {
                     Toast.showToast(message: obj)
                     break;
                 case DOWNLOAD_IMAGE:
-                    let url : String = ContextUtils.KBUCKET_DOWNLOAD_IAMGE + "?idx=" + idx;
-                    KLog.d(tag : ContextUtils.TAG, msg : "@@ download image url : " + url);
-                    let fileUploader : HttpUrlTaskManager = HttpUrlTaskManager(url : url, post : true,
-                                                                                             receive : self, id : ConstHTTP.DOWNLOAD_IMAGE)
-                    mDetailImageFileName = DataUtils.getNewFileName()
-                    fileUploader.actionTaskWithData(data: mDetailImageFileName)
-                    // findViewById(R.id.share_contents_loadingbar).setVisibility(View.VISIBLE);
+                    let url = URL(string: ContextUtils.KBUCKET_DOWNLOAD_IAMGE + "?idx=" + idx)
+                    let data = try? Data(contentsOf: url!)
+                    mIvShareImage.image = UIImage(data : data!)
                     break;
                 case LOAD_COMMENT_LIST:
                     let url : String = ContextUtils.KBUCKET_COMMENT_URL
@@ -200,44 +190,20 @@ class ShareDetailView : UIViewController , IHttpReceive {
                     httpUrlTaskManager.actionTaskWithData(data : data)
                     break;
                 case SET_COMMENT_LIST:
-                    // mListView = (ListView) findViewById(R.id.share_comment_listview);
-                    // mListAdapter = new CommentListAdpater(this, R.layout.comment_list_line, mCommentList, this);
-                    // mListView.setAdapter(mListAdapter);
+                    DispatchQueue.main.async {
+                        self.mTableView.reloadData()
+                    }
                     break;
                 case SERVER_LOADING_FAIL:
                     var message = AppUtils.localizedString(forKey : "server_fail_string")
                     handleMessage(what: TOAST_MASSEGE, obj: message)
                     finish()
                     break;
-                case SET_IMAGE:
-                    // findViewById(R.id.share_contents_loadingbar).setVisibility(View.INVISIBLE);
-                    // try {
-                    //     //Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName);
-                    //     BitmapFactory.Options options = new BitmapFactory.Options();
-                    //     options.outWidth = 150;
-                    //     options.outHeight = 150;
-                    //     Bitmap bitmap = BitmapFactory.decodeFile(mDetailImageFileName, options);
-                    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setScaleType(ImageView.ScaleType.FIT_XY);
-                    //     ((ImageView) findViewById(R.id.share_contents_imageview)).setImageBitmap(bitmap);
-                    // } catch (Exception e) {
-                    //     e.printStackTrace();
-                    //     KLog.d(TAG, "@@ set image : " + e.toString());
-                    // }
-                    break;
             default:
                 break;
         }
     }
             
-   /**
-    * 이미지 리소스 해제하기
-    */
-    private func deleteImageResource() {
-    //   if (mBucket.getImageUrl() != nil && !mBucket.getImageUrl().equals("N")) {
-        //   DataUtils.deleteFile(mDetailImageFileName);
-      // }
-       //((ImageView) findViewById(R.id.share_contents_imageview)).setImageBitmap(null);
-   }
 
    // @Override
    // public void onPopupAction(int popId, int what, Object obj) {
@@ -264,4 +230,23 @@ class ShareDetailView : UIViewController , IHttpReceive {
    //         }
    //     }
    // }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mCommentList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = mTableView.dequeueReusableCell(withIdentifier: "ShareCommentCell", for: indexPath) as! ShareCommentCell
+        
+        cell.tvContent.text = mCommentList[indexPath.row].mContent
+        let nickname : String = mCommentList[indexPath.row].mNickName
+        cell.btName.setTitle( nickname  , for: .normal)
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        KLog.d(tag: TAG, msg: "@@ row: \(indexPath.row)")
+    }
 }

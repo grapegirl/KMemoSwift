@@ -41,6 +41,7 @@
 		001423691FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001423681FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift */; };
 		00220C491FD5696700D14409 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00220C481FD5696600D14409 /* ViewUtils.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
+		003839F3212DB60000B7FAE2 /* ShareCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003839F2212DB60000B7FAE2 /* ShareCommentCell.swift */; };
 		0059940E1F5A3F21007777A1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059940D1F5A3F21007777A1 /* PostData.swift */; };
 		005994191F5A4532007777A1 /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994111F5A4532007777A1 /* Bucket.swift */; };
 		0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994121F5A4532007777A1 /* BucketRank.swift */; };
@@ -147,6 +148,7 @@
 		001423681FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpUrlFileUploadManager.swift; path = Managers/http/HttpUrlFileUploadManager.swift; sourceTree = "<group>"; };
 		00220C481FD5696600D14409 /* ViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewUtils.swift; path = Utils/ViewUtils.swift; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
+		003839F2212DB60000B7FAE2 /* ShareCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCommentCell.swift; sourceTree = "<group>"; };
 		0059940D1F5A3F21007777A1 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = View/Bean/PostData.swift; sourceTree = "<group>"; };
 		005994111F5A4532007777A1 /* Bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bucket.swift; path = View/Bean/Bucket.swift; sourceTree = "<group>"; };
 		005994121F5A4532007777A1 /* BucketRank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BucketRank.swift; path = View/Bean/BucketRank.swift; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 				005994181F5A4532007777A1 /* Version.swift */,
 				0074C43B1F510A1700BB7CB0 /* FirstCustomCell.swift */,
 				00816CDF1FC8FC9B000372F2 /* ShareCustomCell.swift */,
+				003839F2212DB60000B7FAE2 /* ShareCommentCell.swift */,
 				0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */,
 				0059940D1F5A3F21007777A1 /* PostData.swift */,
 			);
@@ -577,6 +580,7 @@
 				001423691FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift in Sources */,
 				00A6A95E1F60179900F65A1E /* UserDefault.swift in Sources */,
 				001133A71FD3AA36007BCAD7 /* EventProtocol.swift in Sources */,
+				003839F3212DB60000B7FAE2 /* ShareCommentCell.swift in Sources */,
 				0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */,
 				001133931FD3A9C6007BCAD7 /* ChatView.swift in Sources */,
 				001133A51FD3AA18007BCAD7 /* ConstHTTP.swift in Sources */,

@@ -12,50 +12,15 @@ import UIKit
 class Comment {
     
     /** 메모내용 */
-	var mContent : String {
-        get {
-            return mContent
-        }
-        set(content) {
-            mContent = content
-        }
-    }
+	dynamic var mContent : String  = ""
 	/** 날짜 */
-	var mDate : String {
-        get {
-            return mDate
-        }
-        set(date) {
-            mDate = date
-        }
-    }
+	dynamic var mDate : String = ""
 	/** 닉네임 */
-	var mNickName : String {
-        get {
-            return mNickName
-        }
-        set(nickname) {
-            mNickName = nickname
-        }
-    }
+	dynamic var mNickName : String = ""
 	/** 번호 */
-	var mIdx : Int {
-        get {
-            return mIdx
-        }
-        set(idx) {
-            mIdx = idx
-        }
-    }
+	dynamic var mIdx : Int  = 0
 	/** 버킷No */
-	var mBucketNo : Int {
-        get {
-            return mBucketNo
-        }
-        set(bucketNo) {
-            mBucketNo = bucketNo
-        }
-    }
+	dynamic var mBucketNo : Int = 0
 
 	/**
      * 생성자
