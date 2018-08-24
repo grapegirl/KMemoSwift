@@ -73,6 +73,7 @@
 		00A6A95E1F60179900F65A1E /* UserDefault.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6A9511F60179900F65A1E /* UserDefault.swift */; };
 		00BE4710212E5C9600FE4EAF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4712212E5C9600FE4EAF /* Localizable.strings */; };
 		00BE4713212E5CA100FE4EAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4715212E5CA100FE4EAF /* InfoPlist.strings */; };
+		00C52943212FD746004F6A96 /* NoticeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C52942212FD746004F6A96 /* NoticeCustomCell.swift */; };
 		00F2848B20BBCC5A00DD60FD /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848420BBCAA100DD60FD /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00F2848D20BBCC5E00DD60FD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848520BBCAA100DD60FD /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -189,6 +190,7 @@
 		00BE4716212E5CB300FE4EAF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00BE4717212E5CE600FE4EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		00BE4718212E5CE700FE4EAF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		00C52942212FD746004F6A96 /* NoticeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCustomCell.swift; sourceTree = "<group>"; };
 		00F2848020BBC7C200DD60FD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		00F2848220BBC7C800DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		00F2848420BBCAA100DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				003839F2212DB60000B7FAE2 /* ShareCommentCell.swift */,
 				0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */,
 				0059940D1F5A3F21007777A1 /* PostData.swift */,
+				00C52942212FD746004F6A96 /* NoticeCustomCell.swift */,
 			);
 			name = Bean;
 			sourceTree = "<group>";
@@ -597,6 +600,7 @@
 				001133961FD3A9C6007BCAD7 /* WriteDetailView.swift in Sources */,
 				001133A01FD3A9C6007BCAD7 /* ShareListView.swift in Sources */,
 				001423691FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift in Sources */,
+				00C52943212FD746004F6A96 /* NoticeCustomCell.swift in Sources */,
 				00A6A95E1F60179900F65A1E /* UserDefault.swift in Sources */,
 				001133A71FD3AA36007BCAD7 /* EventProtocol.swift in Sources */,
 				003839F3212DB60000B7FAE2 /* ShareCommentCell.swift in Sources */,

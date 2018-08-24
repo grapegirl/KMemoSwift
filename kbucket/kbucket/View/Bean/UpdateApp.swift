@@ -12,23 +12,9 @@ import UIKit
 class UpdateApp {
     
 	/** 타이틀 */
-	var mVersionCode : Int {
-		get {
-            return mVersionCode
-        }
-        set(versionCode) {
-            mVersionCode = versionCode
-        }
-	}
+   dynamic var mVersionCode : Int  = 0
 	/** 내용 */
-	var mContent : String {
-		get {
-            return mContent
-        }
-        set(content) {
-            mContent = content
-        }
-	}
+    dynamic var mContent : String  = ""
 
 	/**
      * 생성자

@@ -9,7 +9,7 @@
 import UIKit
 
 
-class NoticeView: UIViewController , IHttpReceive {
+class NoticeView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITableViewDataSource {
     
     private let TAG : String = "NoticeView"
 
@@ -22,8 +22,10 @@ class NoticeView: UIViewController , IHttpReceive {
     private var mGroupList = Array<String>()
     private var mChildList = Array<String>()
     private var mChildListContent = Array<String>()
-   // private ExpandableListView mExtendableListView = null;
 
+    var expandedRows = Set<Int>()
+    @IBOutlet weak var mTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         KLog.d(tag: TAG, msg: "viewDidLoad");
@@ -32,17 +34,18 @@ class NoticeView: UIViewController , IHttpReceive {
 
     func initialize(){
         //    KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
+        mTableView.delegate = self
+        mTableView.dataSource = self
+        self.mTableView.rowHeight = UITableViewAutomaticDimension
         handleMessage(what: LOAD_NOTICE_LIST, obj: "")
         //     AppUtils.sendTrackerScreen(this, "공지화면");
     }
 
-   func finish(){
-        KLog.d(tag: TAG, msg: "finish")
-        //deleteImageResource()
-        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
-        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
-        present(uvc!, animated: true, completion: nil)
-   }
+    @IBAction func onBackPressed(_ sender: Any) {
+        KLog.d(tag: TAG, msg: "onBackPressed")
+        ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
+    }
+    
 
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
@@ -78,17 +81,17 @@ class NoticeView: UIViewController , IHttpReceive {
                                 updateApp.mContent = aObject["updateContent"] as! String
                                 mList.append(updateApp)
 
-                                //let mTitle = jsonObject.getString("updateContent").split("\n")[0];
                                 let mTitle = aObject["updateContent"] as! String
                                 mGroupList.append(mTitle)
                                 mChildListContent = Array<String>()
                                 mChildListContent.append(aObject["updateContent"] as! String)
                                 
-                           //     mChildList.append(mChildListContent);
-                             }
+                                print(mTitle)
+                            }
+                            handleMessage(what: SET_NOTICE_LIST, obj: "")
                         }
                     }
-                    handleMessage(what: SET_NOTICE_LIST, obj: "")
+                
                 } catch {
                     KLog.d(tag : TAG, msg : "@@ Exception : ")
                     handleMessage(what: SERVER_LOADING_FAIL, obj: "")
@@ -98,26 +101,62 @@ class NoticeView: UIViewController , IHttpReceive {
 	}
 
     func handleMessage(what : Int, obj : String) {
-//        switch(what){
-//        case TOAST_MASSEGE:
-//            Toast.showToast(message: obj)
-//            break;
-//        case LOAD_NOTICE_LIST:
-//            let url  = ContextUtils.KBUCKET_NOTICE_URL
-//            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : false, receive : self, id : ConstHTTP.NOTICE_LIST)
-//            httpUrlTaskManager.actionTask()
-//            break;
-//        case SET_NOTICE_LIST:
-//            // KProgressDialog.setDataLoadingDialog(this, false, null, false);
-//            // mExtendableListView = (ExpandableListView) findViewById(R.id.notice_listview_extended);
-//            // mExtendableListView.setAdapter(new BaseExpandableAdapter(this, mGroupList, mChildList));
-//            break;
-//        case SERVER_LOADING_FAIL:
-//            //KProgressDialog.setDataLoadingDialog(this, false, null, false);
-//            var message = AppUtils.localizedString(forKey : "server_fail_string")
-//            handleMessage(what: TOAST_MASSEGE, obj: message)
-//            finish()
-//            break;
-//        }
+        switch(what){
+        case TOAST_MASSEGE:
+            Toast.showToast(message: obj)
+            break;
+        case LOAD_NOTICE_LIST:
+            let url  = ContextUtils.KBUCKET_NOTICE_URL
+            let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : false, receive : self, id : ConstHTTP.NOTICE_LIST)
+            httpUrlTaskManager.actionTask()
+            break;
+        case SET_NOTICE_LIST:
+            // KProgressDialog.setDataLoadingDialog(this, false, null, false);
+            DispatchQueue.main.async {
+                self.mTableView.reloadData()
+            }
+            break;
+        case SERVER_LOADING_FAIL:
+            //KProgressDialog.setDataLoadingDialog(this, false, null, false);
+            var message = AppUtils.localizedString(forKey : "server_fail_string")
+            handleMessage(what: TOAST_MASSEGE, obj: message)
+            break;
+        default:
+            break;
+        }
     }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return mList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = mTableView.dequeueReusableCell(withIdentifier: "NoticeCustomCell", for: indexPath) as! NoticeCustomCell
+        cell.lbNotice.text = mList[indexPath.row].mContent
+        cell.lbContents.text = mList[indexPath.row].mContent
+        
+        cell.isExpanded = self.expandedRows.contains(indexPath.row)
+        cell.selectionStyle = .none
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        KLog.d(tag: TAG, msg: "@@ row: \(indexPath.row)")
+        print(indexPath.row)
+        
+        guard let cell = mTableView.cellForRow(at: indexPath) as? NoticeCustomCell
+        else { return }
+        switch cell.isExpanded
+        {
+        case true:
+            self.expandedRows.remove(indexPath.row)
+        case false:
+            self.expandedRows.insert(indexPath.row)
+        }
+        cell.isExpanded = !cell.isExpanded
+        self.mTableView.beginUpdates()
+        self.mTableView.endUpdates()
+    }
+
 }

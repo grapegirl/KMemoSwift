@@ -155,6 +155,7 @@ class ViewController: UIViewController {
     
     @IBAction func onClickNotice(_ sender: Any) {
         KLog.d(tag: "ViewController", msg: "onClickNotice");
+         changeView(viewName: "NoticeView")
     }
 
     func changeView(viewName : String){
