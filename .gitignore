@@ -1,0 +1,4 @@
+
+*.h
+kbucket/GoogleMobileAds.framework/GoogleMobileAds
+*.modulemap

@@ -41,6 +41,7 @@
 		00220C491FD5696700D14409 /* ViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00220C481FD5696600D14409 /* ViewUtils.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
 		003839F3212DB60000B7FAE2 /* ShareCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003839F2212DB60000B7FAE2 /* ShareCommentCell.swift */; };
+		0046685C212FF475008F6E47 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0046685B212FF475008F6E47 /* GoogleMobileAds.framework */; };
 		0059940E1F5A3F21007777A1 /* PostData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0059940D1F5A3F21007777A1 /* PostData.swift */; };
 		005994191F5A4532007777A1 /* Bucket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994111F5A4532007777A1 /* Bucket.swift */; };
 		0059941A1F5A4532007777A1 /* BucketRank.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994121F5A4532007777A1 /* BucketRank.swift */; };
@@ -151,6 +152,7 @@
 		00220C481FD5696600D14409 /* ViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewUtils.swift; path = Utils/ViewUtils.swift; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
 		003839F2212DB60000B7FAE2 /* ShareCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareCommentCell.swift; sourceTree = "<group>"; };
+		0046685B212FF475008F6E47 /* GoogleMobileAds.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMobileAds.framework; sourceTree = "<group>"; };
 		0059940D1F5A3F21007777A1 /* PostData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostData.swift; path = View/Bean/PostData.swift; sourceTree = "<group>"; };
 		005994111F5A4532007777A1 /* Bucket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bucket.swift; path = View/Bean/Bucket.swift; sourceTree = "<group>"; };
 		005994121F5A4532007777A1 /* BucketRank.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BucketRank.swift; path = View/Bean/BucketRank.swift; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0046685C212FF475008F6E47 /* GoogleMobileAds.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +228,7 @@
 		00004A5D1EF41D8C0074DCFB = {
 			isa = PBXGroup;
 			children = (
+				0046685B212FF475008F6E47 /* GoogleMobileAds.framework */,
 				00F2848420BBCAA100DD60FD /* Realm.framework */,
 				00F2848520BBCAA100DD60FD /* RealmSwift.framework */,
 				00004A681EF41D8D0074DCFB /* kbucket */,

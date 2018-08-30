@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import GoogleMobileAds
 
 class ViewController: UIViewController {
 
@@ -32,9 +32,9 @@ class ViewController: UIViewController {
     private let UPLOAD_DB : Int             = 90
 
     private var mSqlQuery  : SQLQuery? = nil
-//    private var bannerView: GADBannerView!
+    private var bannerView: GADBannerView!
     public var mWidgetSendData : String = ""
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -83,14 +83,12 @@ class ViewController: UIViewController {
     //     mHandler = new Handler(this);
     //     Thread.setDefaultUncaughtExceptionHandler(new ErrorLogUtils.UncaughtExceptionHandlerApplication());
 
-    //     AdView adView = new AdView(this);
-    //     adView.setAdUnitId(ContextUtils.KBUCKET_AD_UNIT_ID);
-    //     adView.setAdSize(AdSize.BANNER);
-    //     LinearLayout layout = (LinearLayout) findViewById(R.id.main_ad_layout);
-    //     layout.addView(adView);
-    //     AdRequest adRequest = new AdRequest.Builder().build();
-    //     adView.loadAd(adRequest);
-
+        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+        addBannerViewToView(bannerView)
+        bannerView.adUnitID = ContextUtils.KBUCKET_AD_UNIT_ID
+        bannerView.rootViewController = self
+        bannerView.load(GADRequest())
+        
     //     Intent getIntent = getIntent();
     //     String data = getIntent.getStringExtra(ContextUtils.WIDGET_SEND_DATA);
     //     if (data != null && data.equals(ContextUtils.WIDGET_SHARE)) {
@@ -274,6 +272,27 @@ class ViewController: UIViewController {
                 handleMessage(what: TOAST_MASSEGE, obj: "메모가지 서버에 DB를 업로드하는데 실패하였습니다")
              }
         }
+    }
+    
+    func addBannerViewToView(_ bannerView: GADBannerView) {
+        bannerView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(bannerView)
+        view.addConstraints(
+            [NSLayoutConstraint(item: bannerView,
+                                attribute: .bottom,
+                                relatedBy: .equal,
+                                toItem: bottomLayoutGuide,
+                                attribute: .top,
+                                multiplier: 0.9,
+                                constant: 0),
+             NSLayoutConstraint(item: bannerView,
+                                attribute: .centerX,
+                                relatedBy: .equal,
+                                toItem: view,
+                                attribute: .centerX,
+                                multiplier: 1,
+                                constant: 0)
+            ])
     }
 
 }
