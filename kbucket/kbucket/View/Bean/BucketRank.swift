@@ -14,100 +14,41 @@ class BucketRank {
     /**
      * 카테고리코드
      */
-    var mCategoryCode : Int {
-        get {
-            return mCategoryCode
-        }
-        set(CategoryCode) {
-            mCategoryCode = CategoryCode
-        }
-    }
+    var mCategoryCode : Int = 0
     /**
      * 카테고리명
      */
-    var mCategoryName : String {
-        get {
-            return mCategoryName
-        }
-        set(CategoryName) {
-            mCategoryName = CategoryName
-        }
-    }
+    var mCategoryName : String = ""
     /**
      * 메모내용
      */
-    var mContent : String {
-        get {
-            return mContent
-        }
-        set(content) {
-            mContent = content
-        }
-    }
+    var mContent : String = ""
     /**
      * 번호
      */
-    var mIdx : Int { 
-        get {
-            return mIdx
-        }
-        set( idx) {
-            mIdx =  idx
-        }
-    }
+    var mIdx : Int = 0
     /**
      * 최고에요 카운트
      */
-    var mBestCnt : Int {
-        get {
-            return mBestCnt
-        }
-        set(cnt) {
-            mBestCnt = cnt
-        }
-    }
+    var mBestCnt : Int = 0
     /**
      * 좋아요 카운트
      */
-    var mGoodCnt : Int {
-        get {
-            return mGoodCnt
-        }
-        set(cnt) {
-            mGoodCnt = cnt
-        }
-    }
+    var mGoodCnt : Int = 0
     /**
      * 괜찮아요 카운트
      */
-    var mSoSoCnt : Int {
-        get {
-            return mSoSoCnt
-        }
-        set(cnt) {
-            mSoSoCnt = cnt
-        }
-    }
+    var mSoSoCnt : Int = 0
     /**
      * 사용자 카운트
      */
-    var mComment : Int {
-        get {
-            return mComment
-        }
-        set(cnt) {
-            mComment = cnt
-        }
-    }
+    var mComment : Int = 0
 
      /**
      * 생성자
      */
     init() {
-        self.mBestCnt = 0;
-        self.mGoodCnt = 0;
-        self.mSoSoCnt = 0;
-        self.mComment = 0;
+    
     }
 
      /**

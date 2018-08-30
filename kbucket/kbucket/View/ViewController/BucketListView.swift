@@ -49,7 +49,7 @@ EventProtocol {
     //     Collections.reverse(mDataList);
     //     mListAdapter = new CardViewListAdpater(this, R.layout.cardview_list_line, mDataList, this, this);
     //     mListView.setAdapter(mListAdapter);
-    //     AppUtils.sendTrackerScreen(this, "완료가지화면");
+         AppUtils.sendTrackerScreen(screen: "완료가지화면")
     }
 
     func finish(){
@@ -149,20 +149,10 @@ EventProtocol {
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
         var isValid : Bool  = false
-        do {
-            if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
-                if jsonString != nil {
-                    isValid = jsonString["isValid"] as! Bool
-                    // print(jsonString)
-                }
-            }
-        } catch {
-            print("JSON 파상 에러")
-        }
 
          if (actionId == ConstHTTP.INSERT_BUCKET) {
             if (type == ConstHTTP.HTTP_FAIL) {
-                var message = AppUtils.localizedString(forKey : "write_bucekt_fail_string")
+                let message = AppUtils.localizedString(forKey : "write_bucekt_fail_string")
                 handleMessage(what: TOAST_MASSEGE, obj: message)
             } else {
                 do {
@@ -176,7 +166,7 @@ EventProtocol {
                         if (mDataList[mShareIdx].mImageName != nil && mDataList[mShareIdx].mImageName.count > 0) {
                             handleMessage(what: UPLOAD_IMAGE, obj: "")
                         } else {
-                            var message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                            let message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
                             handleMessage(what: TOAST_MASSEGE, obj: message)
                         }
                     }
@@ -188,11 +178,11 @@ EventProtocol {
         }// 이미지 업로드 결과
         else if (actionId == ConstHTTP.INSERT_IMAGE) {
             if (type == ConstHTTP.HTTP_FAIL) {
-                var message = AppUtils.localizedString(forKey : "upload_image_fail_string")
+                let message = AppUtils.localizedString(forKey : "upload_image_fail_string")
                 handleMessage(what: TOAST_MASSEGE, obj: message)
             } else {
                 if (isValid == true) {
-                    var message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
+                    let message = AppUtils.localizedString(forKey : "write_bucekt_success_string")
                     handleMessage(what: TOAST_MASSEGE, obj: message)
                 }
             }

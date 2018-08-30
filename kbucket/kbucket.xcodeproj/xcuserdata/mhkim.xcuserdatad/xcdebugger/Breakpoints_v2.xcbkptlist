@@ -10,11 +10,15 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/ViewController.swift"
+<<<<<<< HEAD
+            timestampString = "557307437.5777709"
+=======
             timestampString = "556789640.192404"
+>>>>>>> parent of 708be3d... Admob Add
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "ViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -26,11 +30,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/View/Bean/MobileUser.swift"
-            timestampString = "526010018.490205"
+            timestampString = "556990709.660114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
             landmarkName = "description"
             landmarkType = "24">
          </BreakpointContent>
@@ -154,12 +158,16 @@
                   moduleName = "kbucket"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mhkim/Documents/GitHub/KMemoSwift/kbucket/kbucket/Utils/LinkedList.swift"
+<<<<<<< HEAD
+                  timestampString = "557307437.73395"
+=======
                   timestampString = "556789640.348032"
+>>>>>>> parent of 708be3d... Admob Add
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
                   endingLineNumber = "14"
-                  offsetFromSymbolStart = "131">
+                  offsetFromSymbolStart = "125">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -169,7 +177,11 @@
                   moduleName = "kbucket"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/mhkim/Documents/GitHub/KMemoSwift/kbucket/kbucket/Utils/LinkedList.swift"
+<<<<<<< HEAD
+                  timestampString = "557307437.7362339"
+=======
                   timestampString = "556789640.350298"
+>>>>>>> parent of 708be3d... Admob Add
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "14"
@@ -470,11 +482,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/View/ViewController/BucketListView.swift"
-            timestampString = "556639560.822126"
+            timestampString = "557307437.57841"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "307"
-            endingLineNumber = "307"
+            startingLineNumber = "297"
+            endingLineNumber = "297"
             landmarkName = "tableView(_:cellForRowAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -486,7 +498,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/View/ViewController/WriteDetailView.swift"
-            timestampString = "556686064.662326"
+            timestampString = "557307437.578491"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "266"
@@ -502,7 +514,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "kbucket/View/ViewController/WriteDetailView.swift"
-            timestampString = "556686064.6623811"
+            timestampString = "557307437.578537"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "268"

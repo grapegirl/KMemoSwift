@@ -23,11 +23,11 @@ class SetNickNameView : UIViewController {
     func initialize(){
         mSqlQuery = SQLQuery()
         let nickname = UserDefault.read(key:ContextUtils.KEY_USER_NICKNAME)
-        if(nickname != nil){
+        if(nickname.count > 0 ){
             etName.becomeFirstResponder()
             etName.text = nickname
         }
-        //AppUtils.sendTrackerScreen(this, "닉네임변경화면");
+        AppUtils.sendTrackerScreen(screen: "닉네임변경화면");
     }
     
     @IBAction func onClick(_ sender: Any) {

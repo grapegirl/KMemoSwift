@@ -12,77 +12,21 @@ import UIKit
 class Chat  {
     
    /** 내용 */
-	var mContent :  String {
-        get {
-            return mContent
-        }
-        set(content) {
-            mContent = content
-        }
-    }
+	var mContent : String  = ""
 	/** 날짜 */
-	var mDate :  String {
-        get {
-            return mDate
-        }
-        set(date) {
-            mDate = date
-        }
-    }
+	var mDate :  String = ""
 	/** 방번호 */
-	var mIdx :  String {
-        get {
-            return mIdx
-        }
-        set( idx) {
-            mIdx =  idx
-        }
-    }
+	var mIdx :  String  = ""
 	/** 닉네임 */
-	var mNickName :  String {
-        get {
-            return mNickName
-        }
-        set( NickName) {
-            mNickName =  NickName
-        }
-    }
+	var mNickName :  String = ""
 	/** 사용자 전화번호 */
-	var mPhone :  String {
-        get {
-            return mPhone
-        }
-        set(Phone) {
-            mPhone = Phone
-        }
-    }
+	var mPhone :  String = ""
 	/** 이미지 저장경로 */
-	var mImageURl :  String {
-        get {
-            return mImageURl
-        }
-        set(imageUrl) {
-            mImageURl = imageUrl
-        }
-    }
+	var mImageURl :  String = ""
 	/** 숨긴 여부 */
-	var mIsHidden :  String {
-        get {
-            return mIsHidden
-        }
-        set(hidden) {
-            mIsHidden = hidden
-        }
-    }
+	var mIsHidden :  String = ""
 	/** seq */
-	var mSeq : Int {
-        get {
-            return mSeq
-        }
-        set(seq) {
-            mSeq = seq
-        }
-    }
+	var mSeq : Int  = 0
 
 	/**
      * 생성자

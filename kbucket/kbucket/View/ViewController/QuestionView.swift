@@ -8,54 +8,62 @@
 
 import UIKit
 
-class QuestionView : UIViewController {
-
+class QuestionView : UIViewController , UITextViewDelegate {
     private let TAG : String = "QuestionView"
     private var mTitleIndex : Int = 1
 
+    @IBOutlet weak var btnBack: UIButton!
+    @IBOutlet weak var btnSend: UIButton!
+    
+    @IBOutlet weak var btnTitle1: UIButton!
+    @IBOutlet weak var btnTitle2: UIButton!
+    @IBOutlet weak var btnTitle3: UIButton!
+    
+    @IBOutlet weak var tvContents: UITextView!
+    let tvPlaceHolder = AppUtils.localizedString(forKey : "question_layout_hint")
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad")
-        initialize()
+        
+        tvContents.text = tvPlaceHolder
+        tvContents.textColor = UIColor.lightGray
+        tvContents.font = UIFont(name: "verdana", size: 13.0)
+        tvContents.returnKeyType = .done
+        tvContents.delegate = self
+        
+        setTitleIndex(index: 1)
+        AppUtils.sendTrackerScreen(screen: "문의화면");
     }
     
-
-    private func initialize(){
-            setTitleIndex(index: 1)
-    //     findViewById(R.id.question_layout_titleView1).setOnClickListener(this);
-    //     findViewById(R.id.question_layout_titleView2).setOnClickListener(this);
-    //     findViewById(R.id.question_layout_titleView3).setOnClickListener(this);
-    //     findViewById(R.id.question_layout_button).setOnClickListener(this);
-    //     AppUtils.sendTrackerScreen(this, "문의화면");
-     }
-    
-    private func finish(){
+   private func finish(){
         KLog.d(tag: TAG, msg: "finish")
         let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
         present(uvc!, animated: true, completion: nil)
     }
 
-    @IBAction func onClick(_ sender: Any) {
-          switch(sender  as! UIButton ){
-    //         // 보내기 버튼
-    //         case R.id.question_layout_button:
-    //             String title = getTitleIndex(mTitleIndex);
-    //             String content = ((EditText) findViewById(R.id.question_layout_contentView)).getText().toString();
-    //             sendEmail(title, content);
-    //             finish();
-    //             break;
-    //         case R.id.question_layout_titleView1:
-    //             setTitleIndex(1);
-    //             break;
-    //         case R.id.question_layout_titleView2:
-    //             setTitleIndex(2);
-    //             break;
-    //         case R.id.question_layout_titleView3:
-    //             setTitleIndex(3);
-    //             break;
-            default:
+    @IBAction func onClick(_ sender: UIButton) {
+          switch(sender){
+          case btnSend:
+            let title = getTitleIndex(index: mTitleIndex)
+            let content = tvContents.text
+            sendEmail(name: title, content: content!)
+            finish()
+            break
+          case btnBack:
+            finish()
+            break
+          case btnTitle1:
+            setTitleIndex(index: 1)
+            break
+          case btnTitle2:
+            setTitleIndex(index: 2)
+            break
+          case btnTitle3:
+            setTitleIndex(index: 3)
+            break
+          default:
             break;
           }
     }
@@ -66,45 +74,48 @@ class QuestionView : UIViewController {
      * @param name    제목
      * @param content 내용
      */
-     private func sendEmail(name :String, content : String){
-    //     Intent it = new Intent(Intent.ACTION_SEND);
-    //     it.setType("plain/text");
-    //     String[] tos = {"kikiplus2030@naver.com"};
-    //     it.putExtra(Intent.EXTRA_EMAIL, tos);
-    //     it.putExtra(Intent.EXTRA_SUBJECT, name);
-    //     it.putExtra(Intent.EXTRA_TEXT, content);
-    //     startActivity(it);
+     private func sendEmail(name : String, content : String){
+        KLog.d(tag: TAG, msg: "@@ sendEmail name : " + name + ", content : " + content)
+        let msg = content
+        let activityViewController = UIActivityViewController(activityItems:
+            ["Whatever you want to share!"], applicationActivities: nil)
+        
+        activityViewController.excludedActivityTypes = [UIActivityType.print, UIActivityType.postToWeibo, UIActivityType.copyToPasteboard, UIActivityType.addToReadingList, UIActivityType.postToVimeo]
+        
+        let shareSheet = UIActivityViewController(activityItems: [ msg ], applicationActivities: nil)
+        shareSheet.popoverPresentationController?.sourceView = self.view
+        present(activityViewController, animated: true, completion: nil)
      }
 
     private func setTitleIndex(index : Int){
-       //mTitleIndex = index
+       mTitleIndex = index
         switch (index) {
             case 1:
-    //             ((TextView) findViewById(R.id.question_layout_titleView1)).setBackgroundColor(Color.WHITE);
-    //             ((TextView) findViewById(R.id.question_layout_titleView1)).setTextColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView2)).setBackgroundColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView2)).setTextColor(Color.WHITE);
-    //             ((TextView) findViewById(R.id.question_layout_titleView3)).setBackgroundColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView3)).setTextColor(Color.WHITE);
-                break;
+                btnTitle1.backgroundColor = UIColor.white
+                btnTitle2.setTitleColor(UIColor.white, for: .normal)
+                btnTitle3.setTitleColor(UIColor.white, for: .normal)
+                btnTitle1.setTitleColor(UIColor.init(hexRGB: "#FF99CC00"), for: .normal)
+                btnTitle2.backgroundColor = UIColor.init(hexRGB: "#FF99CC00")
+                btnTitle3.backgroundColor = UIColor.init(hexRGB: "#FF99CC00")
+                break
             case 2:
-    //             ((TextView) findViewById(R.id.question_layout_titleView2)).setBackgroundColor(Color.WHITE);
-    //             ((TextView) findViewById(R.id.question_layout_titleView2)).setTextColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView1)).setBackgroundColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView1)).setTextColor(Color.WHITE);
-    //             ((TextView) findViewById(R.id.question_layout_titleView3)).setBackgroundColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView3)).setTextColor(Color.WHITE);
-                break;
+                btnTitle2.backgroundColor = UIColor.white
+                btnTitle1.setTitleColor(UIColor.white, for: .normal)
+                btnTitle3.setTitleColor(UIColor.white, for: .normal)
+                btnTitle2.setTitleColor(UIColor.init(hexRGB: "#FF99CC00"), for: .normal)
+                btnTitle1.backgroundColor = UIColor.init(hexRGB: "#FF99CC00")
+                btnTitle3.backgroundColor = UIColor.init(hexRGB: "#FF99CC00")
+                break
             case 3:
-    //             ((TextView) findViewById(R.id.question_layout_titleView3)).setBackgroundColor(Color.WHITE);
-    //             ((TextView) findViewById(R.id.question_layout_titleView3)).setTextColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView1)).setBackgroundColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView1)).setTextColor(Color.WHITE);
-    //             ((TextView) findViewById(R.id.question_layout_titleView2)).setBackgroundColor(Color.parseColor("#FF99CC00"));
-    //             ((TextView) findViewById(R.id.question_layout_titleView2)).setTextColor(Color.WHITE);
-                break;
-                default:
-                break;
+                btnTitle3.backgroundColor = UIColor.white
+                btnTitle1.setTitleColor(UIColor.white, for: .normal)
+                btnTitle2.setTitleColor(UIColor.white, for: .normal)
+                btnTitle3.setTitleColor(UIColor.init(hexRGB: "#FF99CC00"), for: .normal)
+                btnTitle1.backgroundColor = UIColor.init(hexRGB: "#FF99CC00")
+                btnTitle2.backgroundColor = UIColor.init(hexRGB: "#FF99CC00")
+                break
+            default:
+                break
         }
     }
 
@@ -119,5 +130,29 @@ class QuestionView : UIViewController {
             default:
                 return "기타"
         }
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if textView.text == tvPlaceHolder {
+            textView.text = ""
+            textView.textColor = UIColor.black
+            textView.font = UIFont(name: "verdana", size: 18.0)
+        }
+    }
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        return true
+    }
+    
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView.text == "" {
+            textView.text = tvPlaceHolder
+            textView.textColor = UIColor.lightGray
+            textView.font = UIFont(name: "verdana", size: 13.0)
+        }
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
     }
 }

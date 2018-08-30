@@ -1,8 +1,8 @@
-﻿//
+//
 //  SetBackColorView.swift
 //  사용자 테마 설정
 //
-//  Created by grapegirl on 2017. 9. 01..
+//  Created by grapegirl on 2018. 8. 29..
 //  Copyright © 2017년 kikiplus. All rights reserved.
 //
 
@@ -12,10 +12,30 @@ class SetBackColorView : UIViewController {
 
     private let TAG : String = "SetBackColorView"
     private var mImageButton = Array<UIButton>()
-
+    
+    @IBOutlet weak var btnBack1: UIButton!
+    @IBOutlet weak var btnBack2: UIButton!
+    @IBOutlet weak var btnBack3: UIButton!
+    @IBOutlet weak var btnBack4: UIButton!
+    @IBOutlet weak var btnBack5: UIButton!
+    @IBOutlet weak var btnBack6: UIButton!
+    @IBOutlet weak var btnBack7: UIButton!
+    @IBOutlet weak var btnBack8: UIButton!
+    @IBOutlet weak var btnBack9: UIButton!
+    @IBOutlet weak var btnBack10: UIButton!
+    @IBOutlet weak var btnBack11: UIButton!
+    @IBOutlet weak var btnBack12: UIButton!
+    @IBOutlet weak var btnBack13: UIButton!
+    @IBOutlet weak var btnBack14: UIButton!
+    @IBOutlet weak var btnBack15: UIButton!
+    @IBOutlet weak var btnBack16: UIButton!
+    @IBOutlet weak var btnBack17: UIButton!
+    @IBOutlet weak var btnBack18: UIButton!
+    
+    @IBOutlet var backView: UIView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad")
         initialize()
     }
@@ -25,76 +45,54 @@ class SetBackColorView : UIViewController {
     //     AppUtils.sendTrackerScreen(this, "테마변경화면");
     }
 
-
     private func setButtons() {
-        // mImageButton = new ImageButton[18];
-        // mImageButton[0] = ((ImageButton) findViewById(R.id.set_back_btn1));
-        // mImageButton[1] = ((ImageButton) findViewById(R.id.set_back_btn2));
-        // mImageButton[2] = ((ImageButton) findViewById(R.id.set_back_btn3));
-        // mImageButton[3] = ((ImageButton) findViewById(R.id.set_back_btn4));
-        // mImageButton[4] = ((ImageButton) findViewById(R.id.set_back_btn5));
-        // mImageButton[5] = ((ImageButton) findViewById(R.id.set_back_btn6));
-        // mImageButton[6] = ((ImageButton) findViewById(R.id.set_back_btn7));
-        // mImageButton[7] = ((ImageButton) findViewById(R.id.set_back_btn8));
-        // mImageButton[8] = ((ImageButton) findViewById(R.id.set_back_btn9));
-        // mImageButton[9] = ((ImageButton) findViewById(R.id.set_back_btn10));
-        // mImageButton[10] = ((ImageButton) findViewById(R.id.set_back_btn11));
-        // mImageButton[11] = ((ImageButton) findViewById(R.id.set_back_btn12));
-        // mImageButton[12] = ((ImageButton) findViewById(R.id.set_back_btn13));
-        // mImageButton[13] = ((ImageButton) findViewById(R.id.set_back_btn14));
-        // mImageButton[14] = ((ImageButton) findViewById(R.id.set_back_btn15));
-        // mImageButton[15] = ((ImageButton) findViewById(R.id.set_back_btn16));
-        // mImageButton[16] = ((ImageButton) findViewById(R.id.set_back_btn17));
-        // mImageButton[17] = ((ImageButton) findViewById(R.id.set_back_btn18));
-
-        // for (int i = 0; i < 18; i++) {
-        //     mImageButton[i].setOnClickListener(this);
-        // }
+        mImageButton.append(btnBack1)
+        mImageButton.append(btnBack2)
+        mImageButton.append(btnBack3)
+        mImageButton.append(btnBack4)
+        mImageButton.append(btnBack5)
+        mImageButton.append(btnBack6)
+        mImageButton.append(btnBack7)
+        mImageButton.append(btnBack8)
+        mImageButton.append(btnBack9)
+        mImageButton.append(btnBack10)
+        mImageButton.append(btnBack11)
+        mImageButton.append(btnBack12)
+        mImageButton.append(btnBack13)
+        mImageButton.append(btnBack14)
+        mImageButton.append(btnBack15)
+        mImageButton.append(btnBack16)
+        mImageButton.append(btnBack17)
+        mImageButton.append(btnBack18)
     }
 
-    @IBAction func onClick(_ sender: Any) {
+    @IBAction func onClick(_ sender: UIButton) {
+        switch sender {
+        case btnBack1, btnBack2, btnBack3, btnBack4, btnBack5,
+             btnBack6, btnBack7, btnBack8, btnBack9, btnBack10,
+             btnBack11, btnBack12, btnBack13, btnBack14, btnBack15,
+             btnBack16, btnBack17, btnBack18:
+            
+            let backColor : UIColor = sender.backgroundColor!
+            KLog.d(tag: TAG, msg: "@@ hexString : " + backColor.hexString)
+            UserDefault.write(key: ContextUtils.BACK_MEMO, value: backColor.hexString)
+            checkButton(button: sender)
+            setBackgroundColor()
+            break
+        default:
+            break
+        }
 
     }
-    // @Override
-    // public void onClick(View v) {
-    //     switch (v.getId()) {
-    //         case R.id.set_back_btn1:
-    //         case R.id.set_back_btn2:
-    //         case R.id.set_back_btn3:
-    //         case R.id.set_back_btn4:
-    //         case R.id.set_back_btn5:
-    //         case R.id.set_back_btn6:
-    //         case R.id.set_back_btn7:
-    //         case R.id.set_back_btn8:
-    //         case R.id.set_back_btn9:
-    //         case R.id.set_back_btn10:
-    //         case R.id.set_back_btn11:
-    //         case R.id.set_back_btn12:
-    //         case R.id.set_back_btn13:
-    //         case R.id.set_back_btn14:
-    //         case R.id.set_back_btn15:
-    //         case R.id.set_back_btn16:
-    //         case R.id.set_back_btn17:
-    //         case R.id.set_back_btn18:
-    //             ColorDrawable colorDrawable = (ColorDrawable) (((ImageButton) findViewById(v.getId())).getBackground());
-    //             int backColor = colorDrawable.getColor();
-    //             SharedPreferenceUtils.write(getApplicationContext(), ContextUtils.BACK_MEMO, backColor);
-    //             KLog.d(TAG, "@@ select Back Color : " + backColor + "");
-    //             checkButton(v.getId());
-    //             break;
-    //     }
 
-    // }
-
-    private func checkButton( buttonId : Int) {
-        // for (int i = 0; i < 18; i++) {
-        //     int vid = mImageButton[i].getId();
-        //     if (vid == buttonId) {
-        //         mImageButton[i].setImageResource(R.drawable.mark);
-        //     } else {
-        //         mImageButton[i].setImageDrawable(null);
-        //     }
-        // }
+    private func checkButton( button : UIButton) {
+        for item in mImageButton {
+            if item == button {
+                item.setImage(UIImage(named: "mark.png"), for: .normal)
+            }else{
+                item.setImage(nil, for: .normal)
+            }
+        }
     }
 
    @IBAction func onBackPressed(_ sender: Any) {
@@ -102,4 +100,14 @@ class SetBackColorView : UIViewController {
         uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
         present(uvc!, animated: true, completion: nil)
     }
+    
+    private func setBackgroundColor() {
+        var color : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
+        KLog.d(tag: TAG, msg: "color : " + color)
+        if color != nil {
+            var uColor = UIColor(hexRGB: color)
+            backView.backgroundColor = uColor
+        }
+    }
+    
 }

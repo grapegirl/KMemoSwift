@@ -35,7 +35,7 @@ class RankListView : UIViewController , IHttpReceive {
 
     func initialize(){
     //     mHandler.sendEmptyMessage(CHECK_NETWORK);
-    //     AppUtils.sendTrackerScreen(this, "버킷랭킹화면");
+        AppUtils.sendTrackerScreen(screen : "버킷랭킹화면");
     }
     
     func onHttpReceive(type: Int, actionId: Int, data: Data) {

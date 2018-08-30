@@ -12,15 +12,15 @@ import UIKit
 class Comment {
     
     /** 메모내용 */
-	dynamic var mContent : String  = ""
+	@objc dynamic var mContent : String  = ""
 	/** 날짜 */
-	dynamic var mDate : String = ""
+	@objc dynamic var mDate : String = ""
 	/** 닉네임 */
-	dynamic var mNickName : String = ""
+	@objc dynamic var mNickName : String = ""
 	/** 번호 */
-	dynamic var mIdx : Int  = 0
+	@objc dynamic var mIdx : Int  = 0
 	/** 버킷No */
-	dynamic var mBucketNo : Int = 0
+	@objc dynamic var mBucketNo : Int = 0
 
 	/**
      * 생성자

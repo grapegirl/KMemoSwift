@@ -106,6 +106,8 @@ class ContextUtils{
 
     public static let MAIN_VIEW : String = "ViewController"
     public static let SHARE_VIEW : String = "ShareListView"
+    public static let WRITE_VIEW : String = "WriteView"
+    public static let BUCKET_LIST_VIEW : String = "BucketListView"
 
     /**************************************************************************
      *

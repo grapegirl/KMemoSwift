@@ -20,13 +20,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var btSetting: UIButton!
     @IBOutlet weak var btAI: UIButton!
     @IBOutlet weak var btNotice: UIButton!
-
+    @IBOutlet var backView: UIView!
+    
     private let TOAST_MASSEGE : Int         = 0
-    private let WRITE_BUCEKT : Int          = 10
-    private let BUCKET_LIST : Int           = 20
-    private let SHOW_CONF : Int             = 30
     private let SHARE_THE_WORLD : Int       = 40
-    private let NOTICE : Int                = 50
     private let UPDATE_USER : Int           = 60
     private let REQUEST_AI : Int            = 70
     private let FAIL_AI : Int               = 71
@@ -35,8 +32,9 @@ class ViewController: UIViewController {
     private let UPLOAD_DB : Int             = 90
 
     private var mSqlQuery  : SQLQuery? = nil
+//    private var bannerView: GADBannerView!
+    public var mWidgetSendData : String = ""
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -55,7 +53,7 @@ class ViewController: UIViewController {
         mSqlQuery = SQLQuery()
      //     mDrawerList = (ListView) findViewById(R.id.drawer_list);
 
-    //     setBackgroundColor();
+         setBackgroundColor()
     //     setTextPont();
 
     //     String[] confDatas = getResources().getStringArray(R.array.confList);
@@ -104,6 +102,16 @@ class ViewController: UIViewController {
     //     AppUtils.sendTrackerScreen(this, "메인화면");
     }
     
+    
+    private func setBackgroundColor() {
+        var color : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
+        KLog.d(tag: TAG, msg: "color : " + color)
+        if color != nil {
+            var uColor = UIColor(hexRGB: color)
+            backView.backgroundColor = uColor
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
          KLog.d(tag: "ViewController", msg: "viewWillAppear");
     }
@@ -125,39 +133,38 @@ class ViewController: UIViewController {
         super.didReceiveMemoryWarning()
         KLog.d(tag: "ViewController", msg: "didReceiveMemoryWarning");
     }
-        
-    @IBAction func onClickWriteBucket(_ sender: Any) {
-        changeView(viewName: "WriteView")
-    }
-    
-    @IBAction func onClickComplete(_ sender: Any) {
-        KLog.d(tag: "ViewController", msg: "onClickComplete")
-        changeView(viewName: "BucketListView")
-    }
-    
-    @IBAction func onClickShare(_ sender: Any) {
-        changeView(viewName: "ShareListView")
-    }
-    
-    @IBAction func onClickRank(_ sender: Any) {
-        KLog.d(tag: "ViewController", msg: "onClickRank");
-    }
-    
-    @IBAction func onClickSetting(_ sender: Any) {
-         KLog.d(tag: "ViewController", msg: "onClickSetting");
-        changeView(viewName: "SetNickNameView")
-    }
-   
-    @IBAction func onClickAI(_ sender: Any) {
-        KLog.d(tag: "ViewController", msg: "onClickAI");
 
+    @IBAction func onClick(_ sender: UIButton) {
+        switch sender {
+        case btWrite:
+            changeView(viewName: "WriteView")
+            break;
+        case btComplete:
+            changeView(viewName: "BucketListView")
+            break;
+        case btShare:
+            changeView(viewName: "ShareListView")
+            break;
+        case btRank:
+            KLog.d(tag: "ViewController", msg: "onClickRank");
+            changeView(viewName: "QuestionView")
+            break;
+        case btSetting:
+            //changeView(viewName: "SetNickNameView")
+            changeView(viewName: "SetBackColorView")
+            break;
+        case btAI:
+            KLog.d(tag: "ViewController", msg: "onClickAI");
+            changeView(viewName: "PassWordView")
+            break;
+        case btNotice:
+            changeView(viewName: "NoticeView")
+            break;
+        default:
+            break;
+        }
     }
     
-    @IBAction func onClickNotice(_ sender: Any) {
-        KLog.d(tag: "ViewController", msg: "onClickNotice");
-         changeView(viewName: "NoticeView")
-    }
-
     func changeView(viewName : String){
         KLog.d(tag: TAG, msg: "changeView : " + viewName)
         let uvc = self.storyboard?.instantiateViewController(withIdentifier: viewName)
@@ -168,25 +175,11 @@ class ViewController: UIViewController {
     func handleMessage(what : Int, obj : String) {
         
         switch (what) {
-//            case TOAST_MASSEGE:
-//                Toast.showToast(message: obj)
-//                break;
-//            case WRITE_BUCEKT://버킷 작성
-//                changeView(viewName: "WriteViewCtrl")
-//                break;
-//            case BUCKET_LIST://리스트 목록 보여주기
-//    //             intent = new Intent(this, BucketListActivity.class);
-//    //             startActivity(intent);
-//                break;
-            case SHOW_CONF://환경설정 보여주기
-    //             intent = new Intent(this, ConfigurationActivity.class);
-    //             startActivity(intent);
+            case TOAST_MASSEGE:
+                Toast.showToast(message: obj)
                 break;
 //            case SHARE_THE_WORLD://공유화면 보여주기
 //                changeView(viewName: "ShareListViewCtlr")
-//                break;
-//            case NOTICE://공지사항 화면 보여주기
-//                changeView(viewName: "NoticeViewCtlr")
 //                break;
 //            case UPDATE_USER://사용자 정보 없데이트
 //    //             UserUpdateTask userUpdateTask = new UserUpdateTask(this, getUserData());
@@ -256,15 +249,13 @@ class ViewController: UIViewController {
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
         var isValid : Bool  = false
-        var message : String 
- 
         if (actionId == ConstHTTP.REQUEST_AI) {
             if (type == ConstHTTP.HTTP_OK) {
                 do {
                         if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                             if jsonString != nil {
                                 isValid = jsonString["isValid"] as! Bool
-                                message = jsonString["replay"] as! String
+                                let message = jsonString["replay"] as! String
                                 // print(jsonString)
                             }
                         }

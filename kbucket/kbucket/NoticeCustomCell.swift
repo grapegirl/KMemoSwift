@@ -26,7 +26,7 @@ class NoticeCustomCell : UITableViewCell {
                 self.imgHeightConstraint.constant = 0.0
                 
             } else {
-                self.imgHeightConstraint.constant = 160.0
+                self.imgHeightConstraint.constant = 128.0
             }
         }
     }

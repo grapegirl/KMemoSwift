@@ -7,7 +7,6 @@
 //
 
 import XCTest
-@testable import kbucket
 
 class kbucketTests: XCTestCase {
     

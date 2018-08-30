@@ -14,113 +14,43 @@ class MobileUser {
    /**
      * 모바일 OS
      */
-    var mOs : String {
-        get {
-            return mOs
-        }
-        set(os) {
-            mOs = os
-        }
-    }
+    var mOs : String = ""
     /**
      * 사용자 전화번호
      */
-    var mPhone : String {
-        get {
-            return mPhone
-        }
-        set(phone) {
-            mPhone = phone
-        }
-    }
+    var mPhone : String  = ""
     /**
      * 사용자 닉네임
      */
-    var mUserNickName  : String {
-        get {
-            return mUserNickName
-        }
-        set(nickname) {
-            mUserNickName = nickname
-        }
-    }
+    var mUserNickName  : String  = ""
     /**
      * 사용자 버전명
      */
-    var mVersionName  : String {
-        get {
-            return mVersionName
-        }
-        set(version) {
-            mVersionName = version
-        }
-    }
+    var mVersionName  : String  = ""
     /**
      * 사용자 마켓구분
      */
-    var mMarket  : String {
-        get {
-            return mMarket
-        }
-        set(market) {
-            mMarket = market
-        }
-    }
+    var mMarket  : String  = ""
     /**
      * 사용자 언어
      */
-    var mLanguage  : String {
-        get {
-            return mLanguage
-        }
-        set(lang) {
-            mLanguage = lang
-        }
-    }
+    var mLanguage  : String  = ""
     /**
      * 사용자 나라
      */
-    var mCountry  : String {
-        get {
-            return mCountry
-        }
-        set(county) {
-            mCountry = county
-        }
-    }
+    var mCountry  : String = ""
     /**
      * 사용자 최근 방문 날짜
      */
-    var mLastDt  : String {
-        get {
-            return mLastDt
-        }
-        set(last) {
-            mLastDt = last
-        }
-    }
+    var mLastDt  : String = ""
     /**
      * 사용자 생성 날짜
      */
-    var mCreateDt  : String {
-        get {
-            return mCreateDt
-        }
-        set(dt) {
-            mCreateDt = dt
-        }
-    }
+    var mCreateDt  : String = ""
     /**
      * 사용자 토큰키
      */
-    var mGcmToken  : String {
-        get {
-            return mGcmToken
-        }
-        set(token) {
-            mGcmToken = token
-        }
-    }
+    var mGcmToken  : String = ""
     
     var description : String {
         return "Os=\(mOs),UserNickName=\(mUserNickName),VersionName=\(mVersionName),Market=\(mMarket),Language=\(mLanguage),Country=\(mCountry)LastDt=\(mLastDt),CreateDt=\(mCreateDt),GcmToken=\(mGcmToken)";

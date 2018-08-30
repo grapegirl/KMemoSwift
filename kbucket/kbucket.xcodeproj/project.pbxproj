@@ -27,7 +27,6 @@
 		001133961FD3A9C6007BCAD7 /* WriteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133821FD3A9C5007BCAD7 /* WriteDetailView.swift */; };
 		001133971FD3A9C6007BCAD7 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133831FD3A9C5007BCAD7 /* TutorialView.swift */; };
 		001133981FD3A9C6007BCAD7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133841FD3A9C5007BCAD7 /* MainView.swift */; };
-		001133991FD3A9C6007BCAD7 /* PDFViewerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133851FD3A9C5007BCAD7 /* PDFViewerView.swift */; };
 		0011339A1FD3A9C6007BCAD7 /* SetBackColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133861FD3A9C5007BCAD7 /* SetBackColorView.swift */; };
 		0011339B1FD3A9C6007BCAD7 /* SetNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133871FD3A9C5007BCAD7 /* SetNickNameView.swift */; };
 		0011339C1FD3A9C6007BCAD7 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133881FD3A9C5007BCAD7 /* QuestionView.swift */; };
@@ -74,6 +73,7 @@
 		00BE4710212E5C9600FE4EAF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4712212E5C9600FE4EAF /* Localizable.strings */; };
 		00BE4713212E5CA100FE4EAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4715212E5CA100FE4EAF /* InfoPlist.strings */; };
 		00C52943212FD746004F6A96 /* NoticeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C52942212FD746004F6A96 /* NoticeCustomCell.swift */; };
+		00CE60632136352500AEC8F7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE60622136352500AEC8F7 /* UIColor.swift */; };
 		00F2848B20BBCC5A00DD60FD /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848420BBCAA100DD60FD /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00F2848D20BBCC5E00DD60FD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848520BBCAA100DD60FD /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -137,7 +137,6 @@
 		001133821FD3A9C5007BCAD7 /* WriteDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteDetailView.swift; path = View/ViewController/WriteDetailView.swift; sourceTree = "<group>"; };
 		001133831FD3A9C5007BCAD7 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialView.swift; path = View/ViewController/TutorialView.swift; sourceTree = "<group>"; };
 		001133841FD3A9C5007BCAD7 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = View/ViewController/MainView.swift; sourceTree = "<group>"; };
-		001133851FD3A9C5007BCAD7 /* PDFViewerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PDFViewerView.swift; path = View/ViewController/PDFViewerView.swift; sourceTree = "<group>"; };
 		001133861FD3A9C5007BCAD7 /* SetBackColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetBackColorView.swift; path = View/ViewController/SetBackColorView.swift; sourceTree = "<group>"; };
 		001133871FD3A9C5007BCAD7 /* SetNickNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetNickNameView.swift; path = View/ViewController/SetNickNameView.swift; sourceTree = "<group>"; };
 		001133881FD3A9C5007BCAD7 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionView.swift; path = View/ViewController/QuestionView.swift; sourceTree = "<group>"; };
@@ -191,6 +190,7 @@
 		00BE4717212E5CE600FE4EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		00BE4718212E5CE700FE4EAF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		00C52942212FD746004F6A96 /* NoticeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCustomCell.swift; sourceTree = "<group>"; };
+		00CE60622136352500AEC8F7 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		00F2848020BBC7C200DD60FD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		00F2848220BBC7C800DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		00F2848420BBCAA100DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -342,7 +342,6 @@
 				001133841FD3A9C5007BCAD7 /* MainView.swift */,
 				001133801FD3A9C5007BCAD7 /* NoticeView.swift */,
 				001133791FD3A9C4007BCAD7 /* PassWordView.swift */,
-				001133851FD3A9C5007BCAD7 /* PDFViewerView.swift */,
 				0011337D1FD3A9C4007BCAD7 /* PushPopupView.swift */,
 				001133881FD3A9C5007BCAD7 /* QuestionView.swift */,
 				0011337C1FD3A9C4007BCAD7 /* RankListView.swift */,
@@ -377,6 +376,7 @@
 				00A6A94F1F60179900F65A1E /* ScreenUtils.swift */,
 				00A6A9501F60179900F65A1E /* StringUtils.swift */,
 				00A6A9511F60179900F65A1E /* UserDefault.swift */,
+				00CE60622136352500AEC8F7 /* UIColor.swift */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -489,15 +489,18 @@
 				TargetAttributes = {
 					00004A651EF41D8C0074DCFB = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Manual;
 					};
 					00004A791EF41D8D0074DCFB = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 00004A651EF41D8C0074DCFB;
 					};
 					00004A841EF41D8D0074DCFB = {
 						CreatedOnToolsVersion = 8.3.3;
+						LastSwiftMigration = 0940;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 00004A651EF41D8C0074DCFB;
 					};
@@ -570,7 +573,6 @@
 				001133901FD3A9C6007BCAD7 /* RankListView.swift in Sources */,
 				0011339A1FD3A9C6007BCAD7 /* SetBackColorView.swift in Sources */,
 				0011338D1FD3A9C6007BCAD7 /* PassWordView.swift in Sources */,
-				001133991FD3A9C6007BCAD7 /* PDFViewerView.swift in Sources */,
 				0080F6321FAD60890076893B /* HttpUrlTaskManager.swift in Sources */,
 				0059940E1F5A3F21007777A1 /* PostData.swift in Sources */,
 				0059941E1F5A4532007777A1 /* MobileUser.swift in Sources */,
@@ -608,6 +610,7 @@
 				001133931FD3A9C6007BCAD7 /* ChatView.swift in Sources */,
 				001133A51FD3AA18007BCAD7 /* ConstHTTP.swift in Sources */,
 				005994191F5A4532007777A1 /* Bucket.swift in Sources */,
+				00CE60632136352500AEC8F7 /* UIColor.swift in Sources */,
 				0011339E1FD3A9C6007BCAD7 /* BucketListView.swift in Sources */,
 				00220C491FD5696700D14409 /* ViewUtils.swift in Sources */,
 				001133971FD3A9C6007BCAD7 /* TutorialView.swift in Sources */,
@@ -824,7 +827,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -843,7 +847,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -856,7 +861,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucketTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kbucket.app/kbucket";
 			};
 			name = Debug;
@@ -870,7 +876,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucketTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/kbucket.app/kbucket";
 			};
 			name = Release;
@@ -883,7 +890,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucketUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = kbucket;
 			};
 			name = Debug;
@@ -896,7 +904,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucketUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TEST_TARGET_NAME = kbucket;
 			};
 			name = Release;

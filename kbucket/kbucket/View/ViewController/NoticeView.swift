@@ -38,7 +38,7 @@ class NoticeView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITabl
         mTableView.dataSource = self
         self.mTableView.rowHeight = UITableViewAutomaticDimension
         handleMessage(what: LOAD_NOTICE_LIST, obj: "")
-        //     AppUtils.sendTrackerScreen(this, "공지화면");
+        AppUtils.sendTrackerScreen(screen: "공지화면");
     }
 
     @IBAction func onBackPressed(_ sender: Any) {
@@ -48,8 +48,8 @@ class NoticeView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITabl
     
 
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
-        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
-        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
 
         var isValid : Bool  = false
         do {
@@ -118,7 +118,7 @@ class NoticeView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITabl
             break;
         case SERVER_LOADING_FAIL:
             //KProgressDialog.setDataLoadingDialog(this, false, null, false);
-            var message = AppUtils.localizedString(forKey : "server_fail_string")
+            let message = AppUtils.localizedString(forKey : "server_fail_string")
             handleMessage(what: TOAST_MASSEGE, obj: message)
             break;
         default:

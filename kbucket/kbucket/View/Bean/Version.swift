@@ -12,34 +12,13 @@ import UIKit
 class Version {
     
   	/** 버전 코드 */
-	var mVersionCode : Int {
-		get {
-            return mVersionCode
-        }
-        set(versionCode) {
-            mVersionCode = versionCode
-        }
-	}
+	var mVersionCode : Int  = 0
 
 	/** 버전명 */
-	var mVersionName : String {
-  		get {
-            return mVersionName
-        }
-        set(versionName) {
-            mVersionName = versionName
-        }
-	}
+	var mVersionName : String  = ""
 
 	/** 강제업데이트 여부 */
-	var mForceYN : String {
-		get {
-            return mForceYN
-        }
-        set(force) {
-            mForceYN = force
-        }
-	}
+	var mForceYN : String = ""
 
 	/**
      * 생성자

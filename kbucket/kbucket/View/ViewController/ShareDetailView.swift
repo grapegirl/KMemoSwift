@@ -52,7 +52,7 @@ class ShareDetailView : UIViewController , IHttpReceive , UITableViewDelegate, U
         setData(bucket : mBucket)
         mTableView.delegate = self
         mTableView.dataSource = self
-        //AppUtils.sendTrackerScreen(this, "모두가지상세화면");
+        AppUtils.sendTrackerScreen(screen: "모두가지상세화면");
     }
     
     @IBAction func onBackPressed(_ sender: Any) {
@@ -195,7 +195,7 @@ class ShareDetailView : UIViewController , IHttpReceive , UITableViewDelegate, U
                     }
                     break;
                 case SERVER_LOADING_FAIL:
-                    var message = AppUtils.localizedString(forKey : "server_fail_string")
+                    let message = AppUtils.localizedString(forKey : "server_fail_string")
                     handleMessage(what: TOAST_MASSEGE, obj: message)
                     finish()
                     break;

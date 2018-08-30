@@ -250,4 +250,8 @@ class AppUtils {
         let message = NSLocalizedString(key, comment: "")
         return message
     }
+    
+    public static func sendTrackerScreen(screen : String) -> Void {
+        KLog.d(tag: ContextUtils.TAG, msg: " sendTrackerScreen => " + screen);
+    }
   }

@@ -70,7 +70,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         mSqlQuery = SQLQuery()
         setData()
         picker?.delegate = self
-        //AppUtils.sendTrackerScreen(this, "가지상세화면");
+        AppUtils.sendTrackerScreen(screen: "가지상세화면");
     }
     
     /**
@@ -216,8 +216,8 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         case btDel:
             KLog.d(tag: TAG, msg: "onClick btDel")
-            var title = AppUtils.localizedString(forKey : "delete_popup_title")
-            var content = AppUtils.localizedString(forKey : "delete_popup_content")
+            let title = AppUtils.localizedString(forKey : "delete_popup_title")
+            let content = AppUtils.localizedString(forKey : "delete_popup_content")
             //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_DELETE);
             //             mConfirmPopup.showDialog()
             
@@ -226,8 +226,8 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         case btShare:
             KLog.d(tag: TAG, msg: "onClick btShare")
-            var title = AppUtils.localizedString(forKey : "share_popup_title")
-            var content = AppUtils.localizedString(forKey : "share_popup_content")
+            let title = AppUtils.localizedString(forKey : "share_popup_title")
+            let content = AppUtils.localizedString(forKey : "share_popup_content")
             //             mConfirmPopup = new ConfirmPopup(this, title, ": " + mContents + "\n\n " + content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_BUCKET_SHARE);
             //             mConfirmPopup.showDialog();
             handleMessage(what: UPLOAD_BUCKET, obj: "")
@@ -257,7 +257,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         
     }
     
-    func datePickerValueChanged(sender:UIDatePicker) {
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
@@ -267,7 +267,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         etDate.text = dateFormatter.string(from: sender.date)
         etDate.resignFirstResponder()
     }
-    func datePickerValueChanged2(sender:UIDatePicker) {
+    @objc func datePickerValueChanged2(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
         dateFormatter.timeStyle = .none
@@ -326,16 +326,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
         
         var isValid : Bool  = false
-        do {
-            if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
-                if jsonString != nil {
-                    isValid = jsonString["isValid"] as! Bool
-                    print(jsonString)
-                }
-            }
-        } catch {
-            print("JSON 파상 에러")
-        }
         
         if (actionId == ConstHTTP.INSERT_BUCKET) {
             if (type == ConstHTTP.HTTP_FAIL) {
@@ -388,7 +378,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
                 let  httpUrlFileUploadManager : HttpUrlFileUploadManager = HttpUrlFileUploadManager(url : ContextUtils.KBUCKET_UPLOAD_IMAGE_URL, post : true, receive : self, id : ConstHTTP.INSERT_IMAGE)
                 let fileName : String = DateUtils.getStringDateFormat(pattern: "yyyyMMdd_hhmmss")
                 KLog.d(tag : TAG, msg : "handleMessage UPLOAD_IMAGE fileName : " + fileName)
-                var imageData = UIImagePNGRepresentation(ivImage.image!)
+                let imageData = UIImagePNGRepresentation(ivImage.image!)
                 KLog.d(tag : TAG, msg : "handleMessage UPLOAD_IMAGE imageData : " )
                 httpUrlFileUploadManager.actionTask(filePath : photoPath, setValue: "idx", reqValue : String(mImageIdx), fileName : fileName + ".jpg",
                                                     image : imageData!)
@@ -436,24 +426,24 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         } else {
             // Fallback on earlier versions
         }
-        captureSesssion.sessionPreset = AVCaptureSessionPreset1920x1080 // 해상도설정
+        captureSesssion.sessionPreset = AVCaptureSession.Preset.hd1920x1080 // 해상도설정
         
-        let device = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        let device = AVCaptureDevice.default(for: AVMediaType.video)
         do {
-            let input = try AVCaptureDeviceInput(device: device)
+            let input = try AVCaptureDeviceInput(device: device!)
             
             // 입력
             if (captureSesssion.canAddInput(input)) {
                 captureSesssion.addInput(input)
                 
                 // 출력
-                if (captureSesssion.canAddOutput(stillImageOutput)) {
-                    captureSesssion.addOutput(stillImageOutput)
+                if (captureSesssion.canAddOutput(stillImageOutput!)) {
+                    captureSesssion.addOutput(stillImageOutput!)
                     captureSesssion.startRunning() // 카메라 시작
                     
                     previewLayer = AVCaptureVideoPreviewLayer(session: captureSesssion)
-                    previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect //화면 조절
-                    previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.portrait // 카메라 방향
+                    previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect //화면 조절
+                    previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait // 카메라 방향
                     
                     ivImage.layer.addSublayer(previewLayer!)
                     
@@ -468,7 +458,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         }
     }
     
-    func capture(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhotoSampleBuffer photoSampleBuffer: CMSampleBuffer?, previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+    func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
         
         if let photoSampleBuffer = photoSampleBuffer {
             // JPEG형식으로 이미지데이터 검색
@@ -510,7 +500,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
      * @return 전송 데이타
      */
     private func shareBucketImage() -> [String:String] {
-        var bucket = Bucket()
+        let bucket = Bucket()
         let userNickName = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
         bucket.mNickName = userNickName
         bucket.mContent = mContents

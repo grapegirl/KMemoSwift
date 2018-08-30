@@ -39,7 +39,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     override func viewDidLoad() {
         super.viewDidLoad()
         KLog.d(tag: TAG, msg: "viewDidLoad");
-        //AppUtils.sendTrackerScreen(this, "모두가지화면");
+        AppUtils.sendTrackerScreen(screen: "모두가지화면");
         initialize()
     }
     
@@ -102,18 +102,17 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
         var isValid : Bool  = false
-        print(data)
         do {
             if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
                 if jsonString != nil {
                     isValid = jsonString["isValid"] as! Bool
-                     print(jsonString)
+                    // print(jsonString)
                 }
             }
         } catch {
             print("JSON 파상 에러")
-          
         }
+
         
         if (actionId == ConstHTTP.CATEGORY_LIST) {
 //         KProgressDialog.setDataLoadingDialog(this, false, null, false);
@@ -125,7 +124,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                             if size > 0 {
                             for index in 0...size-1  {
                                 let aObject = List[index] as! [String : AnyObject]
-                                let category : Category = Category()
+                                var category : Category = Category()
                                 let code = aObject["categoryCode"] as! Int
                                 let name = aObject["categoryName"] as! String
                                 mCategoryList.append(Category(name : name, code: code))
@@ -185,7 +184,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                 Toast.showToast(message: obj)
                 break;
             case SERVER_LOADING_FAIL:
-                var message = AppUtils.localizedString(forKey : "server_fail_string")
+                let message = AppUtils.localizedString(forKey : "server_fail_string")
                 handleMessage(what: TOAST_MASSEGE, obj: message)
                 //  finish();
                
@@ -214,7 +213,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
             case CHECK_NETWORK:
                 let isConnect  : Bool = true //NetworkUtils.isConnectivityStatus(this)
                 if (isConnect == false) {
-                    var connectMsg =  AppUtils.localizedString(forKey :"check_network")
+                    let connectMsg = AppUtils.localizedString(forKey :"check_network")
                     handleMessage(what: TOAST_MASSEGE, obj: connectMsg)
                 } else {
                     handleMessage(what: CATEGORY_LIST, obj: "")
