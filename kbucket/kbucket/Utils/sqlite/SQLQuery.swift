@@ -147,16 +147,6 @@ class SQLQuery{
     }
 
     /**
-     * 사용자 정보 테이블 내용 검색하기
-     *
-     * @param context 컨텍스트
-     * @return 사용자 정보 반환
-     */
-//    public func selectUserTable() -> LinkedList<String> {
-//       
-//    }
-
-    /**
      * 사용자 정보 설정 삭제
      *
      * @param context 컨텍스트
@@ -181,26 +171,16 @@ class SQLQuery{
     }
 
     /**
-     * 채팅 정보 insert 메소드
-     *
-     * @param context  컨텍스트
-     * @param contents 내용
-     * @param date     날짜
+     * 테이블 내용 삭제
      */
-    public func insertChatting(contents : String, date : String , nickname : String ,imagePath : String , seq : String , chatId : String ) -> Void {
+    public func DeleteBucketContents() -> Void {
+        KLog.d(tag: TAG, msg: "DeleteBucketContents")
+        let realm = try! Realm()
         
+        try! realm.write {
+             realm.delete( realm.objects(Bucket.self))
+        }
+        KLog.d(tag: TAG, msg: "success DeleteBucketContents")
     }
-
-    /**
-     * 채팅 테이블 내용 검색하기
-     *
-     * @param context 컨텍스트
-     * @param chatIdx 채팅방 번호
-     * @return 채팅 내용
-     */
-//    public func selectChatTable(chatIdx : String)-> LinkedList<String> {
-//       
-//    }
     
-//
 }

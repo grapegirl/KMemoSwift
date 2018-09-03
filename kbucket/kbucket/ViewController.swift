@@ -145,7 +145,7 @@ class ViewController: UIViewController {
             break;
         case btRank:
             KLog.d(tag: "ViewController", msg: "onClickRank");
-            changeView(viewName: "QuestionView")
+            changeView(viewName: "TutorialView")
             break;
         case btSetting:
             //changeView(viewName: "SetNickNameView")

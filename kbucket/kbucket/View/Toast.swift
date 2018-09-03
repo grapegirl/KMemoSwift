@@ -65,7 +65,7 @@ class Toast{
     static func showToast(message : String) {
         
         let appDelegate: AppDelegate = UIApplication.shared.delegate as! AppDelegate
-        let toastLabel = UILabel(frame: CGRect(x: appDelegate.window!.frame.size.width/2-100, y: appDelegate.window!.frame.size.height-100, width: 200, height: 35))
+        let toastLabel = UILabel(frame: CGRect(x: appDelegate.window!.frame.size.width/2-150, y: appDelegate.window!.frame.size.height-100, width: appDelegate.window!.frame.size.width/2+100, height: 35))
         toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         toastLabel.textColor = UIColor.white
         toastLabel.textAlignment = .center;

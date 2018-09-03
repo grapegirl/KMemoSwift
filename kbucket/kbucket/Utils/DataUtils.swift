@@ -54,7 +54,6 @@ class DataUtils {
         return true
     }
 
-  
      /**
       * 현재시간으로 파일 이름 생성 후 반환 메소드
       *
@@ -163,12 +162,12 @@ class DataUtils {
 
   
 
-    // /**
-    //  * SQlite DB 파일 복원  기능
-    //  *
-    //  * @return 복원 여부(성공 true, 실패 false 반환)
-    //  */
-    // public static final boolean importDB(String backupDBPath) {
+     /**
+      * SQlite DB 파일 복원  기능
+      *
+      * @return 복원 여부(성공 true, 실패 false 반환)
+      */
+    public static func importDB(backupDBPath : String) -> Bool {
     //     try {
     //         File sd = Environment.getExternalStorageDirectory();
     //         File data = Environment.getDataDirectory();
@@ -193,16 +192,16 @@ class DataUtils {
     //         KLog.d("DataUtils", "@@ DB 파일 복원 에러 : " + e.toString());
     //         return false;
     //     }
-    //     return true;
-    // }
+         return true
+     }
 
 
-    // /**
-    //  * SQlite DB 파일 백업 기능
-    //  *
-    //  * @return 백업 여부(성공 true, 실패 false 반환)
-    //  */
-    // public static final boolean exportDB(String NewdbName) {
+     /**
+      * SQlite DB 파일 백업 기능
+      *
+      * @return 백업 여부(성공 true, 실패 false 반환)
+      */
+    public static func exportDB(NewdbName : String) -> Bool {
     //     try {
     //         File sd = Environment.getExternalStorageDirectory();
     //         File data = Environment.getDataDirectory();
@@ -233,8 +232,37 @@ class DataUtils {
     //         KLog.e("DataUtils", "@@ DB 파일 백업 에러 : " + e.toString());
     //         return false;
     //     }
-    //     return true;
-    // }
+         return true
+     }
+    
+    /**
+     * 프로젝트 폴더 절대 경로 반환
+     *
+     * @return 현재시간으로 생성된 파일이름 반환
+     */
+    public static func getProjectFilePath() -> String {
+        var strPhotoPath : String = ""
+        
+        let fileManager = FileManager()
+        
+        // document 디렉토리의 경로 저장
+        let documentsDirectory = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        
+        // 해당 디렉토리 이름 지정
+        let dataPath = documentsDirectory.appendingPathComponent(ContextUtils.KEY_FILE_FOLDER)
+        
+        do{
+            // 디렉토리 생성
+            try fileManager.createDirectory(atPath: dataPath.path, withIntermediateDirectories: false, attributes: nil)
+            
+        }catch let error as NSError{
+            print(error)
+        }
+        
+        strPhotoPath = dataPath.absoluteString
+        return strPhotoPath
+    }
+    
 
     // /**
     //  * 내부에 저장된 이미지 바로 보기
