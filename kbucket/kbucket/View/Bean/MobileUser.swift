@@ -60,8 +60,8 @@ class MobileUser {
      * 생성자
      */
     init() {
-        self.mOs = "ANDROID"
-        self.mMarket = "GOOGLE"
+        self.mOs = "IOS"
+        self.mMarket = "APPLE"
         self.mGcmToken = "N"
     }
     
@@ -71,7 +71,23 @@ class MobileUser {
      */
     deinit {
 
-    }  
+    }
+    
+    public func toDictionary() -> [String:String] {
+        var map =  [String:String]()
+        map["OS"] = mOs
+        map["NICKNAME"] = mUserNickName
+        map["PHONE"] = mPhone
+        map["VERSION_NAME"] = ContextUtils.VERSION_NAME
+        map["MARKET"] = mMarket
+        map["LANG"] = mLanguage
+        map["COUNTY"] = mCountry
+        map["GCM_TOKEN"] = mGcmToken
+        map["OS_VERSION"] = AppUtils.getOsVersion()
+        map["TEL_GBN"] = AppUtils.getPhoneType()
+        
+        return map
+    }
     
 }
 

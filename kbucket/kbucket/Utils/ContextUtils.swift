@@ -14,12 +14,15 @@ class ContextUtils{
     }
     
    
-   /**
+    /**
      * 운영 배포시 false
      * 개발 로그 true시 보임
      */
     public static var VIEW_LOG : Bool = false
-    
+    /**
+     * 버전 명
+     */
+    public static let VERSION_NAME : String = "2.0.03"
     /**
      * 공통 태그
      **/

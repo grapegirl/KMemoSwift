@@ -76,6 +76,8 @@
 		00BE4713212E5CA100FE4EAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4715212E5CA100FE4EAF /* InfoPlist.strings */; };
 		00C52943212FD746004F6A96 /* NoticeCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00C52942212FD746004F6A96 /* NoticeCustomCell.swift */; };
 		00CE60632136352500AEC8F7 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00CE60622136352500AEC8F7 /* UIColor.swift */; };
+		00DEE39A213E393400DC6EB2 /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DEE399213E393400DC6EB2 /* CustomPopup.swift */; };
+		00DEE3A1213E3B2E00DC6EB2 /* UserUpdateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DEE3A0213E3B2E00DC6EB2 /* UserUpdateTask.swift */; };
 		00F2848B20BBCC5A00DD60FD /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848420BBCAA100DD60FD /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00F2848D20BBCC5E00DD60FD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848520BBCAA100DD60FD /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
@@ -195,6 +197,8 @@
 		00BE4718212E5CE700FE4EAF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		00C52942212FD746004F6A96 /* NoticeCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeCustomCell.swift; sourceTree = "<group>"; };
 		00CE60622136352500AEC8F7 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		00DEE399213E393400DC6EB2 /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
+		00DEE3A0213E3B2E00DC6EB2 /* UserUpdateTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUpdateTask.swift; sourceTree = "<group>"; };
 		00F2848020BBC7C200DD60FD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		00F2848220BBC7C800DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		00F2848420BBCAA100DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 		0059940F1F5A43FE007777A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				00DEE398213E391A00DC6EB2 /* Popup */,
 				001133A31FD3AA0F007BCAD7 /* Const */,
 				001133A11FD3AA04007BCAD7 /* Toast.swift */,
 				0008E3211F9196F300F498E6 /* Protocol */,
@@ -400,6 +405,7 @@
 		0080F6271FAD5C820076893B /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				00DEE39B213E3B0200DC6EB2 /* task */,
 				0080F6281FAD5C950076893B /* http */,
 			);
 			name = Managers;
@@ -413,6 +419,22 @@
 				001423681FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift */,
 			);
 			name = http;
+			sourceTree = "<group>";
+		};
+		00DEE398213E391A00DC6EB2 /* Popup */ = {
+			isa = PBXGroup;
+			children = (
+				00DEE399213E393400DC6EB2 /* CustomPopup.swift */,
+			);
+			path = Popup;
+			sourceTree = "<group>";
+		};
+		00DEE39B213E3B0200DC6EB2 /* task */ = {
+			isa = PBXGroup;
+			children = (
+				00DEE3A0213E3B2E00DC6EB2 /* UserUpdateTask.swift */,
+			);
+			name = task;
 			sourceTree = "<group>";
 		};
 		00F2847F20BBC7C100DD60FD /* Frameworks */ = {
@@ -591,6 +613,7 @@
 				0059941C1F5A4532007777A1 /* Chat.swift in Sources */,
 				001133921FD3A9C6007BCAD7 /* ShareDetailView.swift in Sources */,
 				001133981FD3A9C6007BCAD7 /* MainView.swift in Sources */,
+				00DEE39A213E393400DC6EB2 /* CustomPopup.swift in Sources */,
 				00A6A95C1F60179900F65A1E /* ScreenUtils.swift in Sources */,
 				00A6A9541F60179900F65A1E /* ContextUtils.swift in Sources */,
 				001133951FD3A9C6007BCAD7 /* WriteMemoView.swift in Sources */,
@@ -604,6 +627,7 @@
 				00A6A95B1F60179900F65A1E /* NetworkUtils.swift in Sources */,
 				00A6A9581F60179900F65A1E /* KLog.swift in Sources */,
 				00A6A9551F60179900F65A1E /* DataUtils.swift in Sources */,
+				00DEE3A1213E3B2E00DC6EB2 /* UserUpdateTask.swift in Sources */,
 				0059941F1F5A4532007777A1 /* UpdateApp.swift in Sources */,
 				0059941B1F5A4532007777A1 /* Category.swift in Sources */,
 				001133911FD3A9C6007BCAD7 /* PushPopupView.swift in Sources */,

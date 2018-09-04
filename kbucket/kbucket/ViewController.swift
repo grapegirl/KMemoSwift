@@ -9,7 +9,7 @@
 import UIKit
 import GoogleMobileAds
 
-class ViewController: UIViewController {
+class ViewController: UIViewController , IHttpReceive {
 
     private let TAG : String = "ViewController"
 
@@ -37,15 +37,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: "ViewController", msg: "viewDidLoad");
-       
-        var temp = DateUtils.getStringDateFormat(pattern : "yyyy-MM-dd")
-        KLog.d(tag: "ViewController", msg: temp)
-        temp = DateUtils.getCurrentTimeHHMMSSMS()
-        KLog.d(tag: "ViewController", msg: temp)
-        temp = DateUtils.convertTime()
-        KLog.d(tag: "ViewController", msg: temp)
         initialize()
     }
 
@@ -95,9 +87,8 @@ class ViewController: UIViewController {
     //         ShareSocial();
     //     }
     //     mHandler.sendEmptyMessage(CHECK_VERSION);
-    //     checkPermision();
-
-    //     AppUtils.sendTrackerScreen(this, "메인화면");
+        handleMessage(what: UPDATE_USER, obj: "")
+        AppUtils.sendTrackerScreen(screen: "메인화면")
     }
     
     
@@ -136,30 +127,30 @@ class ViewController: UIViewController {
         switch sender {
         case btWrite:
             changeView(viewName: "WriteView")
-            break;
+            break
         case btComplete:
             changeView(viewName: "BucketListView")
-            break;
+            break
         case btShare:
             changeView(viewName: "ShareListView")
-            break;
+            break
         case btRank:
             KLog.d(tag: "ViewController", msg: "onClickRank");
             changeView(viewName: "TutorialView")
-            break;
+            break
         case btSetting:
             //changeView(viewName: "SetNickNameView")
             changeView(viewName: "SetBackColorView")
-            break;
+            break
         case btAI:
             KLog.d(tag: "ViewController", msg: "onClickAI");
-            changeView(viewName: "PassWordView")
-            break;
+            handleMessage(what: REQUEST_AI, obj: "")
+            break
         case btNotice:
             changeView(viewName: "NoticeView")
-            break;
+            break
         default:
-            break;
+            break
         }
     }
     
@@ -175,38 +166,41 @@ class ViewController: UIViewController {
         switch (what) {
             case TOAST_MASSEGE:
                 Toast.showToast(message: obj)
-                break;
-//            case SHARE_THE_WORLD://공유화면 보여주기
-//                changeView(viewName: "ShareListViewCtlr")
-//                break;
-//            case UPDATE_USER://사용자 정보 없데이트
-//    //             UserUpdateTask userUpdateTask = new UserUpdateTask(this, getUserData());
-//    //             userUpdateTask.execute();
-//                break;
-//            case REQUEST_AI:
-//    //             String userNickName = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-//    //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_AI, true, this, IHttpReceive.REQUEST_AI);
-//    //             HashMap<String, Object> map = new HashMap<String, Object>();
-//    //             map.put("nickname", userNickName);
-//    //             httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-//                break;
-//            case FAIL_AI:
+                break
+            case SHARE_THE_WORLD://공유화면 보여주기
+                changeView(viewName: "ShareListViewCtlr")
+                break
+            case UPDATE_USER://사용자 정보 없데이트
+                let userUpdateTask : UserUpdateTask = UserUpdateTask(url: ContextUtils.KBUCKET_UPDATE_USER, post: true, receive: self)
+                let user = getUserData()
+                let sendData = StringUtils.getHTTPPostSendData(sendData: user.toDictionary() )
+                userUpdateTask.actionTaskWithData(data : sendData )
+                break
+            case REQUEST_AI:
+                let userNickName : String = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
+                let url  = ContextUtils.KBUCKET_AI
+                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.REQUEST_AI)
+                var data : String = "nickname=" + userNickName
+                httpUrlTaskManager.actionTaskWithData(data: data)
+                break
+            case FAIL_AI:
 //    //             KProgressDialog.setDataLoadingDialog(this, false, null, false);
 //    //             String title = getString(R.string.popup_title);
 //    //             String content = getString(R.string.popup_prepare_string);
 //    //             mBasicPopup = new BasicPopup(this, title, content, R.layout.popup_basic, this, OnPopupEventListener.POPUP_BASIC);
 //    //             mBasicPopup.showDialog();
-//                break;
-//            case RESPOND_AI:// AI 대답
+                break
+            case RESPOND_AI:// AI 대답
 //    //             KProgressDialog.setDataLoadingDialog(this, false, null, false);
+                print(obj)
 //    //             mAIPopup = new AIPopup(this, (String) message.obj, R.layout.popup_ai, this, OnPopupEventListener.POPUP_AI);
 //    //             mAIPopup.showDialog();
-//                break;
-//            case CHECK_VERSION://버전 체크
+                break
+            case CHECK_VERSION://버전 체크
 //    //             AppUpdateTask appUpdateTask = new AppUpdateTask(this);
 //    //             appUpdateTask.execute();
-//                break;
-//            case UPLOAD_DB:
+                break
+            case UPLOAD_DB:
 //    //             String path = (String) message.obj;
 //    //             int nIndex = path.indexOf(ContextUtils.KEY_FILE_FOLDER + "/");
 //    //             String fileName = path.substring(nIndex + 6, path.length());
@@ -214,39 +208,16 @@ class ViewController: UIViewController {
 //    //             byte[] bytes = ByteUtils.getByteArrayFromFile(path);
 //    //             HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_DB_URL, this, IHttpReceive.UPLOAD_DB, bytes);
 //    //             httpUrlFileUploadManager.execute(path, "nickname", userNickName, fileName);
-//                break;
+                break
         default:
-            break;
+            break
         }
     }
 
-    @IBAction func onBackPressed(_ sender: Any) {
-         openExitToast()
-    }    
-
-    /**
-    * 두번 뒤로가기 누를 시 종료됨
-    */
-    private func openExitToast() {
-        //if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
-        //     backKeyPressedTime = System.currentTimeMillis();
-        //     String msg = getString(R.string.back_string);
-        //     finishToast = Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT);
-        //     finishToast.show();
-        //     return;
-        // }
-        // if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
-        //     if (finishToast != null) {
-        //         finishToast.cancel();
-        //     }
-        //     finish();
-        // }
-    }
-
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
-        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
-        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type));
-        var isValid : Bool  = false
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
+        KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
+        var isValid : Bool = false
         if (actionId == ConstHTTP.REQUEST_AI) {
             if (type == ConstHTTP.HTTP_OK) {
                 do {
@@ -254,14 +225,14 @@ class ViewController: UIViewController {
                             if jsonString != nil {
                                 isValid = jsonString["isValid"] as! Bool
                                 let message = jsonString["replay"] as! String
-                                // print(jsonString)
+                                handleMessage(what: RESPOND_AI, obj: message)
                             }
                         }
                 } catch {
                     print("JSON 파상 에러")
                      handleMessage(what: FAIL_AI, obj: "")
                 }
-                handleMessage(what: RESPOND_AI, obj: "")
+               
             } else {
                 handleMessage(what: FAIL_AI, obj: "")
             }
@@ -295,5 +266,19 @@ class ViewController: UIViewController {
             ])
     }
 
+    /**
+     * 사용자 정보업데이트 가공 데이타 만드는 메소드
+     *
+     * @return 사용자 정보
+     */
+    private func getUserData() -> MobileUser {
+        let mobileUser = MobileUser()
+        mobileUser.mUserNickName = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
+        mobileUser.mVersionName = AppUtils.getVersionName()
+        mobileUser.mLanguage = AppUtils.getUserPhoneLanuage()
+        mobileUser.mCountry = AppUtils.getUserPhoneCoutry()
+        mobileUser.mGcmToken = ""
+        return mobileUser;
+    }
 }
 
