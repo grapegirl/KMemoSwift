@@ -29,8 +29,7 @@ class ViewController: UIViewController , IHttpReceive {
     private let FAIL_AI : Int               = 71
     private let RESPOND_AI : Int            = 72
     private let CHECK_VERSION : Int         = 80
-    private let UPLOAD_DB : Int             = 90
-
+  
     private var mSqlQuery  : SQLQuery? = nil
     private var bannerView: GADBannerView!
     public var mWidgetSendData : String = ""
@@ -64,17 +63,13 @@ class ViewController: UIViewController , IHttpReceive {
     //             super.onDrawerClosed(drawerView);
     //         }
 
-    //         @Override
+    //         @Overrid
     //         public void onDrawerOpened(View drawerView) {
     //             super.onDrawerOpened(drawerView);
     //         }
 
     //     };
     //     mDrawer.setDrawerListener(mToggle);
-
-    //     mHandler = new Handler(this);
-    //     Thread.setDefaultUncaughtExceptionHandler(new ErrorLogUtils.UncaughtExceptionHandlerApplication());
-
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addBannerViewToView(bannerView)
         bannerView.adUnitID = ContextUtils.KBUCKET_AD_UNIT_ID
@@ -86,8 +81,8 @@ class ViewController: UIViewController , IHttpReceive {
     //     if (data != null && data.equals(ContextUtils.WIDGET_SHARE)) {
     //         ShareSocial();
     //     }
-    //     mHandler.sendEmptyMessage(CHECK_VERSION);
         handleMessage(what: UPDATE_USER, obj: "")
+        handleMessage(what: CHECK_VERSION, obj: "")
         AppUtils.sendTrackerScreen(screen: "메인화면")
     }
     
@@ -107,7 +102,6 @@ class ViewController: UIViewController , IHttpReceive {
     
     override func viewDidAppear(_ animated: Bool) {
         KLog.d(tag: "ViewController", msg: "viewDidAppear");
-        Toast.showToast(message: "enjoy your programming")
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -136,11 +130,10 @@ class ViewController: UIViewController , IHttpReceive {
             break
         case btRank:
             KLog.d(tag: "ViewController", msg: "onClickRank");
-            changeView(viewName: "TutorialView")
+            changeView(viewName: "RankListView")
             break
         case btSetting:
-            //changeView(viewName: "SetNickNameView")
-            changeView(viewName: "SetBackColorView")
+            //changeView(viewName: "RankListView")
             break
         case btAI:
             KLog.d(tag: "ViewController", msg: "onClickAI");
@@ -165,7 +158,9 @@ class ViewController: UIViewController , IHttpReceive {
         
         switch (what) {
             case TOAST_MASSEGE:
-                Toast.showToast(message: obj)
+                DispatchQueue.main.async {
+                    Toast.showToast(message: obj)
+                }
                 break
             case SHARE_THE_WORLD://공유화면 보여주기
                 changeView(viewName: "ShareListViewCtlr")
@@ -192,22 +187,19 @@ class ViewController: UIViewController , IHttpReceive {
                 break
             case RESPOND_AI:// AI 대답
 //    //             KProgressDialog.setDataLoadingDialog(this, false, null, false);
-                print(obj)
+                DispatchQueue.main.async {
+                    let aiPopup = CustomPopup()
+                    CustomPopup.showDialog(message: obj)
+                    }
+               
 //    //             mAIPopup = new AIPopup(this, (String) message.obj, R.layout.popup_ai, this, OnPopupEventListener.POPUP_AI);
-//    //             mAIPopup.showDialog();
+//    //
                 break
             case CHECK_VERSION://버전 체크
-//    //             AppUpdateTask appUpdateTask = new AppUpdateTask(this);
-//    //             appUpdateTask.execute();
-                break
-            case UPLOAD_DB:
-//    //             String path = (String) message.obj;
-//    //             int nIndex = path.indexOf(ContextUtils.KEY_FILE_FOLDER + "/");
-//    //             String fileName = path.substring(nIndex + 6, path.length());
-//    //             userNickName = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-//    //             byte[] bytes = ByteUtils.getByteArrayFromFile(path);
-//    //             HttpUrlFileUploadManager httpUrlFileUploadManager = new HttpUrlFileUploadManager(ContextUtils.KBUCKET_UPLOAD_DB_URL, this, IHttpReceive.UPLOAD_DB, bytes);
-//    //             httpUrlFileUploadManager.execute(path, "nickname", userNickName, fileName);
+                let url  = ContextUtils.KBUCKET_VERSION_UPDATE_URL
+                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.UPDATE_VERSION)
+                var data : String = "version=" + ContextUtils.VERSION_NAME
+                httpUrlTaskManager.actionTaskWithData(data: data)
                 break
         default:
             break
@@ -242,6 +234,45 @@ class ViewController: UIViewController , IHttpReceive {
              } else {
                 handleMessage(what: TOAST_MASSEGE, obj: "메모가지 서버에 DB를 업로드하는데 실패하였습니다")
              }
+        } else if (actionId == ConstHTTP.UPDATE_VERSION){
+            if (type == ConstHTTP.HTTP_OK) {
+                
+                do {
+                    if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
+                        if jsonString != nil {
+                            let versionName = jsonString["versionName"] as! String
+                            let forceYN =  jsonString["forceYN"] as! String
+                           
+                            if (versionName != nil && versionName != "null" ) {
+                                if (StringUtils.compareVersion(srcVersion: ContextUtils.VERSION_NAME, newVersion: versionName) > 0) {
+                                    print("0")
+                                    if (forceYN == "Y") {
+                                        let title = AppUtils.localizedString(forKey : "update_popup_title")
+                                        let content = AppUtils.localizedString(forKey : "update_popup_content_y")
+                                        
+//                                        mBasicPopup = new BasicPopup(mContext, title, content, R.layout.popup_basic, this, OnPopupEventListener.POPUP_UPDATE_FORCE);
+//                                        mBasicPopup.showDialog();
+                                    } else {
+                                        let title = AppUtils.localizedString(forKey : "update_popup_title")
+                                        let content = AppUtils.localizedString(forKey : "update_popup_content_n")
+//                                          mConfirmPopup = new ConfirmPopup(mContext, title, content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_UPDATE_SELECT);
+////                                        mConfirmPopup.showDialog();
+                                      
+                                    }
+                                } else {
+                                    let message = AppUtils.localizedString(forKey : "check_version_lasted")
+                                    handleMessage(what: TOAST_MASSEGE, obj: message)
+                                }
+                            }
+                        }
+                    }
+                } catch {
+                    print("JSON 파상 에러")
+                    handleMessage(what: FAIL_AI, obj: "")
+                }
+            }else{
+                
+            }
         }
     }
     
@@ -274,9 +305,9 @@ class ViewController: UIViewController , IHttpReceive {
     private func getUserData() -> MobileUser {
         let mobileUser = MobileUser()
         mobileUser.mUserNickName = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
-        mobileUser.mVersionName = AppUtils.getVersionName()
+        mobileUser.mVersionName = ContextUtils.VERSION_NAME
         mobileUser.mLanguage = AppUtils.getUserPhoneLanuage()
-        mobileUser.mCountry = AppUtils.getUserPhoneCoutry()
+        mobileUser.mCountry = AppUtils.getUserPhoneLanuage()
         mobileUser.mGcmToken = ""
         return mobileUser;
     }

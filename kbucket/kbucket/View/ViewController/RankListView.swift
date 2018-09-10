@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RankListView : UIViewController , IHttpReceive {
+class RankListView : UIViewController , IHttpReceive , UITableViewDelegate, UITableViewDataSource, EventProtocol{
 
     private let TAG : String = "RankListView"
 
@@ -17,25 +17,31 @@ class RankListView : UIViewController , IHttpReceive {
     private let LOAD_BUCKET_RANK : Int      = 30
     private let SET_LIST : Int              = 40
     private let SEND_BUCKET_RANK : Int      = 50
-    private let CHECK_NETWORK : Int         = 70
-
+ 
     private var mBucketDataList = Array<BucketRank>()
     private var mBucketRankComment : Int = -1
     private var mBucketRankIdx : Int = -1
 
-    // private RankListAdpater mListAdapter = null;
-    // private ListView mListView = null;
-
+    @IBOutlet weak var mTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
         KLog.d(tag: TAG, msg: "viewDidLoad")
         initialize()
     }
 
     func initialize(){
-    //     mHandler.sendEmptyMessage(CHECK_NETWORK);
-        AppUtils.sendTrackerScreen(screen : "버킷랭킹화면");
+        mTableView.delegate = self
+        mTableView.dataSource = self
+        AppUtils.sendTrackerScreen(screen : "버킷랭킹화면")
+        handleMessage(what: LOAD_BUCKET_RANK, obj: "")
+    }
+    
+    @IBAction func onBackPressed(_ sender: Any) {
+        KLog.d(tag: TAG, msg: "onBackPressed");
+        let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
+        uvc?.modalTransitionStyle = UIModalTransitionStyle.flipHorizontal //페이지 전환시 에니메이션 효과 설정
+        present(uvc!, animated: true, completion: nil)
     }
     
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
@@ -98,94 +104,139 @@ class RankListView : UIViewController , IHttpReceive {
     }
   
      func handleMessage(what : Int, obj : String) {
-//            switch (what) {
-//             case TOAST_MASSEGE:
-//                Toast.showToast(message: obj)
-//                break;
-//            case SERVER_LOADING_FAIL:
-//                var message = AppUtils.localizedString(forKey : "server_fail_string")
-//                handleMessage(what: TOAST_MASSEGE, obj: message)
-//                finish()
-//                break;
-//            case LOAD_BUCKET_RANK:
+            switch (what) {
+             case TOAST_MASSEGE:
+                Toast.showToast(message: obj)
+                break
+            case SERVER_LOADING_FAIL:
+                let message = AppUtils.localizedString(forKey : "server_fail_string")
+                handleMessage(what: TOAST_MASSEGE, obj: message)
+                finish()
+                break
+            case LOAD_BUCKET_RANK:
+//    //        KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
+                let url  = ContextUtils.KBUCKET_RANK_LIST_URL
+                let userNickName = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
+                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.RANK_LIST)
+                var data = "pageNm=1&nickname=" + userNickName
+                httpUrlTaskManager.actionTaskWithData(data: data)
+                break
+            case SET_LIST:
+                DispatchQueue.main.async {
+                    self.mTableView.reloadData()
+                }
+                break
+            case SEND_BUCKET_RANK:
 //    //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-//    //             String userNickName = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-//    //             HttpUrlTaskManager httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_RANK_LIST_URL, true, this, IHttpReceive.RANK_LIST);
-//    //             HashMap<String, Object> map = new HashMap<String, Object>();
-//    //             map.put("pageNm", "1");
-//    //             map.put("nickname", userNickName);
-//    //             httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-//                break;
-//            case SET_LIST:
-//    //             mListView = (ListView) findViewById(R.id.rank_list_listview);
-//    //             mListAdapter = new RankListAdpater(this, R.layout.rank_list_line, mBucketDataList, this);
-//    //             mListView.setAdapter(mListAdapter);
-//                break;
-//            case SEND_BUCKET_RANK:
-//    //             KProgressDialog.setDataLoadingDialog(this, true, this.getString(R.string.loading_string), true);
-//    //             userNickName = (String) SharedPreferenceUtils.read(this, ContextUtils.KEY_USER_NICKNAME, SharedPreferenceUtils.SHARED_PREF_VALUE_STRING);
-//    //             httpUrlTaskManager = new HttpUrlTaskManager(ContextUtils.KBUCKET_RANK_COMMENT, true, this, IHttpReceive.RANK_UPDATE_COMMENT);
-//    //             map = new HashMap<String, Object>();
-//    //             map.put("idx", mBucketRankIdx);
-//    //             map.put("comment", mBucketRankComment);
-//    //             map.put("nickname", userNickName);
-//    //             httpUrlTaskManager.execute(StringUtils.getHTTPPostSendData(map));
-//                break;
-//            case CHECK_NETWORK:
-//    //             boolean isConnect = NetworkUtils.isConnectivityStatus(this);
-//    //             if(!isConnect){
-//    //                 String connectMsg = getString(R.string.check_network);
-//    //                 mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, connectMsg));
-//    //             }else{
-//    //                 mHandler.sendEmptyMessage(LOAD_BUCKET_RANK);
-//    //             }
-//                break;
-//        }
+                let url  = ContextUtils.KBUCKET_RANK_COMMENT
+                let userNickName2 = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
+                let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.RANK_UPDATE_COMMENT)
+                var sendData = "idx=" + String(mBucketRankIdx) + "&comment=" + String(mBucketRankComment) + "&nickname=" + userNickName2
+                httpUrlTaskManager.actionTaskWithData(data: sendData)
+                break
+          default:
+                break
+        }
      }
   
-     @IBAction func onClick(_ sender: Any) {
-    //     switch (v.getId()) {
-    //         //최고에요
-    //         case R.id.rank_btn1:
-    //             mBucketRankComment = 3;
-    //             break;
-    //         //좋아요
-    //         case R.id.rank_btn2:
-    //             mBucketRankComment = 2;
-    //             break;
-    //         //괜찮네요
-    //         case R.id.rank_btn3:
-    //             mBucketRankComment = 1;
-    //             break;
-        // }
-
-    //     Integer nIndex = (Integer) v.getTag();
-    //     boolean isSendServer = getCommentCount(nIndex);
-    //     // 의견이 없으면 서버에 반영
-    //     if (!isSendServer) {
-    //         mHandler.sendEmptyMessage(SEND_BUCKET_RANK);
-    //         mBucketRankIdx = nIndex;
-    //     } else {
-    //         mHandler.sendMessage(mHandler.obtainMessage(TOAST_MASSEGE, "이미 의견을 반영했습니다! "));
-    //     }
-    }
-
     private func getCommentCount( index : Int ) -> Bool {
-    //     if (mBucketDataList != null) {
-    //         for (int i = 0; i < mBucketDataList.size(); i++) {
-    //             if (mBucketDataList.get(i).getIdx() == index) {
-    //                 int comment = mBucketDataList.get(i).getUserComment();
-    //                 if (comment != 0) {
-    //                     return true;
-    //                 }
-    //             }
-    //         }
-    //     }
+        if (mBucketDataList != nil) {
+            for bucket in mBucketDataList {
+                if (bucket.mIdx == index) {
+                    let comment = bucket.mComment
+                    if(comment != 0){
+                        return true
+                    }
+                }
+            }
+        }
         return false
     }
 
     private func finish(){
         KLog.d(tag: TAG, msg: "finish")
         ViewUtils.changeView(strView: ContextUtils.MAIN_VIEW, viewCtrl: self)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        KLog.d(tag: TAG, msg: "mBucketDataList count : " + String(mBucketDataList.count))
+        return mBucketDataList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = mTableView.dequeueReusableCell(withIdentifier: "RankCustomCell", for: indexPath) as! RankCustomCell
+        cell.etContens.text = mBucketDataList[indexPath.row].mContent
+        cell.lbBest.text = String(mBucketDataList[indexPath.row].mBestCnt)
+        cell.lbGood.text = String(mBucketDataList[indexPath.row].mGoodCnt)
+        cell.lbSoso.text = String(mBucketDataList[indexPath.row].mSoSoCnt)
+        
+        cell.mData = String(mBucketDataList[indexPath.row].mIdx)
+        
+        let comment : Int = mBucketDataList[indexPath.row].mComment
+        if (comment == 3) {
+            cell.btBest.backgroundColor = UIColor.white
+            cell.btBest.setTitleColor(UIColor(hexRGB: "#FFCC0000"), for: .normal)
+            cell.btGood.backgroundColor = UIColor(hexRGB: "#FF33B5E5")
+            cell.btGood.setTitleColor(UIColor.black, for: .normal)
+            cell.btSoso.backgroundColor = UIColor(hexRGB: "#FF99CC00")
+            cell.btSoso.setTitleColor(UIColor.black, for: .normal)
+        } else if (comment == 2) {
+            cell.btBest.backgroundColor = UIColor(hexRGB: "#FFCC0000")
+            cell.btBest.setTitleColor(UIColor.black, for: .normal)
+            cell.btGood.backgroundColor = UIColor.white
+            cell.btGood.setTitleColor(UIColor(hexRGB: "#FF33B5E5"), for: .normal)
+            cell.btSoso.backgroundColor = UIColor(hexRGB: "#FF99CC00")
+            cell.btSoso.setTitleColor(UIColor.black, for: .normal)
+        } else if (comment == 1) {
+            cell.btBest.backgroundColor = UIColor(hexRGB: "#FFCC0000")
+            cell.btBest.setTitleColor(UIColor.black, for: .normal)
+            cell.btGood.backgroundColor = UIColor(hexRGB: "#FF33B5E5")
+            cell.btGood.setTitleColor(UIColor.black, for: .normal)
+            cell.btSoso.backgroundColor = UIColor.white
+            cell.btSoso.setTitleColor(UIColor(hexRGB: "#FF99CC00"), for: .normal)
+        } else {
+            cell.btBest.backgroundColor = UIColor(hexRGB: "#FFCC0000")
+            cell.btBest.setTitleColor(UIColor.black, for: .normal)
+            cell.btGood.backgroundColor = UIColor(hexRGB: "#FF33B5E5")
+            cell.btGood.setTitleColor(UIColor.black, for: .normal)
+            cell.btSoso.backgroundColor = UIColor(hexRGB: "#FF99CC00")
+            cell.btSoso.setTitleColor(UIColor.black, for: .normal)
+        }
+        
+        cell.selectionStyle = .none
+        cell.setOnEventListener(listenr: self)
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        KLog.d(tag: TAG, msg: "row: \(indexPath.row)")
+    }
+    
+    func receiveEventFromViewItem(gbn : Int, data : String) {
+        KLog.d(tag: TAG, msg: "receiveEventFromViewItem data : " + data)
+        switch(gbn){
+        case 3://최고
+            mBucketRankComment = 3
+            break
+        case 2://좋아요
+            mBucketRankComment = 2
+            break
+        case 1://괜찮아요
+            mBucketRankComment = 1
+            break
+        default:
+            break
+        }
+        
+        let nIdx : Int = Int(data)!
+        let isSendSever = getCommentCount(index: nIdx)
+          KLog.d(tag: TAG, msg: "receiveEventFromViewItem isSendSever : " + String(isSendSever))
+        if( !isSendSever){
+            mBucketRankIdx = nIdx
+            handleMessage(what: SEND_BUCKET_RANK, obj: "")
+        }else{
+            handleMessage(what: TOAST_MASSEGE, obj: "이미 의견을 반영했습니다! ")
+        }
     }
 }

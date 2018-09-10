@@ -35,6 +35,8 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     @IBOutlet weak var btCategory7: UIButton!
     @IBOutlet weak var btCategory8: UIButton!
     @IBOutlet weak var mTableView: UITableView!
+    
+    private let uColor = UIColor(hexRGB: "#67D91A")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,10 +46,20 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     }
     
     func initialize(){
-        //setCategoryList()
         mTableView.delegate = self
         mTableView.dataSource = self
+        mButtonList.append(btCategory0)
+        mButtonList.append(btCategory1)
+        mButtonList.append(btCategory2)
+        mButtonList.append(btCategory3)
+        mButtonList.append(btCategory4)
+        mButtonList.append(btCategory5)
+        mButtonList.append(btCategory6)
+        mButtonList.append(btCategory7)
+        mButtonList.append(btCategory8)
         handleMessage(what: SHARE_BUCKET_LIST, obj : "1")
+        btCategory0.setTitleColor(uColor, for: .normal)
+        btCategory0.backgroundColor = UIColor.white
     }
     
     func setCategoryList() {
@@ -94,8 +106,21 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
         default:
             break;
         }
+      
         KLog.d(tag: TAG, msg: "Category" + categoryCode)
+        setAllButtonReset()
+        let button : UIButton = sender as! UIButton
+        button.setTitleColor(uColor, for: .normal)
+        button.backgroundColor = UIColor.white
+        
         handleMessage(what: SHARE_BUCKET_LIST, obj : categoryCode)
+    }
+    
+    func setAllButtonReset(){
+        for item in mButtonList {
+            item.setTitleColor(UIColor.white, for: .normal)
+            item.backgroundColor = uColor
+        }
     }
     
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
@@ -182,7 +207,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
         switch (what) {
             case TOAST_MASSEGE:
                 Toast.showToast(message: obj)
-                break;
+                break
             case SERVER_LOADING_FAIL:
                 let message = AppUtils.localizedString(forKey : "server_fail_string")
                 handleMessage(what: TOAST_MASSEGE, obj: message)
@@ -193,7 +218,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                 }) { (finished) in
                     // completion code
                 }
-                break;
+                break
             case SHARE_BUCKET_LIST:
                 var data : String = String(obj)
                 if (data == nil) {
@@ -204,12 +229,12 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                 let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.BUCKET_LIST)
                 data = "idx=" + data
                 httpUrlTaskManager.actionTaskWithData(data: data)
-                break;
+                break
             case SET_BUCKETLIST:
                 DispatchQueue.main.async {
                     self.mTableView.reloadData()
                 }
-                break;
+                break
             case CHECK_NETWORK:
                 let isConnect  : Bool = true //NetworkUtils.isConnectivityStatus(this)
                 if (isConnect == false) {
@@ -218,9 +243,9 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                 } else {
                     handleMessage(what: CATEGORY_LIST, obj: "")
                 }
-                break;
+                break
             default:
-                break;
+                break
         }
     }
     

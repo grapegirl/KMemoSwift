@@ -26,7 +26,6 @@
 		001133951FD3A9C6007BCAD7 /* WriteMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133811FD3A9C5007BCAD7 /* WriteMemoView.swift */; };
 		001133961FD3A9C6007BCAD7 /* WriteDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133821FD3A9C5007BCAD7 /* WriteDetailView.swift */; };
 		001133971FD3A9C6007BCAD7 /* TutorialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133831FD3A9C5007BCAD7 /* TutorialView.swift */; };
-		001133981FD3A9C6007BCAD7 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133841FD3A9C5007BCAD7 /* MainView.swift */; };
 		0011339A1FD3A9C6007BCAD7 /* SetBackColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133861FD3A9C5007BCAD7 /* SetBackColorView.swift */; };
 		0011339B1FD3A9C6007BCAD7 /* SetNickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133871FD3A9C5007BCAD7 /* SetNickNameView.swift */; };
 		0011339C1FD3A9C6007BCAD7 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133881FD3A9C5007BCAD7 /* QuestionView.swift */; };
@@ -80,6 +79,7 @@
 		00DEE3A1213E3B2E00DC6EB2 /* UserUpdateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00DEE3A0213E3B2E00DC6EB2 /* UserUpdateTask.swift */; };
 		00F2848B20BBCC5A00DD60FD /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848420BBCAA100DD60FD /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		00F2848D20BBCC5E00DD60FD /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00F2848520BBCAA100DD60FD /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		00F96DD121464188002328D8 /* RankCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00F96DD021464188002328D8 /* RankCustomCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,7 +140,6 @@
 		001133811FD3A9C5007BCAD7 /* WriteMemoView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteMemoView.swift; path = View/ViewController/WriteMemoView.swift; sourceTree = "<group>"; };
 		001133821FD3A9C5007BCAD7 /* WriteDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteDetailView.swift; path = View/ViewController/WriteDetailView.swift; sourceTree = "<group>"; };
 		001133831FD3A9C5007BCAD7 /* TutorialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TutorialView.swift; path = View/ViewController/TutorialView.swift; sourceTree = "<group>"; };
-		001133841FD3A9C5007BCAD7 /* MainView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MainView.swift; path = View/ViewController/MainView.swift; sourceTree = "<group>"; };
 		001133861FD3A9C5007BCAD7 /* SetBackColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetBackColorView.swift; path = View/ViewController/SetBackColorView.swift; sourceTree = "<group>"; };
 		001133871FD3A9C5007BCAD7 /* SetNickNameView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SetNickNameView.swift; path = View/ViewController/SetNickNameView.swift; sourceTree = "<group>"; };
 		001133881FD3A9C5007BCAD7 /* QuestionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = QuestionView.swift; path = View/ViewController/QuestionView.swift; sourceTree = "<group>"; };
@@ -203,6 +202,7 @@
 		00F2848220BBC7C800DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		00F2848420BBCAA100DD60FD /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 		00F2848520BBCAA100DD60FD /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
+		00F96DD021464188002328D8 /* RankCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankCustomCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -338,6 +338,7 @@
 				0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */,
 				0059940D1F5A3F21007777A1 /* PostData.swift */,
 				00C52942212FD746004F6A96 /* NoticeCustomCell.swift */,
+				00F96DD021464188002328D8 /* RankCustomCell.swift */,
 			);
 			name = Bean;
 			sourceTree = "<group>";
@@ -350,7 +351,6 @@
 				0011337F1FD3A9C4007BCAD7 /* ChatView.swift */,
 				001133891FD3A9C5007BCAD7 /* ConfigurationView.swift */,
 				0011338B1FD3A9C5007BCAD7 /* IntroView.swift */,
-				001133841FD3A9C5007BCAD7 /* MainView.swift */,
 				001133801FD3A9C5007BCAD7 /* NoticeView.swift */,
 				001133791FD3A9C4007BCAD7 /* PassWordView.swift */,
 				0011337D1FD3A9C4007BCAD7 /* PushPopupView.swift */,
@@ -612,7 +612,6 @@
 				007038ED1F63685700372A7C /* SQLiteAdapter.swift in Sources */,
 				0059941C1F5A4532007777A1 /* Chat.swift in Sources */,
 				001133921FD3A9C6007BCAD7 /* ShareDetailView.swift in Sources */,
-				001133981FD3A9C6007BCAD7 /* MainView.swift in Sources */,
 				00DEE39A213E393400DC6EB2 /* CustomPopup.swift in Sources */,
 				00A6A95C1F60179900F65A1E /* ScreenUtils.swift in Sources */,
 				00A6A9541F60179900F65A1E /* ContextUtils.swift in Sources */,
@@ -628,6 +627,7 @@
 				00A6A9581F60179900F65A1E /* KLog.swift in Sources */,
 				00A6A9551F60179900F65A1E /* DataUtils.swift in Sources */,
 				00DEE3A1213E3B2E00DC6EB2 /* UserUpdateTask.swift in Sources */,
+				00F96DD121464188002328D8 /* RankCustomCell.swift in Sources */,
 				0059941F1F5A4532007777A1 /* UpdateApp.swift in Sources */,
 				0059941B1F5A4532007777A1 /* Category.swift in Sources */,
 				001133911FD3A9C6007BCAD7 /* PushPopupView.swift in Sources */,
