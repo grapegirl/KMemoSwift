@@ -15,6 +15,8 @@
 		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
 		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
 		000389901FDEAB150097BD4F /* BucketCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */; };
+		000F8FEE214BCA57006075D2 /* SettingVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000F8FED214BCA57006075D2 /* SettingVIew.swift */; };
+		000F8FF0214BCB34006075D2 /* SettingCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000F8FEF214BCB34006075D2 /* SettingCustomCell.swift */; };
 		0011338D1FD3A9C6007BCAD7 /* PassWordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 001133791FD3A9C4007BCAD7 /* PassWordView.swift */; };
 		0011338E1FD3A9C6007BCAD7 /* WriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337A1FD3A9C4007BCAD7 /* WriteView.swift */; };
 		0011338F1FD3A9C6007BCAD7 /* AddBucketView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0011337B1FD3A9C4007BCAD7 /* AddBucketView.swift */; };
@@ -129,6 +131,8 @@
 		00004A891EF41D8D0074DCFB /* kbucketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketUITests.swift; sourceTree = "<group>"; };
 		00004A8B1EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BucketCustomCell.swift; path = View/Bean/BucketCustomCell.swift; sourceTree = "<group>"; };
+		000F8FED214BCA57006075D2 /* SettingVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingVIew.swift; path = View/ViewController/SettingVIew.swift; sourceTree = "<group>"; };
+		000F8FEF214BCB34006075D2 /* SettingCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingCustomCell.swift; sourceTree = "<group>"; };
 		001133791FD3A9C4007BCAD7 /* PassWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassWordView.swift; path = View/ViewController/PassWordView.swift; sourceTree = "<group>"; };
 		0011337A1FD3A9C4007BCAD7 /* WriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteView.swift; path = View/ViewController/WriteView.swift; sourceTree = "<group>"; };
 		0011337B1FD3A9C4007BCAD7 /* AddBucketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBucketView.swift; path = View/ViewController/AddBucketView.swift; sourceTree = "<group>"; };
@@ -338,6 +342,7 @@
 				0003898F1FDEAB150097BD4F /* BucketCustomCell.swift */,
 				0059940D1F5A3F21007777A1 /* PostData.swift */,
 				00C52942212FD746004F6A96 /* NoticeCustomCell.swift */,
+				000F8FEF214BCB34006075D2 /* SettingCustomCell.swift */,
 				00F96DD021464188002328D8 /* RankCustomCell.swift */,
 			);
 			name = Bean;
@@ -365,6 +370,7 @@
 				001133811FD3A9C5007BCAD7 /* WriteMemoView.swift */,
 				0011337A1FD3A9C4007BCAD7 /* WriteView.swift */,
 				00400204213975E60056D0D9 /* DBMgrView.swift */,
+				000F8FED214BCA57006075D2 /* SettingVIew.swift */,
 			);
 			name = ViewController;
 			sourceTree = "<group>";
@@ -602,6 +608,7 @@
 				001133901FD3A9C6007BCAD7 /* RankListView.swift in Sources */,
 				0011339A1FD3A9C6007BCAD7 /* SetBackColorView.swift in Sources */,
 				0011338D1FD3A9C6007BCAD7 /* PassWordView.swift in Sources */,
+				000F8FF0214BCB34006075D2 /* SettingCustomCell.swift in Sources */,
 				0080F6321FAD60890076893B /* HttpUrlTaskManager.swift in Sources */,
 				0059940E1F5A3F21007777A1 /* PostData.swift in Sources */,
 				0059941E1F5A4532007777A1 /* MobileUser.swift in Sources */,
@@ -652,6 +659,7 @@
 				007038F01F63686E00372A7C /* LinkedList.swift in Sources */,
 				00A6A9531F60179900F65A1E /* ByteUtils.swift in Sources */,
 				00004A6A1EF41D8D0074DCFB /* AppDelegate.swift in Sources */,
+				000F8FEE214BCA57006075D2 /* SettingVIew.swift in Sources */,
 				00A6A95D1F60179900F65A1E /* StringUtils.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

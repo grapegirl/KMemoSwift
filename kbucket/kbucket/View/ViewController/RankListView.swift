@@ -23,6 +23,7 @@ class RankListView : UIViewController , IHttpReceive , UITableViewDelegate, UITa
     private var mBucketRankIdx : Int = -1
 
     @IBOutlet weak var mTableView: UITableView!
+    let mBackColor : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +38,14 @@ class RankListView : UIViewController , IHttpReceive , UITableViewDelegate, UITa
         handleMessage(what: LOAD_BUCKET_RANK, obj: "")
     }
     
+    private func setBackgroundColor() {
+        if mBackColor != nil {
+            var uColor = UIColor(hexRGB: mBackColor)
+            view.backgroundColor = uColor
+            mTableView.backgroundColor = uColor
+        }
+    }
+  
     @IBAction func onBackPressed(_ sender: Any) {
         KLog.d(tag: TAG, msg: "onBackPressed");
         let uvc = self.storyboard?.instantiateViewController(withIdentifier: ContextUtils.MAIN_VIEW)
@@ -204,6 +213,10 @@ class RankListView : UIViewController , IHttpReceive , UITableViewDelegate, UITa
         }
         
         cell.selectionStyle = .none
+        if mBackColor != nil {
+            var uColor = UIColor(hexRGB: mBackColor)
+            cell.backgroundColor = uColor
+        }
         cell.setOnEventListener(listenr: self)
         
         return cell

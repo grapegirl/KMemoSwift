@@ -36,7 +36,9 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     @IBOutlet weak var btCategory8: UIButton!
     @IBOutlet weak var mTableView: UITableView!
     
+    @IBOutlet var backView: UIView!
     private let uColor = UIColor(hexRGB: "#67D91A")
+    let mBackColor : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +62,17 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
         handleMessage(what: SHARE_BUCKET_LIST, obj : "1")
         btCategory0.setTitleColor(uColor, for: .normal)
         btCategory0.backgroundColor = UIColor.white
+        setBackgroundColor()
     }
     
+    private func setBackgroundColor() {
+        if mBackColor != nil {
+            var uColor = UIColor(hexRGB: mBackColor)
+            view.backgroundColor = uColor
+            backView.backgroundColor = uColor
+            mTableView.backgroundColor = uColor
+        }
+    }
     func setCategoryList() {
         mCategoryList.append(Category(name : "LIEF", code: 1))
         mCategoryList.append(Category(name : "LOVE", code : 2))
@@ -259,6 +270,10 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
         cell.etEdit.text = mBucketDataList[indexPath.row].mContent
         cell.mData = String(indexPath.row)
         cell.selectionStyle = .none
+        if mBackColor != nil {
+            var uColor = UIColor(hexRGB: mBackColor)
+            cell.backgroundColor = uColor
+        }
         cell.setOnEventListener(listenr: self)
         return cell
     }

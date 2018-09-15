@@ -28,7 +28,7 @@ EventProtocol {
 
     @IBOutlet weak var mTableView: UITableView!
     @IBOutlet weak var btBack: UIButton!
-    
+    let mBackColor : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
     // private CardViewListAdpater mListAdapter = null;
     // private ConfirmPopup mConfirmPopup = null;
     // private SpinnerListPopup mCategoryPopup = null;
@@ -42,16 +42,20 @@ EventProtocol {
     func initialize(){
         mSqlQuery = SQLQuery()
         setListData()
-        
         mTableView.delegate = self
         mTableView.dataSource = self
-        
-    //     Collections.reverse(mDataList);
-    //     mListAdapter = new CardViewListAdpater(this, R.layout.cardview_list_line, mDataList, this, this);
-    //     mListView.setAdapter(mListAdapter);
-         AppUtils.sendTrackerScreen(screen: "완료가지화면")
+        setBackgroundColor()
+        AppUtils.sendTrackerScreen(screen: "완료가지화면")
     }
 
+    private func setBackgroundColor() {
+        if mBackColor != nil {
+            var uColor = UIColor(hexRGB: mBackColor)
+            view.backgroundColor = uColor
+            mTableView.backgroundColor = uColor
+        }
+    }
+    
     func finish(){
             KLog.d(tag: TAG, msg: "finish")
             //deleteImageResource()
@@ -292,7 +296,10 @@ EventProtocol {
             cell.ivImage.image = image
         }
         cell.selectionStyle = .none
-        
+        if mBackColor != nil {
+            var uColor = UIColor(hexRGB: mBackColor)
+            cell.backgroundColor = uColor
+        }
         cell.setOnEventListener(listener: self)
         return cell
     }

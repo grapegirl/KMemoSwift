@@ -28,6 +28,8 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
     
     public var temp :  String = ""
     private var mSqlQuery  : SQLQuery? = nil
+    @IBOutlet var backView: UIView!
+    let mBackColor : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,8 +56,17 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
                 mDataList.append(kbucket.mContent)
             }
         }
+        setBackgroundColor()
         sort()
         print("@@ 디렉토리 : " + NSHomeDirectory())
+    }
+    
+    private func setBackgroundColor() {
+        if mBackColor != nil {
+            var uColor = UIColor(hexRGB: mBackColor)
+            view.backgroundColor = uColor
+            mTableView.backgroundColor = uColor
+        }
     }
     
     /**
@@ -150,6 +161,10 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
         cell.mData = String(indexPath.row)
         cell.selectionStyle = .none
         
+        if mBackColor != nil {
+            var uColor = UIColor(hexRGB: mBackColor)
+            cell.backgroundColor = uColor
+        }
         cell.setOnEventListener(listenr: self)
         return cell
     }

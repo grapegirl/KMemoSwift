@@ -34,6 +34,7 @@ class ViewController: UIViewController , IHttpReceive {
     private var bannerView: GADBannerView!
     public var mWidgetSendData : String = ""
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         KLog.d(tag: "ViewController", msg: "viewDidLoad");
@@ -42,57 +43,26 @@ class ViewController: UIViewController , IHttpReceive {
 
     func initialize(){
         mSqlQuery = SQLQuery()
-     //     mDrawerList = (ListView) findViewById(R.id.drawer_list);
-
          setBackgroundColor()
-    //     setTextPont();
-
-    //     String[] confDatas = getResources().getStringArray(R.array.confList);
-
-    //     confDatas[8] += ": " + AppUtils.getVersionName(this);
-    //     mDrawerList.setAdapter(new ArrayAdapter<String>(this,
-    //             android.R.layout.simple_list_item_1, confDatas));
-    //     mDrawerList.setOnItemClickListener(new DrawerItemClickListener());
-
-    //     mDrawer = (DrawerLayout) findViewById(R.id.dl_activity_main_drawer);
-    //     mToggle = new ActionBarDrawerToggle(this, mDrawer,
-    //             R.string.navigation_drawer_open, R.string.navigation_drawer_close) {
-
-    //         @Override
-    //         public void onDrawerClosed(View drawerView) {
-    //             super.onDrawerClosed(drawerView);
-    //         }
-
-    //         @Overrid
-    //         public void onDrawerOpened(View drawerView) {
-    //             super.onDrawerOpened(drawerView);
-    //         }
-
-    //     };
-    //     mDrawer.setDrawerListener(mToggle);
+ 
         bannerView = GADBannerView(adSize: kGADAdSizeBanner)
         addBannerViewToView(bannerView)
         bannerView.adUnitID = ContextUtils.KBUCKET_AD_UNIT_ID
         bannerView.rootViewController = self
         bannerView.load(GADRequest())
         
-    //     Intent getIntent = getIntent();
-    //     String data = getIntent.getStringExtra(ContextUtils.WIDGET_SEND_DATA);
-    //     if (data != null && data.equals(ContextUtils.WIDGET_SHARE)) {
-    //         ShareSocial();
-    //     }
         handleMessage(what: UPDATE_USER, obj: "")
         handleMessage(what: CHECK_VERSION, obj: "")
         AppUtils.sendTrackerScreen(screen: "메인화면")
     }
-    
+
     
     private func setBackgroundColor() {
         var color : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
         KLog.d(tag: TAG, msg: "color : " + color)
         if color != nil {
             var uColor = UIColor(hexRGB: color)
-            backView.backgroundColor = uColor
+            view.backgroundColor = uColor
         }
     }
     
@@ -133,7 +103,7 @@ class ViewController: UIViewController , IHttpReceive {
             changeView(viewName: "RankListView")
             break
         case btSetting:
-            //changeView(viewName: "RankListView")
+            changeView(viewName: "SettingView")
             break
         case btAI:
             KLog.d(tag: "ViewController", msg: "onClickAI");
