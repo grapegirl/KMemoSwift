@@ -158,8 +158,7 @@ class ViewController: UIViewController , IHttpReceive {
             case RESPOND_AI:// AI 대답
 //    //             KProgressDialog.setDataLoadingDialog(this, false, null, false);
                 DispatchQueue.main.async {
-                    let aiPopup = CustomPopup()
-                    CustomPopup.showDialog(message: obj)
+                        CustomPopup.showDialog(message: obj)
                     }
                
 //    //             mAIPopup = new AIPopup(this, (String) message.obj, R.layout.popup_ai, this, OnPopupEventListener.POPUP_AI);

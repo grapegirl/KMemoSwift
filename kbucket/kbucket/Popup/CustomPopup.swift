@@ -50,13 +50,10 @@ class CustomPopup {
     
     }
     
-    @objc func click(_ sender: UIButton!) {
-//        var alertView = UIAlertView()
-//        alertView.addButtonWithTitle("Ok")
-//        alertView.title = "title"
-//        alertView.message = "message"
-//        alertView.show()
-        print("hello world")
+     @objc public static func click(_ sender: UIButton!) {
+        CustomPopup.backView.removeFromSuperview()
+        CustomPopup.centerView.removeFromSuperview()
+        CustomPopup.exitButton.removeFromSuperview()
     }
     
 }
