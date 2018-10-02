@@ -39,8 +39,8 @@ class RankListView : UIViewController , IHttpReceive , UITableViewDelegate, UITa
     }
     
     private func setBackgroundColor() {
-        if mBackColor != nil {
-            var uColor = UIColor(hexRGB: mBackColor)
+        if mBackColor.count > 0 {
+            let uColor = UIColor(hexRGB: mBackColor)
             view.backgroundColor = uColor
             mTableView.backgroundColor = uColor
         }
@@ -127,7 +127,7 @@ class RankListView : UIViewController , IHttpReceive , UITableViewDelegate, UITa
                 let url  = ContextUtils.KBUCKET_RANK_LIST_URL
                 let userNickName = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
                 let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.RANK_LIST)
-                var data = "pageNm=1&nickname=" + userNickName
+                let data = "pageNm=1&nickname=" + userNickName
                 httpUrlTaskManager.actionTaskWithData(data: data)
                 break
             case SET_LIST:
@@ -140,7 +140,7 @@ class RankListView : UIViewController , IHttpReceive , UITableViewDelegate, UITa
                 let url  = ContextUtils.KBUCKET_RANK_COMMENT
                 let userNickName2 = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
                 let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.RANK_UPDATE_COMMENT)
-                var sendData = "idx=" + String(mBucketRankIdx) + "&comment=" + String(mBucketRankComment) + "&nickname=" + userNickName2
+                let sendData = "idx=" + String(mBucketRankIdx) + "&comment=" + String(mBucketRankComment) + "&nickname=" + userNickName2
                 httpUrlTaskManager.actionTaskWithData(data: sendData)
                 break
           default:
@@ -213,8 +213,8 @@ class RankListView : UIViewController , IHttpReceive , UITableViewDelegate, UITa
         }
         
         cell.selectionStyle = .none
-        if mBackColor != nil {
-            var uColor = UIColor(hexRGB: mBackColor)
+        if mBackColor.count > 0 {
+            let uColor = UIColor(hexRGB: mBackColor)
             cell.backgroundColor = uColor
         }
         cell.setOnEventListener(listenr: self)

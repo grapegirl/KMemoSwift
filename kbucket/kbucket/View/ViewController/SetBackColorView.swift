@@ -102,10 +102,10 @@ class SetBackColorView : UIViewController {
     }
     
     private func setBackgroundColor() {
-        var color : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
+        let color : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
         KLog.d(tag: TAG, msg: "color : " + color)
-        if color != nil {
-            var uColor = UIColor(hexRGB: color)
+        if color.count > 0 {
+            let uColor = UIColor(hexRGB: color)
             backView.backgroundColor = uColor
         }
     }

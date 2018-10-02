@@ -10,5 +10,4 @@ import Foundation
 
 protocol EventProtocol {
     func receiveEventFromViewItem(gbn : Int, data : String)
-
 }

@@ -91,7 +91,7 @@ class DataUtils {
 //                // 쓰기 작업
 //                try text.write(to: helloPath, atomically: false, encoding: .utf8)
 //            }
-        } catch let error as NSError {
+        }catch let error as NSError {
             print("Error Writing File : \(error.localizedDescription)")
         }
         

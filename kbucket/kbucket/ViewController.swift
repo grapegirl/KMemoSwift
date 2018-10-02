@@ -9,8 +9,8 @@
 import UIKit
 import GoogleMobileAds
 
-class ViewController: UIViewController , IHttpReceive {
-
+class ViewController: UIViewController , IHttpReceive , PopupProtocol {
+   
     private let TAG : String = "ViewController"
 
     @IBOutlet weak var btWrite: UIButton!
@@ -33,11 +33,12 @@ class ViewController: UIViewController , IHttpReceive {
     private var mSqlQuery  : SQLQuery? = nil
     private var bannerView: GADBannerView!
     public var mWidgetSendData : String = ""
+    private var mAIPopup : CustomPopup?
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        KLog.d(tag: "ViewController", msg: "viewDidLoad");
+        KLog.d(tag: "ViewController", msg: "viewDidLoad")
         initialize()
     }
 
@@ -58,10 +59,14 @@ class ViewController: UIViewController , IHttpReceive {
 
     
     private func setBackgroundColor() {
-        var color : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
+        let color : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
         KLog.d(tag: TAG, msg: "color : " + color)
-        if color != nil {
-            var uColor = UIColor(hexRGB: color)
+        if (color.count > 0) {
+            let uColor = UIColor(hexRGB: color)
+            view.backgroundColor = uColor
+        }else{
+            UserDefault.write(key: ContextUtils.BACK_MEMO, value: "#FFE452")
+            let uColor = UIColor(hexRGB: "#FFE452")
             view.backgroundColor = uColor
         }
     }
@@ -145,7 +150,7 @@ class ViewController: UIViewController , IHttpReceive {
                 let userNickName : String = UserDefault.read(key: ContextUtils.KEY_USER_NICKNAME)
                 let url  = ContextUtils.KBUCKET_AI
                 let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.REQUEST_AI)
-                var data : String = "nickname=" + userNickName
+                let data : String = "nickname=" + userNickName
                 httpUrlTaskManager.actionTaskWithData(data: data)
                 break
             case FAIL_AI:
@@ -158,16 +163,14 @@ class ViewController: UIViewController , IHttpReceive {
             case RESPOND_AI:// AI 대답
 //    //             KProgressDialog.setDataLoadingDialog(this, false, null, false);
                 DispatchQueue.main.async {
-                        CustomPopup.showDialog(message: obj)
+                    self.mAIPopup = CustomPopup(listener: self)
+                    self.mAIPopup?.showDialog(message: obj, id: ConstPopup.POPUP_AI)
                     }
-               
-//    //             mAIPopup = new AIPopup(this, (String) message.obj, R.layout.popup_ai, this, OnPopupEventListener.POPUP_AI);
-//    //
                 break
             case CHECK_VERSION://버전 체크
                 let url  = ContextUtils.KBUCKET_VERSION_UPDATE_URL
                 let  httpUrlTaskManager : HttpUrlTaskManager =  HttpUrlTaskManager(url : url, post : true, receive : self, id : ConstHTTP.UPDATE_VERSION)
-                var data : String = "version=" + ContextUtils.VERSION_NAME
+                let data : String = "version=" + ContextUtils.VERSION_NAME
                 httpUrlTaskManager.actionTaskWithData(data: data)
                 break
         default:
@@ -175,6 +178,7 @@ class ViewController: UIViewController , IHttpReceive {
         }
     }
 
+    
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
@@ -219,13 +223,14 @@ class ViewController: UIViewController , IHttpReceive {
                                         let title = AppUtils.localizedString(forKey : "update_popup_title")
                                         let content = AppUtils.localizedString(forKey : "update_popup_content_y")
                                         
-//                                        mBasicPopup = new BasicPopup(mContext, title, content, R.layout.popup_basic, this, OnPopupEventListener.POPUP_UPDATE_FORCE);
-//                                        mBasicPopup.showDialog();
+                                        let basicPopup = BasicPopup()
+                                        basicPopup.showMessage(title: title, content: content, vc: self, id: ConstPopup.POPUP_UPDATE_FORCE)
                                     } else {
                                         let title = AppUtils.localizedString(forKey : "update_popup_title")
                                         let content = AppUtils.localizedString(forKey : "update_popup_content_n")
-//                                          mConfirmPopup = new ConfirmPopup(mContext, title, content, R.layout.popup_confirm, this, OnPopupEventListener.POPUP_UPDATE_SELECT);
-////                                        mConfirmPopup.showDialog();
+                                        
+                                        let confirmPopup = ConfirmPopup()
+                                        confirmPopup.showMessage(title: title, content: content, vc: self, id : ConstPopup.POPUP_UPDATE_SELECT)
                                       
                                     }
                                 } else {
@@ -279,6 +284,12 @@ class ViewController: UIViewController , IHttpReceive {
         mobileUser.mCountry = AppUtils.getUserPhoneLanuage()
         mobileUser.mGcmToken = ""
         return mobileUser;
+    }
+    
+    func onPopupAction(popId: Int, what: Int, data: String) {
+        KLog.d(tag: TAG, msg: "@@ onPopupAction popId : " + String(popId))
+        KLog.d(tag: TAG, msg: "@@ onPopupAction what : " + String(what))
+       // mAIPopup?.closePopup()
     }
 }
 

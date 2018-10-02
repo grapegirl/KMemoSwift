@@ -62,8 +62,8 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
     }
     
     private func setBackgroundColor() {
-        if mBackColor != nil {
-            var uColor = UIColor(hexRGB: mBackColor)
+        if (mBackColor.count > 0){
+            let uColor = UIColor(hexRGB: mBackColor)
             view.backgroundColor = uColor
             mTableView.backgroundColor = uColor
         }
@@ -161,8 +161,8 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
         cell.mData = String(indexPath.row)
         cell.selectionStyle = .none
         
-        if mBackColor != nil {
-            var uColor = UIColor(hexRGB: mBackColor)
+        if mBackColor.count > 0 {
+            let uColor = UIColor(hexRGB: mBackColor)
             cell.backgroundColor = uColor
         }
         cell.setOnEventListener(listenr: self)

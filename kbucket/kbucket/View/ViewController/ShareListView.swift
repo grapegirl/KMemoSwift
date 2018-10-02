@@ -67,7 +67,7 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
     
     private func setBackgroundColor() {
         if mBackColor != nil {
-            var uColor = UIColor(hexRGB: mBackColor)
+            let uColor = UIColor(hexRGB: mBackColor)
             view.backgroundColor = uColor
             backView.backgroundColor = uColor
             mTableView.backgroundColor = uColor
@@ -160,7 +160,6 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
                             if size > 0 {
                             for index in 0...size-1  {
                                 let aObject = List[index] as! [String : AnyObject]
-                                var category : Category = Category()
                                 let code = aObject["categoryCode"] as! Int
                                 let name = aObject["categoryName"] as! String
                                 mCategoryList.append(Category(name : name, code: code))
@@ -270,8 +269,8 @@ class ShareListView: UIViewController , IHttpReceive, UITableViewDelegate, UITab
         cell.etEdit.text = mBucketDataList[indexPath.row].mContent
         cell.mData = String(indexPath.row)
         cell.selectionStyle = .none
-        if mBackColor != nil {
-            var uColor = UIColor(hexRGB: mBackColor)
+        if (mBackColor.count > 0) {
+            let uColor = UIColor(hexRGB: mBackColor)
             cell.backgroundColor = uColor
         }
         cell.setOnEventListener(listenr: self)

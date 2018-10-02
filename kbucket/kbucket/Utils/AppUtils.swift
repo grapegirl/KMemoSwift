@@ -75,22 +75,7 @@ class AppUtils {
         KLog.d(tag: ContextUtils.TAG, msg: " sendTrackerScreen => " + screen);
     }
     
-    
-    public static func getUUIDfromKeyChain() -> String{
-        
-        //let keychain = Keychain(service: "com.example.github-token")
-        let uuid : String = "test"
-//
-//        KeychainItemWrapper; *wrapper = [[KeychainItemWrapper, alloc] initWithIdentifier:@"UUID" accessGroup:nil]
-//
-//        NSString; *uuid = [wrapper, objectForKey:(__bridge id)(kSecAttrAccount)]
-//        if( uuid == nil || uuid.length == 0){
-//            // if there is not UUID in keychain, make UUID and save it.
-//            uuid = [[[UIDevice currentDevice] identifierForVendor], UUIDString]
-//            // save UUID in keychain
-//            [wrapper, setObject:uuid forKey:(__bridge id)(kSecAttrAccount)]
-//        }
-//        NSLog("UUID = %@", uuid)
-        return uuid
+    public static func getUUIDfromKeyChain() -> String {
+        return ""
     }
   }

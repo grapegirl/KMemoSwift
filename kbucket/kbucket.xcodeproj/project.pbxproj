@@ -53,6 +53,10 @@
 		0059941E1F5A4532007777A1 /* MobileUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994161F5A4532007777A1 /* MobileUser.swift */; };
 		0059941F1F5A4532007777A1 /* UpdateApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994171F5A4532007777A1 /* UpdateApp.swift */; };
 		005994201F5A4532007777A1 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = 005994181F5A4532007777A1 /* Version.swift */; };
+		006AF47321620AA90069AC71 /* BasicPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AF47221620AA90069AC71 /* BasicPopup.swift */; };
+		006AF475216213EE0069AC71 /* ConfirmPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AF474216213EE0069AC71 /* ConfirmPopup.swift */; };
+		006AF4772162155C0069AC71 /* PopupProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AF4762162155C0069AC71 /* PopupProtocol.swift */; };
+		006AF479216217B80069AC71 /* ConstPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006AF478216217B80069AC71 /* ConstPopup.swift */; };
 		007038ED1F63685700372A7C /* SQLiteAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EB1F63685700372A7C /* SQLiteAdapter.swift */; };
 		007038EE1F63685700372A7C /* SQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EC1F63685700372A7C /* SQLQuery.swift */; };
 		007038F01F63686E00372A7C /* LinkedList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 007038EF1F63686E00372A7C /* LinkedList.swift */; };
@@ -170,6 +174,10 @@
 		005994161F5A4532007777A1 /* MobileUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MobileUser.swift; path = View/Bean/MobileUser.swift; sourceTree = "<group>"; };
 		005994171F5A4532007777A1 /* UpdateApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateApp.swift; path = View/Bean/UpdateApp.swift; sourceTree = "<group>"; };
 		005994181F5A4532007777A1 /* Version.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Version.swift; path = View/Bean/Version.swift; sourceTree = "<group>"; };
+		006AF47221620AA90069AC71 /* BasicPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPopup.swift; sourceTree = "<group>"; };
+		006AF474216213EE0069AC71 /* ConfirmPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPopup.swift; sourceTree = "<group>"; };
+		006AF4762162155C0069AC71 /* PopupProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupProtocol.swift; sourceTree = "<group>"; };
+		006AF478216217B80069AC71 /* ConstPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstPopup.swift; sourceTree = "<group>"; };
 		007038EB1F63685700372A7C /* SQLiteAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteAdapter.swift; path = Utils/sqlite/SQLiteAdapter.swift; sourceTree = "<group>"; };
 		007038EC1F63685700372A7C /* SQLQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLQuery.swift; path = Utils/sqlite/SQLQuery.swift; sourceTree = "<group>"; };
 		007038EF1F63686E00372A7C /* LinkedList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = LinkedList.swift; path = Utils/LinkedList.swift; sourceTree = "<group>"; };
@@ -304,6 +312,7 @@
 			isa = PBXGroup;
 			children = (
 				001133A61FD3AA36007BCAD7 /* EventProtocol.swift */,
+				006AF4762162155C0069AC71 /* PopupProtocol.swift */,
 			);
 			name = Protocol;
 			sourceTree = "<group>";
@@ -312,6 +321,7 @@
 			isa = PBXGroup;
 			children = (
 				001133A41FD3AA18007BCAD7 /* ConstHTTP.swift */,
+				006AF478216217B80069AC71 /* ConstPopup.swift */,
 			);
 			name = Const;
 			sourceTree = "<group>";
@@ -446,6 +456,8 @@
 			isa = PBXGroup;
 			children = (
 				00DEE399213E393400DC6EB2 /* CustomPopup.swift */,
+				006AF47221620AA90069AC71 /* BasicPopup.swift */,
+				006AF474216213EE0069AC71 /* ConfirmPopup.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -534,13 +546,18 @@
 					New,
 				);
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0900;
+				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = kikiplus;
 				TargetAttributes = {
 					00004A651EF41D8C0074DCFB = {
 						CreatedOnToolsVersion = 8.3.3;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					00004A791EF41D8D0074DCFB = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -619,6 +636,8 @@
 				00004A6C1EF41D8D0074DCFB /* ViewController.swift in Sources */,
 				00816CE01FC8FC9B000372F2 /* ShareCustomCell.swift in Sources */,
 				00A6A9571F60179900F65A1E /* ErrorLogUtils.swift in Sources */,
+				006AF475216213EE0069AC71 /* ConfirmPopup.swift in Sources */,
+				006AF47321620AA90069AC71 /* BasicPopup.swift in Sources */,
 				001133941FD3A9C6007BCAD7 /* NoticeView.swift in Sources */,
 				001133901FD3A9C6007BCAD7 /* RankListView.swift in Sources */,
 				0011339A1FD3A9C6007BCAD7 /* SetBackColorView.swift in Sources */,
@@ -645,7 +664,9 @@
 				00400205213975E60056D0D9 /* DBMgrView.swift in Sources */,
 				0011338E1FD3A9C6007BCAD7 /* WriteView.swift in Sources */,
 				0011339D1FD3A9C6007BCAD7 /* ConfigurationView.swift in Sources */,
+				006AF479216217B80069AC71 /* ConstPopup.swift in Sources */,
 				00A6A95B1F60179900F65A1E /* NetworkUtils.swift in Sources */,
+				006AF4772162155C0069AC71 /* PopupProtocol.swift in Sources */,
 				00A6A9581F60179900F65A1E /* KLog.swift in Sources */,
 				00A6A9551F60179900F65A1E /* DataUtils.swift in Sources */,
 				00DEE3A1213E3B2E00DC6EB2 /* UserUpdateTask.swift in Sources */,
@@ -769,6 +790,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -776,6 +798,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -787,7 +810,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -805,7 +828,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				NEW_SETTING = "";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -829,6 +852,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -836,6 +860,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -873,6 +898,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = kbucket/kbucket.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -897,6 +925,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = kbucket/kbucket.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
