@@ -52,15 +52,12 @@ EventProtocol {
     }
     
     func setListData(){
-        mDataList.append("Test1")
-        mDataList.append("Test2")
-        mDataList.append("Test3")
-        mDataList.append("Test4")
-        mDataList.append("Test5")
-//        String[] strArray = getResources().getStringArray(R.array.dream100);
-//        for(int i=0; i<strArray.length; i++){
-//            mDataList.add(strArray[i]);
-//        }
+        let dreamString = AppUtils.localizedString(forKey: "dream100")
+        let strArray = dreamString.split(separator: ",")
+        for item in strArray {
+            mDataList.append(String(item))
+        }
+       
     }
     func finish(){
         KLog.d(tag: TAG, msg: "finish")
