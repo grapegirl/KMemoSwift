@@ -50,10 +50,19 @@ class SQLQuery{
             return nil
         }
     }
-//
-//    public func containsKbucket(memoContents : String ) -> Bool {
-//      
-//    }
+
+    public func containsKbucket(memoContents : String ) -> Bool {
+        do{
+            let realm = try! Realm()
+            let bucketList = realm.objects(Bucket.self).filter("mContent = '" + memoContents + "'")
+            if(bucketList.count > 0){
+                return true
+            }
+        }catch let error as NSError{
+            KLog.d(tag: TAG, msg: "selectKbucet db error")
+        }
+        return false
+    }
 
     /**
      * 사용자 정보 insert 메소드

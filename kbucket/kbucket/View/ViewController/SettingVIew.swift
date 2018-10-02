@@ -47,7 +47,7 @@ class SettingView: UIViewController,  UITableViewDelegate, UITableViewDataSource
         mList.append("문의하기")
         mList.append("관리자 Blog")
         mList.append("공유하기")
-        mList.append("BucketList 100")
+        mList.append("버킷리스트 100")
         handleMessage(what: SET_NOTICE_LIST, obj: "")
     }
     
@@ -138,6 +138,7 @@ class SettingView: UIViewController,  UITableViewDelegate, UITableViewDataSource
         case 8://공유하기
             break
         case 9://버킷리스트 100
+            changeView(viewName: "AddBucketView")
             break
         default:
             break

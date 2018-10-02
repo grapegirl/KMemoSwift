@@ -9,8 +9,7 @@
 import UIKit
 import RealmSwift
 
-class BucketListView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITableViewDataSource ,
-EventProtocol {
+class BucketListView: UIViewController , IHttpReceive ,  UITableViewDelegate, UITableViewDataSource , EventProtocol {
 
     private let TAG : String = "BucketListView"
 

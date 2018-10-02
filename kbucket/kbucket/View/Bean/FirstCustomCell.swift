@@ -16,6 +16,7 @@ class FirstCustomCell : UITableViewCell{
     @IBOutlet public var btDel: UIButton!
     @IBOutlet public var btMod: UIButton!
     @IBOutlet public var btEdt: UITextField!
+    @IBOutlet weak var btEditFull: UITextField!
     
     public var mData : String = ""
     private var mListenr : EventProtocol? = nil

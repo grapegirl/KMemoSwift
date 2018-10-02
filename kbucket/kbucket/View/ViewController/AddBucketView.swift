@@ -9,7 +9,8 @@
 import UIKit
 
 
-class AddBucketView: UIViewController {
+class AddBucketView: UIViewController,  UITableViewDelegate, UITableViewDataSource,
+EventProtocol {
 
     private let TAG : String = "AddBucketView"
 
@@ -19,8 +20,12 @@ class AddBucketView: UIViewController {
     private var mSqlQuery  : SQLQuery? = nil
     private var mbVisible : Bool  = true
 
-    // private ListAdpater mListAdapter = null;
-    // private ListView mListView = null;
+    @IBOutlet weak var btBack: UIButton!
+    @IBOutlet weak var btListAdd: UIButton!
+    @IBOutlet weak var mTableView: UITableView!
+    
+    let mBackColor : String = UserDefault.read(key: ContextUtils.BACK_MEMO)
+    
     // private ConfirmPopup mConfirmPopup = null;
 
     override func viewDidLoad() {
@@ -30,15 +35,33 @@ class AddBucketView: UIViewController {
     }
 
     func initialize(){
-        //setListData()
-    //     mListView = (ListView) findViewById(R.id.interest_bucket_list_listview);
-    //     ((Button) findViewById(R.id.interest_bucket_list_add)).setOnClickListener(this);
+        mTableView.delegate = self
+        mTableView.dataSource = self
+        setBackgroundColor()
+        AppUtils.sendTrackerScreen(screen: "관심버킷추가호면")
+        setListData()
         mSqlQuery = SQLQuery()
-    //     mListAdapter = new ListAdpater(this, R.layout.interest_bucket_list_line, mDataList, this);
-    //     mListView.setAdapter(mListAdapter);
-    //     AppUtils.sendTrackerScreen(this, "관심버킷추가화면");
     }
 
+    private func setBackgroundColor() {
+        if mBackColor.count > 0 {
+            let uColor = UIColor(hexRGB: mBackColor)
+            view.backgroundColor = uColor
+            mTableView.backgroundColor = uColor
+        }
+    }
+    
+    func setListData(){
+        mDataList.append("Test1")
+        mDataList.append("Test2")
+        mDataList.append("Test3")
+        mDataList.append("Test4")
+        mDataList.append("Test5")
+//        String[] strArray = getResources().getStringArray(R.array.dream100);
+//        for(int i=0; i<strArray.length; i++){
+//            mDataList.add(strArray[i]);
+//        }
+    }
     func finish(){
         KLog.d(tag: TAG, msg: "finish")
         //deleteImageResource()
@@ -47,42 +70,48 @@ class AddBucketView: UIViewController {
         present(uvc!, animated: true, completion: nil)
     }
 
-    @IBAction func onClick(_ sender: Any) {
-//            switch(sender  as! UIButton ){
-    //         case R.id.interest_bucket_list_add:
-    //             mbVisible = !mbVisible;
-    //             mListAdapter.setDataVisible(mbVisible);
-    //             break;
-    //         case R.id.bucket_list_modifyBtn://추가
-    //             int index = Integer.valueOf((String) v.getTag());
-    //             String data = mDataList.get(index);
-    //             addDBData(data);
-    //             break;
-    //         case R.id.bucket_list_deleteBtn://삭제
-    //             index = Integer.valueOf((String) v.getTag());
-    //             data = mDataList.get(index);
-    //             removeDBData(data);
-    //             break;
-//        }
+    
+    @IBAction func onClick(_ sender : Any) {
+        switch(sender as! UIButton){
+        case btBack:
+            finish()
+            break
+        
+        case btListAdd:
+            mbVisible = !mbVisible
+            setButtonTitle()
+            mTableView.reloadData()
+            break
+        
+        default:
+            break
+        }
     }
-
-    func setListData() {
-    //     String[] strArray = getResources().getStringArray(R.array.dream100);
-    //     for(int i=0; i<strArray.length; i++){
-    //         mDataList.add(strArray[i]);
-    //     }
+    
+    func setButtonTitle(){
+        if(mbVisible){
+            let btnName = AppUtils.localizedString(forKey : "interest_bucket_list_add")
+            btListAdd.setTitle(btnName, for: .normal)
+        }else{
+            let btnName = AppUtils.localizedString(forKey : "interest_bucket_list_view")
+            btListAdd.setTitle(btnName, for: .normal)
+        }
     }
 
     /**
      * DB 데이타 동기화하기(삭제)
      */
     func removeDBData(Content : String) {
-        // mSqlQuery.deleteUserBucket(getApplicationContext(), Content);
-        // boolean inContainsBucket = mSqlQuery.containsKbucket(getApplicationContext(), Content);
-        // if (!inContainsBucket) {
-        //     String message = getString(R.string.share_delete_popup_ok);
-        //     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
-        // }
+        KLog.d(tag: TAG, msg: "@@ remove Data Contents : " + Content);
+        if(mSqlQuery != nil){
+           mSqlQuery?.deleteUserBucket(contents: Content)
+        }
+        
+        let inContainsBucket : Bool = mSqlQuery?.containsKbucket(memoContents: Content) ?? false
+        if(!inContainsBucket){
+            let message = AppUtils.localizedString(forKey: "share_delete_popup_ok")
+            Toast.showToast(message: message)
+        }
     }
 
     /**
@@ -91,16 +120,69 @@ class AddBucketView: UIViewController {
      * @param Content 내용
      */
     func addDBData(Content : String) {
-    //     boolean inContainsBucket = mSqlQuery.containsKbucket(getApplicationContext(), Content);
-    //     String message;
-    //     if (!inContainsBucket) {
-    //         Date dateTime = new Date();
-    //         String date = DateUtils.getStringDateFormat(DateUtils.DATE_YYMMDD_PATTER, dateTime);
-    //         mSqlQuery.insertUserSetting(getApplicationContext(), Content, date, "N", "");
-    //         message = getString(R.string.share_add_popup_ok);
-    //     } else {
-    //         message = getString(R.string.check_input_bucket_string);
-    //     }
-    //     Toast.makeText(getApplicationContext(), message, Toast.LENGTH_LONG).show();
+        KLog.d(tag: TAG, msg: "addDBData data : " + Content)
+        let inContainsBucket : Bool = mSqlQuery?.containsKbucket(memoContents: Content) ?? false
+        var message = ""
+        if(!inContainsBucket){
+            message = AppUtils.localizedString(forKey: "share_add_popup_ok")
+            if(mSqlQuery != nil){
+                let date = DateUtils.getStringDateFormat(pattern: DateUtils.DATE_YYMMDD_PATTER)
+                mSqlQuery?.insertUserSetting(contents: Content, date: date, completeYN: "N", completedDate: "")
+            }
+        }else{
+            message = AppUtils.localizedString(forKey: "check_input_bucket_string")
+        }
+        Toast.showToast(message: message)
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        KLog.d(tag: TAG, msg: "@@ tableView count : " + String(mDataList.count))
+        return mDataList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = mTableView.dequeueReusableCell(withIdentifier: "FirstCustomCell", for: indexPath) as! FirstCustomCell
+
+        cell.mData = mDataList[indexPath.row]
+        setButtonTitle()
+        KLog.d(tag: TAG, msg: "@@ tableview adpater visible : " + String(mbVisible))
+        if(mbVisible){
+            cell.btMod.isHidden = false
+            cell.btDel.isHidden = false
+            cell.btEditFull.isHidden = true
+            cell.btEdt.text = mDataList[indexPath.row]
+        }else{
+            cell.btMod.isHidden = true
+            cell.btDel.isHidden = true
+            cell.btEditFull.isHidden = false
+            cell.btEditFull.text = mDataList[indexPath.row]
+        }
+        
+        cell.selectionStyle = .none
+        if mBackColor.count > 0 {
+            let uColor = UIColor(hexRGB: mBackColor)
+            cell.backgroundColor = uColor
+        }
+        cell.setOnEventListener(listenr: self)
+        return cell
+    }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        KLog.d(tag: TAG, msg: "row: \(indexPath.row)")
+    }
+    
+    func receiveEventFromViewItem(gbn : Int, data : String) {
+        KLog.d(tag: TAG, msg: "receiveEventFromViewItem data : " + data)
+        switch(gbn){
+        case 0://추가
+            addDBData(Content: data)
+            break
+        case 1://삭제
+            removeDBData(Content: data)
+            break
+        default:
+            break
+        }
     }
 }
