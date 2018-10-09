@@ -38,17 +38,17 @@ class SettingView: UIViewController,  UITableViewDelegate, UITableViewDataSource
         mTableView.dataSource = self
         mTableView.separatorStyle = .none
         
-        mList.append("암호설정")
-        mList.append("암호해제")
-        mList.append("DB관리")
-        mList.append("별명설정")
-        mList.append("배경설정")
-        mList.append("튜토리얼")
-        mList.append("문의하기")
-        mList.append("관리자 Blog")
-        mList.append("공유하기")
-        mList.append("버킷리스트 100")
+        setListData()
         handleMessage(what: SET_NOTICE_LIST, obj: "")
+    }
+    
+    func setListData(){
+        let confString = AppUtils.localizedString(forKey: "confList")
+        let strArray = confString.split(separator: ",")
+        for item in strArray {
+            mList.append(String(item))
+        }
+        
     }
     
     @IBAction func onBackPressed(_ sender: Any) {
@@ -132,7 +132,11 @@ class SettingView: UIViewController,  UITableViewDelegate, UITableViewDataSource
             break
         case 7://관리자 블로그
             if let url = URL(string: ContextUtils.KBUCKET_BLOG) {
-                UIApplication.shared.open(url, options: [:])
+                if #available(iOS 10.0, *) {
+                    UIApplication.shared.open(url, options: [:])
+                } else {
+                    // Fallback on earlier versions
+                }
             }
             break
         case 8://공유하기
