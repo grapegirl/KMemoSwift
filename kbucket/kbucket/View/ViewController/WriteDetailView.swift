@@ -234,7 +234,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break
         case btCamera:
             KLog.d(tag: TAG, msg: "onClick btCamera")
-            startCamera()
+            //startCamera()
             //             mPhotoPath = DataUtils.getNewFileName();
             //             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
             //             intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(mPhotoPath)));
@@ -414,61 +414,61 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         }
     }
+//
+//    func startCamera(){
+//        var captureSesssion: AVCaptureSession!
+//        var stillImageOutput: AVCapturePhotoOutput?
+//        var previewLayer: AVCaptureVideoPreviewLayer?
+//
+//        captureSesssion = AVCaptureSession()
+//        if #available(iOS 10.0, *) {
+//            stillImageOutput = AVCapturePhotoOutput()
+//        } else {
+//            // Fallback on earlier versions
+//        }
+//        captureSesssion.sessionPreset = AVCaptureSession.Preset.hd1920x1080 // 해상도설정
+//
+//        let device = AVCaptureDevice.default(for: AVMediaType.video)
+//        do {
+//            let input = try AVCaptureDeviceInput(device: device!)
+//
+//            // 입력
+//            if (captureSesssion.canAddInput(input)) {
+//                captureSesssion.addInput(input)
+//
+//                // 출력
+//                if (captureSesssion.canAddOutput(stillImageOutput!)) {
+//                    captureSesssion.addOutput(stillImageOutput!)
+//                    captureSesssion.startRunning() // 카메라 시작
+//
+//                    previewLayer = AVCaptureVideoPreviewLayer(session: captureSesssion)
+//                    previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect //화면 조절
+//                    previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait // 카메라 방향
+//
+//                    ivImage.layer.addSublayer(previewLayer!)
+//
+//                    // 뷰 크기 조절
+//                    previewLayer?.position = CGPoint(x: self.ivImage.frame.width / 2, y: self.ivImage.frame.height / 2)
+//                    previewLayer?.bounds = self.ivImage.frame
+//                }
+//            }
+//        }
+//        catch {
+//            print(error)
+//        }
+//    }
     
-    func startCamera(){
-        var captureSesssion: AVCaptureSession!
-        var stillImageOutput: AVCapturePhotoOutput?
-        var previewLayer: AVCaptureVideoPreviewLayer?
-        
-        captureSesssion = AVCaptureSession()
-        if #available(iOS 10.0, *) {
-            stillImageOutput = AVCapturePhotoOutput()
-        } else {
-            // Fallback on earlier versions
-        }
-        captureSesssion.sessionPreset = AVCaptureSession.Preset.hd1920x1080 // 해상도설정
-        
-        let device = AVCaptureDevice.default(for: AVMediaType.video)
-        do {
-            let input = try AVCaptureDeviceInput(device: device!)
-            
-            // 입력
-            if (captureSesssion.canAddInput(input)) {
-                captureSesssion.addInput(input)
-                
-                // 출력
-                if (captureSesssion.canAddOutput(stillImageOutput!)) {
-                    captureSesssion.addOutput(stillImageOutput!)
-                    captureSesssion.startRunning() // 카메라 시작
-                    
-                    previewLayer = AVCaptureVideoPreviewLayer(session: captureSesssion)
-                    previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect //화면 조절
-                    previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait // 카메라 방향
-                    
-                    ivImage.layer.addSublayer(previewLayer!)
-                    
-                    // 뷰 크기 조절
-                    previewLayer?.position = CGPoint(x: self.ivImage.frame.width / 2, y: self.ivImage.frame.height / 2)
-                    previewLayer?.bounds = self.ivImage.frame
-                }
-            }
-        }
-        catch {
-            print(error)
-        }
-    }
-    
-    func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
-        
-        if let photoSampleBuffer = photoSampleBuffer {
-            // JPEG형식으로 이미지데이터 검색
-            let photoData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
-            let image = UIImage(data: photoData!)
-            
-            // 사진보관함에 저장
-            UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-        }
-    }
+//    func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
+//
+//        if let photoSampleBuffer = photoSampleBuffer {
+//            // JPEG형식으로 이미지데이터 검색
+//            let photoData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
+//            let image = UIImage(data: photoData!)
+//
+//            // 사진보관함에 저장
+//            UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
+//        }
+//    }
     
     func openGallary(){
         picker!.allowsEditing = false
