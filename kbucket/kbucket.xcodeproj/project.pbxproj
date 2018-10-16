@@ -13,11 +13,13 @@
 		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
 		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
 		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
-		00B4B40B2174B3B000B19E90 /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B4B40A2174B3B000B19E90 /* GoogleMobileAds.framework */; };
 		00BE4710212E5C9600FE4EAF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4712212E5C9600FE4EAF /* Localizable.strings */; };
 		00BE4713212E5CA100FE4EAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4715212E5CA100FE4EAF /* InfoPlist.strings */; };
-		00F211BD216CD72500126B03 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0F2153746D001427B3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		00F211C0216CD72900126B03 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0E2153746D001427B3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		00F8ECF4217542790029D6CC /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0F2153746D001427B3 /* Realm.framework */; };
+		00F8ECF5217542790029D6CC /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0F2153746D001427B3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		00F8ECF72175427C0029D6CC /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B4B40A2174B3B000B19E90 /* GoogleMobileAds.framework */; };
+		00F8ECF9217542820029D6CC /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0E2153746D001427B3 /* RealmSwift.framework */; };
+		00F8ECFA217542820029D6CC /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0E2153746D001427B3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,14 +40,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		00F211BE216CD72600126B03 /* Embed Frameworks */ = {
+		00F8ECF6217542790029D6CC /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				00F211C0216CD72900126B03 /* RealmSwift.framework in Embed Frameworks */,
-				00F211BD216CD72500126B03 /* Realm.framework in Embed Frameworks */,
+				00F8ECFA217542820029D6CC /* RealmSwift.framework in Embed Frameworks */,
+				00F8ECF5217542790029D6CC /* Realm.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,7 +154,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00B4B40B2174B3B000B19E90 /* GoogleMobileAds.framework in Frameworks */,
+				00F8ECF72175427C0029D6CC /* GoogleMobileAds.framework in Frameworks */,
+				00F8ECF4217542790029D6CC /* Realm.framework in Frameworks */,
+				00F8ECF9217542820029D6CC /* RealmSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -176,9 +180,7 @@
 		00004A5D1EF41D8C0074DCFB = {
 			isa = PBXGroup;
 			children = (
-				00B4B40A2174B3B000B19E90 /* GoogleMobileAds.framework */,
-				00DA2B0F2153746D001427B3 /* Realm.framework */,
-				00DA2B0E2153746D001427B3 /* RealmSwift.framework */,
+				00AAC7A921761056005671AA /* Frameworks */,
 				00004A681EF41D8D0074DCFB /* kbucket */,
 				00004A7D1EF41D8D0074DCFB /* kbucketTests */,
 				00004A881EF41D8D0074DCFB /* kbucketUITests */,
@@ -366,6 +368,16 @@
 			name = http;
 			sourceTree = "<group>";
 		};
+		00AAC7A921761056005671AA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00B4B40A2174B3B000B19E90 /* GoogleMobileAds.framework */,
+				00DA2B0F2153746D001427B3 /* Realm.framework */,
+				00DA2B0E2153746D001427B3 /* RealmSwift.framework */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
 		00DEE398213E391A00DC6EB2 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
@@ -394,7 +406,8 @@
 				00004A621EF41D8C0074DCFB /* Sources */,
 				00004A631EF41D8C0074DCFB /* Frameworks */,
 				00004A641EF41D8C0074DCFB /* Resources */,
-				00F211BE216CD72600126B03 /* Embed Frameworks */,
+				00F8ECF6217542790029D6CC /* Embed Frameworks */,
+				00F8ECFB2175443E0029D6CC /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -529,6 +542,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00F8ECFB2175443E0029D6CC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nbash \"${BUILT_PRODUCTS_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework/strip-frameworks.sh\"\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		00004A621EF41D8C0074DCFB /* Sources */ = {
@@ -751,7 +784,7 @@
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "mh kim";
+				PROVISIONING_PROFILE_SPECIFIER = "Memo profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "kbucket/kbucket-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
@@ -779,7 +812,7 @@
 				OTHER_LDFLAGS = lstdc;
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "mh kim";
+				PROVISIONING_PROFILE_SPECIFIER = "Memo profile";
 				SWIFT_OBJC_BRIDGING_HEADER = "kbucket/kbucket-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
