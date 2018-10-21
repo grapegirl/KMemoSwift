@@ -1,5 +1,5 @@
 //
-//  BasicPopup.swift
+//  ConfirmPopup.swift
 //  kbucket
 //
 //  Created by 김미혜 on 2018. 10. 1..
@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
-class BasicPopup  {
-
+class ConfirmPopup  {
+    
     /**
      * 타이틀
      */
@@ -27,10 +28,20 @@ class BasicPopup  {
      */
     private var mDialogView : UIAlertController = UIAlertController();
     
-     init() {
+    init() {
         mTitle = ""
         mContent = ""
         mPopupId = 0
+    }
+    
+    private func setData() -> Void {
+        self.mDialogView = UIAlertController(title: mTitle, message: mContent, preferredStyle: UIAlertControllerStyle.alert)
+        self.mDialogView.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { action in
+            self.mDialogView.dismiss(animated: true, completion: nil)
+        }))
+        self.mDialogView.addAction(UIAlertAction(title: "Cancle", style: UIAlertActionStyle.default, handler: { action in
+            self.mDialogView.dismiss(animated: true, completion: nil)
+        }))
     }
     
     public func showMessage(title : String, content : String, vc : ViewController, id : Int)-> Void {
@@ -41,11 +52,4 @@ class BasicPopup  {
         vc.present(mDialogView, animated: true, completion: nil)
     }
     
-    private func setData() -> Void {
-        self.mDialogView = UIAlertController(title: mTitle, message: mContent, preferredStyle: UIAlertControllerStyle.alert)
-        self.mDialogView.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: { action in
-            self.mDialogView.dismiss(animated: true, completion: nil)
-        }))
-    }
-
 }

@@ -37,6 +37,7 @@ class WriteView : UIViewController,  UITableViewDelegate, UITableViewDataSource,
         mTableView.delegate = self
         mTableView.dataSource = self
         initialize()
+        
     }
     
     func initialize(){

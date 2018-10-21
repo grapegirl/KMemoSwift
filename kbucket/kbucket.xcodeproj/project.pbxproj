@@ -7,19 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		00004A6F1EF41D8D0074DCFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00004A6D1EF41D8D0074DCFB /* Main.storyboard */; };
-		00004A711EF41D8D0074DCFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 00004A701EF41D8D0074DCFB /* Assets.xcassets */; };
-		00004A741EF41D8D0074DCFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 00004A721EF41D8D0074DCFB /* LaunchScreen.storyboard */; };
-		00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */; };
-		00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00004A891EF41D8D0074DCFB /* kbucketUITests.swift */; };
-		0003EF19217C337100C3BDD8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00004A751EF41D8D0074DCFB /* Info.plist */; };
 		0003F142217C3FE100C3BDD8 /* Realm.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0F2153746D001427B3 /* Realm.framework */; };
 		0003F143217C3FE100C3BDD8 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0F2153746D001427B3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0003F145217C3FE400C3BDD8 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0E2153746D001427B3 /* RealmSwift.framework */; };
 		0003F146217C3FE400C3BDD8 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0E2153746D001427B3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		002478361EFD4D210039B8E4 /* anim2.png in Resources */ = {isa = PBXBuildFile; fileRef = 002478351EFD4D210039B8E4 /* anim2.png */; };
-		00BE4710212E5C9600FE4EAF /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4712212E5C9600FE4EAF /* Localizable.strings */; };
-		00BE4713212E5CA100FE4EAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00BE4715212E5CA100FE4EAF /* InfoPlist.strings */; };
+		0010BA30217C43DE005F4F64 /* AppUpdateTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA2F217C43DE005F4F64 /* AppUpdateTask.swift */; };
+		0010BA34217C440D005F4F64 /* DBMgrView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA33217C440D005F4F64 /* DBMgrView.swift */; };
+		0010BA39217C445B005F4F64 /* BasicPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA35217C445B005F4F64 /* BasicPopup.swift */; };
+		0010BA3A217C445B005F4F64 /* ConfirmPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA36217C445B005F4F64 /* ConfirmPopup.swift */; };
+		0010BA3B217C445B005F4F64 /* ConstPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA37217C445B005F4F64 /* ConstPopup.swift */; };
+		0010BA3C217C445B005F4F64 /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA38217C445B005F4F64 /* CustomPopup.swift */; };
 		00F8ECF72175427C0029D6CC /* GoogleMobileAds.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00B4B40A2174B3B000B19E90 /* GoogleMobileAds.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,13 +59,6 @@
 		00004A701EF41D8D0074DCFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		00004A731EF41D8D0074DCFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		00004A751EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketTests.swift; sourceTree = "<group>"; };
-		00004A801EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		00004A891EF41D8D0074DCFB /* kbucketUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = kbucketUITests.swift; sourceTree = "<group>"; };
-		00004A8B1EF41D8D0074DCFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0003F06C217C396D00C3BDD8 /* kbucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kbucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		0003F06D217C396D00C3BDD8 /* kbucketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0003F06E217C396D00C3BDD8 /* kbucketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0003F0B8217C3CC500C3BDD8 /* UserUpdateTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserUpdateTask.swift; path = Managers/task/UserUpdateTask.swift; sourceTree = "<group>"; };
 		0003F0BA217C3CF300C3BDD8 /* RankCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RankCustomCell.swift; path = View/Bean/RankCustomCell.swift; sourceTree = "<group>"; };
 		0003F0BB217C3CF300C3BDD8 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Comment.swift; path = View/Bean/Comment.swift; sourceTree = "<group>"; };
@@ -89,6 +79,15 @@
 		0003F13E217C3DFC00C3BDD8 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Utils/UIColor.swift; sourceTree = "<group>"; };
 		0003F140217C3E1300C3BDD8 /* PopupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupProtocol.swift; path = View/Protocol/PopupProtocol.swift; sourceTree = "<group>"; };
 		000F8FED214BCA57006075D2 /* SettingVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingVIew.swift; path = View/ViewController/SettingVIew.swift; sourceTree = "<group>"; };
+		0010BA2E217C43DD005F4F64 /* kbucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kbucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0010BA2F217C43DE005F4F64 /* AppUpdateTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppUpdateTask.swift; path = Managers/task/AppUpdateTask.swift; sourceTree = "<group>"; };
+		0010BA31217C43DE005F4F64 /* kbucketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0010BA32217C43DE005F4F64 /* kbucketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		0010BA33217C440D005F4F64 /* DBMgrView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBMgrView.swift; path = View/ViewController/DBMgrView.swift; sourceTree = "<group>"; };
+		0010BA35217C445B005F4F64 /* BasicPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicPopup.swift; path = kbucket/View/Popup/BasicPopup.swift; sourceTree = SOURCE_ROOT; };
+		0010BA36217C445B005F4F64 /* ConfirmPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmPopup.swift; path = kbucket/View/Popup/ConfirmPopup.swift; sourceTree = SOURCE_ROOT; };
+		0010BA37217C445B005F4F64 /* ConstPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstPopup.swift; path = kbucket/View/Popup/ConstPopup.swift; sourceTree = SOURCE_ROOT; };
+		0010BA38217C445B005F4F64 /* CustomPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPopup.swift; path = kbucket/View/Popup/CustomPopup.swift; sourceTree = SOURCE_ROOT; };
 		001133791FD3A9C4007BCAD7 /* PassWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassWordView.swift; path = View/ViewController/PassWordView.swift; sourceTree = "<group>"; };
 		0011337A1FD3A9C4007BCAD7 /* WriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteView.swift; path = View/ViewController/WriteView.swift; sourceTree = "<group>"; };
 		0011337B1FD3A9C4007BCAD7 /* AddBucketView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AddBucketView.swift; path = View/ViewController/AddBucketView.swift; sourceTree = "<group>"; };
@@ -113,9 +112,6 @@
 		001423681FE4AA3700B769E6 /* HttpUrlFileUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HttpUrlFileUploadManager.swift; path = Managers/http/HttpUrlFileUploadManager.swift; sourceTree = "<group>"; };
 		00220C481FD5696600D14409 /* ViewUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewUtils.swift; path = Utils/ViewUtils.swift; sourceTree = "<group>"; };
 		002478351EFD4D210039B8E4 /* anim2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = anim2.png; path = drawable/anim2.png; sourceTree = "<group>"; };
-		00400204213975E60056D0D9 /* DBMgrView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBMgrView.swift; sourceTree = "<group>"; };
-		006AF47221620AA90069AC71 /* BasicPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicPopup.swift; sourceTree = "<group>"; };
-		006AF474216213EE0069AC71 /* ConfirmPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPopup.swift; sourceTree = "<group>"; };
 		006AF478216217B80069AC71 /* ConstPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstPopup.swift; sourceTree = "<group>"; };
 		007038EB1F63685700372A7C /* SQLiteAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLiteAdapter.swift; path = Utils/sqlite/SQLiteAdapter.swift; sourceTree = "<group>"; };
 		007038EC1F63685700372A7C /* SQLQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SQLQuery.swift; path = Utils/sqlite/SQLQuery.swift; sourceTree = "<group>"; };
@@ -147,7 +143,6 @@
 		00BE4718212E5CE700FE4EAF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		00DA2B0E2153746D001427B3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		00DA2B0F2153746D001427B3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
-		00DEE399213E393400DC6EB2 /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,11 +178,9 @@
 			children = (
 				00AAC7A921761056005671AA /* Frameworks */,
 				00004A681EF41D8D0074DCFB /* kbucket */,
-				00004A7D1EF41D8D0074DCFB /* kbucketTests */,
-				00004A881EF41D8D0074DCFB /* kbucketUITests */,
-				0003F06C217C396D00C3BDD8 /* kbucket.app */,
-				0003F06D217C396D00C3BDD8 /* kbucketTests.xctest */,
-				0003F06E217C396D00C3BDD8 /* kbucketUITests.xctest */,
+				0010BA2E217C43DD005F4F64 /* kbucket.app */,
+				0010BA31217C43DE005F4F64 /* kbucketTests.xctest */,
+				0010BA32217C43DE005F4F64 /* kbucketUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
@@ -208,24 +201,6 @@
 				00BE4715212E5CA100FE4EAF /* InfoPlist.strings */,
 			);
 			path = kbucket;
-			sourceTree = "<group>";
-		};
-		00004A7D1EF41D8D0074DCFB /* kbucketTests */ = {
-			isa = PBXGroup;
-			children = (
-				00004A7E1EF41D8D0074DCFB /* kbucketTests.swift */,
-				00004A801EF41D8D0074DCFB /* Info.plist */,
-			);
-			path = kbucketTests;
-			sourceTree = "<group>";
-		};
-		00004A881EF41D8D0074DCFB /* kbucketUITests */ = {
-			isa = PBXGroup;
-			children = (
-				00004A891EF41D8D0074DCFB /* kbucketUITests.swift */,
-				00004A8B1EF41D8D0074DCFB /* Info.plist */,
-			);
-			path = kbucketUITests;
 			sourceTree = "<group>";
 		};
 		0008E3211F9196F300F498E6 /* Protocol */ = {
@@ -303,7 +278,7 @@
 				001133821FD3A9C5007BCAD7 /* WriteDetailView.swift */,
 				001133811FD3A9C5007BCAD7 /* WriteMemoView.swift */,
 				0011337A1FD3A9C4007BCAD7 /* WriteView.swift */,
-				00400204213975E60056D0D9 /* DBMgrView.swift */,
+				0010BA33217C440D005F4F64 /* DBMgrView.swift */,
 				000F8FED214BCA57006075D2 /* SettingVIew.swift */,
 			);
 			name = ViewController;
@@ -374,9 +349,10 @@
 		00DEE398213E391A00DC6EB2 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
-				00DEE399213E393400DC6EB2 /* CustomPopup.swift */,
-				006AF47221620AA90069AC71 /* BasicPopup.swift */,
-				006AF474216213EE0069AC71 /* ConfirmPopup.swift */,
+				0010BA35217C445B005F4F64 /* BasicPopup.swift */,
+				0010BA36217C445B005F4F64 /* ConfirmPopup.swift */,
+				0010BA37217C445B005F4F64 /* ConstPopup.swift */,
+				0010BA38217C445B005F4F64 /* CustomPopup.swift */,
 			);
 			path = Popup;
 			sourceTree = "<group>";
@@ -384,6 +360,7 @@
 		00DEE39B213E3B0200DC6EB2 /* task */ = {
 			isa = PBXGroup;
 			children = (
+				0010BA2F217C43DE005F4F64 /* AppUpdateTask.swift */,
 				0003F0B8217C3CC500C3BDD8 /* UserUpdateTask.swift */,
 			);
 			name = task;
@@ -407,7 +384,7 @@
 			);
 			name = kbucket;
 			productName = kbucket;
-			productReference = 0003F06C217C396D00C3BDD8 /* kbucket.app */;
+			productReference = 0010BA2E217C43DD005F4F64 /* kbucket.app */;
 			productType = "com.apple.product-type.application";
 		};
 		00004A791EF41D8D0074DCFB /* kbucketTests */ = {
@@ -425,7 +402,7 @@
 			);
 			name = kbucketTests;
 			productName = kbucketTests;
-			productReference = 0003F06D217C396D00C3BDD8 /* kbucketTests.xctest */;
+			productReference = 0010BA31217C43DE005F4F64 /* kbucketTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		00004A841EF41D8D0074DCFB /* kbucketUITests */ = {
@@ -443,7 +420,7 @@
 			);
 			name = kbucketUITests;
 			productName = kbucketUITests;
-			productReference = 0003F06E217C396D00C3BDD8 /* kbucketUITests.xctest */;
+			productReference = 0010BA32217C43DE005F4F64 /* kbucketUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -510,13 +487,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00004A741EF41D8D0074DCFB /* LaunchScreen.storyboard in Resources */,
-				00004A711EF41D8D0074DCFB /* Assets.xcassets in Resources */,
-				00004A6F1EF41D8D0074DCFB /* Main.storyboard in Resources */,
-				002478361EFD4D210039B8E4 /* anim2.png in Resources */,
-				00BE4710212E5C9600FE4EAF /* Localizable.strings in Resources */,
-				00BE4713212E5CA100FE4EAF /* InfoPlist.strings in Resources */,
-				0003EF19217C337100C3BDD8 /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,6 +511,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0010BA3B217C445B005F4F64 /* ConstPopup.swift in Sources */,
+				0010BA30217C43DE005F4F64 /* AppUpdateTask.swift in Sources */,
+				0010BA39217C445B005F4F64 /* BasicPopup.swift in Sources */,
+				0010BA34217C440D005F4F64 /* DBMgrView.swift in Sources */,
+				0010BA3A217C445B005F4F64 /* ConfirmPopup.swift in Sources */,
+				0010BA3C217C445B005F4F64 /* CustomPopup.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -548,7 +524,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00004A7F1EF41D8D0074DCFB /* kbucketTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,7 +531,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				00004A8A1EF41D8D0074DCFB /* kbucketUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -742,7 +716,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = kbucket/kbucket.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -772,7 +746,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CLANG_ENABLE_MODULES = NO;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = kbucket/kbucket.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -801,6 +775,7 @@
 		00004A921EF41D8D0074DCFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = kbucketTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -815,6 +790,7 @@
 		00004A931EF41D8D0074DCFB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = kbucketTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -829,6 +805,7 @@
 		00004A951EF41D8D0074DCFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = kbucketUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucketUITests;
@@ -842,6 +819,7 @@
 		00004A961EF41D8D0074DCFB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				INFOPLIST_FILE = kbucketUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucketUITests;
