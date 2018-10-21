@@ -11,8 +11,7 @@ import Foundation
 import AVFoundation
 import RealmSwift
 
-class WriteDetailView: UIViewController , IHttpReceive, AVCapturePhotoCaptureDelegate , UIImagePickerControllerDelegate,
-UIPopoverControllerDelegate,UINavigationControllerDelegate {
+class WriteDetailView: UIViewController , IHttpReceive , UIImagePickerControllerDelegate , UINavigationControllerDelegate {
     
     private let TAG : String = "WriteDetailView"
     private var mContents : String = ""
@@ -208,6 +207,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         }
     }
+    
     @IBAction func onClick(_ sender: Any) {
         switch (sender  as! UIButton )  {
         case btSave:
@@ -235,11 +235,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break
         case btCamera:
             KLog.d(tag: TAG, msg: "onClick btCamera")
-            //startCamera()
-            //             mPhotoPath = DataUtils.getNewFileName();
-            //             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            //             intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(mPhotoPath)));
-            //             startActivityForResult(intent, REQ_CODE_PICKCUTRE);
+            startCamera()
             break;
         case btGallery:
             KLog.d(tag: TAG, msg: "onClick btGallery")
@@ -268,6 +264,7 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         etDate.text = dateFormatter.string(from: sender.date)
         etDate.resignFirstResponder()
     }
+    
     @objc func datePickerValueChanged2(sender:UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = .medium
@@ -278,49 +275,6 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
         etCompleteDate.text = dateFormatter.string(from: sender.date)
         etCompleteDate.resignFirstResponder()
     }
-    
-    // @Override
-    // protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-    //     if (requestCode == REQ_CODE_PICKCUTRE) {
-    //         if (resultCode == Activity.RESULT_OK) {
-    //             Bitmap bm = ByteUtils.getFileBitmap(mPhotoPath);
-    //             if (bm != null) {
-    //                 hideImageAttachButton(true);
-    //                 mImageView.setVisibility(View.VISIBLE);
-    //                 mImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-    //                 mImageView.setImageBitmap(bm);
-    //                 ((Button) findViewById(R.id.write_image_remove)).setVisibility(View.VISIBLE);
-    //             }
-    //         }
-    //     }
-    // }
-    
-    // @Override
-    // public void onPopupAction(int popId, int what, Object obj) {
-    //     if (popId == OnPopupEventListener.POPUP_BUCKET_SHARE) {
-    //         if (what == POPUP_BTN_OK) {
-    //             mHandler.sendEmptyMessage(SELECT_BUCKET_CATEGORY);
-    //         }
-    //         mConfirmPopup.closeDialog();
-    //     } else if (popId == OnPopupEventListener.POPUP_BUCKET_DELETE) {
-    //         if (what == POPUP_BTN_OK) {
-    //             removeDBData(mContents);
-    //             onBackPressed();
-    //         }
-    //         mConfirmPopup.closeDialog();
-    //     } else if (popId == OnPopupEventListener.POPUP_BUCKET_CATEGORY) {
-    //         if (what == POPUP_BTN_OK) {
-    //             JSONObject json = (JSONObject) obj;
-    //             try {
-    //                 mCategory = Integer.valueOf(json.getString("styleCode"));
-    //             } catch (JSONException e) {
-    //                 mCategory = 1;
-    //             }
-    //             mHandler.sendEmptyMessage(UPLOAD_BUCKET);
-    //         }
-    //         mCategoryPopup.closeDialog();
-    //     }
-    // }
     
     func onHttpReceive(type : Int, actionId: Int,  data : Data){
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId));
@@ -401,66 +355,26 @@ UIPopoverControllerDelegate,UINavigationControllerDelegate {
             break;
         }
     }
-//
-//    func startCamera(){
-//        var captureSesssion: AVCaptureSession!
-//        var stillImageOutput: AVCapturePhotoOutput?
-//        var previewLayer: AVCaptureVideoPreviewLayer?
-//
-//        captureSesssion = AVCaptureSession()
-//        if #available(iOS 10.0, *) {
-//            stillImageOutput = AVCapturePhotoOutput()
-//        } else {
-//            // Fallback on earlier versions
-//        }
-//        captureSesssion.sessionPreset = AVCaptureSession.Preset.hd1920x1080 // 해상도설정
-//
-//        let device = AVCaptureDevice.default(for: AVMediaType.video)
-//        do {
-//            let input = try AVCaptureDeviceInput(device: device!)
-//
-//            // 입력
-//            if (captureSesssion.canAddInput(input)) {
-//                captureSesssion.addInput(input)
-//
-//                // 출력
-//                if (captureSesssion.canAddOutput(stillImageOutput!)) {
-//                    captureSesssion.addOutput(stillImageOutput!)
-//                    captureSesssion.startRunning() // 카메라 시작
-//
-//                    previewLayer = AVCaptureVideoPreviewLayer(session: captureSesssion)
-//                    previewLayer?.videoGravity = AVLayerVideoGravity.resizeAspect //화면 조절
-//                    previewLayer?.connection?.videoOrientation = AVCaptureVideoOrientation.portrait // 카메라 방향
-//
-//                    ivImage.layer.addSublayer(previewLayer!)
-//
-//                    // 뷰 크기 조절
-//                    previewLayer?.position = CGPoint(x: self.ivImage.frame.width / 2, y: self.ivImage.frame.height / 2)
-//                    previewLayer?.bounds = self.ivImage.frame
-//                }
-//            }
-//        }
-//        catch {
-//            print(error)
-//        }
-//    }
-    
-//    func photoOutput(_ captureOutput: AVCapturePhotoOutput, didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?, previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings: AVCaptureResolvedPhotoSettings, bracketSettings: AVCaptureBracketedStillImageSettings?, error: Error?) {
-//
-//        if let photoSampleBuffer = photoSampleBuffer {
-//            // JPEG형식으로 이미지데이터 검색
-//            let photoData = AVCapturePhotoOutput.jpegPhotoDataRepresentation(forJPEGSampleBuffer: photoSampleBuffer, previewPhotoSampleBuffer: previewPhotoSampleBuffer)
-//            let image = UIImage(data: photoData!)
-//
-//            // 사진보관함에 저장
-//            UIImageWriteToSavedPhotosAlbum(image!, nil, nil, nil)
-//        }
-//    }
+
+    func startCamera(){
+        if(UIImagePickerController.isSourceTypeAvailable(.camera)){
+            picker!.allowsEditing = false
+            picker!.sourceType = UIImagePickerControllerSourceType.camera
+            present(picker!, animated: true, completion: nil)
+        }else{
+             KLog.d(tag: TAG, msg: "@@ camera is not available")
+        }
+    }
     
     func openGallary(){
-        picker!.allowsEditing = false
-        picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
-        present(picker!, animated: true, completion: nil)
+        if(UIImagePickerController.isSourceTypeAvailable(.photoLibrary)){
+            picker!.allowsEditing = false
+            picker!.sourceType = UIImagePickerControllerSourceType.photoLibrary
+            present(picker!, animated: true, completion: nil)
+        }else{
+            KLog.d(tag: TAG, msg: "@@ gallary is not available")
+        }
+       
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
