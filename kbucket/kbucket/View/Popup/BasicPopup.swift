@@ -34,7 +34,7 @@ class BasicPopup  {
         mPopupId = 0
     }
     
-    public func showMessage(title : String, content : String, vc : UIViewController, id : Int)-> Void {
+    public func showMessage(title : String, content : String, vc : ViewController, id : Int)-> Void {
         mTitle = title
         mContent = content
         mPopupId = id

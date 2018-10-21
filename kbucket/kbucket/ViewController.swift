@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import GoogleMobileAds
+//import GoogleMobileAds
 
 class ViewController: UIViewController , IHttpReceive , PopupProtocol {
    
@@ -31,7 +31,7 @@ class ViewController: UIViewController , IHttpReceive , PopupProtocol {
     private let CHECK_VERSION : Int         = 80
   
     private var mSqlQuery  : SQLQuery? = nil
-    private var bannerView: GADBannerView!
+    //private var bannerView: GADBannerView!
     public var mWidgetSendData : String = ""
     private var mAIPopup : CustomPopup?
     
@@ -46,11 +46,11 @@ class ViewController: UIViewController , IHttpReceive , PopupProtocol {
         mSqlQuery = SQLQuery()
          setBackgroundColor()
  
-        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
-        addBannerViewToView(bannerView)
-        bannerView.adUnitID = ContextUtils.KBUCKET_AD_UNIT_ID
-        bannerView.rootViewController = self
-        bannerView.load(GADRequest())
+//        bannerView = GADBannerView(adSize: kGADAdSizeBanner)
+//        addBannerViewToView(bannerView)
+//        bannerView.adUnitID = ContextUtils.KBUCKET_AD_UNIT_ID
+//        bannerView.rootViewController = self
+//        bannerView.load(GADRequest())
         
         handleMessage(what: UPDATE_USER, obj: "")
         handleMessage(what: CHECK_VERSION, obj: "")
@@ -182,17 +182,13 @@ class ViewController: UIViewController , IHttpReceive , PopupProtocol {
     func onHttpReceive(type: Int, actionId: Int, data: Data) {
         KLog.d(tag : TAG, msg : "@@ onHttpReceive actionId: " + String(actionId))
         KLog.d(tag : TAG, msg : "@@ onHttpReceive  type: " + String(type))
-        var isValid : Bool = false
         if (actionId == ConstHTTP.REQUEST_AI) {
             if (type == ConstHTTP.HTTP_OK) {
                 do {
                         if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
-                            if jsonString != nil {
-                                isValid = jsonString["isValid"] as! Bool
-                                let message = jsonString["replay"] as! String
-                                handleMessage(what: RESPOND_AI, obj: message)
-                            }
-                        }
+                            let message = jsonString["replay"] as! String
+                            handleMessage(what: RESPOND_AI, obj: message)
+                    }
                 } catch {
                     print("JSON 파상 에러")
                      handleMessage(what: FAIL_AI, obj: "")
@@ -209,14 +205,14 @@ class ViewController: UIViewController , IHttpReceive , PopupProtocol {
              }
         } else if (actionId == ConstHTTP.UPDATE_VERSION){
             if (type == ConstHTTP.HTTP_OK) {
-                
                 do {
                     if let jsonString = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] {
-                        if jsonString != nil {
+                        
+                        if jsonString.count > 0 {
                             let versionName = jsonString["versionName"] as! String
                             let forceYN =  jsonString["forceYN"] as! String
                            
-                            if (versionName != nil && versionName != "null" ) {
+                            if (versionName.count > 0 ) {
                                 if (StringUtils.compareVersion(srcVersion: ContextUtils.VERSION_NAME, newVersion: versionName) > 0) {
                                     print("0")
                                     if (forceYN == "Y") {
@@ -250,26 +246,26 @@ class ViewController: UIViewController , IHttpReceive , PopupProtocol {
         }
     }
     
-    func addBannerViewToView(_ bannerView: GADBannerView) {
-        bannerView.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(bannerView)
-        view.addConstraints(
-            [NSLayoutConstraint(item: bannerView,
-                                attribute: .bottom,
-                                relatedBy: .equal,
-                                toItem: bottomLayoutGuide,
-                                attribute: .top,
-                                multiplier: 0.9,
-                                constant: 0),
-             NSLayoutConstraint(item: bannerView,
-                                attribute: .centerX,
-                                relatedBy: .equal,
-                                toItem: view,
-                                attribute: .centerX,
-                                multiplier: 1,
-                                constant: 0)
-            ])
-    }
+//    func addBannerViewToView(_ bannerView: GADBannerView) {
+//        bannerView.translatesAutoresizingMaskIntoConstraints = false
+//        view.addSubview(bannerView)
+//        view.addConstraints(
+//            [NSLayoutConstraint(item: bannerView,
+//                                attribute: .bottom,
+//                                relatedBy: .equal,
+//                                toItem: bottomLayoutGuide,
+//                                attribute: .top,
+//                                multiplier: 0.9,
+//                                constant: 0),
+//             NSLayoutConstraint(item: bannerView,
+//                                attribute: .centerX,
+//                                relatedBy: .equal,
+//                                toItem: view,
+//                                attribute: .centerX,
+//                                multiplier: 1,
+//                                constant: 0)
+//            ])
+//    }
 
     /**
      * 사용자 정보업데이트 가공 데이타 만드는 메소드
