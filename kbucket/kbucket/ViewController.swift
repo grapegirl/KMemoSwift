@@ -51,7 +51,7 @@ class ViewController: UIViewController , IHttpReceive , PopupProtocol {
 //        bannerView.adUnitID = ContextUtils.KBUCKET_AD_UNIT_ID
 //        bannerView.rootViewController = self
 //        bannerView.load(GADRequest())
-        
+//
         handleMessage(what: UPDATE_USER, obj: "")
         handleMessage(what: CHECK_VERSION, obj: "")
         AppUtils.sendTrackerScreen(screen: "메인화면")

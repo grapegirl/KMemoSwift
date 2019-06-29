@@ -76,10 +76,10 @@
 		0010BA90217C4968005F4F64 /* Realm.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0F2153746D001427B3 /* Realm.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0010BA92217C496B005F4F64 /* RealmSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0E2153746D001427B3 /* RealmSwift.framework */; };
 		0010BA93217C496B005F4F64 /* RealmSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 00DA2B0E2153746D001427B3 /* RealmSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		0010BA9C217C4B53005F4F64 /* ConfirmPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA99217C4B53005F4F64 /* ConfirmPopup.swift */; };
-		0010BA9D217C4B53005F4F64 /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA9A217C4B53005F4F64 /* CustomPopup.swift */; };
-		0010BA9E217C4B53005F4F64 /* BasicPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA9B217C4B53005F4F64 /* BasicPopup.swift */; };
 		0010BAA0217C4B5D005F4F64 /* ConstPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0010BA9F217C4B5C005F4F64 /* ConstPopup.swift */; };
+		00D12BFA217C9D8400D838C0 /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D12BF7217C9D8400D838C0 /* CustomPopup.swift */; };
+		00D12BFB217C9D8400D838C0 /* ConfirmPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D12BF8217C9D8400D838C0 /* ConfirmPopup.swift */; };
+		00D12BFC217C9D8400D838C0 /* BasicPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D12BF9217C9D8400D838C0 /* BasicPopup.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -140,15 +140,12 @@
 		0003F0C9217C3CF400C3BDD8 /* ShareCustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShareCustomCell.swift; path = View/Bean/ShareCustomCell.swift; sourceTree = "<group>"; };
 		0003F13E217C3DFC00C3BDD8 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = Utils/UIColor.swift; sourceTree = "<group>"; };
 		0003F140217C3E1300C3BDD8 /* PopupProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PopupProtocol.swift; path = View/Protocol/PopupProtocol.swift; sourceTree = "<group>"; };
+		000F5AD0218B31C800E59167 /* kbucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kbucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		000F5AD1218B31C800E59167 /* kbucketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		000F5AD2218B31C800E59167 /* kbucketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		000F8FED214BCA57006075D2 /* SettingVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingVIew.swift; path = View/ViewController/SettingVIew.swift; sourceTree = "<group>"; };
-		0010BA2E217C43DD005F4F64 /* kbucket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = kbucket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0010BA2F217C43DE005F4F64 /* AppUpdateTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppUpdateTask.swift; path = Managers/task/AppUpdateTask.swift; sourceTree = "<group>"; };
-		0010BA31217C43DE005F4F64 /* kbucketTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		0010BA32217C43DE005F4F64 /* kbucketUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = kbucketUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0010BA33217C440D005F4F64 /* DBMgrView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DBMgrView.swift; path = View/ViewController/DBMgrView.swift; sourceTree = "<group>"; };
-		0010BA99217C4B53005F4F64 /* ConfirmPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfirmPopup.swift; path = kbucket/View/Popup/ConfirmPopup.swift; sourceTree = SOURCE_ROOT; };
-		0010BA9A217C4B53005F4F64 /* CustomPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CustomPopup.swift; path = kbucket/View/Popup/CustomPopup.swift; sourceTree = SOURCE_ROOT; };
-		0010BA9B217C4B53005F4F64 /* BasicPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BasicPopup.swift; path = kbucket/View/Popup/BasicPopup.swift; sourceTree = SOURCE_ROOT; };
 		0010BA9F217C4B5C005F4F64 /* ConstPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConstPopup.swift; path = View/Const/ConstPopup.swift; sourceTree = "<group>"; };
 		001133791FD3A9C4007BCAD7 /* PassWordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PassWordView.swift; path = View/ViewController/PassWordView.swift; sourceTree = "<group>"; };
 		0011337A1FD3A9C4007BCAD7 /* WriteView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = WriteView.swift; path = View/ViewController/WriteView.swift; sourceTree = "<group>"; };
@@ -202,6 +199,9 @@
 		00BE4716212E5CB300FE4EAF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		00BE4717212E5CE600FE4EAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		00BE4718212E5CE700FE4EAF /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
+		00D12BF7217C9D8400D838C0 /* CustomPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
+		00D12BF8217C9D8400D838C0 /* ConfirmPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmPopup.swift; sourceTree = "<group>"; };
+		00D12BF9217C9D8400D838C0 /* BasicPopup.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicPopup.swift; sourceTree = "<group>"; };
 		00DA2B0E2153746D001427B3 /* RealmSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = RealmSwift.framework; sourceTree = "<group>"; };
 		00DA2B0F2153746D001427B3 /* Realm.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Realm.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -238,15 +238,16 @@
 			children = (
 				00AAC7A921761056005671AA /* Frameworks */,
 				00004A681EF41D8D0074DCFB /* kbucket */,
-				0010BA2E217C43DD005F4F64 /* kbucket.app */,
-				0010BA31217C43DE005F4F64 /* kbucketTests.xctest */,
-				0010BA32217C43DE005F4F64 /* kbucketUITests.xctest */,
+				000F5AD0218B31C800E59167 /* kbucket.app */,
+				000F5AD1218B31C800E59167 /* kbucketTests.xctest */,
+				000F5AD2218B31C800E59167 /* kbucketUITests.xctest */,
 			);
 			sourceTree = "<group>";
 		};
 		00004A681EF41D8D0074DCFB /* kbucket */ = {
 			isa = PBXGroup;
 			children = (
+				00004A751EF41D8D0074DCFB /* Info.plist */,
 				0080F6271FAD5C820076893B /* Managers */,
 				0059944A1F5A494F007777A1 /* Utils */,
 				0059940F1F5A43FE007777A1 /* View */,
@@ -256,7 +257,6 @@
 				00004A701EF41D8D0074DCFB /* Assets.xcassets */,
 				002478351EFD4D210039B8E4 /* anim2.png */,
 				00004A721EF41D8D0074DCFB /* LaunchScreen.storyboard */,
-				00004A751EF41D8D0074DCFB /* Info.plist */,
 				00BE4712212E5C9600FE4EAF /* Localizable.strings */,
 				00BE4715212E5CA100FE4EAF /* InfoPlist.strings */,
 			);
@@ -284,7 +284,7 @@
 		0059940F1F5A43FE007777A1 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				00DEE398213E391A00DC6EB2 /* Popup */,
+				00D12BF6217C9D8400D838C0 /* Popup */,
 				001133A31FD3AA0F007BCAD7 /* Const */,
 				001133A11FD3AA04007BCAD7 /* Toast.swift */,
 				0008E3211F9196F300F498E6 /* Protocol */,
@@ -406,14 +406,15 @@
 			path = Frameworks;
 			sourceTree = "<group>";
 		};
-		00DEE398213E391A00DC6EB2 /* Popup */ = {
+		00D12BF6217C9D8400D838C0 /* Popup */ = {
 			isa = PBXGroup;
 			children = (
-				0010BA9B217C4B53005F4F64 /* BasicPopup.swift */,
-				0010BA99217C4B53005F4F64 /* ConfirmPopup.swift */,
-				0010BA9A217C4B53005F4F64 /* CustomPopup.swift */,
+				00D12BF7217C9D8400D838C0 /* CustomPopup.swift */,
+				00D12BF8217C9D8400D838C0 /* ConfirmPopup.swift */,
+				00D12BF9217C9D8400D838C0 /* BasicPopup.swift */,
 			);
-			path = Popup;
+			name = Popup;
+			path = View/Popup;
 			sourceTree = "<group>";
 		};
 		00DEE39B213E3B0200DC6EB2 /* task */ = {
@@ -443,7 +444,7 @@
 			);
 			name = kbucket;
 			productName = kbucket;
-			productReference = 0010BA2E217C43DD005F4F64 /* kbucket.app */;
+			productReference = 000F5AD0218B31C800E59167 /* kbucket.app */;
 			productType = "com.apple.product-type.application";
 		};
 		00004A791EF41D8D0074DCFB /* kbucketTests */ = {
@@ -461,7 +462,7 @@
 			);
 			name = kbucketTests;
 			productName = kbucketTests;
-			productReference = 0010BA31217C43DE005F4F64 /* kbucketTests.xctest */;
+			productReference = 000F5AD1218B31C800E59167 /* kbucketTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		00004A841EF41D8D0074DCFB /* kbucketUITests */ = {
@@ -479,7 +480,7 @@
 			);
 			name = kbucketUITests;
 			productName = kbucketUITests;
-			productReference = 0010BA32217C43DE005F4F64 /* kbucketUITests.xctest */;
+			productReference = 000F5AD2218B31C800E59167 /* kbucketUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -499,7 +500,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = Z67F62N3BJ;
 						LastSwiftMigration = 1000;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -571,13 +572,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				0010BAA0217C4B5D005F4F64 /* ConstPopup.swift in Sources */,
+				00D12BFC217C9D8400D838C0 /* BasicPopup.swift in Sources */,
 				0010BA6F217C4691005F4F64 /* PushPopupView.swift in Sources */,
 				0010BA6D217C468C005F4F64 /* NoticeView.swift in Sources */,
 				0010BA4F217C45F2005F4F64 /* ByteUtils.swift in Sources */,
 				0010BA52217C45F2005F4F64 /* DataUtils.swift in Sources */,
 				0010BA81217C46D4005F4F64 /* FirstCustomCell.swift in Sources */,
 				0010BA58217C45F2005F4F64 /* ViewUtils.swift in Sources */,
-				0010BA9C217C4B53005F4F64 /* ConfirmPopup.swift in Sources */,
 				0010BA75217C46A1005F4F64 /* ShareListView.swift in Sources */,
 				0010BA6A217C4684005F4F64 /* ChatView.swift in Sources */,
 				0010BA53217C45F2005F4F64 /* DateUtils.swift in Sources */,
@@ -585,8 +586,8 @@
 				0010BA86217C46E2005F4F64 /* SettingCustomCell.swift in Sources */,
 				0010BA87217C46E4005F4F64 /* ShareCommentCell.swift in Sources */,
 				0010BA5B217C45F2005F4F64 /* StringUtils.swift in Sources */,
-				0010BA9D217C4B53005F4F64 /* CustomPopup.swift in Sources */,
 				0010BA80217C46D0005F4F64 /* Comment.swift in Sources */,
+				00D12BFA217C9D8400D838C0 /* CustomPopup.swift in Sources */,
 				0010BA70217C4693005F4F64 /* QuestionView.swift in Sources */,
 				0010BA30217C43DE005F4F64 /* AppUpdateTask.swift in Sources */,
 				0010BA54217C45F2005F4F64 /* ErrorLogUtils.swift in Sources */,
@@ -596,6 +597,7 @@
 				0010BA6B217C4687005F4F64 /* ConfigurationView.swift in Sources */,
 				0010BA7C217C46C3005F4F64 /* BucketCustomCell.swift in Sources */,
 				0010BA69217C4681005F4F64 /* BucketListView.swift in Sources */,
+				00D12BFB217C9D8400D838C0 /* ConfirmPopup.swift in Sources */,
 				0010BA6C217C468A005F4F64 /* IntroView.swift in Sources */,
 				0010BA88217C46E7005F4F64 /* ShareCustomCell.swift in Sources */,
 				0010BA84217C46DB005F4F64 /* PostData.swift in Sources */,
@@ -604,7 +606,6 @@
 				0010BA5E217C4608005F4F64 /* EventProtocol.swift in Sources */,
 				0010BA78217C46A8005F4F64 /* WriteMemoView.swift in Sources */,
 				0010BA5D217C45F2005F4F64 /* UIColor.swift in Sources */,
-				0010BA9E217C4B53005F4F64 /* BasicPopup.swift in Sources */,
 				0010BA65217C465B005F4F64 /* UserUpdateTask.swift in Sources */,
 				0010BA71217C4696005F4F64 /* RankListView.swift in Sources */,
 				0010BA60217C4618005F4F64 /* Toast.swift in Sources */,
@@ -837,25 +838,29 @@
 		00004A8F1EF41D8D0074DCFB /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = kbucket/kbucket.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Z67F62N3BJ;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = kbucket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Memo profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
@@ -867,25 +872,28 @@
 		00004A901EF41D8D0074DCFB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = kbucket/kbucket.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Z67F62N3BJ;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Frameworks",
 				);
+				GCC_PRECOMPILE_PREFIX_HEADER = NO;
 				INFOPLIST_FILE = kbucket/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				OTHER_LDFLAGS = lstdc;
+				OTHER_LDFLAGS = "";
 				PRODUCT_BUNDLE_IDENTIFIER = memo.kikiplus.com.kbucket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "Memo profile";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
